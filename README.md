@@ -1,65 +1,4 @@
 # 学习新知识代码和博客阅读实操
-## 分布式事务解决方案
-[参考视频1：分布式事务解决方案](https://www.bilibili.com/video/av64323822)
-
-[参考视频2：阿里分布式事务框架Seata原理解析](https://www.bilibili.com/video/av50531999)
-
-[参考视频3：阿里如何解决分布式事务](https://www.bilibili.com/video/av40630844)
-
-[分布式事务](https://www.cnblogs.com/xiaobingblog/p/11540341.html)
-
-[SpringBoot的事物Transaction使用的教程](https://www.cnblogs.com/xuwujing/p/11184162.html)
-
-[终于跑通分布式事务框架tcc-transaction的示例项目](https://www.cnblogs.com/bigdataZJ/p/tcc-transaction-sample.html)
-
-[TCC 分布式事务](https://www.cnblogs.com/jajian/p/10014145.html)
-
-[浅谈分布式事务与TX-LCN](https://www.cnblogs.com/tanshaoshenghao/p/11684727.html)
-
-[分布式事务解决方案：TCC与最终一致](https://www.cnblogs.com/sw008/p/11054277.html)
-
-[阿里分布式事务seata入门（采坑）](https://www.cnblogs.com/sky-chen/p/11419942.html)
-
-[Spring Cloud Alibaba | 微服务分布式事务之Seata](https://www.cnblogs.com/babycomeon/p/11504210.html)
-
-[Spring Cloud同步场景分布式事务怎样做？试试Seata](https://www.cnblogs.com/zlt2000/p/11525417.html)
-
-[[扛住阿里双十一高并发流量，Sentinel是怎么做到的？](https://www.cnblogs.com/caison/p/11673047.html)]
-
-```markdown
-原理：两阶段提交
-分布式事务解决方案：
-	1.消息队列(RocketMQ)
-	2.AT -- 业务无侵入   远程调用提交前wait    TxManager
-	3.TCC -- 业务有侵入  try -- commit -- cacel
-	4.
-```
-
-## Dubbo原理与源码分析
-
-[参考视频1：深刻了解dubbo底层源码](https://www.bilibili.com/video/av58338686)
-
-[参考视频2：Dubbo底层原理与面试经验](https://www.bilibili.com/video/av53428315/)
-
-[从零开始认识Dubbo](https://www.cnblogs.com/alterem/p/11211728.html)
-
-[dubbo](https://www.cnblogs.com/xxbiao/tag/dubbo/)
-
-[手写RPC框架注释代码](https://www.cnblogs.com/mseddl/p/11531465.html)
-
-[一文带你实现RPC框架](https://www.cnblogs.com/endless-code/p/11235624.html)
-
-[微服务调用为啥用RPC框架，http不更简单吗？](https://zhuanlan.zhihu.com/p/61364466)
-
-[Dubbo服务注册与发现](https://www.cnblogs.com/mzq123/p/11221570.html)
-
-[springboot2.x纯注解整合dubbo](https://www.cnblogs.com/chywx/p/11180719.html)
-
-[Dubbo 与 Spring Cloud 完美结合](https://www.cnblogs.com/babycomeon/p/11546737.html)
-
-[[Dubbo面试八连问，这些你都能答上来吗？](https://www.cnblogs.com/javazhiyin/p/11966271.html)]
-
-[[Zookeeper+Dubbo项目demo搭建](https://www.cnblogs.com/iUtopia/p/11653098.html)]
 
 ## ElasticSearch技术
 
@@ -83,15 +22,16 @@
 
 [[【docker Elasticsearch】Rest风格的分布式开源搜索和分析引擎Elasticsearch初体验](https://www.cnblogs.com/lomtom/p/12584956.html)]
 
+[Elasticsearch Java API 很全的整理以及架构剖析](https://www.cnblogs.com/laoqing/p/11693144.html)
 ## Zookeeper技术
-
-[如何用 Zookeeper 实现分布式锁？（附源码）](https://mp.weixin.qq.com/s?__biz=MzUxOTc4NjEyMw==&mid=2247484568&idx=1&sn=d2ae43f697a01d4f4a0a05c3b0e48649&chksm=f9f51f7cce82966a55e8bb51d54f78094112252cba489e77c7aa272c98c24ecbb4b004737af9&mpshare=1&scene=23&srcid=#rd)
 
 [如何用 Zookeeper 实现分布式锁？（附源码）](https://mp.weixin.qq.com/s?__biz=MzUxOTc4NjEyMw==&mid=2247484568&idx=1&sn=d2ae43f697a01d4f4a0a05c3b0e48649&chksm=f9f51f7cce82966a55e8bb51d54f78094112252cba489e77c7aa272c98c24ecbb4b004737af9&mpshare=1&scene=23&srcid=#rd)
 
 [基于缓存或zookeeper的分布式锁实现](https://www.cnblogs.com/jmcui/p/11186224.html)
 
 [zookeeper源码](https://www.cnblogs.com/sunshine-2015/category/1450046.html)
+
+[[万字长文带你入门Zookeeper！！！](https://www.cnblogs.com/Chenjiabing/p/12678607.html)]
 
 ```markdown
 
@@ -194,6 +134,15 @@ Kubernetes 的目标是促进完善组件和工具的生态系统，以减轻应
 ```
 
 ## Docker技术
+```markdown
+docker :centos101,centos102上安装了docker，参照安装参照>>千锋教育-李卫民
+[docker安装参照>>史上最详细的Docker安装手册](https://www.cnblogs.com/zhizihuakai/p/12633724.html)
+>> docker启动命令
+# systemctl start docker -- 启动docker
+# systemctl enable docker -- 设置docker自动启动
+# systemctl daemon-reload  -- 重新启动守护进程
+# systemctl restart docker -- 重启docker
+```
 
 【Docker】[docker笔记](https://www.cnblogs.com/spec-dog/tag/docker/)
 
@@ -266,6 +215,7 @@ $ docker network inspect bridge
 [ Service Mesh 超大规模落地揭秘]( https://yq.aliyun.com/articles/739113?spm=a2c4e.11153940.bloghomeflow.22.2b9f291aaxV1Kk )
 
 [优秀DevOps工程师必会的33个面试题](https://www.cnblogs.com/xuelong3/p/12587932.html)
+[Knative 实战：基于 Knative Serverless 技术实现天气服务-上篇](https://yq.aliyun.com/articles/719486?spm=a2c4e.11157919.spm-cont-list.85.5917f204xM6Od1)
 
 ## 算法，机器学习
 
