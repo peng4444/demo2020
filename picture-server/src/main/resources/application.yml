@@ -1,0 +1,6 @@
+server:
+  port: 22100
+
+fastdfs-file:
+  # 文件上传临时目录
+  upload_location: C:\\Users\\74354\\Desktop\\fastdfs\\
