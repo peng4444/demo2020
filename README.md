@@ -23,6 +23,8 @@
 [[【docker Elasticsearch】Rest风格的分布式开源搜索和分析引擎Elasticsearch初体验](https://www.cnblogs.com/lomtom/p/12584956.html)]
 
 [Elasticsearch Java API 很全的整理以及架构剖析](https://www.cnblogs.com/laoqing/p/11693144.html)
+
+[Elasticsearch系列文章](https://www.cnblogs.com/huangying2124/category/1626782.html)
 ## Zookeeper技术
 
 [如何用 Zookeeper 实现分布式锁？（附源码）](https://mp.weixin.qq.com/s?__biz=MzUxOTc4NjEyMw==&mid=2247484568&idx=1&sn=d2ae43f697a01d4f4a0a05c3b0e48649&chksm=f9f51f7cce82966a55e8bb51d54f78094112252cba489e77c7aa272c98c24ecbb4b004737af9&mpshare=1&scene=23&srcid=#rd)
