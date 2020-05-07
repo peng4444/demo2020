@@ -1,2 +1,52 @@
 # Java
+## Java趋势发展
+[20 多年历史的 Java 正在焕发第二春](https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=2651026031&idx=2&sn=920c70b08b8e3eb9fe619e0d72c020e0&chksm=bdbe8a3c8ac9032abac46612913433e53c4abd9c83cf2bd1202858e6fb1806912858adfe8f90&mpshare=1&scene=23&srcid=&sharer_sharetime=1588561166752&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+
+
+## Java书籍
 [《On Java 8》中文版是事实上的《Java 编程思想》第5版。](https://lingcoder.gitee.io/onjava8/#/)
+
+
+[Java工程师该如何编写高效代码？](https://mp.weixin.qq.com/s?__biz=MzIzOTU0NTQ0MA==&mid=2247492922&idx=1&sn=129283d4c520da6204f696ce86c15b2c&chksm=e92ad835de5d5123280d0c527301728da7d05986e8d7ac814e388928ebd47994906267f42c01&mpshare=1&scene=23&srcid=&sharer_sharetime=1576629844354&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+```
+举例说明如何编写高效代码
+```
+
+[Java - Java开发中的安全编码问题](https://www.cnblogs.com/shoufeng/p/12609498.html)
+
+
+## 一些有趣的博客
+>> 1.[程序员羽化之路--假如需要一百万个对象](https://www.cnblogs.com/zhanlang/p/12550179.html)
+```java
+//做的是把对象重复使用，只要是对象重复问题，基本上可以利用一个对象出口来解决问题，类似于以下的对象初始化工厂，但是要注意线程安全问题，因为同时请求并初始化对象的线程会有多个。
+public class UserStarFac{
+        static object objLock = new object();
+        static Dictionary<int, Star> UserStarMap = new Dictionary<int, Star>();
+        public static Star GetUserStar(int level){
+            //利用锁来防止实例化多次，当然这里可以优化
+            lock (objLock){
+                Star info = null; ;
+                if(!UserStarMap.TryGetValue(level, out info)) {
+                    info = new Star() { Color = 1, Level = 1, StarNumber = 1 };
+                    UserStarMap.Add(level,info);
+                }
+                return info;
+            }
+        }
+public static void Main(string[] args){
+    int i = 0;
+    List<User> userList = new List<User>();
+    while (i < 100000) {
+        // userList.Add(new User() {  StarInfo=new Star() {  Color=1, Level=1, StarNumber=1} });
+        userList.Add(new User() {  StarInfo= UserStarFac .GetUserStar(1)});
+        i++; 
+    }
+    Console.WriteLine("初始化完成");
+    Console.Read();
+    }
+}
+//享元模式，没有必要记住名字，但需要记住原理和场景，必须要提一句：注意不变的对象才可以哦
+```
+>> 2.[任意1-10中的4个数字，使用加减乘除计算得出24结果的可能组合（java版），很多人小时候都玩过](https://www.cnblogs.com/lechengbo/p/10815016.html)
+
+>> 3.[高效code review指南](https://www.cnblogs.com/xybaby/p/12601471.html)

@@ -107,6 +107,7 @@ Kubernetes 的目标是促进完善组件和工具的生态系统，以减轻应
 ```
 
 ## Nginx技术
+[Nginx 从入门到实践，万字详解！](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247486730&idx=1&sn=2031330f25c91be1b1bbb4b48aeba63e&chksm=cea242c1f9d5cbd7896d2f3ccdc474afcba389e1f469bda8e125ee5e9cac3d68588eeb675dd6&mpshare=1&scene=23&srcid=&sharer_sharetime=1588724499740&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 
 [Spring Boot 利用 nginx 实现生产环境的伪热更新](https://www.cnblogs.com/fishpro/p/spring-boot-study-hotstart.html)
 
@@ -117,9 +118,8 @@ Kubernetes 的目标是促进完善组件和工具的生态系统，以减轻应
 [[nginx负载均衡](https://www.cnblogs.com/helloxiaoduan/p/12586307.html)]
 
 [ 从入门到精通-Nginx，图文并茂、负载均衡、动静分离、虚拟主机 附案例源码](https://www.cnblogs.com/chenyanbin/p/12521296.html)
-```markdown
 
-```
+
 
 ## RocketMQ技术
 
