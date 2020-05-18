@@ -108,7 +108,7 @@ $ docker-compose restart ##重启应用
 $ docker network ls ##Docker主机上的网络
 $ docker network inspect bridge
 ```
-
+[docker配置mysql主从与django实现读写分离](https://www.cnblogs.com/yscl/p/11992175.html)
 ## MongoDB技术
 
 [[MongoDB非关系型数据库开发手册](https://www.cnblogs.com/yueshutong/p/11491106.html)]

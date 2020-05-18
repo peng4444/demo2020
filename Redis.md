@@ -64,3 +64,7 @@ CDN 主要有以下优点：
     降低接入成本，使用长连接 / 连接池，NIO 等。
 ```
 
+### 待阅读
+[Redis实现分布式锁（设计模式应用实战）](https://www.cnblogs.com/sx-bj-srr/p/distributedLock.html)
+
+[Redis 命令参考](http://redisdoc.com/index.html)
