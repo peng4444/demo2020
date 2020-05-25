@@ -3,7 +3,7 @@
 
 [为什么redis是单线程的以及为什么这么快？](https://www.cnblogs.com/jichi/p/12790478.html)
 
-
+[看完这篇Redis缓存三大问题，保你能和面试官互扯。](https://mp.weixin.qq.com/s?__biz=Mzg2NzA4MTkxNQ==&mid=2247487744&idx=2&sn=229eae99316099e4ab37f62e8acc137c&chksm=ce405ad4f937d3c2b5d97d59cbb828aec7d03fcf3ef6328d88c3ff492d838785ab948ce57085&mpshare=1&scene=23&srcid=&sharer_sharetime=1590070257441&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 ## 缓存
 ### 1.缓存特征
 ```markdown
