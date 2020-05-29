@@ -18,6 +18,9 @@
         <module>picture-server</module>
         <module>springboot-demo</module>
         <module>netty-demo</module>
+        <module>mybatis-demo</module>
+        <module>springcloud-demo</module>
+        <module>sql-nosql-demo</module>
     </modules>
 
     <properties>
