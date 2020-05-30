@@ -1,8 +1,14 @@
 # Mybatis学习
+## Mybatis基础
+[随笔分类-Mybatis](https://www.cnblogs.com/zwwhnly/category/1492402.html) 
 
+[MyBatis框架的使用及源码分析](https://www.cnblogs.com/zsg88/category/1080098.html)  
+
+[mybatis源码](https://www.cnblogs.com/sanzao/tag/mybatis/) 
+
+[mybatis源码]( https://www.cnblogs.com/java-chen-hao/category/1576447.html )
 ## Mybatis相关博客
 [mybatis是怎样炼成的](https://www.cnblogs.com/roytian/p/12762218.html)
-
 
 [mybatis源码学习：一级缓存和二级缓存分析](https://www.cnblogs.com/summerday152/p/12773135.html)
 

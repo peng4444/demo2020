@@ -2,6 +2,11 @@
 ##
 [SpringBoot切面Aop的demo简单讲解](https://www.cnblogs.com/xuwujing/p/12927081.html)
 
+[Spring Boot 2.x基础教程：构建RESTful API与单元测试](https://www.cnblogs.com/didispace/p/11606136.html)
+
+[SpringBoot集成Shiro 实现动态加载权限](https://www.cnblogs.com/zhengqing/p/11603824.html)
+
+[Spring Boot项目中使用Mockito](https://www.cnblogs.com/javaadu/p/11748415.html)
 ## 
 ### Spring
 [关于Spring AOP，除了动态代理、CGLIB，你还知道什么？](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650128800&idx=3&sn=3a3e9806348f3b280bdc5ee725238a20&chksm=f36bdc81c41c5597d0e206d637dd7bd986886212e38ae69fd506cc8488ab98bac5698204e9bc&mpshare=1&scene=23&srcid=&sharer_sharetime=1590070530809&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)

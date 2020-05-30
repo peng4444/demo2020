@@ -58,3 +58,6 @@ public static void Main(string[] args){
 [IO 模型知多少 | 理论篇](https://www.cnblogs.com/sheng-jie/p/how-much-you-know-about-io-models.html)
 
 [IO 模型知多少 | 代码篇](https://www.cnblogs.com/sheng-jie/p/how-much-you-know-about-the-io-models-demo.html)
+
+## Java爬虫
+[不会python?那就换一种姿势爬虫！Java爬虫技术总结](https://www.cnblogs.com/carloschan/p/10572788.html)
