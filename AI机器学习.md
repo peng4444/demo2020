@@ -11,6 +11,9 @@
 [推荐系统论文、学习资料、业界分享](https://github.com/wzhe06/Reco-papers)
 
 [Java-Machine-Learning](https://github.com/Daniel-Liu-c0deb0t/Java-Machine-Learning)
+
+[解密淘宝推荐实战，打造 “比你还懂你” 的个性化APP]( https://yq.aliyun.com/articles/739057?spm=a2c4e.11153940.bloghomeflow.31.2b9f291aaxV1Kk )
+
 ### 数据集
 [收集数据太困难？这里为你准备了 71 个免费数据集](https://www.leiphone.com/news/201801/2O4PbNH5YjJAxH6C.html)
 

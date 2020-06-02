@@ -1,4 +1,11 @@
 # Java
+
+【Java高并发】[随笔分类 - java高并发系列](https://www.cnblogs.com/itsoku123/category/1503555.html)
+
+【随笔分类 - Java编程思想】[ Java编程思想](https://www.cnblogs.com/Tan-sir/category/1251239.html)
+
+【JDK源码系列】[JDK源码](https://www.cnblogs.com/Scramblecode/)
+
 ## Java趋势发展
 [20 多年历史的 Java 正在焕发第二春](https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=2651026031&idx=2&sn=920c70b08b8e3eb9fe619e0d72c020e0&chksm=bdbe8a3c8ac9032abac46612913433e53c4abd9c83cf2bd1202858e6fb1806912858adfe8f90&mpshare=1&scene=23&srcid=&sharer_sharetime=1588561166752&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 
@@ -26,8 +33,8 @@ public class UserStarFac{
             //利用锁来防止实例化多次，当然这里可以优化
             lock (objLock){
                 Star info = null; ;
-                if(!UserStarMap.TryGetValue(level, out info)) {
-                    info = new Star() { Color = 1, Level = 1, StarNumber = 1 };
+                if(!UserStarMap.TryGetValue(level,info)) {
+//                    info = new Star() { Color = 1; Level = 1; StarNumber = 1 ;};
                     UserStarMap.Add(level,info);
                 }
                 return info;
@@ -38,7 +45,7 @@ public static void Main(string[] args){
     List<User> userList = new List<User>();
     while (i < 100000) {
         // userList.Add(new User() {  StarInfo=new Star() {  Color=1, Level=1, StarNumber=1} });
-        userList.Add(new User() {  StarInfo= UserStarFac .GetUserStar(1)});
+        userList.Add(new User() {  StarInfo= UserStarFac.GetUserStar(1)});
         i++; 
     }
     Console.WriteLine("初始化完成");
@@ -59,5 +66,20 @@ public static void Main(string[] args){
 
 [IO 模型知多少 | 代码篇](https://www.cnblogs.com/sheng-jie/p/how-much-you-know-about-the-io-models-demo.html)
 
+[这些Java8官方挖过的坑，你踩过几个？](https://www.cnblogs.com/madashu/p/13023193.html)
+```markdown
+一、Base64：你是我解不开的迷:
+    JDK官方的Base64和sun的base64是不兼容的！不要替换！不要替换！不要替换！
+二、被吞噬的异常：我不敢说出你的名字
+    java.lang.ArrayStoreException: sun.reflect.annotation.TypeNotPresentExceptionProxy,请记得用这个方法定位具体问题。
+三、日期计算：我想留住时间，让1天像1年那么长
+    Duraction和Period，都表示一段时间的间隔，Duraction正常用来表示时、分、秒甚至纳秒之间的时间间隔，Period正常用于年、月、日之间的时间间隔。
+四、List：一如你我初见，不增不减  
+    Arrays.asList方法，该方法的输入只能是一个泛型变长参数。
+五、Stream处理：给你，独一无二
+    步骤：获取一个数据源（source）→ 数据转换→执行操作获取想要的结果，
+```
 ## Java爬虫
 [不会python?那就换一种姿势爬虫！Java爬虫技术总结](https://www.cnblogs.com/carloschan/p/10572788.html)
+
+##

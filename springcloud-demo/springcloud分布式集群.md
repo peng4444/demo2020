@@ -1,6 +1,10 @@
 # Springcloud&微服务
 
 ## SpringCloud-Alibaba
+【springcloud集合】[springcloud集合](https://www.cnblogs.com/babycomeon/category/1493460.html)
+
+【随笔分类】[ [Spring cloud 一步步实现广告系统](https://www.cnblogs.com/zhangpan1244/category/1522751.html)
+
 [随笔分类 - Spring Cloud Alibaba](https://www.cnblogs.com/fx-blog/category/1569361.html)
 
 [SpringCloud-Alibaba-Nacos 服务注册中心&配置中心](https://www.cnblogs.com/songjilong/p/12796258.html)
@@ -13,6 +17,7 @@
 
 [SpringCloud 中集成Sentinel+Feign实现服务熔断降级](cnblogs.com/NathanYang/p/11819881.html)
 
+[[Spring Cloud 负载均衡初体验](https://www.cnblogs.com/Sinte-Beuve/p/11569789.html)]
 ## RPC
 [如何设计一个 RPC 系统](https://www.cnblogs.com/qcloud1001/p/10213274.html)
 ```markdown

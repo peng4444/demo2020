@@ -17,3 +17,8 @@ netty 实现简单rpc准备
     3.创建服务提供者，启动netty框架的服务端；
     4.创建服务消费者，启动netty框架的客户端，然后获取调用结果；    
 ```
+## Netty
+
+[[支撑百万级并发，Netty如何实现高性能内存管理](https://www.cnblogs.com/caison/p/12121029.html)]
+
+[[基于Netty和SpringBoot实现一个轻量级RPC框架-协议篇](https://www.cnblogs.com/throwable/p/12185142.html)]

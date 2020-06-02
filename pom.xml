@@ -21,6 +21,9 @@
         <module>mybatis-demo</module>
         <module>springcloud-demo</module>
         <module>sql-nosql-demo</module>
+        <module>rbac-demo</module>
+        <module>framework-tool-demo</module>
+        <module>bigdata-demo</module>
     </modules>
 
     <properties>

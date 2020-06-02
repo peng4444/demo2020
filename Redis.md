@@ -1,4 +1,8 @@
 # Redis
+[随笔分类 - Redis详解](https://www.cnblogs.com/ysocean/category/1221478.html)
+
+[Redis命令参考](http://redisdoc.com/index.html)
+
 [详细分析Redis的持久化操作——RDB与AOF](https://www.cnblogs.com/tuyang1129/p/12776526.html)
 
 [为什么redis是单线程的以及为什么这么快？](https://www.cnblogs.com/jichi/p/12790478.html)
@@ -67,4 +71,5 @@ CDN 主要有以下优点：
 ### 待阅读
 [Redis实现分布式锁（设计模式应用实战）](https://www.cnblogs.com/sx-bj-srr/p/distributedLock.html)
 
-[Redis 命令参考](http://redisdoc.com/index.html)
+[基于redis实现分布式锁](https://www.cnblogs.com/zhangxinhua/p/13023449.html)
+

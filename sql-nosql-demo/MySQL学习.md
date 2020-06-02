@@ -1,5 +1,5 @@
 # SQL&NoSQL等等
-## MySQL
+
 
 ## Redis
 >> 参考书籍-[《Redis深度历险》]()
@@ -63,6 +63,14 @@ Redis的通用命令
 ```markdown
 
 ```
+
+[灵感来袭，基于Redis的分布式延迟队列]( https://www.cnblogs.com/hujunzheng/p/12587572.html )
+
+[[Redis缓存设计与性能优化](https://www.cnblogs.com/nijunyang/p/12587429.html)]
+
+[[Spring优雅整合Redis缓存](https://www.cnblogs.com/xxbiao/p/12593525.html)]
+
+
 ## HBase
 ### [再谈全局网HBase八大应用场景](https://yq.aliyun.com/articles/558255?utm_content=m_45690)
 ```markdown
