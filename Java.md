@@ -54,6 +54,7 @@ public static void Main(string[] args){
 }
 //享元模式，没有必要记住名字，但需要记住原理和场景，必须要提一句：注意不变的对象才可以哦
 ```
+
 ### 2.[任意1-10中的4个数字，使用加减乘除计算得出24结果的可能组合（java版），很多人小时候都玩过](https://www.cnblogs.com/lechengbo/p/10815016.html)
 
 ### 3.[高效code review指南](https://www.cnblogs.com/xybaby/p/12601471.html)
