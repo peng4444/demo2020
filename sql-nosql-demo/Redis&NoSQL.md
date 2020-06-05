@@ -459,6 +459,7 @@ Redis的通用命令
 ## MongoDB技术
 [[MongoDB非关系型数据库开发手册](https://www.cnblogs.com/yueshutong/p/11491106.html)]
 
+[MongoDB 4.X CRUD基本操作](https://www.cnblogs.com/dbabd/p/13045006.html)
 ## HBase
 ### [再谈全局网HBase八大应用场景](https://yq.aliyun.com/articles/558255?utm_content=m_45690)
 ```markdown

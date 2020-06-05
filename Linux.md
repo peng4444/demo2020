@@ -1,4 +1,4 @@
-  # Linux
+ # Linux
 [linux服务器负载问题排查](https://www.cnblogs.com/chenfangzhi/p/9981614.html)
 
 
@@ -19,3 +19,39 @@ pstree: -- 按树形结构打印运行中进程结构信息
     # pstree -p 11811
 gdb: -- 可以查看程序的堆栈、设置断点、打印程序运行时信息，甚至还能调试多线程程序
 ```
+### Linux相关面试
+#### 如何查找特定的文件
+```markdown
+语法：find path [options] params  --在指定目录下查找文件
+find -name "text.md"  -- 在当前目录下递归查找text.md文件
+find / -name "text.md" -- 从根目录开始递归查找text.md文件
+find ~ -name "aa*"  --去父目录下递归查找aa开头的文件
+find ~ -name "aa*"  --去父目录下递归查找aa开头的文件(不区分文件名大小写去查找文件)
+man find: 更多关于find指令的使用说明
+```
+#### 检索文件内容
+```markdown
+语法：grep [options] pattern file  作用：查找文件里符合条件的字符串
+grep "moo" target*  -- 去当前目录下的target开头文件中查找包含moo的字符
+管道操作符 | 将指令连接起来，前一个指令的输出作为后一个指令的输入
+find -xxx | grep "abc"
+    使用管道注意的要点：
+        - 只处理前一个命令正确输出，不处理错误输出
+        - 右边命令必须能够接受标准输入流，否则传递过程中数据会被抛弃
+        - sed,awk,grep,cut,head,top,less,more,wc,join,sort,split等等
+```
+#### 对文件内容做统计
+```markdown
+语法： awk [options] 'cmd' file 一次读取一行，按输入分隔符进行切片
+    awk '{print $1,$4}' test.txt 取出test.txt文件中第一个和第四个切片
+    awk '$1=="tcp" && $2==1{print $0}' test.txt 取出test.txt文件中第一个和第四个切片
+```
+#### 批量替换文件内容
+```markdown
+语法: sed [option] 'sed command' filename  流编辑器 适合对文本的行内容进行处理
+    sed -i 's/^Str/String/' text.txt -- 将文件中的Str替换为String并且写入文件（一行文件只替换首次出现的）
+    sed -i 's/\.$/\;/'  text.txt -- 将文件中末尾的.替换为;并且写入文件
+    sed -i 's/^Str/String/g' text.txt -- 将文件中的Str替换为String并且写入文件（全文替换）
+    sed -i '/Integer/d' text.txt --将文件中包含Integer的文件行删除
+```
+##
