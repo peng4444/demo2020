@@ -58,4 +58,5 @@ RestTemplate:
 
 [微服务的数据库设计](https://www.cnblogs.com/code-craftsman/p/11702814.html)
 
+[企业微服务中台落地实践和思想之我见](https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=2651014835&idx=2&sn=7350c8986d0641c48b933e85acf04f18&chksm=bdbebee08ac937f6f64dd92eda2777a40dfade1e219dd7aee7c5648e8f84cd9f05283de955ac&mpshare=1&scene=23&srcid=#rd)
 ##
