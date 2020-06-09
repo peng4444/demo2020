@@ -33,8 +33,10 @@
 [深入理解Mybatis插件](https://www.cnblogs.com/heartlake/p/12855653.html)
 
 [Mybatis通用分页插件](https://github.com/pagehelper/Mybatis-PageHelper)
+[手把手教你如何玩转插件：分页插件（Pagehelper）](https://blog.csdn.net/cs_hnu_scw/article/details/80718467)
 
 
+[[面试官：你分析过mybatis工作原理吗？](https://www.cnblogs.com/almm/p/11254403.html)]
 
 [springboot2 + mybatis 多种方式实现多数据配置](https://www.cnblogs.com/song27/p/12595603.html)
 [持久层框架JPA与Mybatis该如何选型](https://www.cnblogs.com/zimug/p/11790285.html)

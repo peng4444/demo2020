@@ -6,17 +6,12 @@
 [参考视频2：ElasticSearch6入门教程](E:\学习视频\004.ElasticSearch6入门教程（62集）)
 
 【随笔分类 - ElasticSearch】
-[ElasticSearch](https://www.cnblogs.com/supersnowyao/category/1236567.html)  
+[ElasticSearch基于Windows](https://www.cnblogs.com/supersnowyao/category/1236567.html)  
 
-[ElasticSearch](https://www.cnblogs.com/shoufeng/category/1332134.html)
+[ElasticSearch基于Linux](https://www.cnblogs.com/shoufeng/category/1332134.html)
 
-[随笔分类 - [06].搜索引擎](https://www.cnblogs.com/jajian/category/1280015.html)
-
-[ElasticSearch6.X实战](https://www.cnblogs.com/yulinfeng/category/1505154.html)
-
-### Elasticsearch介绍
-[【ES查看博客】](https://www.cnblogs.com/shoufeng/category/1332134.html)
->>【ES部署在bjpeng01】
+>>【ES部署centos101】
+## Elasticsearch介绍和应用场景
 ```markdown
 Elasticsearch是一个实时分布式搜索和分析引擎。它用于全文搜索、结构化搜索、分析。
 全文检索：将非结构化数据中的一部分信息提取出来,重新组织,使其变得有一定结构,然后对此有一定结构的数据进行搜索,从而达到搜索相对较快的目的。
@@ -92,7 +87,8 @@ ElasticSearch有什么优势呢？
     搜索和可视化界面分析这些日志，你可以使用Kibana（www.elastic.co/产品/kibana），即传说中的ELK技术栈。另外当前主流的大数据框架也几乎都支持ES，比如Flink和ES就是个完美搭档。
 ```
 
-### 
+### ElasticSearch操作
+
 [ES查询语句](https://www.cnblogs.com/lifengdi/p/11514463.html)
 
 [[SpringBoot操作ES进行各种高级查询](https://www.cnblogs.com/keatsCoder/p/11341835.html)]

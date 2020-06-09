@@ -1,10 +1,9 @@
 # Redis&NoSQL
-[查看博客：随笔分类 - redis 系列篇](https://www.cnblogs.com/MrHSR/category/1318528.html)
 
-[Redis面试题集锦（精选）](https://www.cnblogs.com/coder-programming/p/12458686.html)
 [TOC]
 
-## NoSQL
+
+## 一、NoSQL
 ```markdown
 NoSQL是什么：Redis(REmote DIctionary Server 远程字典服务器)，Memcache,Mongdb
 1、什么是NoSQL
@@ -59,43 +58,48 @@ NoSQL能够做什么：
 KV，Cache，Persistence ，。。。。
 ```
 ## Redis
+[参考资料：随笔分类 - redis 系列篇](https://www.cnblogs.com/MrHSR/category/1318528.html)
+
+[参考资料：随笔分类 - Redis详解](https://www.cnblogs.com/ysocean/category/1221478.html)
 ### Redis概述
 ```markdown
-Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 
-它支持多种类型的数据结构，如字符串（strings），散列（hashes），列表（lists），集合（sets），有序集合（sorted sets）与范围查询，
-bitmaps，hyperloglogs 和 地理空间（geospatial）索引半径查询。Redis 内置了复制（replication），LUA脚本（Lua scripting），
+Redis:REmote DIctionary Server(远程字典服务)。是由意大利人Salvatore Sanfilippo（网名：antirez）开发的一款内存高速缓存数据库。
+是完全开源免费的，用C语言编写的，遵守BSD协议，高性能的(key/value)分布式内存数据库，基于内存运行并支持持久化的NoSQL数据库。
+Redis是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 
+支持多种类型的数据结构，如字符串（strings），散列（hashes），列表（lists），集合（sets），有序集合（sorted sets）与范围查询，
+bitmaps，hyperloglogs 和 地理空间（geospatial）索引半径查询。Redis内置了复制（replication），LUA脚本（Lua scripting），
 LRU驱动事件（LRU eviction），事务（transactions）和不同级别的 磁盘持久化（persistence），并通过 Redis哨兵（Sentinel）和自动 
 分区（Cluster）提供高可用性（high availability）。
-Redis是用ANSIC编写的，适用于大多数POSIX系统，如Linux，* BSD，OS X，没有外部依赖性。
-Linux和OS X是Redis开发和测试的两个操作系统，我们建议使用Linux进行部署。
-Redis可能在Solaris衍生系统（如SmartOS）中工作，但支持是最好的努力。
-Windows版本没有官方支持，但Microsoft开发并维护了Redis的Win-64端口。
-Redis 优势
+Redis优势
 　　1. 性能极高 – Redis能读的速度是110000次/s,写的速度是81000次/s 。
 　　2.丰富的数据类型 – Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。
 　　3.原子 – Redis的所有操作都是原子性的，同时Redis还支持对几个操作全并后的原子性执行。
 　　4.丰富的特性 – Redis还支持 publish/subscribe, 通知, key 过期等等特性。
 Redis的数据时在内存中的，所以读写速度非常快，因此redis被广泛用于缓存方向，另外，redis也经常用来做分布式锁。
 redis提供了多种数据类型来支持不同的业务场景，除此之外，redis支持事务，持久化，LUA脚本，LRU驱动事件，多种集群方案。
-Redis启动：
-    # redis-server /myredis/redis.conf
--- 查看redis进程信息
+Redis启动：【安装在centos101】
+    # redis-server /usr/local/sofeware/redis/redis.conf --启动服务器
+查看redis进程信息：
     # ps -ef|grep redis
     # ps -ef|grep redis|grep -v grep
-    # redis-cli -p 6379
-    127.0.0.1:6379>ping
+连接服务器：# redis-cli -a redisadmin(密码)
+    127.0.0.1:6379> ping
     set k1 peng
     get k1
     DEL k1
     set k1
     set k1 v1
-    keys *       ##查询所有的值
-    quit         ##退出 关闭客户端
-    SHUTDOWN     ##退出 关闭服务器
-单实例关闭： redis-cli shutdown
-多实例关闭，指定端口关闭：redis-cli -p 6379 shutdown
+    127.0.0.1:6379> keys *       ##查询所有的值
+    127.0.0.1:6379> quit         ##退出 关闭客户端
+    127.0.0.1:6379> SHUTDOWN     ##退出 关闭服务器
+Redis关闭：
+    　①、redis-cli shutdown：安全关闭，如果有密码需要加上-a {password}参数。
+        redis -cli -a redisadmin shutdown （推荐使用此方式关闭，会进行持久化文件生成，能够防止数据丢失）
+    　②、kill -9 pid：强制关闭，可能会造成Redis内存数据丢失（不推荐使用）。
+    单实例关闭： redis-cli shutdown
+    多实例关闭，指定端口关闭：redis-cli -p 6379 shutdown
 ```
-### Redis链表& Redis用到的主要数据结构
+### Redis链表&Redis用到的主要数据结构
 ```markdown
 Redis链表提供了高效的节点重排能力，以及顺序性的节点访问方式，并且可能通过增删节点来灵活地调整链表的长度。
 作为一种数据结构，在C语言中并没有内置的这种数据结构。所以Redis构建了自己的链表实现。
@@ -446,20 +450,47 @@ Redis的通用命令
 ```
 ### Redis 常见性能问题和解决方案？
 ```markdown
-(1) Master 最好不要做任何持久化工作，如RDB内存快照和AOF日志文件
+(1) Master最好不要做任何持久化工作，如RDB内存快照和AOF日志文件
 (2) 如果数据比较重要，某个Slave开启AOF备份数据，策略设置为每秒同步一次
 (3) 为了主从复制的速度和连接的稳定性，Master和Slave最好在同一个局域网内
 (4) 尽量避免在压力很大的主库上增加从库
 (5) 主从复制不要用图状结构，用单向链表结构更为稳定，即：Master<-Slave1<-Slave2<-Slave3…
 ```
 
-## 相关博客
+### [Redis面试题集锦（精选）](https://www.cnblogs.com/coder-programming/p/12458686.html)
+### [Redis命令参考](http://redisdoc.com/index.html)
+[Redis不是只有get set那么简单](https://www.cnblogs.com/CodeBear/p/12402932.html)
+>> Redis操作demo
+>> 安装redis在centos101，密码 redisadmin
+[参考资料：Springboot+VUE全栈开发实战-第六章Redis]()
+[Redis高可用架构](https://www.cnblogs.com/jimersylee/p/11458520.html)
+[Redis 的底层数据结构（SDS和链表）](https://www.cnblogs.com/yangming1996/p/11521492.html)
+[Redis的最常被问到知识点总结](https://www.cnblogs.com/Young111/p/11518346.html)
+[springboot+redis+Interceptor+自定义annotation实现接口自动幂等](https://www.cnblogs.com/wyq178/p/11130034.html)
+[以商品超卖为例讲解Redis分布式锁](https://www.cnblogs.com/vandusty/p/11561160.html)
+[详细分析Redis的持久化操作——RDB与AOF](https://www.cnblogs.com/tuyang1129/p/12776526.html)
+
+[为什么redis是单线程的以及为什么这么快？](https://www.cnblogs.com/jichi/p/12790478.html)
+
+### [看完这篇Redis缓存三大问题，保你能和面试官互扯。](https://mp.weixin.qq.com/s?__biz=Mzg2NzA4MTkxNQ==&mid=2247487744&idx=2&sn=229eae99316099e4ab37f62e8acc137c&chksm=ce405ad4f937d3c2b5d97d59cbb828aec7d03fcf3ef6328d88c3ff492d838785ab948ce57085&mpshare=1&scene=23&srcid=&sharer_sharetime=1590070257441&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+
+
+### 待阅读
+[学习Redis好一阵了，我对它有了一些新的看法](https://www.cnblogs.com/tanshaoshenghao/p/13063886.html)
+
+[Redis实现分布式锁（设计模式应用实战）](https://www.cnblogs.com/sx-bj-srr/p/distributedLock.html)
+
+[基于redis实现分布式锁](https://www.cnblogs.com/zhangxinhua/p/13023449.html)
+
+[Redis之分布式锁实现](https://www.cnblogs.com/aobing/p/12694508.html)
+### 相关博客
 [从源码研究如何不重启Springboot项目实现redis配置动态切换](https://www.cnblogs.com/breakingdawn/p/13043921.html)
 
 ## MongoDB技术
 [[MongoDB非关系型数据库开发手册](https://www.cnblogs.com/yueshutong/p/11491106.html)]
 
 [MongoDB 4.X CRUD基本操作](https://www.cnblogs.com/dbabd/p/13045006.html)
+
 ## HBase
 ### [再谈全局网HBase八大应用场景](https://yq.aliyun.com/articles/558255?utm_content=m_45690)
 ```markdown
