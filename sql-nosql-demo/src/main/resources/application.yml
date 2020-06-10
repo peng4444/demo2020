@@ -1,0 +1,19 @@
+pbj:
+  databaseurl-port: 127.0.0.1:3306 # 数据库端口
+  database-name: pbj # 数据库名
+  host: 127.0.0.1:9200 # es服务端
+server:
+  port: 8080 # 应用端口
+#  servlet:
+#    context-path: /butterflytri # 应用映射
+spring:
+  application:
+    name: mybatis # 应用名称
+  datasource:
+    url: jdbc:mysql://${butterflytri.databaseurl-port}/${butterflytri.database-name}?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: mysqladmin
+mybatis:
+  type-aliases-package: cn.pbj.demo2020.es.entity # entity别名
+  mapper-locations: classpath:mapper/*Mapper.xml # mapper映射包扫描

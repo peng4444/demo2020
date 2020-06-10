@@ -10,7 +10,8 @@
 
 [ElasticSearch基于Linux](https://www.cnblogs.com/shoufeng/category/1332134.html)
 
->>【ES部署centos101】
+>>【ES部署centos101和win10】
+>> [代码搭建基于：SpringBoot教程-Elasticsearch](https://www.cnblogs.com/Butterfly-Tri/p/13081498.html)
 ## Elasticsearch介绍和应用场景
 ```markdown
 Elasticsearch是一个实时分布式搜索和分析引擎。它用于全文搜索、结构化搜索、分析。

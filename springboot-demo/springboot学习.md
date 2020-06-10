@@ -1,13 +1,16 @@
 # SpringBoot博客代码
-【随笔分类 - spring源码】[spring源码]()https://www.cnblogs.com/youzhibing/category/958792.html
 
 【SpringBoot博客】[随笔分类 - Spring Boot](https://www.cnblogs.com/niaobulashi/category/1425468.html)  【****】
 
-【SpringBoot集合】[springboot集合]([https://www.cnblogs.com/viyoung/tag/Spring%20Boot/](https://www.cnblogs.com/viyoung/tag/Spring Boot/))  [springboot](https://www.cnblogs.com/okong/tag/springboot/)
+【SpringBoot集合】[springboot集合]([https://www.cnblogs.com/viyoung/tag/Spring%20Boot/](https://www.cnblogs.com/viyoung/tag/Spring Boot/))  
+ [springboot](https://www.cnblogs.com/okong/tag/springboot/)
 
-【SpringBoot系列】[SpringBoot系列](https://www.cnblogs.com/huanzi-qch/category/1355280.html) [Spring Boot学习之旅](https://blog.csdn.net/zhaokejin521/article/details/80942545)[[曹工说Spring Boot源码（6）-- Spring怎么从xml文件里解析bean的](https://www.cnblogs.com/grey-wolf/p/12114604.html)]     [SpringBoot源码专题]( [https://www.cnblogs.com/ymbj/tag/SpringBoot%E6%BA%90%E7%A0%81%E4%B8%93%E9%A2%98/](https://www.cnblogs.com/ymbj/tag/SpringBoot源码专题/) )
+【SpringBoot系列】[SpringBoot系列](https://www.cnblogs.com/huanzi-qch/category/1355280.html) 
+[Spring Boot学习之旅](https://blog.csdn.net/zhaokejin521/article/details/80942545)
+[[曹工说Spring Boot源码（6）-- Spring怎么从xml文件里解析bean的](https://www.cnblogs.com/grey-wolf/p/12114604.html)]     
+[SpringBoot源码专题]( [https://www.cnblogs.com/ymbj/tag/SpringBoot%E6%BA%90%E7%A0%81%E4%B8%93%E9%A2%98/](https://www.cnblogs.com/ymbj/tag/SpringBoot源码专题/) )
 
-## 过滤器、拦截器和监听器
+## 一、过滤器、拦截器和监听器
 ### [过滤器 和 拦截器 6个区别，别再傻傻分不清了](https://www.cnblogs.com/chengxy-nds/p/13042013.html)
 ```markdown
 1、过滤器 (Filter)
@@ -62,28 +65,8 @@ afterCompletion()：只有在 preHandle() 方法返回值为true 时才会执行
     3、SpringBoot注册第三方过滤器
 ```
 ##
-[SpringBoot切面Aop的demo简单讲解](https://www.cnblogs.com/xuwujing/p/12927081.html)
-
-[[基于SpringBoot实现AOP+jdk/CGlib动态代理详解](https://www.cnblogs.com/godoforange/p/11587321.html)]
-
-[Spring Boot 2.x基础教程：构建RESTful API与单元测试](https://www.cnblogs.com/didispace/p/11606136.html)
-
-[SpringBoot集成Shiro实现动态加载权限](https://www.cnblogs.com/zhengqing/p/11603824.html)
-
-[Spring Boot项目中使用Mockito](https://www.cnblogs.com/javaadu/p/11748415.html)
-
-[SpringBoot2.0+Nacos+Sentinel流控规则集中存储](https://www.cnblogs.com/smallSevens/p/11553695.html)
-				
-[[SpringBoot2.0+InfluxDB+Sentinel实时监控数据存储](https://www.cnblogs.com/smallSevens/p/11576263.html)]
-
-[[SpringBoot2.0+阿里巴巴Sentinel动态限流实战](https://www.cnblogs.com/smallSevens/p/11531534.html)]
-
-[[springboot数据库主从方案](https://www.cnblogs.com/wangrudong003/p/11535540.html)]
-
-[SpringBoot中使用RSocket](https://juejin.im/post/5cf733a5e51d4510835e0260)
-
-## 
-### Spring
+## 二、Spring 
+### 1.Spring基础知识
 [关于Spring AOP，除了动态代理、CGLIB，你还知道什么？](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650128800&idx=3&sn=3a3e9806348f3b280bdc5ee725238a20&chksm=f36bdc81c41c5597d0e206d637dd7bd986886212e38ae69fd506cc8488ab98bac5698204e9bc&mpshare=1&scene=23&srcid=&sharer_sharetime=1590070530809&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 
 [SpringBoot切面Aop的demo简单讲解](https://www.cnblogs.com/xuwujing/p/12927081.html)
@@ -101,9 +84,41 @@ afterCompletion()：只有在 preHandle() 方法返回值为true 时才会执行
 [一文读懂Spring中的DI和AOP](cnblogs.com/xiaoyao2011/p/12866456.html)
 
 [谈谈Spring中的BeanPostProcessor接口](https://www.cnblogs.com/tuyang1129/p/12866484.html)
-### Spring源码
+
+### 2.Spring源码
 [读Spring源码，我们可以从第一行读起](https://blog.csdn.net/qq_41907991/article/details/105667900)
-### SpringMVC
+
+【随笔分类 - spring源码】[spring源码]()https://www.cnblogs.com/youzhibing/category/958792.html
+
+[当前标签：品Spring](https://www.cnblogs.com/lixinjie/tag/%E5%93%81Spring/)
+
+[Spring 源码学习 - 单例bean的实例化过程](https://www.cnblogs.com/hackingForest/p/13054173.html)
+### 3.Spring注解
+#### [【Spring注解驱动开发】聊聊Spring注解驱动开发那些事儿！](https://www.cnblogs.com/binghe001/p/13047333.html)
+![Spring注解驱动开发](https://img2020.cnblogs.com/blog/1729473/202006/1729473-20200605000243595-700419751.jpg)
+```markdown
+
+```
+#### [聊聊依赖注入注解@Resource和@Autowired](https://www.cnblogs.com/felordcn/p/13063802.html)
+>> @Resource和@Autowired注解都可以在Spring Framework应用中进行声明式的依赖注入。
+```markdown
+@Resource使用在成员属性和setter方法上。
+    默认情况下按照名称注入，如果没有显式声明名称则按照变量名称或者方法中对应的参数名称进行注入。Qualifier约束，装配失败后异常。
+@Autowired通常适用于构造函数，成员变量以及方法上。
+    默认情况下是按照类型注入，其次是Qualifier约束，然后按照名称，最后需要判断是否required。
+两者总结：
+    @Resource和@Autowired的优先级顺序不同（参见上图），另外@Resource属于Jakarta EE规范而@Autowired属于Spring范畴，
+    @Resource无法使用在构造参数中，@Autowired支持required属性。
+    从面向对象来说，@Resource更加适用于多态性的细粒度注入，而@Autowired更多专注于多态的单例注入。
+```
+[[Spring框架使用@Autowired自动装配引发的讨论](https://www.cnblogs.com/ibigboy/p/11236729.html)]
+
+[[Spring Boot @Condition 注解，组合条件你知道吗](https://www.cnblogs.com/FraserYu/p/11280420.html)]
+
+[[Spring中重要的注解](https://www.cnblogs.com/rolandlee/p/11014923.html)]
+
+[精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)
+## 三、SpringMVC
 [手码两万余字，SpringMVC 包教包会](https://www.cnblogs.com/lenve/p/12100698.html)
 
 [SpringMVC源码学习：容器初始化+MVC初始化+请求分发处理+参数解析+返回值解析+视图解析](https://www.cnblogs.com/summerday152/p/12856338.html)
@@ -113,6 +128,7 @@ MVC即模型-视图-控制器（Model-View-Controller）
 Spring Web MVC是一种基于Java的实现了Web MVC设计模式的请求驱动类型的轻量级Web框架，即使用了MVC架构模式的思想，
 将web层进行职责解耦，基于请求驱动指的就是使用请求-响应模型，框架的目的就是帮助我们简化开发，SpringWebMVC也是要简化我们日常Web开发的。
 ```
+
 #### 2. SpringMVC运行原理
 ![SpringMVC运行原理步骤](https://img2018.cnblogs.com/blog/1363940/201910/1363940-20191031231647804-398588825.png)
 ```markdown
@@ -123,6 +139,7 @@ Spring Web MVC是一种基于Java的实现了Web MVC设计模式的请求驱动�
 5). DispatcherServlet查询一个或多个ViewResoler视图解析器，找到ModelAndView指定的视图
 6). 视图负责将结果显示到客户端
 ```
+
 #### 3. 常用注解
 ```markdown
 @Controller负责注册一个bean到spring上下文中
@@ -137,7 +154,9 @@ Spring Web MVC是一种基于Java的实现了Web MVC设计模式的请求驱动�
 @ExceptionHandler 注解到方法上，出现异常时会执行该方法
 @ControllerAdvice 使一个Controller成为全局的异常处理类，类中用@ExceptionHandler方法注解的方法可以处理所有Controller发生的异常
 ```
-### SpringBoot
+
+## 四、SpringBoot
+### 1.SpringBoot基础知识
 #### [SpringBoot切面Aop的demo简单讲解](https://www.cnblogs.com/xuwujing/p/12927081.html)
 ```markdown
 AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（也叫面向方面编程），是目前软件开发中的一个热点，也是Spring框架中的一个重要内容。
@@ -145,17 +164,41 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 * 用途
     日志记录，性能统计，安全控制，权限管理，事务处理，异常处理，资源池管理。
 ```
+[SpringBoot切面Aop的demo简单讲解](https://www.cnblogs.com/xuwujing/p/12927081.html)
 
-### SpringBoot源码
+[[基于SpringBoot实现AOP+jdk/CGlib动态代理详解](https://www.cnblogs.com/godoforange/p/11587321.html)]
+
+[Spring Boot 2.x基础教程：构建RESTful API与单元测试](https://www.cnblogs.com/didispace/p/11606136.html)
+
+[如何优雅地停止 Spring Boot 应用？](https://www.cnblogs.com/wupeixuan/p/13065986.html)
+[[Springboot 优雅停止服务的几种方法](https://www.cnblogs.com/huangqingshi/p/11370291.html)]
+
+### 2.SpringBoot注解
+[接近8000字的Spring/SpringBoot常用注解总结！安排！](https://www.cnblogs.com/javaguide/p/spring-annotations.html)
+[[Spring Boot 注解大全，真是太全了！](https://www.cnblogs.com/qwlscn/p/11495378.html)]
+
+
+### 3.SpringBoot源码
 [随笔分类 - spring/boot源码解析](https://www.cnblogs.com/grey-wolf/category/1676533.html)
 
-##
+### 4.SpringBoot与其他框架应用
+[SpringBoot集成Shiro实现动态加载权限](https://www.cnblogs.com/zhengqing/p/11603824.html)
+
+[Spring Boot项目中使用Mockito](https://www.cnblogs.com/javaadu/p/11748415.html)
+
+[SpringBoot2.0+Nacos+Sentinel流控规则集中存储](https://www.cnblogs.com/smallSevens/p/11553695.html)
+				
+[[SpringBoot2.0+InfluxDB+Sentinel实时监控数据存储](https://www.cnblogs.com/smallSevens/p/11576263.html)]
+
+[[SpringBoot2.0+阿里巴巴Sentinel动态限流实战](https://www.cnblogs.com/smallSevens/p/11531534.html)]
+
+[[springboot数据库主从方案](https://www.cnblogs.com/wangrudong003/p/11535540.html)]
+
+[SpringBoot中使用RSocket](https://juejin.im/post/5cf733a5e51d4510835e0260)
+
 [springboot超级详细的日志配置(基于logback)](https://www.cnblogs.com/wuyoucao/p/10983241.html)
 
 [Spring Boot使用MyBatis Generator、Swagger](https://www.cnblogs.com/FireworksEasyCool/p/11133827.html)
-
-[接近8000字的Spring/SpringBoot常用注解总结！安排！](https://www.cnblogs.com/javaguide/p/spring-annotations.html)
-
 
 [springboot+dubbo简单分布式RPC调用demo](https://www.cnblogs.com/kuangdw/p/12783281.html)
 
@@ -166,3 +209,46 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 [SpringBoot 整合 Zookeeper 接入Starring微服务平台](https://www.cnblogs.com/laramia/p/11978271.html)
 
 [基于Netty和SpringBoot实现一个轻量级RPC框架-Server篇](https://www.cnblogs.com/throwable/p/12194713.html)
+
+##
+
+### 
+[[我该如何学习spring源码以及解析bean定义的注册](https://www.cnblogs.com/liyus/p/10983108.html)]
+[[从spring框架中的事件驱动模型出发，优化实际应用开发代码](https://www.cnblogs.com/l3306/p/10757291.html)]
+[[AVA-Spring AOP五大通知类型](https://www.cnblogs.com/xiaoluohao/p/11286242.html)]
+
+[【Springboot可执行jar和普通可引用jar】](https://www.cnblogs.com/lenve/p/11156340.html)
+
+[SpringBoot开发案例Nacos配置管理中心](https://www.cnblogs.com/smallSevens/p/11223830.html)
+
+[基于SpringBoot的开源微信开发平台，Jeewx-Boot 1.0 版本发布](https://blog.csdn.net/zhangdaiscott/article/details/95994816)
+
+[springboot利用consul实现分布式锁](https://www.cnblogs.com/wenwuxianren/p/11181786.html)
+
+[SpringBoot2.x 整合Spring-Session实现Session共享](https://www.cnblogs.com/lanxuan826/p/11221603.html)
+
+[对于springboot的几种注入方法的个人看法](https://www.cnblogs.com/XSdao/p/11208437.html)
+
+[[SpringBoot处理全局统一异常](https://www.cnblogs.com/lgjlife/p/10988439.html)]
+
+[[【Springboot】用Prometheus+Grafana监控Springboot应用](https://www.cnblogs.com/larrydpk/p/12563497.html)]【****】
+
+[SpringBoot集成MyBatis的分页插件PageHelper(回头草)](https://www.cnblogs.com/1315925303zxz/p/7364552.html)
+
+[[Spring Boot接口如何设计防篡改、防重放攻击](https://www.cnblogs.com/tqlin/p/11251321.html)]	
+
+[Springboot问题](https://www.cnblogs.com/ityouknow/p/11281643.html)
+
+[[开发一个Spring Boot Starter!](https://www.cnblogs.com/NinWoo/p/11305650.html)]
+
+[[基于SpringBoot从零构建博客网站 - 集成editor.md开发发布文章功能](https://www.cnblogs.com/atcloud/p/11302520.html)]
+[[SpringBoot开发案例之打造十万博文Web篇](https://www.cnblogs.com/smallSevens/p/11301025.html)]
+[[基于Spring Boot自建分布式基础应用](https://www.cnblogs.com/HuaiyinMarquis/p/11382145.html)]
+[[Spring Boot MyBatis 数据库集群访问实现](https://www.cnblogs.com/tqlin/p/11430702.html)]
+[Dubbo Spring Cloud 之 HTTP 实战](https://www.cnblogs.com/babycomeon/p/11553757.html)
+[[SpringBoot:如何优雅地处理全局异常？](https://www.cnblogs.com/coderxx/p/11331855.html)]
+
+
+
+
+
