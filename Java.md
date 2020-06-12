@@ -85,3 +85,5 @@ public static void Main(string[] args){
 
 ##
 [50 个 Java 性能优化细节，你要不要看？](https://mp.weixin.qq.com/s?__biz=MzUxOTc4NjEyMw==&mid=2247485058&idx=1&sn=1075ec571f2391511fba05ef3cae4221&chksm=f9f51d66ce82947062a166abbecd5d16dcbffc1e4545ee0315e59825afe8f96cb757d2952dd1&mpshare=1&scene=23&srcid=&sharer_sharetime=1572097657629&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+
+[Java规则引擎 Easy Rules](https://www.cnblogs.com/cjsblog/p/13088017.html)

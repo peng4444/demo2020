@@ -176,31 +176,37 @@ no-eviction：禁止驱逐数据，也就是说当内存不足以容纳新写入
 volatile-LFU:从已设置过期时间的数据集中挑选最不经常使用的数据淘汰。
 allkeys-LRU:当内存不足以容纳新写入数据时，在键空间中，移除最不经常使用的key。(这个是最常用的)
 ```
-### Redis持久化机制
+### Redis持久化机制RDB与AOF
+[详细分析Redis的持久化操作——RDB与AOF](https://www.cnblogs.com/tuyang1129/p/12776526.html)
+>> Redis是一种内存型数据库，一旦服务器进程退出，数据库的数据就会丢失，为了解决这个问题，
+    Redis提供了两种持久化的方案，将内存中的数据保存到磁盘中，避免数据的丢失。
 ```markdown
-RDB(快照)持久化：保存某一个时间点的全量数据快照。
+RDB(快照)持久化：保存某一个时间点的全量数据快照，保存到硬盘中，redis可以通过这个文件还原数据库当时的状态。
+    可以手动执行。也可以在redis.conf中配置，定期执行。
     save:阻塞Redis的服务器进程，直到RDB文件被创建完毕。
     BGSAVE：Fork出一个子进程来创建RDB文件，不阻塞服务器进程。
     自动化触发RDB持久化的方式：
-        根据redis.conf配置里的SAVE m n 定时触发（用的是BGSAVE）
+        根据redis.conf配置里的SAVE m n 定时触发（用的是BGSAVE） save m秒 n个操作
         主从复制时，主节点自动触发
         执行Debug Reload
         执行Shutdown且没有开启AOF持久化
     缺点：
         内存数据的全量同步，数据量大会由于I/O而严重影响性能。
         可能会因为Redis挂掉而丢失从当前值最近一次快照期间的数据。
-AOF(Append-only-File) 持久化：保存状态  redis.conf设置 appendonly yes
+AOF(Append-only-File) 持久化：记录服务器执行的所有变更操作命令（例如set del等），并在服务器启动时，
+    通过重新执行这些命令来还原数据集AOF文件中的命令全部以redis协议的格式保存，新命令追加到文件末尾。
+    redis.conf设置 appendonly yes  appendfsync everysec开启AOF功能
     日志重写解决AOF文件大小不断增大的问题：
-        调用fork()，创建一个子进程
-        子进程把新的AOF写到一个临时文件里，不依赖原来的AOF文件。
-        主进程持续将新的变动同时写入到内存和原来的AOF里。
-        主进程获取子进程重写AOF的完成信号，往新AOF同步增量变动。
-        使用新的AOF文件替换掉旧的AOF文件。
+        1.调用fork()，创建一个子进程
+        2.子进程把新的AOF写到一个临时文件里，不依赖原来的AOF文件。
+        3.主进程持续将新的变动同时写入到内存和原来的AOF里。
+        4.主进程获取子进程重写AOF的完成信号，往新AOF同步增量变动。
+        5.使用新的AOF文件替换掉旧的AOF文件。
 RDB和AOF文件共存情况下的恢复流程
 RDB和AOF的优缺点：
     RDB优点：全量数据快照，文件小，恢复快
     RDB缺点：无法保存最近一次快照之后的数据
-    AOF优点：可读行高，适合保存增量数据，数据不易丢失。、
+    AOF优点：可读行高，适合保存增量数据，数据不易丢失。
     AOF缺点：文件体积大，恢复时间长。
 Redis4.0:RDB-AOF混合持久化方式：    
     BGSAVE做镜像全量持久化，AOF做增量持久化。
@@ -220,6 +226,8 @@ Redis4.0:RDB-AOF混合持久化方式：
 并且当Redis运行在某种特定的持久化模式下时，事务也具有持久性（Durability）。
 ```
 ### Redis主从同步（全量同步，增量同步）&Redis Sentinel
+[Linux下的redis的持久化,主从同步及哨兵](https://www.cnblogs.com/qq752059037/p/10278296.html)
+[深入分析Redis的主从复制机制](https://www.cnblogs.com/tuyang1129/p/12781631.html)
 ```markdown
 全量同步过程：
     1.Slave发送sync命令到Master
@@ -227,7 +235,7 @@ Redis4.0:RDB-AOF混合持久化方式：
     3.Master将保存的数据快照期间接收到的写命令缓存起来
     4.Master完成写文件操作后，将该文件发送给Salve
     5.使用新否AOF文件替换掉旧的AOF文件
-    6.Master 将这个期间的增量写命令发送给Salve端
+    6.Master将这个期间的增量写命令发送给Salve端
 增量同步过程：
     1.Master接收到用户的操作指令，判断是否需要传播到Slave
     2.将操作记录加到AOF文件
@@ -237,8 +245,11 @@ Redis4.0:RDB-AOF混合持久化方式：
     监控：检查主从服务器是否运行正常。
     提醒：通过API向管理员或者其他应用程序发送故障通知。
     找到故障迁移：主从切换
+redis哨兵(redis-sentinel):哨兵进行检测，主从架构是否正常，如果主库挂掉，哨兵会自动的修改redis.conf，进行添加/删除slaveof指令。
 ```
 ### Redis集群
+[分布式缓存 Redis 集群搭建](https://www.cnblogs.com/esofar/p/10486621.html)
+[深入学习Redis（5）：集群](https://www.cnblogs.com/kismetv/p/9853040.html)
 ```markdown
 Redis Sentinal:着眼于高可用，在master宕机时会自动将slave提升为master，继续提供服务。
 Redis Cluster:着眼于扩展性，在单个redis内存不足时，使用Cluster进行分片存储。
@@ -247,9 +258,9 @@ Cluster：集群管理者，使集群对外暴漏的是一个整体。
 redis cluster：采用虚拟分区的方式，将整个集群看成一个整体，然后分成16384个槽位。
     然后再将16484个槽位分别分配给集群的各个节点，然后各个节点各自负责一部分槽位。
 原理：节点1负责 0-5000之间的槽位，节点2负责5001-10000之间的槽位，节点3负责10001-16383之间的槽位。
-k-v键值对数据只会和槽位相关，与物理机器无关。通过crc16算法计算出 k对应的整数值（有点类似hash），然后对算出的整数值%16384取模，
-计算出k-v对应在哪个槽位上，然后再根据槽位与机器节点的映射关系，存储到相应的节点上去。
-取的时候，也是相应的过 程所以整个集群协同一致对外，给client看到的视图就是完整的数据集。
+    k-v键值对数据只会和槽位相关，与物理机器无关。通过crc16算法计算出 k对应的整数值（有点类似hash），然后对算出的整数值%16384取模，
+    计算出k-v对应在哪个槽位上，然后再根据槽位与机器节点的映射关系，存储到相应的节点上去。
+    取的时候，也是相应的过 程所以整个集群协同一致对外，给client看到的视图就是完整的数据集。
 ```
 ### 缓存雪崩和缓存穿透问题解决⽅案
 ```markdown
@@ -429,25 +440,6 @@ Redis的通用命令
 [[Redis缓存设计与性能优化](https://www.cnblogs.com/nijunyang/p/12587429.html)]
 
 [[Spring优雅整合Redis缓存](https://www.cnblogs.com/xxbiao/p/12593525.html)]
-### Redis为什么是单线程的？
-```markdown
-官方FAQ表示，因为Redis是基于内存的操作，CPU不是Redis的瓶颈，Redis的瓶颈最有可能是机器内存的大小或者网络带宽。
-既然单线程容易实现，而且CPU不会成为瓶颈，那就顺理成章地采用单线程的方案了（毕竟采用多线程会有很多麻烦！）Redis利用队列技术将并发访问变为串行访问
-1）绝大部分请求是纯粹的内存操作（非常快速）
-2）采用单线程,避免了不必要的上下文切换和竞争条件
-3）非阻塞IO优点：
-1.速度快，因为数据存在内存中，类似于HashMap，HashMap的优势就是查找和操作的时间复杂度都是O(1)
-2.支持丰富数据类型，支持string，list，set，sorted set，hash
-3.支持事务，操作都是原子性，所谓的原子性就是对数据的更改要么全部执行，要么全部不执行
-4.丰富的特性：可用于缓存，消息，按key设置过期时间，过期后将会自动删除如何解决redis的并发竞争key问题
-同时有多个子系统去set一个key。这个时候要注意什么呢？不推荐使用redis的事务机制。因为我们的生产环境，基本都是redis集群环境，做了数据分片操作。
-    你一个事务中有涉及到多个key操作的时候，这多个key不一定都存储在同一个redis-server上。因此，redis的事务机制，十分鸡肋。
-(1)如果对这个key操作，不要求顺序： 准备一个分布式锁，大家去抢锁，抢到锁就做set操作即可
-(2)如果对这个key操作，要求顺序： 分布式锁+时间戳。 假设这会系统B先抢到锁，将key1设置为{valueB 3:05}。接下来系统A抢到锁，
-    发现自己的valueA的时间戳早于缓存中的时间戳，那就不做set操作了。以此类推。
-(3) 利用队列，将set方法变成串行访问也可以redis遇到高并发，如果保证读写key的一致性
-对redis的操作都是具有原子性的,是线程安全的操作,你不用考虑并发问题,redis内部已经帮你处理好并发的问题了。
-```
 ### Redis 常见性能问题和解决方案？
 ```markdown
 (1) Master最好不要做任何持久化工作，如RDB内存快照和AOF日志文件
@@ -457,20 +449,53 @@ Redis的通用命令
 (5) 主从复制不要用图状结构，用单向链表结构更为稳定，即：Master<-Slave1<-Slave2<-Slave3…
 ```
 
-### [Redis面试题集锦（精选）](https://www.cnblogs.com/coder-programming/p/12458686.html)
-### [Redis命令参考](http://redisdoc.com/index.html)
+### Redis命令操作
+[Redis命令参考](http://redisdoc.com/index.html)
 [Redis不是只有get set那么简单](https://www.cnblogs.com/CodeBear/p/12402932.html)
->> Redis操作demo
+
+### Redis面试题
+#### 1.Redis为什么是单线程的和Redis为什么这么快
+[Redis为什么是单线程的](https://www.cnblogs.com/tuyang1129/p/12822501.html)
+[为什么单线程的Redis这么快？](https://www.cnblogs.com/haha12/p/10470786.html)
+```markdown
+Redis的单线程，不是指Redis程序真的只会有一个线程。Redis在执行其他操作的时候，可能会开启多个进程或线程，比如说持久化。
+指的是Redis处理客户端发来的数据操作请求（增删改查），只会使用一个线程去执行。
+    因为Redis是基于内存的操作，CPU不是Redis的瓶颈，Redis的瓶颈最有可能是机器内存的大小或者网络带宽。
+    既然单线程容易实现，而且CPU不会成为瓶颈，那就顺理成章地采用单线程的方案了。
+多线程并不能有效提升Redis的性能，相反可能还会降低性能，所以自然而然使用单线程。
+原因主要是以下三点：
+    - Redis是纯内存数据库，一般都是简单的存取操作，线程占用的时间很多，时间的花费主要集中在IO上，所以读取速度快。
+    - Redis使用的是非阻塞IO、IO多路复用，使用了单线程来轮询描述符，将数据库的开、关、读、写都转换成了事件，减少了线程切换时上下文的切换和竞争。
+    - Redis采用了单线程的模型，保证了每个操作的原子性，也减少了线程的上下文切换和竞争。
+    - Redis避免了多线程的锁的消耗。
+    - Redis采用自己实现的事件分离器，效率比较高，内部采用非阻塞的执行方式，吞吐能力比较大。
+```
+#### 7.Redis持久化中save和BGSAVE执行流程和区别
+```markdown
+通过配置文件执行快照持久化的方式，实际上就是Redis在判断满足条件时，调用BGSAVE或者save指令来实现的。
+Save执行流程：
+    Redis执行SAVE指令时，不会创建一个子进程，异步的生成快照文件，而是直接使用Redis当前进程。
+    执行SAVE指令在创建快照的过程中，Redis服务器会阻塞所有的Redis客户端，直到快照生成完毕，并更新到磁盘之后，
+    才会继续执行客户端发来的增删改查的指令。肯会阻塞客户端，造成停顿。执行效率一般比BGSAVE更高，因为不需要创建子进程。
+BGSAVE的执行流程如下：
+    1.Redis调用系统的fork()，创建出一个子进程；
+    2.子进程将当前Redis中的数据，写入到一个临时文件中；同时父进程不受影响，继续执行客户端的请求；
+    3.子进程将所有的数据写入到了临时文件后，于是使用这个文件替换原来的快照文件（默认是dump.rdb）；
+```
+[面试前必须要知道的Redis面试题](https://www.cnblogs.com/Java3y/p/10266306.html)
+[Redis的最常被问到知识点总结](https://www.cnblogs.com/Young111/p/11518346.html)
+[Redis面试题集锦（精选）](https://www.cnblogs.com/coder-programming/p/12458686.html)
+
+### Redis操作demo
 >> 安装redis在centos101，密码 redisadmin
 [参考资料：Springboot+VUE全栈开发实战-第六章Redis]()
+
 [Redis高可用架构](https://www.cnblogs.com/jimersylee/p/11458520.html)
 [Redis 的底层数据结构（SDS和链表）](https://www.cnblogs.com/yangming1996/p/11521492.html)
-[Redis的最常被问到知识点总结](https://www.cnblogs.com/Young111/p/11518346.html)
+[Redis的内存和实现机制](https://www.cnblogs.com/panlq/p/13098786.html)
 [springboot+redis+Interceptor+自定义annotation实现接口自动幂等](https://www.cnblogs.com/wyq178/p/11130034.html)
 [以商品超卖为例讲解Redis分布式锁](https://www.cnblogs.com/vandusty/p/11561160.html)
-[详细分析Redis的持久化操作——RDB与AOF](https://www.cnblogs.com/tuyang1129/p/12776526.html)
 
-[为什么redis是单线程的以及为什么这么快？](https://www.cnblogs.com/jichi/p/12790478.html)
 
 ### [看完这篇Redis缓存三大问题，保你能和面试官互扯。](https://mp.weixin.qq.com/s?__biz=Mzg2NzA4MTkxNQ==&mid=2247487744&idx=2&sn=229eae99316099e4ab37f62e8acc137c&chksm=ce405ad4f937d3c2b5d97d59cbb828aec7d03fcf3ef6328d88c3ff492d838785ab948ce57085&mpshare=1&scene=23&srcid=&sharer_sharetime=1590070257441&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 
@@ -478,11 +503,19 @@ Redis的通用命令
 ### 待阅读
 [学习Redis好一阵了，我对它有了一些新的看法](https://www.cnblogs.com/tanshaoshenghao/p/13063886.html)
 
+[随笔分类 - redis、分布式锁的三种方式](https://www.cnblogs.com/ft535535/category/1366532.html)
+
 [Redis实现分布式锁（设计模式应用实战）](https://www.cnblogs.com/sx-bj-srr/p/distributedLock.html)
 
 [基于redis实现分布式锁](https://www.cnblogs.com/zhangxinhua/p/13023449.html)
 
 [Redis之分布式锁实现](https://www.cnblogs.com/aobing/p/12694508.html)
+
+[Redis实现的分布式锁和分布式限流](https://www.cnblogs.com/huangqingshi/p/10290615.html)
+
+[关于分布式锁原理的一些学习与思考-redis分布式锁，zookeeper分布式锁](https://www.cnblogs.com/JJJ1990/p/10496850.html)
+
+[]
 ### 相关博客
 [从源码研究如何不重启Springboot项目实现redis配置动态切换](https://www.cnblogs.com/breakingdawn/p/13043921.html)
 

@@ -248,6 +248,9 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 [Dubbo Spring Cloud 之 HTTP 实战](https://www.cnblogs.com/babycomeon/p/11553757.html)
 [[SpringBoot:如何优雅地处理全局异常？](https://www.cnblogs.com/coderxx/p/11331855.html)]
 
+[【优雅写代码系统】springboot+mybatis+pagehelper+mybatisplus+druid教你如何优雅写代码](https://www.cnblogs.com/zhangxinhua/p/13091116.html)
+
+
 
 
 
