@@ -21,7 +21,6 @@
 
 [硬肝4.4w字为你写成Java开发手册](https://www.cnblogs.com/cxuanBlog/p/12854535.html)
 
-[给你的Java程序拍个片子吧：jstack命令解析](https://www.cnblogs.com/jay-huaxiao/p/12865552.html)
 ## 一些有趣的博客
 ### 1.[程序员羽化之路--假如需要一百万个对象](https://www.cnblogs.com/zhanlang/p/12550179.html)
 ```java
@@ -67,7 +66,7 @@ public static void Main(string[] args){
 
 [IO 模型知多少 | 代码篇](https://www.cnblogs.com/sheng-jie/p/how-much-you-know-about-the-io-models-demo.html)
 
-[这些Java8官方挖过的坑，你踩过几个？](https://www.cnblogs.com/madashu/p/13023193.html)
+### [这些Java8官方挖过的坑，你踩过几个？](https://www.cnblogs.com/madashu/p/13023193.html)
 ```markdown
 一、Base64：你是我解不开的迷:
     JDK官方的Base64和sun的base64是不兼容的！不要替换！不要替换！不要替换！
@@ -79,6 +78,40 @@ public static void Main(string[] args){
     Arrays.asList方法，该方法的输入只能是一个泛型变长参数。
 五、Stream处理：给你，独一无二
     步骤：获取一个数据源（source）→ 数据转换→执行操作获取想要的结果，
+```
+
+### Java优化if-else语句
+[if-else代码优化的八种方案](https://www.cnblogs.com/jay-huaxiao/p/12586598.html)
+[不吹牛X，我真的干掉了if-else](https://www.cnblogs.com/Lyn4ever/p/12913670.html)
+[面试官灵魂拷问：if语句执行完else语句真的不会再执行吗？](https://www.cnblogs.com/binghe001/p/12944844.html)
+```java
+// 输出 : 我是if语句的分支
+//        我是else语句的分支
+public class Test {
+    public Test() {
+    }
+
+    public static void main(String[] args) {
+        (new Test()).print(args == null || (new Test() {
+            {
+                Test.main((String[])null);
+            }
+        }).equals((Object)null));
+    }
+
+    public void print(boolean flag) {
+        if (flag) {
+            System.out.println("我是if语句的分支");
+        } else {
+            System.out.println("我是else语句的分支");
+        }
+
+    }
+}
+```
+[别再写一摞if-else了！再写开除！两种设计模式带你消灭它！](https://www.cnblogs.com/liuyanling/p/13121484.html)
+```markdown
+结合模板方法模式以及工厂模式及发射消除代码里面的if-else;
 ```
 ## Java爬虫
 [不会python?那就换一种姿势爬虫！Java爬虫技术总结](https://www.cnblogs.com/carloschan/p/10572788.html)

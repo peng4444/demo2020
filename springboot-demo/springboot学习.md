@@ -122,6 +122,8 @@ afterCompletion()：只有在 preHandle() 方法返回值为true 时才会执行
 [手码两万余字，SpringMVC 包教包会](https://www.cnblogs.com/lenve/p/12100698.html)
 
 [SpringMVC源码学习：容器初始化+MVC初始化+请求分发处理+参数解析+返回值解析+视图解析](https://www.cnblogs.com/summerday152/p/12856338.html)
+
+[随笔分类 - SpringMVC](https://www.cnblogs.com/xinhudong/category/1150740.html)
 #### 1. SpringMVC简介
 ```markdown
 MVC即模型-视图-控制器（Model-View-Controller）
@@ -249,7 +251,7 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 [[SpringBoot:如何优雅地处理全局异常？](https://www.cnblogs.com/coderxx/p/11331855.html)]
 
 [【优雅写代码系统】springboot+mybatis+pagehelper+mybatisplus+druid教你如何优雅写代码](https://www.cnblogs.com/zhangxinhua/p/13091116.html)
-
+[SpringMVC+Mybatis 如何配置多个数据源并切换？](https://www.cnblogs.com/haha12/p/10613549.html)
 
 
 
