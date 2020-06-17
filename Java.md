@@ -16,11 +16,9 @@
 ```
 举例说明如何编写高效代码
 ```
-
 [Java - Java开发中的安全编码问题](https://www.cnblogs.com/shoufeng/p/12609498.html)
 
 [硬肝4.4w字为你写成Java开发手册](https://www.cnblogs.com/cxuanBlog/p/12854535.html)
-
 ## 一些有趣的博客
 ### 1.[程序员羽化之路--假如需要一百万个对象](https://www.cnblogs.com/zhanlang/p/12550179.html)
 ```java
@@ -60,6 +58,8 @@ public static void Main(string[] args){
 
 ### 4.[面试官在“逗”你系列：数组去重你会几种呀？](https://www.cnblogs.com/justbecoder/p/12892675.html)
 
+
+
 [求求你了，不要再自己实现这些逻辑了，开源工具类不香吗？](https://www.cnblogs.com/goodAndyxublog/p/12874388.html)
 
 [IO 模型知多少 | 理论篇](https://www.cnblogs.com/sheng-jie/p/how-much-you-know-about-io-models.html)
@@ -83,7 +83,7 @@ public static void Main(string[] args){
 ### Java优化if-else语句
 [if-else代码优化的八种方案](https://www.cnblogs.com/jay-huaxiao/p/12586598.html)
 [不吹牛X，我真的干掉了if-else](https://www.cnblogs.com/Lyn4ever/p/12913670.html)
-[面试官灵魂拷问：if语句执行完else语句真的不会再执行吗？](https://www.cnblogs.com/binghe001/p/12944844.html)
+#### [面试官灵魂拷问：if语句执行完else语句真的不会再执行吗？](https://www.cnblogs.com/binghe001/p/12944844.html)
 ```java
 // 输出 : 我是if语句的分支
 //        我是else语句的分支
@@ -113,10 +113,18 @@ public class Test {
 ```markdown
 结合模板方法模式以及工厂模式及发射消除代码里面的if-else;
 ```
+
 ## Java爬虫
 [不会python?那就换一种姿势爬虫！Java爬虫技术总结](https://www.cnblogs.com/carloschan/p/10572788.html)
 
 ##
 [50 个 Java 性能优化细节，你要不要看？](https://mp.weixin.qq.com/s?__biz=MzUxOTc4NjEyMw==&mid=2247485058&idx=1&sn=1075ec571f2391511fba05ef3cae4221&chksm=f9f51d66ce82947062a166abbecd5d16dcbffc1e4545ee0315e59825afe8f96cb757d2952dd1&mpshare=1&scene=23&srcid=&sharer_sharetime=1572097657629&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 
-[Java规则引擎 Easy Rules](https://www.cnblogs.com/cjsblog/p/13088017.html)
+[Java规则引擎Easy Rules](https://www.cnblogs.com/cjsblog/p/13088017.html)
+
+[Java 异常处理的十个建议](https://www.cnblogs.com/jay-huaxiao/p/13125194.html)
+
+[原来热加载如此简单，手动写一个 Java 热加载吧](https://www.cnblogs.com/niumoo/p/11756703.html)
+
+[大型车祸现场，电商秒杀超卖，这个锅到底有谁来背？](https://www.cnblogs.com/smallSevens/p/11691432.html)
+

@@ -7,7 +7,7 @@
 [学习视频：006.Spring Security开发安全的REST服务](https://www.bilibili.com/video/av50683258/)
 [spring security集成cas实现单点登录](https://www.cnblogs.com/ericling/p/11523975.html)
 [SpringSecurity原理剖析与权限系统设计](https://www.cnblogs.com/fanzhidongyzby/p/11610334.html)
-
+[别再让你的微服务裸奔了，基于 Spring Session & Spring Security 微服务权限控制](https://www.cnblogs.com/springforall/p/11762374.html)
 # Springboot整合shiro
 [参考代码](https://github.com/smltq/spring-boot-demo/tree/master/shiro)
 [参考资料：springBoot整合shiro](https://www.cnblogs.com/tqlin/p/11213666.html)

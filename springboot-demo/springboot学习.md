@@ -211,7 +211,10 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 [SpringBoot 整合 Zookeeper 接入Starring微服务平台](https://www.cnblogs.com/laramia/p/11978271.html)
 
 [基于Netty和SpringBoot实现一个轻量级RPC框架-Server篇](https://www.cnblogs.com/throwable/p/12194713.html)
-
+[聊聊Spring Boot Actuator](https://www.cnblogs.com/dongxishaonian/p/12795744.html)
+[读写分离很难吗？springboot结合aop简单就实现了](https://www.cnblogs.com/yeya/p/11936239.html)
+[现在Java 桌面应用程序能做到什么程度（Spring Boot+JavaFX2开发）](https://www.cnblogs.com/pengdai/p/11769194.html)
+[Spring Boot 开发微信公众号后台](https://www.cnblogs.com/lenve/p/11763295.html)
 ##
 
 ### 

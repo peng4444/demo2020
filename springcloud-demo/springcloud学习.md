@@ -23,7 +23,7 @@
 
 [Spring Cloud 系列之 Apollo 配置中心（一）](https://www.cnblogs.com/mrhelloworld/p/apollo1.html)
 [Spring Cloud开发人员如何解决服务冲突和实例乱窜？](https://www.cnblogs.com/zlt2000/p/11459390.html)
-
+[随笔分类 - Spring Cloud](https://www.cnblogs.com/mrhelloworld/category/1658315.html)
 ## RPC
 ### [如何设计一个RPC系统](https://www.cnblogs.com/qcloud1001/p/10213274.html)
 ```markdown

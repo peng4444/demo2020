@@ -578,6 +578,7 @@ InnoDB使用插入意向锁，可以提高插入并发；
 
 ## 三，MySQL高级
 [参考博客：随笔分类 - mysql 进阶篇系列]( https://www.cnblogs.com/MrHSR/category/1255732.html )
+[参考博客：MySQL高手系列](https://www.cnblogs.com/itsoku123/category/1539183.html)
 ### 1.MySQL执行代码解析
 ```markdown
 MySQL 手写顺序
@@ -655,6 +656,10 @@ Explain 查看执行计划
 | extra                         | 执行情况的说明和描述                                         |
 ### 5.索引失效
 
+
+
+## 未阅读
+[MySQL必知必会1-20章读书笔记](https://www.cnblogs.com/hwahe/p/12822943.html)
 
 ## 四，SQL 练习
 ```sql
@@ -753,6 +758,7 @@ WHERE c.`number` = d.min_number ) x2
 ON x1.course_id = x2.course_id 
 ORDER BY x1.course_id;
 ```
+
 ## 五，SQL语句练习
 [参考资料1](https://www.cnblogs.com/wan-ge1212/p/10254742.html)
 ```mysql
@@ -835,7 +841,7 @@ insert into Score values('06' , '03' , 34);
 insert into Score values('07' , '02' , 89);
 insert into Score values('07' , '03' , 98);
 ```
-```mysql
+```markdown
 --------------------- 
 -- 1、查询"01"课程比"02"课程成绩高的学生的信息及课程分数
   SELECT A.s_id,A.s_score
