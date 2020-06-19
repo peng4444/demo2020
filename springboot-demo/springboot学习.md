@@ -1,10 +1,11 @@
 # SpringBoot博客代码
 
-【SpringBoot博客】[随笔分类 - Spring Boot](https://www.cnblogs.com/niaobulashi/category/1425468.html)  【****】
+[TOC]
 
+
+【SpringBoot博客】[随笔分类 - Spring Boot](https://www.cnblogs.com/niaobulashi/category/1425468.html)  【****】
 【SpringBoot集合】[springboot集合]([https://www.cnblogs.com/viyoung/tag/Spring%20Boot/](https://www.cnblogs.com/viyoung/tag/Spring Boot/))  
  [springboot](https://www.cnblogs.com/okong/tag/springboot/)
-
 【SpringBoot系列】[SpringBoot系列](https://www.cnblogs.com/huanzi-qch/category/1355280.html) 
 [Spring Boot学习之旅](https://blog.csdn.net/zhaokejin521/article/details/80942545)
 [[曹工说Spring Boot源码（6）-- Spring怎么从xml文件里解析bean的](https://www.cnblogs.com/grey-wolf/p/12114604.html)]     
@@ -64,7 +65,7 @@ afterCompletion()：只有在 preHandle() 方法返回值为true 时才会执行
     2、多个过滤器时如何配置
     3、SpringBoot注册第三方过滤器
 ```
-##
+
 ## 二、Spring 
 ### 1.Spring基础知识
 [关于Spring AOP，除了动态代理、CGLIB，你还知道什么？](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650128800&idx=3&sn=3a3e9806348f3b280bdc5ee725238a20&chksm=f36bdc81c41c5597d0e206d637dd7bd986886212e38ae69fd506cc8488ab98bac5698204e9bc&mpshare=1&scene=23&srcid=&sharer_sharetime=1590070530809&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
@@ -118,6 +119,7 @@ afterCompletion()：只有在 preHandle() 方法返回值为true 时才会执行
 [[Spring中重要的注解](https://www.cnblogs.com/rolandlee/p/11014923.html)]
 
 [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)
+
 ## 三、SpringMVC
 [手码两万余字，SpringMVC 包教包会](https://www.cnblogs.com/lenve/p/12100698.html)
 
@@ -130,7 +132,6 @@ MVC即模型-视图-控制器（Model-View-Controller）
 Spring Web MVC是一种基于Java的实现了Web MVC设计模式的请求驱动类型的轻量级Web框架，即使用了MVC架构模式的思想，
 将web层进行职责解耦，基于请求驱动指的就是使用请求-响应模型，框架的目的就是帮助我们简化开发，SpringWebMVC也是要简化我们日常Web开发的。
 ```
-
 #### 2. SpringMVC运行原理
 ![SpringMVC运行原理步骤](https://img2018.cnblogs.com/blog/1363940/201910/1363940-20191031231647804-398588825.png)
 ```markdown
@@ -141,7 +142,6 @@ Spring Web MVC是一种基于Java的实现了Web MVC设计模式的请求驱动�
 5). DispatcherServlet查询一个或多个ViewResoler视图解析器，找到ModelAndView指定的视图
 6). 视图负责将结果显示到客户端
 ```
-
 #### 3. 常用注解
 ```markdown
 @Controller负责注册一个bean到spring上下文中
@@ -256,6 +256,9 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 [【优雅写代码系统】springboot+mybatis+pagehelper+mybatisplus+druid教你如何优雅写代码](https://www.cnblogs.com/zhangxinhua/p/13091116.html)
 [SpringMVC+Mybatis 如何配置多个数据源并切换？](https://www.cnblogs.com/haha12/p/10613549.html)
 
+###
+
+##
 
 
 

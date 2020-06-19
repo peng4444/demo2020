@@ -18,3 +18,5 @@ Retrofit是一个针对Java和Android的设计的REST客户机。它通过基于
 在使用中，您可以配置用于数据序列化的转换器。对于JSON，通常使用Gson，但是可以添加自定义转换器来处理 XML 或其他协议。Retrofit对HTTP请求使用OkHttp库。
 ```
 [Java开发小技巧（五）：HttpClient工具类](https://www.cnblogs.com/zkh101/p/9777973.html)
+
+​[HttpClient多文件上传代码及普通参数中文乱码问题解决](https://www.cnblogs.com/ibigboy/p/11216786.html)

@@ -31,11 +31,11 @@ public class UserStarFac{
             lock (objLock){
                 Star info = null; ;
                 if(!UserStarMap.TryGetValue(level,info)) {
-//                    info = new Star() { Color = 1; Level = 1; StarNumber = 1 ;};
+//                    info = new Star() { Color = 1; Level = 1; StarNumber = 1 ;
                     UserStarMap.Add(level,info);
                 }
                 return info;
-            }
+            };
         }
 public static void Main(string[] args){
     int i = 0;
