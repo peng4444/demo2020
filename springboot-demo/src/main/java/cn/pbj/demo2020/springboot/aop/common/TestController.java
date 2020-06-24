@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.springboot.common;
+package cn.pbj.demo2020.springboot.aop.common;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

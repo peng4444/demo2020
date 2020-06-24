@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.springboot.entity;
+package cn.pbj.demo2020.springboot.aop.entity;
 
 /**
  * @ClassName: User

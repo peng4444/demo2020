@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.springboot.common;
+package cn.pbj.demo2020.springboot.aop.common;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

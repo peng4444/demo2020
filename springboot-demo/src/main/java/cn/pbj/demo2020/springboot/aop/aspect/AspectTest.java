@@ -1,7 +1,7 @@
-package cn.pbj.demo2020.springboot.aspect;
+package cn.pbj.demo2020.springboot.aop.aspect;
 
-import cn.pbj.demo2020.springboot.common.ResultBody;
-import cn.pbj.demo2020.springboot.entity.User;
+import cn.pbj.demo2020.springboot.aop.common.ResultBody;
+import cn.pbj.demo2020.springboot.aop.entity.User;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -21,7 +21,7 @@ import java.util.Base64;
 @Aspect
 @Component
 public class AspectTest {
-    @Pointcut("execution(public * cn.pbj.demo2020.springboot.web.*.*(..))")
+    @Pointcut("execution(public * cn.pbj.demo2020.springboot.aop.web.*.*(..))")
     public void doOperation() {
     }
 

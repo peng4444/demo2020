@@ -1,12 +1,20 @@
 # Spring学习
+>> [Spring官网文档](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html)
+>> []
+
+[TOC]
+
+
 ## 一、Spring 
 ### 1.Spring基础知识
-[关于Spring AOP，除了动态代理、CGLIB，你还知道什么？](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650128800&idx=3&sn=3a3e9806348f3b280bdc5ee725238a20&chksm=f36bdc81c41c5597d0e206d637dd7bd986886212e38ae69fd506cc8488ab98bac5698204e9bc&mpshare=1&scene=23&srcid=&sharer_sharetime=1590070530809&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+[随笔分类 - Java工程师之Spring Framework深度剖析专栏](https://www.cnblogs.com/jimisun/category/1359910.html)
 
-[SpringBoot切面Aop的demo简单讲解](https://www.cnblogs.com/xuwujing/p/12927081.html)
+[关于Spring AOP，除了动态代理、CGLIB，你还知道什么？](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650128800&idx=3&sn=3a3e9806348f3b280bdc5ee725238a20&chksm=f36bdc81c41c5597d0e206d637dd7bd986886212e38ae69fd506cc8488ab98bac5698204e9bc&mpshare=1&scene=23&srcid=&sharer_sharetime=1590070530809&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+[AOP 技术原理——代理模式全面总结](https://www.cnblogs.com/kubixuesheng/p/5183782.html)
+[JAVA-Spring AOP五大通知类型](https://www.cnblogs.com/xiaoluohao/p/11286242.html)
+[聊聊在AOP模式下的缓存方案](https://www.cnblogs.com/lori/p/10602746.html)
 
 [Spring IOC的核心机制：实例化与注入](https://www.cnblogs.com/zyjimmortalp/p/12828726.html)
-
 [重新认识 Spring IOC](https://www.cnblogs.com/i-code/p/12832545.html)
 
 [spring注入bean的几种策略模式](https://www.cnblogs.com/zyjimmortalp/p/12833761.html)
@@ -15,10 +23,16 @@
 
 [Spring 循环引用(三)源码深入分析版](https://www.cnblogs.com/burg-xun/p/12865205.html)
 
-[一文读懂Spring中的DI和AOP](cnblogs.com/xiaoyao2011/p/12866456.html)
+[一文读懂Spring中的DI和AOP](https://www.cnblogs.com/xiaoyao2011/p/12866456.html)
 
 [谈谈Spring中的BeanPostProcessor接口](https://www.cnblogs.com/tuyang1129/p/12866484.html)
 
+[Spring系列之IOC的原理及手动实现](https://www.cnblogs.com/liyus/p/10112118.html)
+[关于IOC容器的一些个人理解](https://www.cnblogs.com/HanJunJun-blog/p/10579712.html)
+
+[Spring之BeanFactory和FactoryBean接口的区别](https://www.cnblogs.com/dengpengbo/p/10493782.html)
+
+[Spring 事务管理详解](https://www.cnblogs.com/liantdev/p/10149443.html)
 ### 2.Spring源码
 [读Spring源码，我们可以从第一行读起](https://blog.csdn.net/qq_41907991/article/details/105667900)
 
@@ -27,6 +41,15 @@
 [当前标签：品Spring](https://www.cnblogs.com/lixinjie/tag/%E5%93%81Spring/)
 
 [Spring 源码学习 - 单例bean的实例化过程](https://www.cnblogs.com/hackingForest/p/13054173.html)
+[我该如何学习spring源码以及解析bean定义的注册](https://www.cnblogs.com/liyus/p/10983108.html)
+
+[Spring源码分析笔记--AOP](https://www.cnblogs.com/little-sheep/p/10103797.html)
+
+[Spring拓展接口之FactoryBean，我们来看看其源码实现](https://www.cnblogs.com/youzhibing/p/10528821.html)
+
+[Spring源码分析笔记--事务管理](https://www.cnblogs.com/little-sheep/p/10115173.html)
+[【面试】足够应付面试的Spring事务源码阅读梳理（建议珍藏）](https://www.cnblogs.com/lixinjie/p/a-enough-source-read-of-spring-tx-for-interview.html)
+
 ### 3.Spring注解
 #### [【Spring注解驱动开发】聊聊Spring注解驱动开发那些事儿！](https://www.cnblogs.com/binghe001/p/13047333.html)
 ![Spring注解驱动开发](https://img2020.cnblogs.com/blog/1729473/202006/1729473-20200605000243595-700419751.jpg)
@@ -45,16 +68,20 @@
     @Resource无法使用在构造参数中，@Autowired支持required属性。
     从面向对象来说，@Resource更加适用于多态性的细粒度注入，而@Autowired更多专注于多态的单例注入。
 ```
-[[Spring框架使用@Autowired自动装配引发的讨论](https://www.cnblogs.com/ibigboy/p/11236729.html)]
+[Spring框架使用@Autowired自动装配引发的讨论](https://www.cnblogs.com/ibigboy/p/11236729.html)
 
-[[Spring Boot @Condition 注解，组合条件你知道吗](https://www.cnblogs.com/FraserYu/p/11280420.html)]
+[Spring Boot @Condition 注解，组合条件你知道吗](https://www.cnblogs.com/FraserYu/p/11280420.html)
 
-[[Spring中重要的注解](https://www.cnblogs.com/rolandlee/p/11014923.html)]
+[Spring中重要的注解](https://www.cnblogs.com/rolandlee/p/11014923.html)
 
 [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)
+#### 
+[spring下应用@Resource, @Autowired 和 @Inject注解进行依赖注入的差异](https://www.cnblogs.com/both-eyes/p/10096882.html)
+
+### 4.Spring框架应用
+[从spring框架中的事件驱动模型出发，优化实际应用开发代码](https://www.cnblogs.com/l3306/p/10757291.html)
+[Spring4+Springmvc+quartz实现多线程动态定时调度](https://www.cnblogs.com/alterem/p/11301235.html)
+
+###
 
 ##
-[[我该如何学习spring源码以及解析bean定义的注册](https://www.cnblogs.com/liyus/p/10983108.html)]
-[[从spring框架中的事件驱动模型出发，优化实际应用开发代码](https://www.cnblogs.com/l3306/p/10757291.html)]
-[[AVA-Spring AOP五大通知类型](https://www.cnblogs.com/xiaoluohao/p/11286242.html)]
-[[Spring4+Springmvc+quartz实现多线程动态定时调度](https://www.cnblogs.com/alterem/p/11301235.html)]

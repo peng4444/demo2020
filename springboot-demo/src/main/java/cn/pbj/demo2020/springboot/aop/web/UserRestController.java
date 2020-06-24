@@ -1,7 +1,7 @@
-package cn.pbj.demo2020.springboot.web;
+package cn.pbj.demo2020.springboot.aop.web;
 
-import cn.pbj.demo2020.springboot.common.ResultBody;
-import cn.pbj.demo2020.springboot.entity.User;
+import cn.pbj.demo2020.springboot.aop.common.ResultBody;
+import cn.pbj.demo2020.springboot.aop.entity.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
