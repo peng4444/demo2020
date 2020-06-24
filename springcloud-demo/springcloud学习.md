@@ -12,6 +12,7 @@
 [双剑合璧 Nacos 结合 Sentinel 实现流量安全控制](https://www.cnblogs.com/mrhelloworld/p/sentinel-nacos.html)
 
 [SpringCloud系列之集成Dubbo应用篇](https://www.cnblogs.com/chinaWu/p/12818661.html)
+[Dubbo Spring Cloud 之 HTTP 实战](https://www.cnblogs.com/babycomeon/p/11553757.html)
 
 [Java开发架构篇：领域驱动设计架构基于SpringCloud搭建微服务](https://www.cnblogs.com/xiaofuge/p/12938567.html)
 
@@ -56,3 +57,7 @@ RestTemplate:
 ```
 
 ##
+​				[[一个项目的SpringCloud微服务改造过程](https://www.cnblogs.com/yixinjishu/p/11307121.html)]
+​				[[Eureka 缓存结构以及服务感知优化](https://www.cnblogs.com/xmzJava/p/11359636.html) ]
+​				[[服务注册组件——Eureka高可用集群搭建](https://www.cnblogs.com/noneplus/p/11374883.html)]
+​				[[Nacos高可用集群解决方案-Docker版本](https://www.cnblogs.com/hellxz/p/nacos-cluster-docker.html)]

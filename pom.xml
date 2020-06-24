@@ -24,6 +24,7 @@
         <module>rbac-demo</module>
         <module>framework-tool-demo</module>
         <module>bigdata-demo</module>
+        <module>ssm-demo</module>
     </modules>
 
     <properties>
