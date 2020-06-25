@@ -4,6 +4,12 @@
   [SpringMVC源码学习：容器初始化+MVC初始化+请求分发处理+参数解析+返回值解析+视图解析](https://www.cnblogs.com/summerday152/p/12856338.html)
   
   [随笔分类 - SpringMVC](https://www.cnblogs.com/xinhudong/category/1150740.html)
+  
+[TOC]
+
+## SpringMVC基础
+>> Spring MVC的核心是控制器的概念，这是一个处理请求并使用某种信息进行响应的类。
+>> 对于面向浏览器的应用程序，控制器的响应方式是可选地填充模型数据并将请求传递给视图，以生成返回给浏览器的 HTML。
   #### 1. SpringMVC简介
   ```markdown
   MVC即模型-视图-控制器（Model-View-Controller）

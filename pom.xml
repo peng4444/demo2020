@@ -18,13 +18,13 @@
         <module>picture-server</module>
         <module>springboot-demo</module>
         <module>netty-demo</module>
-        <module>mybatis-demo</module>
         <module>springcloud-demo</module>
         <module>sql-nosql-demo</module>
         <module>rbac-demo</module>
         <module>framework-tool-demo</module>
         <module>bigdata-demo</module>
         <module>ssm-demo</module>
+        <module>book-reading</module>
     </modules>
 
     <properties>

@@ -8,6 +8,7 @@
 [SpringBoot系列](https://www.cnblogs.com/huanzi-qch/category/1355280.html) 
 [Spring Boot学习之旅](https://blog.csdn.net/zhaokejin521/article/details/80942545)
 [当前标签：Spring Boot](https://www.cnblogs.com/lenve/tag/Spring%20Boot/)
+
 ## 一、过滤器、拦截器和监听器
 ### [过滤器 和 拦截器 6个区别，别再傻傻分不清了](https://www.cnblogs.com/chengxy-nds/p/13042013.html)
 ```markdown
@@ -93,6 +94,17 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 [接近8000字的Spring/SpringBoot常用注解总结！安排！](https://www.cnblogs.com/javaguide/p/spring-annotations.html)
 [[Spring Boot 注解大全，真是太全了！](https://www.cnblogs.com/qwlscn/p/11495378.html)]
 
+#### 2.1.@SpringBootApplication
+```markdown
+@SpringBootApplication注释清楚地表明这是一个Spring引导应用程序。
+@SpringBootApplication是一个组合了其他三个注释的复合应用程序：
+    @SpringBootConfiguration——指定这个类为配置类。尽管这个类中还没有太多配置，但是如果需要，可以将Javabased Spring Framework配置添加到这个类中。
+        实际上，这个注释是@Configuration注释的一种特殊形式。
+    @EnableAutoConfiguration——启用Spring自动配置。稍后我们将详细讨论自动配置。现在，要知道这个注释告诉Spring Boot自动配置它认为需要的任何组件。
+    @ComponentScan——启用组件扫描。这允许你声明其他带有@Component、@Controller、@Service 等注释的类，以便让Spring自动发现它们并将它们注册为Spring应用程序上下文中的组件。
+main()方法调用SpringApplication类上的静态run()方法，该方法执行应用程序的实际引导，创建Spring 应用程序上下文。
+传递给run()方法的两个参数是一个配置类和命令行参数。虽然传递给run()的配置类不必与引导类相同，但这是最方便、最典型的选择。
+```
 ### 3.SpringBoot源码
 [随笔分类 - spring/boot源码解析](https://www.cnblogs.com/grey-wolf/category/1676533.html)
 [SpringBoot源码专题]( [https://www.cnblogs.com/ymbj/tag/SpringBoot%E6%BA%90%E7%A0%81%E4%B8%93%E9%A2%98/](https://www.cnblogs.com/ymbj/tag/SpringBoot源码专题/) )
@@ -159,6 +171,5 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 [SpringBoot开发案例之打造私有云网盘](https://www.cnblogs.com/smallSevens/p/10712643.html)
 [基于springboot搭建的web系统架构](https://www.cnblogs.com/Oven5217/p/10765052.html)
 [SpringBoot中并发定时任务的实现、动态定时任务的实现（看这一篇就够了）](https://www.cnblogs.com/baixianlong/p/10659045.html)
-
 [SpringBoot 整合 RabbitMQ（包含三种消息确认机制以及消费端限流）](https://www.cnblogs.com/haixiang/p/10959551.html)
 [SpringBoot+Maven多模块项目（创建、依赖、打包可执行jar包部署测试）完整流程](https://blog.csdn.net/baidu_41885330/article/details/81875395)

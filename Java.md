@@ -113,6 +113,8 @@ public class Test {
 ```markdown
 结合模板方法模式以及工厂模式及发射消除代码里面的if-else;
 ```
+[用Map+函数式接口来实现策略模式](https://www.cnblogs.com/keeya/p/13187727.html)
+[新来的"大神"用策略模式把if else给"优化"了，技术总监说：能不能想好了再改？](https://www.cnblogs.com/hollischuang/p/13186766.html)
 
 ## Java爬虫
 [不会python?那就换一种姿势爬虫！Java爬虫技术总结](https://www.cnblogs.com/carloschan/p/10572788.html)
