@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.springboot.aop;
+package cn.pbj.demo2020.springboot;
 
 import org.springframework.boot.SpringApplication;
 

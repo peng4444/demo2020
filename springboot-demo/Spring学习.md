@@ -7,6 +7,7 @@
 
 
 ## 一、Spring 
+![可能需要知道的Spring](https://img2020.cnblogs.com/blog/1489208/202006/1489208-20200610141802146-901108964.png)
 >> Spring的核心是一个容器，通常称为Spring应用程序上下文，用于创建和管理应用程序组件。这些组件（或 bean）在Spring应用程序上下文中连接在一起以构成一个完整的应用程序
 >> 将bean连接在一起的行为是基于一种称为 依赖注入（DI）的模式。依赖项注入的应用程序不是由组件自身创建和维护它们依赖的其他bean的生命周期，
 >> 而是依赖于单独的实体（容器）来创建和维护所有组件，并将这些组件注入需要它们的bean。通常通过构造函数参数或属性访问器方法完成此操作。
@@ -82,10 +83,24 @@ IOC是控制反转（Inversion of Control），将原POJO内部管理其他对�
     <bean class="com.jimisun.spring.example.MyArticle" id="myArticle"></bean>
 值得一提的是，我们在项目中应该优先实用隐式的Bean发现机制和自动装配，其次使用在Java中进行装配，最后再使用在XML中进行装配。
 ```
+```markdown
+BeanDefinition是spring容器创建对象的模板，定义了bean创建的细节。
+BeanFactoryPostProcessor可以拿到整个容器对象，当然也能修改BeanDefinition，所以能直接操作bean的创建。
+BeanPostProcessor执行的时候bean已经创建完成了，我们可以拿到想要的对象进行干预和设值等操作。
+```
 #### 1.4.Spring核心概念之Bean生命周期管理
 ```markdown
-
+BeanFactory是Spring的核心--容器，ApplicationContext则是包裹容器的上下文，丰富容器的功能（资源加载，事件驱动等）。FactoryBean也是Spring扩展性的提现。
+BeanFactory已经定义了整个的生命周期，子类只是负责实现，demo演示也只是为了证实。我们更应该关注更上层的东西 
+ApplicationContext是对容器更精细化的包装，提供了更完善的功能
+FactoryBean是Spring扩展性的提现，可供用户自己定义创建bean。扩展性提炼的很好
 ```
+#### 1.5.Spring的依赖注入(DI)
+```markdown
+Spring利用反射创建对象，并将创建好的对象放入一个大工厂，实现了对象创建和使用的解耦。需要使用的时候可以方便的通过BeanFactory.getBean()获取。
+在此之上还扩展了对注解的支持，使用注解就可以注入对象。
+```
+#### 1.6.
 ### 2.Spring源码
 [读Spring源码，我们可以从第一行读起](https://blog.csdn.net/qq_41907991/article/details/105667900)
 
@@ -110,6 +125,7 @@ IOC是控制反转（Inversion of Control），将原POJO内部管理其他对�
 [【面试】足够应付面试的Spring事务源码阅读梳理（建议珍藏）](https://www.cnblogs.com/lixinjie/p/a-enough-source-read-of-spring-tx-for-interview.html)
 
 ### 3.Spring注解
+[由浅入深详细的介绍Spring框架的原理和源码](https://www.cnblogs.com/binghe001/category/1780611.html)
 #### [【Spring注解驱动开发】聊聊Spring注解驱动开发那些事儿！](https://www.cnblogs.com/binghe001/p/13047333.html)
 ![Spring注解驱动开发](https://img2020.cnblogs.com/blog/1729473/202006/1729473-20200605000243595-700419751.jpg)
 ```markdown
@@ -147,13 +163,18 @@ IOC是控制反转（Inversion of Control），将原POJO内部管理其他对�
 [Spring中重要的注解](https://www.cnblogs.com/rolandlee/p/11014923.html)
 
 [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)
+#### [spring下应用@Resource, @Autowired 和 @Inject注解进行依赖注入的差异](https://www.cnblogs.com/both-eyes/p/10096882.html)
+
 #### Java配置类 @Configuration
 ```markdown
 @Configuration注释向Spring 表明这是一个配置类，它将为Spring 应用程序上下文提供beans。
 配置的类方法带有@Bean注释，指示它们返回的对象应作为beans添加到应用程序上下文中（默认情况下，它们各自的bean IDs将与定义它们的方法的名称相同）。
 与基于XML的配置相比，基于Java的配置具有多个优点，包括更高的类型安全性和改进的可重构性。即使这样，仅当Spring无法自动配置组件时，才需要使用Java或XML进行显式配置。
 ```
-[spring下应用@Resource, @Autowired 和 @Inject注解进行依赖注入的差异](https://www.cnblogs.com/both-eyes/p/10096882.html)
+#### Spring @Transactional事务
+```markdown
+
+```
 
 ### 4.Spring框架应用
 [从spring框架中的事件驱动模型出发，优化实际应用开发代码](https://www.cnblogs.com/l3306/p/10757291.html)
