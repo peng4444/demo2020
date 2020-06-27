@@ -7,7 +7,7 @@
 ## 第一部分：Spring的核心
 ### 第1章 Spring之旅
 >> 快速介绍一下Spring框架，包括Spring DI和AOP的概况，以及它们是如何帮助读者解耦应用组件的。
-#### 1.Spring的bean容器
+#### 1.1 Spring的bean容器
 ```markdown
 Spring是为了解决企业级应用开发的复杂性而创建的，使用Spring可以让简单的JavaBean实现之前只有EJB才能完成的事情。
 但Spring不仅仅局限于服务器端开发，任何Java应用都能在简单性、可测试性和松耦合等方面从Spring中获益。
@@ -21,7 +21,7 @@ DI是组装应用对象的一种方式，借助这种方式对象无需知道依
 DI能够让相互协作的软件组件保持松散耦合，而面向切面编程（AOP）允许你把遍布应用各处的功能分离出来形成可重用的组件。
 当Spring装配bean的时候，这些切面能够在运行期编织起来，这样就能非常有效地赋予bean新的行为。
 ```    
-#### 2.Spring的核心模块(Spring通过应用上下文和Bean生命周期)
+#### 1.2 Spring的核心模块(Spring通过应用上下文和Bean生命周期)
 ```markdown
 Spring通过应用上下文（Application Context）装载bean的定义并把它们组装起来。Spring应用上下文全权负责对象的创建和组装。
 Spring自带了多种应用上下文的实现，它们之间主要的区别仅仅在于如何加载配置。(1.使用XML文件进行配置,2.基于Java注解的配置)
@@ -50,7 +50,7 @@ Spring自带了多种类型的应用上下文。下面罗列的几个是你最�
 9.此时，bean 已经准备就绪，可以被应用程序使用了，它们将一直驻留在应用上下文中，直到该应用上下文被销毁；
 10.如果bean实现了DisposableBean接口，Spring将调用它的destroy()接口方法。同样，如果bean使用destroy-method声明了销毁方法，该方法也会被调用。
 ```
-#### 3.Spring生态系统
+#### 1.3 Spring生态系统
 ![Spring生态系统](https://gblobscdn.gitbook.com/assets%2F-LmcjU5gG__lBrRbUxBO%2F-LmeBbFxrenF5-BmS08t%2F-LmeCAjmIq46UBxF-LiQ%2F1.7%20spring%20%E6%A1%86%E6%9E%B6%E6%A8%A1%E5%9D%97.jpg?alt=media&token=eb7f28c9-2bbb-4336-9ca7-42ba7c97bc23)
 ```markdown
 Spring核心容器:管理着Spring应用中bean的创建、配置和管理。
@@ -69,7 +69,7 @@ Spring Integration 提供了多种通用应用集成模式的 Spring 声明式�
 Spring Batch，使用 Spring 强大的面向 POJO 的编程模型。
 Spring Data 使得在 Spring 中使用任何数据库都变得非常容易。
 ```
-#### 4.Spring 的新功能
+#### 1.4 Spring 的新功能
 ```markdown
 Spring3.1,Spring3.2,Spring4.0新特性。
 ```
@@ -109,10 +109,227 @@ Spring3.1,Spring3.2,Spring4.0新特性。
 ```markdown
 在典型的Spring应用中，可能会同时使用自动化和显式配置。即便你更喜欢通过JavaConfig实现显式配置，但有的时候XML却是最佳的方案。
 @Import 注解导入 将两个配置类组合在一起
- @ImportResource 注解让 Spring 同时加载XML配置和其他基于 Java 的配置
+@ImportResource 注解让 Spring 同时加载XML配置和其他基于 Java 的配置
 ```
 ### 第3章 高级装配
 >> 展现一些最大化Spring威力的技巧和技术，包括条件化装配、处理自动装配时的歧义性、作用域以及Spring表达式语言。
+#### 3.1 Spring profile配置与激活
+```markdown
+在 Java 配置中，可以使用 @Profile 注解指定某个 bean 属于哪一个 profile。
+例如，在配置类中，嵌入式数据库的 DataSource 可能会配置成如下所示：
+    @Profile("dev") 会告诉 Spring 这个配置类中的 bean 只有在 dev profile 激活时才会创建。
+在Spring3.1中，只能在类级别上使用@Profile注解。从Spring3.2开始，可以在方法级别上使用@Profile注解，与@Bean注解一同使用。
+在XML中配置profile:
+    <jdbc:embedded-database id="dataSource" >
+        <jdbc:script location="classpath:schema.sql" />
+        <jdbc:script location="classpath:test-data.sql" />
+    </jdbc:embedded-database>
+profile激活：
+    命令行参数，通过在虚拟机参数位置指定-Dspring.profiles.active=test 来指定运行环境，标注了该环境的bean会被配置进容器中
+    @ActiveProfiles("dev") 注解，我们可以使用它来指定运行测试时要激活哪个 profile。
+```
+#### 3.2 条件化的bean声明
+```markdown
+使用 @Conditional 注解条件化地配置了Bean,满足条件Spring才会实例化这个类。
+```
+#### 3.3 自动装配与歧义性
+```markdown
+在本例中，Dessert是一个接口，并且有三个类实现了这个接口，分别为Cake、Cookies 和IceCream：
+因为这三个实现均使用了@Component注解，在组件扫描的时候，能够发现它们并将其创建为Spring应用上下文里面的bean。
+当Spring试图自动装配setDessert()中的Dessert参数时，它并没有唯一、无歧义的可选值。Spring会抛出NoUniqueBeanDefinitionException：
+解决方案：
+    1.告诉Spring在遇到歧义性的时候要选择首选的bean。如果标示了两个或更多的首选 bean，那么它就无法正常工作了。
+        @Primary将其中一个可选的bean设置为首选（primary）bean 能够避免自动装配时的歧义性。当遇到歧义性的时候，Spring将会使用首选的bean，而不是其他可选的bean。
+        <bean id="iceCream" class="com.desserteater.IceCream" primary="true" />
+    2.使用更多的限定符来缩小选择范围。
+        @Qualifier注解是使用限定符的主要方式。与@Autowired和@Inject协同使用，在注入的时候指定想要注入进去的是哪个bean。
+        @Qualifier("iceCream") 为 @Qualifier 注解所设置的参数就是想要注入的 bean 的 ID。
+        方法上所指定的限定符与要注入的 bean 的名称是紧耦合的。对类名称的任意改动都会导致限定符失效。
+        创建自定义的限定符，使用自定义的限定符注解。
+```
+#### 3.4 bean的作用域
+```markdown
+Spring 定义了多种作用域，可以基于这些作用域创建 bean，包括：
+    单例（Singleton）：在整个应用中，只创建 bean 的一个实例。
+    原型（Prototype）：每次注入或者通过 Spring 应用上下文获取的时候，都会创建一个新的 bean 实例。
+    会话（Session）：在 Web 应用中，为每个会话创建一个 bean 实例。
+    请求（Rquest）：在 Web 应用中，为每个请求创建一个 bean 实例。
+1.在bean的类上使用@Scope注解，将其声明为原型bean：@Scop(ConfigurableBeanFactory.SCOPE_PROTOTYPE)或者@Scope("prototype")
+2.Java配置中将方法声明为原型bean:可以组合使用@Scope和@Bean来指定所需的作用域：
+3.使用XML来配置bean的话，可以使用元素的scope属性来设置作用域：使用XML来配置bean的话，可以使用元素的scope属性来设置作用域：
+```
+#### 3.5 Spring表达式语言
+```markdown
+Spring提供了两种在运行时求值的方式：
+    1.属性占位符（Property placeholder）。
+    2.Spring 表达式语言（SpEL）。
+```
 ### 第4章 面向切面的Spring
 >> 展示如何使用Spring的AOP特性把系统级的服务（例如安全和审计）从它们所服务的对象中解耦出来。
 >> 本章也为后面的第9章、第13章和第14章做了铺垫，这几章将会分别介绍如何将Spring AOP用于声明式安全以及缓存。
+#### 4.1 面向切面编程的基本原理
+```markdown
+通知（Advice）Spring 切面可以应用 5 种类型的通知：
+    前置通知（Before）：在目标方法被调用之前调用通知功能；
+    后置通知（After）：在目标方法完成之后调用通知，此时不会关心方法的输出是什么；
+    返回通知（After-returning）：在目标方法成功执行之后调用通 知；
+    异常通知（After-throwing）：在目标方法抛出异常后调用通知；
+    环绕通知（Around）：通知包裹了被通知的方法，在被通知的方法调用之前和调用之后执行自定义的行为。
+连接点（Join point）
+    连接点是在应用执行过程中能够插入切面的一个点。这个点可以是调用方法时、抛出异常时、甚至修改一个字段时。
+    切面代码可以利用这些点插入到应用的正常流程之中，并添加新的行为。
+切点（Poincut）
+    切点的定义会匹配通知所要织入的一个或多个连接点。
+切面（Aspect）
+    切面是通知和切点的结合。通知和切点共同定义了切面的全部内容 —— 它是什么，在何时和何处完成其功能。
+引入（Introduction）
+    引入允许我们向现有的类添加新方法或属性。
+织入（Weaving）
+    织入是把切面应用到目标对象并创建新的代理对象的过程。
+Spring提供了4种类型的AOP支持：
+    基于代理的经典Spring AOP；
+    纯POJO切面；
+    @AspectJ注解驱动的切面；
+    注入式AspectJ切面（适用于Spring各版本）。
+前三种都是Spring AOP实现的变体，Spring AOP构建在动态代理基础之上，因此，Spring对AOP的支持局限于方法拦截。
+```
+#### 4.2 通过切点来选择切点
+```markdown
+bean() 使用 bean ID 或 bean 名称作为参数来限制切点只匹配特定的 bean:
+    execution(* concert.Performance.perform()) and bean('woodstock')
+非操作为除了特定 ID 以外的其他 bean 应用通知：
+    execution(* concert.Performance.perform()) and !bean('woodstock')
+```
+#### 4.3 通过POJO注解创建切面
+```markdown
+@Aspect注解进行了标注。该注解表明类不仅仅是一个 POJO，还是一个切面。
+类中的方法都使用注解来定义切面的具体行为。
+    @After 通知方法会在目标方法返回或抛出异常后调用
+    @AfterReturning 通知方法会在目标方法返回后调用 @AfterReturning("execution(** concert.Performance.perform(..))")
+    @AfterThrowing 通知方法会在目标方法抛出异常后调用 @AfterThrowing("execution(** concert.Performance.perform(..))")
+    @Around 通知方法会将目标方法封装起来
+    @Before 通知方法会在目标方法调用之前执行 @Before("execution(** concert.Performance.perform(..))")
+    @Pointcut注解能够在一个@AspectJ切面内定义可重用的切点。
+    为@Pointcut注解设置的值是一个切点表达式，就像之前在通知注解上所设置的那样。@Pointcut("execution(** concert.Performance.perform(..))")
+在Spring中要使用XML来装配bean的话： <aop:aspectj-autoproxy> 
+创建环绕通知：@Around("performce()")表明watchPerformance()方法会作为performance()切点的环绕通知。
+```
+#### 4.4 使用 @AspectJ注解为AspectJ切面注入依赖
+```markdown
+
+```
+
+## 第二部分：Web中的Spring
+### 第5章 构建Spring Web应用
+>> 学习到Spring MVC的基本用法，它是构建在Spring理念之上的一个Web框架。
+>> 编写处理Web请求的控制器以及如何透明地绑定请求参数和负载到业务对象上，同时它还提供了数据检验和错误处理的功能。
+#### 5.1 SpringMVC
+```markdown
+Spring MVC基于模型-视图-控制器（Model-View-Controller，MVC）模式实现，能够构建像Spring框架那样灵活和松耦合的Web应用程序。
+将会介绍Spring MVC Web框架，并使用新的Spring MVC注解来构建处理各种Web请求、参数和表单输入的控制器。
+1.在请求离开浏览器时，会带有用户所请求内容的信息，至少会包含请求的URL。还可能带有其他的信息，例如用户提交的表单信息。
+2.Spring MVC所有的请求都会通过一个前端控制器（front controller）Servlet。DispatcherServlet就是前端控制器。
+    前端控制器是常用的Web应用程序模式，在这里一个单实例的Servlet将请求委托给应用程序的其他组件来执行实际的处理。
+    DispatcherServlet的任务是将请求发送给Spring MVC控制器（controller）。控制器是一个用于处理请求的Spring组件。
+3.处理器映射会根据请求所携带的URL信息来进行决策。将请求发送给选中的控制器。
+4.控制器在完成逻辑处理后，通常会产生一些信息，这些信息需要返回给用户并在浏览器上显示。这些信息被称为模型（model）。
+5.控制器所做的最后一件事就是将模型数据打包，并且标示出用于渲染输出的视图名。
+创建的最简单的Spring MVC配置就是一个带有@EnableWebMvc注解的类：
+```
+#### 5.2 基本的控制器
+```markdown
+类上带有@Controller注解用来声明控制器的，但实际上这个注解对Spring MVC本身的影响并不大。
+@RequestMapping(value="/", method = GET)
+在Spring MVC中，控制器只是方法上添加了@RequestMapping注解的类，这个注解声明了它们所要处理的请求。
+value属性指定了这个方法所要处理的请求路径，method属性细化了它所处理的HTTP方法。
+```
+#### 5.3 接受请求的输入
+```markdown
+Spring MVC 允许以多种方式将客户端中的数据传送到控制器的处理器方法中，包括：
+    查询参数（Query Parameter）。
+    表单参数（Form Parameter）。
+    路径变量（Path Variable）。
+@RequestParam("spittle_id") long spittleId
+```
+#### 5.4 处理表单
+```markdown
+
+```
+### 第6章 渲染Web视图 
+>> 如何得到 Spring MVC 控制器所生成的模型数据，并将其渲染为用户浏览器中的 HTML。
+#### 6.1 理解视图解析
+```markdown
+
+```
+#### 6.2 创建JSP视图
+```markdown
+Spring 提供了两种支持 JSP 视图的方式：
+    1.InternalResourceViewResolver会将视图名解析为JSP文件。另外，如果在你的JSP页面中使用了JSP标准标签库（JavaServer Pages Standard Tag Library，JSTL）的话，
+    InternalResourceViewResolver能够将视图名解析为JstlView 形式的JSP文件，从而将JSTL本地化和资源bundle变量暴露给JSTL的格式化（formatting）和信息（message）标签。
+    2.Spring 提供了两个 JSP 标签库，一个用于表单到模型的绑定，另一个提供了通用的工具类特性。
+```
+#### 6.3 使用Apache Tiles视图定义布局
+```markdown
+Spring MVC 以视图解析器的形式为 Apache Tiles 提供了支持，这个视图解析器能够将逻辑视图名解析为 Tile 定义。
+```
+#### 6.4 使用Thymeleaf
+```markdown
+Thymeleaf是一项很有吸引力的技术，因为它能创建原始的模板，这些模板是纯HTML，能像静态HTML 那样以原始的方式编写和预览，
+并且能够在运行时渲染动态模型数据。除此之外，Thymeleaf是与Servlet 没有耦合关系的，这样它就能够用在JSP所不能使用的领域中。
+```
+### 第7章 Spring MVC的高级技术 
+>> 自定义Spring MVC配置、处理multipart文件上传、处理异常以及使用flash属性跨请求传递数据。
+#### 7.1 Spring MVC 配置的替代方案
+     
+#### 7.2 处理文件上传
+     
+#### 7.3 在控制器中处理异常
+     
+#### 7.4 使用flash属性
+
+### 第8章 使用Spring Web Flow 
+>> 展示如何使用 Spring Web Flow 来构建会话式、基于流程的 Web 应用程序。
+### 第9章 保护Web应用
+>> 如何使用Spring Security来为Web应用程序提供安全性，保护应用中的信息。
+
+
+## 第三部分：后端中的 Spring
+### 第10章 通过Spring和JDBC征服数据库 
+>> 如何使用 Spring 的 JDBC 抽象来查询关系型数据库，这要比原生的 JDBC 简单得多。
+
+###  第11章 通过对象-关系映射持久化数据 
+>> 如何与ORM框架进行集成，这些框架包括Hibernate以及其他的Java持久化API（Java Persistence API，JPA）实现。
+>> 除此之外，还将会看到如何发挥Spring Data JPA的魔力，在运行时自动生成Repository实现。
+
+### 第12章 使用NoSQL数据库
+>> 将会研究其他的Spring Data项目，它们能够持久化各种非关系型数据库中的数据，包括MongoDB、Neo4j和Redis。
+
+### 第13章 缓存数据
+>> 为上述的持久化章提供了一个缓存层，如果数据已经可用的话，它会避免数据库操作，从而提升应用的性能。
+
+### 第14章 保护方法应用 
+>> 将会把Spring Security应用于后端，它会拦截方法的调用并确保调用者被授予了适当的权限。
+
+
+## 第四部分　Spring集成
+### 第15章 使用远程服务
+>> 如何将应用程序中的对象导出为远程服务，还会学习如何透明地访问远程服务，这些服务就像是应用程序中的其他对象一样。
+>> 将会介绍各种远程技术，包括 RMI、Hessian/Burlap 以及使用 JAX-WS 的 SOAP Web 服务。
+
+### 第16章 使用Spring MVC创建REST API 
+>> 将会探讨如何使用 Spring MVC 构建 RESTful 服务，它关注于应用程序中的资源。
+
+### 第17章 Spring消息 
+>> 将会探索一种不同的应用集成方式，Spring如何用于Java消息服务（JMS）和高级消息队列协议（AMQP），从而实现应用程序之间的异步通信。
+
+### 第18章 使用WebSocket和STOMP实现消息功能
+>> 将会展现 Spring 的一项新功能，它支持在服务器和 Web 客户端之间实现异步通信。
+
+### 第19章 使用Spring发送Email
+>> 将会展现如何借助 Spring 以 Email 的形式发送异步消息给目标人群。
+
+### 第20章 使用JMX管理Spring Bean
+>> 会学到如何把配置在 Spring 中 bean 自动导出为 JMX MBean。
+
+### 第21章 借助SpringBoot简化Spring开发
+>> 在典型的Spring应用中，会有很多繁杂的样板式配置，在这一章将会看到Spring Boot如何移除这些配置，能够让我们关注于业务功能的实现。

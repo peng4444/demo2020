@@ -1,7 +1,7 @@
 package cn.pbj.demo2020.book.springinaction4;
 
-import cn.pbj.demo2020.book.springinaction4.chpater2.CDPlayerConfig;
-import cn.pbj.demo2020.book.springinaction4.chpater2.CompactDisc;
+import cn.pbj.demo2020.book.springinaction4.chapter2.CDPlayerConfig;
+import cn.pbj.demo2020.book.springinaction4.chapter2.CompactDisc;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.book.springinaction4.chpater2;
+package cn.pbj.demo2020.book.springinaction4.chapter2;
 
 import org.springframework.stereotype.Component;
 

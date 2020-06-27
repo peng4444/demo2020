@@ -9,7 +9,7 @@
 [mybatis源码]( https://www.cnblogs.com/java-chen-hao/category/1576447.html )
 ## Mybatis相关博客
 [mybatis是怎样炼成的](https://www.cnblogs.com/roytian/p/12762218.html)
-
+[mybatis缓存之一级缓存（一）](https://www.cnblogs.com/zhenghengbin/p/13193999.html)
 [mybatis源码学习：一级缓存和二级缓存分析](https://www.cnblogs.com/summerday152/p/12773135.html)
 
 #### 1.Mybatis SQL如何执行
@@ -46,6 +46,5 @@
 
 ```
 [抛开 Spring ，你知道 MyBatis 加载 Mapper 的底层原理吗？](https://www.cnblogs.com/Howinfun/p/12973902.html)
-
 
 [天哪！手动编写mybatis雏形竟然这么简单](https://www.cnblogs.com/quellanan/p/13055000.html)

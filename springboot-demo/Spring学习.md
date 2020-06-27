@@ -100,7 +100,7 @@ FactoryBean是Spring扩展性的提现，可供用户自己定义创建bean。�
 Spring利用反射创建对象，并将创建好的对象放入一个大工厂，实现了对象创建和使用的解耦。需要使用的时候可以方便的通过BeanFactory.getBean()获取。
 在此之上还扩展了对注解的支持，使用注解就可以注入对象。
 ```
-#### 1.6.
+#### 1.6.[Spring IoC bean 的加载](https://www.cnblogs.com/leisurexi/p/13194515.html)
 ### 2.Spring源码
 [读Spring源码，我们可以从第一行读起](https://blog.csdn.net/qq_41907991/article/details/105667900)
 
@@ -164,12 +164,22 @@ Spring利用反射创建对象，并将创建好的对象放入一个大工厂�
 
 [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)
 #### [spring下应用@Resource, @Autowired 和 @Inject注解进行依赖注入的差异](https://www.cnblogs.com/both-eyes/p/10096882.html)
+```markdown
 
+```
 #### Java配置类 @Configuration
 ```markdown
 @Configuration注释向Spring 表明这是一个配置类，它将为Spring 应用程序上下文提供beans。
 配置的类方法带有@Bean注释，指示它们返回的对象应作为beans添加到应用程序上下文中（默认情况下，它们各自的bean IDs将与定义它们的方法的名称相同）。
 与基于XML的配置相比，基于Java的配置具有多个优点，包括更高的类型安全性和改进的可重构性。即使这样，仅当Spring无法自动配置组件时，才需要使用Java或XML进行显式配置。
+```
+#### @Conditional 
+```markdown
+@Conditional 将会通过 Condition 接口进行条件对比：
+public interface Condition {
+  boolean matches(ConditionContext ctxt, AnnotatedTypeMetadata metadata);
+}
+如果matches()方法返回true，那么就会创建带有@Conditional注解的bean。如果matches()方法返回false，将不会创建这些bean。
 ```
 #### Spring @Transactional事务
 ```markdown

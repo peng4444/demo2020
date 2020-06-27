@@ -76,6 +76,7 @@ afterCompletion()：只有在 preHandle() 方法返回值为true 时才会执行
 [随笔分类 - Spring Boot](https://www.cnblogs.com/didispace/category/1392206.html)
 
 [随笔分类 - Spring Boot](https://www.cnblogs.com/didispace/category/1392206.html)
+[这一次搞懂SpringBoot核心原理（自动配置、事件驱动、Condition）](https://www.cnblogs.com/yewy/p/13194696.html)
 #### 1.[SpringBoot切面Aop的demo简单讲解](https://www.cnblogs.com/xuwujing/p/12927081.html)
 ```markdown
 AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（也叫面向方面编程），是目前软件开发中的一个热点，也是Spring框架中的一个重要内容。
@@ -194,6 +195,7 @@ main()方法调用SpringApplication类上的静态run()方法，该方法执行�
 [Spring Boot 开发微信公众号后台](https://www.cnblogs.com/lenve/p/11763295.html)
 ### 
 [【Springboot可执行jar和普通可引用jar】](https://www.cnblogs.com/lenve/p/11156340.html)
+[springboot的jar为何能独立运行](https://www.cnblogs.com/bolingcavalry/p/13195961.html)
 [基于SpringBoot的开源微信开发平台，Jeewx-Boot 1.0 版本发布](https://blog.csdn.net/zhangdaiscott/article/details/95994816)
 
 [springboot利用consul实现分布式锁](https://www.cnblogs.com/wenwuxianren/p/11181786.html)
