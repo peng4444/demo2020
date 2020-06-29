@@ -279,27 +279,155 @@ Thymeleaf是一项很有吸引力的技术，因为它能创建原始的模板�
 ```
 ### 第7章 Spring MVC的高级技术 
 >> 自定义Spring MVC配置、处理multipart文件上传、处理异常以及使用flash属性跨请求传递数据。
-#### 7.1 Spring MVC 配置的替代方案
-     
-#### 7.2 处理文件上传
-     
-#### 7.3 在控制器中处理异常
-     
-#### 7.4 使用flash属性
+#### 7.1 Spring MVC配置的替代方案
+```markdown
 
+```
+#### 7.2 处理文件上传
+#### 7.3 在控制器中处理异常
+```markdown
+Spring 提供了多种方式将异常转换为响应：
+    特定的 Spring 异常将会自动映射为指定的 HTTP 状态码；
+    异常上可以添加 @ResponseStatus 注解，从而将其映射为某一个 HTTP 状态码；
+    在方法上可以添加 @ExceptionHandler 注解，使其用来处理异常。
+```
+#### 7.4 为控制器添加通知和重定向请求场地参数
+```markdown
+控制器通知（controller advice）是任意带有 @ControllerAdvice 注解的类，这个类会包含一个或多个如下类型的方法：
+    @ExceptionHandler 注解标注的方法；
+    @InitBinder 注解标注的方法；
+    @ModelAttribute 注解标注的方法。
+return "redirect:/spitter/{username}";
+Spring 提供了通过 RedirectAttributes 设置 flash 属性的方法。
+```
 ### 第8章 使用Spring Web Flow 
->> 展示如何使用 Spring Web Flow 来构建会话式、基于流程的 Web 应用程序。
+>> 展示如何使用 Spring Web Flow来构建会话式、基于流程的 Web 应用程序。
+#### 8.1 创建会话式的Web应用程序
+```markdown
+当用户进入一个流程时，流程执行器会为用户创建并启动一个流程执行实例。当流程暂停的时候（如为用户展示视图时），流程执行器会在用户执行操作后恢复流程。
+在Spring中，<flow:flow-executor> 元素会创建一个流程执行器：<flow:flow-executor id="flowExecutor"/>
+流程注册表（flow registry）的工作是加载流程定义并让流程执行器能够使用它们。
+可以在Spring中使用 <flow:flow-registry> 配置流程注册表，如下所示：
+    <flow:flow-registry id="flowRegistry" base-path="/WEB-INF/flows">
+      <flow:flow-location-pattern value="*-flow.xml" />
+    </flow:flow-registry>
+```
+#### 8.2 定义流程状态和行为
+```markdown
+在 Spring Web Flow 中，流程是由三个主要元素定义的：状态、转移和流程数据。
+```
+#### 8.3 保护Web流程
+```markdown
+Spring Web Flow是如何结合Spring Security支持流程级别的安全性的。
+Spring Web Flow中的状态、转移甚至整个流程都可以借助<secured>元素实现安全性，该元素会作为这些元素的子元素。
+```
 ### 第9章 保护Web应用
 >> 如何使用Spring Security来为Web应用程序提供安全性，保护应用中的信息。
-
+#### 9.1 Spring Security介绍
+```markdown
+Spring Security是为基于Spring的应用程序提供声明式安全保护的安全性框架。提供了完整的安全性解决方案，它能够在Web请求级别和方法调用级别处理身份认证和授权。
+因为基于Spring框架，所以Spring Security充分利用了依赖注入（dependency injection，DI）和面向切面的技术。
+Spring Security从两个角度来解决安全性问题。它使用Servlet规范中的Filter保护Web请求并限制URL级别的访问。
+Spring Security还能够使用Spring AOP保护方法调用——借助于对象代理和使用通知，能够确保只有具备适当权限的用户才能访问安全保护的方法。
+    @EnableWebSecurity注解将会启用Web安全功能。
+Spring Security必须配置在一个实现了WebSecurityConfigurer的bean中，或者（简单起见）扩展WebSecurityConfigurerAdapter。
+为了让Spring Security满足我们应用的需求，还需要再添加一点配置。具体来讲，我们需要：
+    配置用户存储；
+    指定哪些请求需要认证，哪些请求不需要认证，以及所需要的权限；
+    提供一个自定义的登录页面，替代原来简单的默认登录页。
+```
+#### 9.2 使用Servlet规范中的Filter保护Web应用
+>> 拦截请求,认证用户,保护视图。
+```markdown
+拦截请求
+认证用户
+    添加自定义的登录页
+    启用HTTP Basic认证
+    启用Remember-me功能:rememberMe()你只要登录过一次，应用就会记住你，当再次回到应用的时候你就不需要登录了。
+    退出:logout()用户会退出应用，所有的Remember-me token都会被清除掉。
+        logoutSuccessUrl("/")//用户被重定向到其他的页面。
+保护视图
+```
+#### 9.3 基于数据库和LDAP进行认证
+```markdown
+Spring Security非常灵活，能够基于各种数据存储来认证用户。内置了多种常见的用户存储场景，如内存、关系型数据库以及LDAP。我们也可以编写并插入自定义的用户存储实现。
+1.使用基于内存的用户存储:
+    安全配置类扩展WebSecurityConfigurerAdapter，因此配置用户存储的最简单方式就是重载configure()方法，并以AuthenticationManagerBuilder作为传入参数。
+    AuthenticationManagerBuilder有多个方法可以用来配置Spring Security对认证的支持。通过inMemoryAuthentication()方法，可以启用、配置并任意填充基于内存的用户存储。
+2.基于数据库表进行认证:
+    使用以JDBC为支撑的用户存储，可以使用jdbc-Authentication()方法。
+3.基于 LDAP 进行认证
+```
 
 ## 第三部分：后端中的 Spring
 ### 第10章 通过Spring和JDBC征服数据库 
 >> 如何使用 Spring 的 JDBC 抽象来查询关系型数据库，这要比原生的 JDBC 简单得多。
-
+#### 10.1 定义 Spring 对数据访问的支持
+```markdown
+Spring JDBC提供的数据访问异常体系解决了以上的两个问题。不同于JDBC，Spring 提供了多个数据访问异常，分别描述了它们抛出时所对应的问题。
+Spring将数据访问过程中固定的和可变的部分明确划分为两个不同的类：模板（template）和回调（callback）。模板管理过程中固定的部分，而回调处理自定义的数据访问代码。
+```
+#### 10.2 配置数据库资源
+```markdown
+Spring提供了在Spring上下文中配置数据源bean的多种方式，包括：
+    通过JDBC驱动程序定义的数据源；
+        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+              p:driverClassName="org.h2.Driver"
+              p:url="jdbc:h2:tcp://localhost/~/spitter"
+              p:username="sa"
+              p:password="" />
+        @Bean
+        public DataSource dataSource() {
+          DriverManagerDataSource ds = new DriverManagerDataSource();
+          ds.setDriverClassName("org.h2.Driver");
+          ds.setUrl("jdbc:h2:tcp://localhost/~/spitter");
+          ds.setUsername("sa");
+          ds.setPassword("");
+          return ds;
+        }
+    通过JNDI查找的数据源；
+        <jee:jndi-lookup id="dataSource" jndi-name="/jdbc/SpitterDS" resource-ref="true" />
+    连接池的数据源。
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+              p:driverClassName="org.h2.Driver"
+              p:url="jdbc:h2:tcp://localhost/~/spitter"
+              p:username="sa"
+              p:password=""
+              p:initialSize="5"
+              p:maxActive="10" />
+        @Bean
+        public BasicDataSource dataSource() {
+          BasicDataSource ds = new BasicDataSource();
+          ds.setDriverClassName("org.h2.Driver");
+          ds.setUrl("jdbc:h2:tcp://localhost/~/spitter");
+          ds.setUsername("sa");
+          ds.setPassword("");
+          ds.setInitialSize(5);
+          ds.setMaxActive(10);
+          return ds;
+        }
+```
+#### 10.3 使用Spring的JDBC模版
+```markdown
+Spring为JDBC提供了三个模板类供选择：
+    JdbcTemplate：最基本的Spring JDBC模板，这个模板支持简单的JDBC数据库访问功能以及基于索引参数的查询；
+    NamedParameterJdbcTemplate：使用该模板类执行查询时可以将值以命名参数的形式绑定到SQL中，而不是使用简单的索引参数；
+    SimpleJdbcTemplate：该模板类利用Java 5的一些特性如自动装箱、泛型以及可变参数列表来简化JDBC模板的使用。
+```
 ###  第11章 通过对象-关系映射持久化数据 
 >> 如何与ORM框架进行集成，这些框架包括Hibernate以及其他的Java持久化API（Java Persistence API，JPA）实现。
 >> 除此之外，还将会看到如何发挥Spring Data JPA的魔力，在运行时自动生成Repository实现。
+#### 11.1 使用Spring和Hibernate
+```markdown
+使用Hibernate所需的主要接口是org.hibernate.Session。
+Session接口提供了基本的数据访问功能，如保存、更新、删除以及从数据库加载对象的功能。
+通过Hibernate的Session接口，应用程序的Repository能够满足所有的持久化需求。
+```
+#### 11.2 通过 Spring 使用 JPA
+```markdown
+基于JPA的应用程序需要使用EntityManagerFactory的实现类来获取EntityManager实例。
+```
+#### 11.3借助 Spring Data 实现自动化的 JPA Repository
 
 ### 第12章 使用NoSQL数据库
 >> 将会研究其他的Spring Data项目，它们能够持久化各种非关系型数据库中的数据，包括MongoDB、Neo4j和Redis。

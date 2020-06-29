@@ -89,23 +89,160 @@ BeanFactoryPostProcessor可以拿到整个容器对象，当然也能修改BeanD
 BeanPostProcessor执行的时候bean已经创建完成了，我们可以拿到想要的对象进行干预和设值等操作。
 ```
 #### 1.4.Spring核心概念之Bean生命周期管理
+[Spring Bean各阶段生命周期的介绍](https://www.cnblogs.com/-beyond/p/13188675.html)
+![Bean的生命周期](https://img2020.cnblogs.com/blog/848880/202006/848880-20200627155704205-940936200.png)
 ```markdown
 BeanFactory是Spring的核心--容器，ApplicationContext则是包裹容器的上下文，丰富容器的功能（资源加载，事件驱动等）。FactoryBean也是Spring扩展性的提现。
 BeanFactory已经定义了整个的生命周期，子类只是负责实现，demo演示也只是为了证实。我们更应该关注更上层的东西 
 ApplicationContext是对容器更精细化的包装，提供了更完善的功能
-FactoryBean是Spring扩展性的提现，可供用户自己定义创建bean。扩展性提炼的很好
+FactoryBean是Spring扩展性的提现，可供用户自己定义创建bean。扩展性提炼的很好。
 ```
 #### 1.5.Spring的依赖注入(DI)
 ```markdown
 Spring利用反射创建对象，并将创建好的对象放入一个大工厂，实现了对象创建和使用的解耦。需要使用的时候可以方便的通过BeanFactory.getBean()获取。
 在此之上还扩展了对注解的支持，使用注解就可以注入对象。
 ```
-#### 1.6.[Spring IoC bean 的加载](https://www.cnblogs.com/leisurexi/p/13194515.html)
+
+### Spring强化 -- 博客
+#### 1.[SpringIoC BeanDefinition的加载和注册](https://www.cnblogs.com/leisurexi/p/12701046.html)
+```markdown
+SpringIOC容器如何加载Bean的定义信息：
+    //声明bean工厂，然后通过指定的XML文件加载bean的定义元信息，最后通过bean工厂获取bean。
+    DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+    XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
+    reader.loadBeanDefinitions("bean-definition.xml");
+    User user = beanFactory.getBean("user", User.class);
+    System.err.println(user);//User{id=1, name='leisurexi', password='azxcfs', age=18, city=City{id=1, name='beijing'}}
+2个核心类DefaultListableBeanFactory和XmlBeanDefinitionReader。
+    1.XmlBeanDefinitionReader继承AbstractBeanDefinitionReader#loadBeanDefinitions方法#
+        #方法#将资源文件转换为Resource对象，然后调用loadBeanDefinitions(Resource...) 加载 BeanDefinition 。
+    2.XmlBeanDefinitionReader#loadBeanDefinitions方法#
+        #方法#将Resource封装成EncodedResource ，也就是制定资源的编码和字符集。然后获取Resource的输入流InputStream ，
+        并封装成InputSource设置其编码，最终调用doLoadBeanDefinitions开始真正的加载流程。
+    3.XmlBeanDefinitionReader#doLoadBeanDefinitions方法#
+        #方法#根据inputSource和resource加载XML文件，并封装成Document，用doc去解析和注册bean definition，
+    4.XmlBeanDefinitionReader#registerBeanDefinitions方法#
+        #方法#获取到本次注册的数量
+    5.DefaultBeanDefinitionDoucumentReader#registerBeanDefinitions方法#
+        #方法#提取root，注册BeanDefinition
+```
+#### 2.[SpringIoC bean的加载](https://www.cnblogs.com/leisurexi/p/13194515.html)
+>> beanFactory.getBean() 方法就获取了在XML中定义的bean。
+```markdown
+FactoryBean的特殊之处在于它可以向容器中注册两个bean，一个是它本身，一个是FactoryBean.getObject() 法返回值所代表的bean。
+beanName前面加上&获取的是FactoryBean本身，不加获取的getObject()返回的对象。
+bean的加载
+   1.AbstractBeanFactory#getBean方法# 
+        getBean调用doGetBean方法(方法以do开头实际做操作的方法)，根据bean的名称和类型返回bean实例。
+            1.转换对应的beanName->AbstractBeanFactory#transformedBeanName#
+            2.尝试从单例缓存获取 bean->AbstractBeanFactory#getSingleton#
+            3.获取 bean 实例对象->AbstractBeanFactory#getObjectForBeanInstance#
+            4.合并 bean 定义元信息->AbstractBeanFactory#getMergedLocalBeanDefinition#
+                主要是获取 MergedBeanDefinition ，主要步骤如下：
+                1.首先从缓存中获取bean的MergedBeanDefinition，如果存在并且未过期直接返回。
+                2.不存在或者已过期的MergedBeanDefinition，获取已经注册的BeanDefinition去作为顶级bean合并。
+                3.bean没有parent(就是XML中的parent属性)，直接封装成RootBeanDefinition 。
+                4.bean有parent，先去获取父MergedBeanDefinition，然后覆盖和合并与parent相同的属性。
+                注意：这里只有abstract、scope、lazyInit、autowireMode、dependencyCheck、dependsOn 、factoryBeanName、factoryMethodName、
+                initMethodName、destroyMethodName会覆盖，而constructorArgumentValues、propertyValues、methodOverrides 会合并。
+                5.如果没有设置作用域，默认作用域为singleton 。
+                6.缓存MergedBeanDefinition 。
+            5.寻找依赖->DefaultSingletonBeanRegistry#isDependent#
+                     ->DefaultSingletonBeanRegistry#registerDependentBean#
+            6.创建和注册单例 bean->DefaultSingletonBeanRegistry#getSingleton#
+getBean()方法流程，我们可以重新梳理一下思路：
+    1.获取bean实际名称，如果缓存中存在直接取出实际bean返回。
+    2.缓存中不存在，判断当前工厂是否有BeanDefinition，没有递归去父工厂创建bean。
+    3.合并BeanDefinition，如果depends-on不为空，先去初始化依赖的bean。
+    4.如果bean的作用域是单例，调用createBean()方法创建实例，这个方法会执行bean的其它生命周期回调，以及属性赋值等操作；
+        接着执行单例bean创建前后的生命周期回调方法，并放入singletonObjects缓存起来。
+    5.如果bean的作用域是原型，调用createBean()方法创建实例，并执行原型bean前后调用生命周期回调方法。
+    6.如果bean的作用域是自定义的，获取对应的Scope对象，调用重写的get()方法获取实例，并执行原型bean前后调用生命周期回调方法。
+    7.最后检查所需的类型是否与实际bean实例的类型匹配，如果不等进行转换，最后返回实例。
+```
+#### 3.[SpringIoC bean的创建](https://www.cnblogs.com/leisurexi/p/13196998.html)
+```markdown
+本篇文章主要介绍Spring IoC容器是怎么创建bean的实例。
+if (mbd.isSingleton()) {
+    // 创建和注册单例 bean
+    sharedInstance = getSingleton(beanName, () -> {
+        try {
+            // 创建 bean 实例
+            return createBean(beanName, mbd, args);
+        }
+       	// 省略异常处理...
+    });
+    bean = getObjectForBeanInstance(sharedInstance, name, beanName, mbd);
+}
+如果bean的作用域是单例，会调用getSingleton()方法并传入beanName和ObjectFactory作为参数；
+而getSingleton()方法会调用ObjectFactory的getObject()方法也就是上面代码中的createBean()方法，返回bean。
+这里的 ObjectFactory 是 bean 的延迟依赖查找接口，定义如下：
+    @FunctionalInterface
+    public interface ObjectFactory<T> {
+        T getObject() throws BeansException;
+    }
+只有在调用getObject()方法时才会真正去获取bean。下面我们正式开始分析createBean()方法。
+    1.调用createBean()->AbstractAutowireCapableBeanFactory#createBean#
+    2.bean实例化前置处理->InstantiationAwareBeanPostProcessor接口继承于BeanPostProcessor
+        BeanPostProcessor中定义了bean的初始化阶段生命周期回调方法，会在后续介绍）提供了三个扩展点，如下：
+             bean 实例化前
+             bean 实例化后
+             bean 属性赋值前
+             这也是bean实例化阶段的生命周期回调方法。
+        判断bean在实例化之前是否已经解析过->AbstractAutowireCapableBeanFactory#resolveBeforeInstantiation#
+    3.创建bean->AbstractAutowireCapableBeanFactory#doCreateBean#
+        1).创建bean的实例->AbstractAutowireCapableBeanFactory#createBeanInstance#
+        2).默认无参构造器实例化bean->AbstractAutowireCapableBeanFactory#instantiateBean#
+        3).寻找合适的构造器实例化bean->ConstructorResolver#autowireConstructor#
+            解析构造函数参数->ConstructorResolver#resolveConstructorArguments#
+            创建参数数组->ConstructorResolver#createArgumentArray#判断构造函数如果有匹配的参数会转换成对应类型，如果没有匹配的参数，
+                多半是构造函数自动注入，通过resolveAutowiredArgument()去查找bean并返回实例。
+                ConstructorResolver#resolveAutowiredArgument#
+        4).依赖解决->DefaultListableBeanFactory#resolveDependency#
+            DefaultListableBeanFactory#doResolveDependency#
+        5).BeanDefinition合并后处理->AbstractAutowireCapableBeanFactory#applyMergedBeanDefinitionPostProcessors#
+            拿到所有注册的BeanPostProcessor，然后遍历判断是否是MeragedBeanDefinitionPostProcessor类型，是的话进行BeanDefinition合并后的方法回调，
+            在这个回调方法内你可以对指定bean的BeanDefinition做一些修改。
+本文主要介绍了创建bean实例的流程，我们可以重新梳理一下思路：
+    1.进行bean的实例化前方法回调，如果返回非空，跳过后面步骤
+    2.创建bean的实例，如果是构造函数注入会选择最适合的构造函数进行参数自动注入，否则调用默认的无参构造进行实例化bean。
+```
+#### 4.[SpringIoC 循环依赖的处理](https://www.cnblogs.com/leisurexi/p/13199726.html)
+```markdown
+什么是循环依赖?循环依赖就是循环引用，就是两个或多个bean相互之间的持有对方，比如A引用B，B引用A。
+Spring IoC 容器对循环依赖的处理有三种情况：
+    1.构造器循环依赖：此依赖Spring无法处理，直接抛出BeanCurrentlylnCreationException异常。
+    2.单例作用域下的setter循环依赖：此依赖Spring通过三级缓存来解决。
+    3.非单例的循环依赖：此依赖Spring无法处理，直接抛出BeanCurrentlylnCreationException异常。
+构造器循环依赖：
+    getSingleton()方法会判断是否是第一次创建该bean，如果是第一次会先去创建bean，也就是调用ObjectFacoty的getObject()方法，
+        即调用createBean()方法创建bean前，会先将当前正要创建的bean记录在缓存singletonsCurrentlyInCreation中。
+setter循环依赖：
+    在创建A时发现依赖B，便先去创建B；B在创建时发现依赖A，此时A因为是通过构造函数创建，所以没创建完，便又去创建A，
+        发现A存在于singletonsCurrentlyInCreation，即正在创建中，便抛出BeanCurrentlylnCreationException异常。
+非单例循环依赖：
+    对于非单例的bean，Spring容器无法完成依赖注入，因为Spring容器不进行缓存，因此无法提前暴露一个创建中的bean。
+```
+#### 5.[搞懂Spring代理创建及AOP链式调用过程](https://www.cnblogs.com/yewy/p/13199260.html)
+```markdown
+AOP也就是面向切面编程，它可以将公共的代码抽离出来，动态的织入到目标类、目标方法中，大大提高我们编程的效率，也使程序变得更加优雅。
+如事务、操作日志等都可以使用AOP实现。这种织入可以是在运行期动态生成代理对象实现，也可以在编译期、类加载时期静态织入到代码中。
+而Spring正是通过第一种方法实现，且在代理类的生成上也有两种方式：JDK Proxy和CGLIB，默认当类实现了接口时使用前者，否则使用后者；另外Spring AOP只能实现对方法的增强。
+    AOP的术语很多，虽然不清楚术语我们也能很熟练地使用AOP，但是要理解分析源码，术语就需要深刻体会其含义。
+        增强（Advice）：就是我们想要额外增加的功能
+        目标对象（Target）：就是我们想要增强的目标类，如果没有AOP，我们需要在每个目标对象中实现日志、事务管理等非业务逻辑
+        连接点（JoinPoint）：程序执行时的特定时机，如方法执行前、后以及抛出异常后等等。
+        切点（Pointcut）：连接点的导航，我们如何找到目标对象呢？切点的作用就在于此，在Spring中就是匹配表达式。
+        引介（Introduction）：引介是一种特殊的增强，它为类添加一些属性和方法。这样，即使一个业务类原本没有实现某个接口，
+            通过AOP的引介功能，我们可以动态地为该业务类添加接口的实现逻辑，让业务类成为这个接口的实现类。
+        织入（Weaving）：即如何将增强添加到目标对象的连接点上，有动态（运行期生成代理）、静态（编译期、类加载时期）两种方式。
+        代理（Proxy）：目标对象被织入增强后，就会产生一个代理对象，该对象可能是和原对象实现了同样的一个接口（JDK），也可能是原对象的子类（CGLIB）。
+        切面（Aspect、Advisor）：切面由切点和增强组成，包含了这两者的定义。
+```
 ### 2.Spring源码
 [读Spring源码，我们可以从第一行读起](https://blog.csdn.net/qq_41907991/article/details/105667900)
-
 [spring源码](https://www.cnblogs.com/youzhibing/category/958792.html)
-
+[由浅入深详细的介绍Spring框架的原理和源码](https://www.cnblogs.com/binghe001/category/1780611.html)
 [当前标签：品Spring](https://www.cnblogs.com/lixinjie/tag/%E5%93%81Spring/)
 #### 2.1.SpringIOC框架容器核心源码逐步剖析
 [Spring Framework框架容器核心源码逐步剖析](https://www.cnblogs.com/jimisun/p/10104002.html)
@@ -125,7 +262,6 @@ Spring利用反射创建对象，并将创建好的对象放入一个大工厂�
 [【面试】足够应付面试的Spring事务源码阅读梳理（建议珍藏）](https://www.cnblogs.com/lixinjie/p/a-enough-source-read-of-spring-tx-for-interview.html)
 
 ### 3.Spring注解
-[由浅入深详细的介绍Spring框架的原理和源码](https://www.cnblogs.com/binghe001/category/1780611.html)
 #### [【Spring注解驱动开发】聊聊Spring注解驱动开发那些事儿！](https://www.cnblogs.com/binghe001/p/13047333.html)
 ![Spring注解驱动开发](https://img2020.cnblogs.com/blog/1729473/202006/1729473-20200605000243595-700419751.jpg)
 ```markdown
