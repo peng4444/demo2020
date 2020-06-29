@@ -427,32 +427,177 @@ Session接口提供了基本的数据访问功能，如保存、更新、删除�
 ```markdown
 基于JPA的应用程序需要使用EntityManagerFactory的实现类来获取EntityManager实例。
 ```
-#### 11.3借助 Spring Data 实现自动化的 JPA Repository
-
+#### 11.3借助Spring Data实现自动化的JPA Repository
+```markdown
+声明自定义查询
+@Query("select s from Spitter s where s.email like '%gmail.com'")
+List<Spitter> findAllGmailSpitters();
+```
 ### 第12章 使用NoSQL数据库
 >> 将会研究其他的Spring Data项目，它们能够持久化各种非关系型数据库中的数据，包括MongoDB、Neo4j和Redis。
-
+#### 12.1 为MongoDB和Neo4j编写Repository
+```markdown
+Spring Data MongoDB提供了三种方式在Spring应用中使用MongoDB：
+    通过注解实现对象-文档映射；
+    使用MongoTemplate实现基于模板的数据库访问；
+    自动化的运行时Repository生成功能。
+@EnableMongoRepositories 注解启用了 Spring Data MongoDB 的 Repository 功能
+第一个是带有@Document注解的对象类型，也就是该Repository要处理的类型。第二个参数是带有@Id注解的属性类型。
+```
+```markdown
+Spring Data Neo4j提供了很多与Spring Data JPA和Spring Data MongoDB相同的功能，当然所针对的是Neo4j图数据库。
+它提供了将Java对象映射到节点和关联关系的注解、面向模板的Neo4j访问方式以及Repository实现的自动化生成功能。
+Spring Data MongoDB提供了MongoTemplate实现基于模板的MongoDB持久化，
+与之类似，Spring Data Neo4j提供了Neo4jTemplate来操作Neo4j图数据库中的节点和关联关系。
+```
+#### 12.2 组合使用Spring和Redis
+```markdown
+Redis是一种特殊类型的数据库，它被称之为key-value存储。
+Spring Data Redis为四种Redis客户端实现提供了连接工厂：
+    JedisConnectionFactory
+    JredisConnectionFactory
+    LettuceConnectionFactory
+    SrpConnectionFactory
+    @Bean
+    public RedisConnectionFactory redisCF() {
+      JedisConnectionFactory cf = new JedisConnectionFactory();
+      cf.setHostName("redis-server");
+      cf.setPort(7379);
+      cf.setPassword("foobared");
+      return cf;
+    }
+Spring Data Redis 提供了两个模板：
+    RedisTemplate
+    StringRedisTemplate
+@Bean
+public RedisTemplate<String, Product> redisTemplate(RedisConnectionFactory cf) {
+  RedisTemplate<String, Product> redis = new RedisTemplate<String, Product>();
+  redis.setConnectionFactory(cf);
+  redis.setKeySerializer(new StringRedisSerializer());
+  redis.setValueSerializer(new Jackson2JsonRedisSerializer<Product>(Product.class));
+  return redis;
+}
+```
 ### 第13章 缓存数据
 >> 为上述的持久化章提供了一个缓存层，如果数据已经可用的话，它会避免数据库操作，从而提升应用的性能。
-
+#### 13.1 启用声明式缓存
+```markdown
+Spring 对缓存的支持有两种方式：
+    注解驱动的缓存
+        使用Spring的缓存抽象时，最为通用的方式就是在方法上添加@Cacheable和@CacheEvict注解。
+        在往bean上添加缓存注解之前，必须要启用Spring对注解驱动缓存的支持。@EnableCaching
+    XML 声明的缓存
+        <cache:annotation-driven /> 启用注解驱动的缓存。
+@Cacheable 和 @CachePut 注解都可以填充缓存
+ @CacheEvict 注解移除缓存条目
+```
+#### 13.2 使用 Ehcache、Redis 和 GemFire 实现缓存功能
+#### 13.3 注解驱动的缓存
 ### 第14章 保护方法应用 
 >> 将会把Spring Security应用于后端，它会拦截方法的调用并确保调用者被授予了适当的权限。
-
-
+>> 使用Spring Security保护bean方法。通过这种方式，就能声明安全规则，保证如果用户没有执行方法的权限，就不会执行相应的方法。
+#### 14.1 使用注解保护方法
+```markdown
+Spring Security 提供了三种不同的安全注解：
+    Spring Security 自带的 @Secured 注解；
+    JSR-250 的 @RolesAllowed 注解；
+    表达式驱动的注解，包括 @PreAuthorize、@PostAuthorize、@PreFilter 和 @PostFilter。
+@Secured 和 @RolesAllowed 方案非常类似，能够基于用户所授予的权限限制对方法的访问。
+Spring Security 提供了 @PreAuthorize 和 @PostAuthorize在方法上定义更灵活的安全规则
+@PreFilter/@PostFilter 能够过滤方法返回的以及传入方法的集合。
+@EnableGlobalMethodSecurity注解启用基于注解的方法安全性
+```
+#### 14.2 使用表达式实现方法级别的安全性
+```markdown
+@Secured 和 @RolesAllowed 能够限制只有用户具备所需的权限才能触发方法的执行。
+但是，这两个注解的不足在于它们只能基于用户授予的权限来做出决策。
+Spring Security还提供了两个注解，@PreAuthorize和@PostAuthorize，它们能够基于表达式的计算结果来限制方法的访问。
+@PreAuthorize 和 @PostAuthorize 之间的关键区别在于表达式执行的时机。
+    @PreAuthorize 的表达式会在方法调用之前执行，如果表达式的计算结果不为 true 的话，将会阻止方法执行。
+    与之相反，@PostAuthorize 的表达式直到方法返回才会执行，然后决定是否抛出安全性的异常。
+@PreFilter 和 @PostFilter 提供 SpEL 表达式，过滤方法的输入和输出。
+```
 ## 第四部分　Spring集成
 ### 第15章 使用远程服务
 >> 如何将应用程序中的对象导出为远程服务，还会学习如何透明地访问远程服务，这些服务就像是应用程序中的其他对象一样。
 >> 将会介绍各种远程技术，包括 RMI、Hessian/Burlap 以及使用 JAX-WS 的 SOAP Web 服务。
-
+#### 15.1 Spring远程调用
+```markdown
+有多种可以使用的远程调用技术，包括：
+    远程方法调用（Remote Method Invocation，RMI）；不考虑网络限制时（例如防火墙），访问/发布基于Java的服务
+    Caucho的Hessian和Burlap；考虑网络限制时，通过HTTP访问/发布基于Java的服务。Hessian是二进制协议，而Burlap是基于XML的
+    Spring基于HTTP的远程服务；考虑网络限制，并希望使用基于XML或专有的序列化机制实现Jav 序列化时，访问/发布基于Spring的服务
+    使用JAX-RPC和JAX-WS的Web Service。访问/发布平台独立的、基于SOAP的Web服务
+```
+#### 15.2 访问和发布RMI服务
+```markdown
+1.编写一个服务实现类，类中的方法必须抛出 java.rmi.RemoteException 异常；
+2.创建一个继承于 java.rmi.Remote 的服务接口；
+3.运行 RMI 编译器（rmic），创建客户端 stub 类和服务端 skeleton 类；
+4.启动一个 RMI 注册表，以便持有这些服务；
+5.在 RMI 注册表中注册服务。
+```
+#### 15.3 使用 Hessian 和 Burlap 服务
+```markdown
+Hessian 和 Burlap 是 Caucho Technology 提供的两种基于 HTTP 的轻量级远程服务解决方案。
+借助于尽可能简单的 API 和通信协议，它们都致力于简化 Web 服务。
+```
+#### 15.4 使用 Spring 的 HTTP invoker
+```markdown
+HTTP invoker是一个新的远程调用模型，作为Spring框架的一部分，能够执行基于HTTP的远程调用（让防火墙不为难），并使用Java的序列化机制（让开发者也乐观其变）。
+```
+#### 15.5 使用 Spring 开发 Web 服务
+```markdown
+@Bean
+public JaxWsProxyFactoryBean spitterService() {
+  JaxWsProxyFactoryBean proxy = new JaxWsProxyFactoryBean();
+  proxy.setWsdlDocument("http://localhost:8080/services/SpitterService?wsdl");
+  proxy.setServiceName("spitterService");
+  proxy.setPortName("spitterServiceHttpPort");
+  proxy.setServiceInterface(SpitterService.class);
+  proxy.setNamespaceUrl("http://spitter.com");
+  return proxy;
+}
+```
 ### 第16章 使用Spring MVC创建REST API 
->> 将会探讨如何使用 Spring MVC 构建 RESTful 服务，它关注于应用程序中的资源。
-
+>> 将会探讨如何使用Spring MVC构建RESTful服务，它关注于应用程序中的资源。
+>> REST就是将资源的状态以最适合客户端或服务端的形式从服务器端转移到客户端
+#### 16.1 编写处理 REST 资源的控制器
+#### 16.2 以 XML、JSON 及其他格式来表述资源
+#### 16.3 使用 REST 资源数据为王。
+```markdown
+@ResponseBody提供了一种很有用的方式，能够将控制器返回的Java对象转换为发送到客户端的资源表述。
+Spring 提供了多种方式来处理这样的场景：
+    使用 @ResponseStatus 注解可以指定状态码；
+    控制器方法可以返回 ResponseEntity 对象，该对象能够包含 更多响应相关的元数据；
+    异常处理器能够应对错误场景，这样处理器方法就能关注于正常的状况。
+```
 ### 第17章 Spring消息 
 >> 将会探索一种不同的应用集成方式，Spring如何用于Java消息服务（JMS）和高级消息队列协议（AMQP），从而实现应用程序之间的异步通信。
-
+#### 17.1 异步消息简介
+```markdown
+消息则是异步发送的,客户端不需要等待服务处理消息，甚至不需要等待消息投递完成。
+客户端发送消息，然后继续执行，这是因为客户端假定服务最终可以收到并处理这条消息。
+```
+#### 17.2 基于JMS的消息功能
+```markdown
+Spring通过基于模板的抽象为JMS功能提供了支持，这个模板也就是JmsTemplate。
+使用JmsTemplate能够非常容易地在消息生产方发送队列和主题消息，在消费消息的那一方，也能够非常容易地接收这些消息
+ActiveMQ 是一个伟大的开源消息代理产品，也是使用 JMS 进行异步消息传递的最佳选择。
+ActiveMQConnectionFactory是ActiveMQ自带的连接工厂，在Spring中可以使用如下方式进行配置：
+<bean id="connectionFactory"
+      class="org.apache.activemq.spring.ActiveMQConnectionFactory" />
+```
+#### 17.3 使用Spring和AMQP发送消息
+```markdown
+RabbitMQ是一个流行的开源消息代理，它实现了AMQP。Spring AMQP为RabbitMQ提供了支持，包括RabbitMQ连接工厂、模板以及Spring配置命名空间。
+```
 ### 第18章 使用WebSocket和STOMP实现消息功能
->> 将会展现 Spring 的一项新功能，它支持在服务器和 Web 客户端之间实现异步通信。
+>> 将会展现Spring的一项新功能，它支持在服务器和Web客户端之间实现异步通信。
+#### 18.1 使用WebSocket和STOMP实现消息功能
+```markdown
 
+```
 ### 第19章 使用Spring发送Email
 >> 将会展现如何借助 Spring 以 Email 的形式发送异步消息给目标人群。
 
