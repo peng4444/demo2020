@@ -1,5 +1,18 @@
 # Mybatis学习
 ## Mybatis基础
+```markdown
+Mybatis原理
+- sqlsessionFactoryBuilder生成sqlsessionFactory（单例）
+- 工厂模式生成sqlsession执行sql以及控制事务
+- Mybatis通过动态代理使Mapper（sql映射器）接口能运行起来即为接口生成代理对象将sql查询到结果映射成pojo
+sqlSessionFactory构建过程
+- 解析并读取配置中的xml创建Configuration对象 （单例）
+- 使用Configruation类去创建sqlSessionFactory（builder模式）
+Mybatis一级缓存与二级缓存
+默认情况下一级缓存是开启的，而且是不能关闭的。
+- 一级缓存是指SqlSession级别的缓存 原理：使用的数据结构是一个map，如果两次中间出现commit操作 （修改、添加、删除），本sqlsession中的一级缓存区域全部清空
+- 二级缓存是指可以跨SqlSession的缓存。是mapper级别的缓存；原理：是通过CacheExecutor实现的。CacheExecutor其实是Executor的代理对象
+```
 [随笔分类-Mybatis](https://www.cnblogs.com/zwwhnly/category/1492402.html) 
 
 [MyBatis框架的使用及源码分析](https://www.cnblogs.com/zsg88/category/1080098.html)  

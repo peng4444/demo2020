@@ -596,13 +596,51 @@ RabbitMQ是一个流行的开源消息代理，它实现了AMQP。Spring AMQP为
 >> 将会展现Spring的一项新功能，它支持在服务器和Web客户端之间实现异步通信。
 #### 18.1 使用WebSocket和STOMP实现消息功能
 ```markdown
-
+在浏览器和服务器之间发送消息
+在 Spring MVC 控制器中处理消息
+为目标用户发送消息
+WebSocket协议提供了通过一个套接字实现全双工通信的功能。除了其他的功能之外，它能够实现Web浏览器和服务器之间的异步通信。
+全双工意味着服务器可以发送消息给浏览器，浏览器也可以发送消息给服务器。
+Spring 4.0为WebSocket通信提供了支持，包括：
+    - 发送和接收消息的低层级 API；
+    - 发送和接收消息的高级 API；
+    - 用来发送消息的模板；
+    - 支持SockJS，用来解决浏览器端、服务器以及代理不支持WebSocket的问题。
+在Spring的Java配置中，这需要在一个配置类上使用@EnableWebSocket，并实现 WebSocketConfigurer 接口
+Spring为STOMP消息提供了基于Spring MVC的编程模型。
+Spring 提供了两种发送数据给客户端的方法：
+    作为处理消息或处理订阅的附带结果；
+    使用消息模板。
+在使用 Spring 和 STOMP 消息功能的时候，我们有三种方式利用认证用户：
+    @MessageMapping 和 @SubscribeMapping 标注的方法能够使用 Principal 来获取认证用户；
+    @MessageMapping、@SubscribeMapping 和 @MessageException 方法返回的值能够以消息的形式发送给认证用户；
+    SimpMessagingTemplate 能够发送消息给特定用户。
 ```
 ### 第19章 使用Spring发送Email
->> 将会展现如何借助 Spring 以 Email 的形式发送异步消息给目标人群。
-
-### 第20章 使用JMX管理Spring Bean
+>> 将会展现如何借助Spring以Email的形式发送异步消息给目标人群。
+#### 19.1 配置Spring的Email抽象功能
+#### 19.2 发送丰富内容的Email消息
+#### 19.3 使用模板构建Email消息
+### 第20章 使用JMX管理SpringBean
 >> 会学到如何把配置在 Spring 中 bean 自动导出为 JMX MBean。
-
+#### 20.1 将 Spring bean 暴露为 MBean
+#### 20.2 远程管理 Spring Bean
+#### 20.3 处理 JMX 通知
 ### 第21章 借助SpringBoot简化Spring开发
->> 在典型的Spring应用中，会有很多繁杂的样板式配置，在这一章将会看到Spring Boot如何移除这些配置，能够让我们关注于业务功能的实现。
+>> 在典型的Spring应用中，会有很多繁杂的样板式配置，在这一章将会看到SpringBoot如何移除这些配置，能够让我们关注于业务功能的实现。
+#### 21.1 使用 Spring Boot Starter 添加项目依赖
+```markdown
+Spring Boot Starter:它将常用的依赖分组进行了整合，将其合并到一个依赖中，这样就可以一次性添加到项目的Maven或Gradle构建中；
+```
+#### 21.2 自动化的 bean 配置
+```markdown
+自动配置：Spring Boot的自动配置特性利用了Spring4对条件化配置的支持，合理地推测应用所需的bean并自动化配置它们；
+```
+#### 21.3 Groovy 与 Spring Boot CLI
+```markdown
+命令行接口（Command-line interface，CLI）：SpringBoot的CLI发挥了Groovy编程语言的优势，并结合自动配置进一步简化Spring应用的开发；
+```
+#### 21.4 Spring Boot Actuator
+```markdown
+Actuator：它为 Spring Boot 应用添加了一定的管理特性。
+```

@@ -84,7 +84,23 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 * 用途
     日志记录，性能统计，安全控制，权限管理，事务处理，异常处理，资源池管理。
 ```
-#### 2.
+#### 2.SpringBoot启动流程
+[SpringBoot启动流程分析（一）：SpringApplication类初始化过程](https://www.cnblogs.com/hello-shf/p/10976646.html)
+[SpringBoot启动原理及相关流程](https://www.cnblogs.com/l3306/p/10752907.html)
+```markdown
+- new springApplication对象，利用spi机制加载applicationContextInitializer,applicationLister接口实例（META-INF/spring.factories）；
+- 调run方法准备Environment，加载应用上下文（applicationContext），发布事件 很多通过lister实现
+- 创建spring容器，refreshContext()，实现starter自动化配置，spring.factories文件加载，bean实例化
+SpringBoot自动配置的原理
+    - @EnableAutoConfiguration找到META-INF/spring.factories（需要创建的bean在里面）配置文件
+    - 读取每个starter中的spring.factories文件
+```
+#### 3.SpringBoot常用starter都有哪些
+```markdown
+spring-boot-starter-web-Web和RESTful应用程序；spring-boot-starter-test-单元测试和集成测试；
+spring-boot-starter-jdbc-传统的JDBC；spring-boot-starter-security-使用SpringSecurity进行身份验证和授权；
+spring-boot-starter-data-jpa-带有Hibernate的Spring Data JPA；spring-boot-starter-data-rest-使用Spring Data REST公布简单的REST服务
+```
 
 #### 10.SpringBoot构建RESTAPI与单元测试
 [Spring Boot 2.x基础教程：构建RESTful API与单元测试](https://www.cnblogs.com/didispace/p/11606136.html)
@@ -101,7 +117,13 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 ### 2.SpringBoot注解
 [接近8000字的Spring/SpringBoot常用注解总结！安排！](https://www.cnblogs.com/javaguide/p/spring-annotations.html)
 [[Spring Boot 注解大全，真是太全了！](https://www.cnblogs.com/qwlscn/p/11495378.html)]
-
+#### 2.1. Spring Boot 的核心注解
+```markdown
+核心注解是@SpringBootApplication 由以下三种组成
+    - @SpringBootConfiguration：组合了@Configuration注解，实现配置文件的功能。
+    - @EnableAutoConfiguration：打开自动配置的功能。
+    - @ComponentScan：Spring组件扫描。
+```
 #### 2.1.启动类：@SpringBootApplication
 [Spring Boot 解决方案 - 配置](https://www.cnblogs.com/linzhehuang/p/10617116.html)
 ```markdown
@@ -163,8 +185,9 @@ main()方法调用SpringApplication类上的静态run()方法，该方法执行�
 ```
 
 ### 4.SpringBoot与其他框架应用
+[SpringBoot整合Shiro实现基于角色的权限访问控制(RBAC)系统简单设计从零搭建](https://www.cnblogs.com/ealenxie/p/10610741.html)
 [SpringBoot集成Shiro实现动态加载权限](https://www.cnblogs.com/zhengqing/p/11603824.html)
-
+[]
 [Spring Boot项目中使用Mockito](https://www.cnblogs.com/javaadu/p/11748415.html)
 
 [SpringBoot2.0+Nacos+Sentinel流控规则集中存储](https://www.cnblogs.com/smallSevens/p/11553695.html)
