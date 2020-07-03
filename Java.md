@@ -115,7 +115,7 @@ public class Test {
 ```
 [用Map+函数式接口来实现策略模式](https://www.cnblogs.com/keeya/p/13187727.html)
 [新来的"大神"用策略模式把if else给"优化"了，技术总监说：能不能想好了再改？](https://www.cnblogs.com/hollischuang/p/13186766.html)
-
+[运用设计模式告别项目中大量臃肿的if else](https://www.cnblogs.com/-tang/p/13226887.html)
 ## Java爬虫
 [不会python?那就换一种姿势爬虫！Java爬虫技术总结](https://www.cnblogs.com/carloschan/p/10572788.html)
 
@@ -129,4 +129,6 @@ public class Test {
 [原来热加载如此简单，手动写一个 Java 热加载吧](https://www.cnblogs.com/niumoo/p/11756703.html)
 
 [大型车祸现场，电商秒杀超卖，这个锅到底有谁来背？](https://www.cnblogs.com/smallSevens/p/11691432.html)
+
+[Java之——实现微信小程序加密数据解密算法](https://blog.csdn.net/l1028386804/article/details/79450115)
 
