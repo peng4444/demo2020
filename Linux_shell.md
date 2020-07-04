@@ -1,4 +1,6 @@
 # Linux Shell
+[当前标签：每天学习一个linux命令](https://www.cnblogs.com/huchong/tag/%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AAlinux%E5%91%BD%E4%BB%A4/)
+[随笔分类 - Shell](https://www.cnblogs.com/surpassme/category/1257268.html)
 
 [TOC]
 
@@ -99,9 +101,7 @@ echo ${url:5}
 ![1551257318527](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551257318527.png)
 
 ![1551257515473](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551257515473.png)
-
 ## 3条件测试
-
 ```
 test -d  测试文件类型和数值比较	test -d /home    测试文件为目录，加！取返 ！test -d /home
 [   ]							[ ! -d $back_dir ] 
@@ -133,9 +133,7 @@ case删除用户
 ```
 
 ![1551323355934](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551323355934.png)
-
 ## 4.if for流程控制
-
 ```
 安装Apache测试 vi install_apache.sh
 #!/usr/bin/bash
@@ -204,9 +202,7 @@ vi modify_passwd.sh
 ![1551335780421](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551335780421.png)
 
 ![1551335845489](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551335845489.png)
-
 ## 5.非交互式Expect
-
 ```
 Expect实现scp非交互传输文件
 vi expect_scp01.sh
@@ -229,15 +225,11 @@ vi expect_ssh.sh
 ```
 
 ![1551337090454](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551337090454.png)
-
 ##  6.shell数组变量
-
 ![1551259012875](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551259012875.png)
-
 ```
 查看数组 declare -a
 ```
-
 ![1551259145663](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551259145663.png)
 
 ![1551259402195](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551259402195.png)
@@ -274,9 +266,7 @@ awk '{print $2}' sex.txt |sort |uniq -C
 ```
 
 ![1551260318985](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551260318985.png) 
-
 ## 7.shell Function函数
-
 ```
 传参： $1 $2
 变量 local
@@ -335,9 +325,7 @@ return :shell返回码 （0~255）不能输出函数返回值
 ```
 
 ![1551343221457](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551343221457.png)
-
 ## 8.shell内置命令
-
 ```
 true false exit 
 break continue                 break 2 跳出两层循环
@@ -346,9 +334,7 @@ shift 使位置参数左移
 ```
 
 ![1551343522167](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551343522167.png)
-
 ## 9.shell正则表达式
-
 ![1551345241459](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551345241459.png)
 
 ![1551345333953](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551345333953.png)
@@ -372,11 +358,8 @@ grep
 ![1551346946125](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551346946125.png)
 
 ![1551347015855](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551347015855.png)
-
 ## 10.sed流编辑器
-
-![1551359334238](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551359334238.png)
-
+[shell高级-----初识sed和gawk](https://www.cnblogs.com/jinyuanliu/p/10916516.html)
 ```
 sed -r 's/root/pbj/' passwd  #在passwd文件中查找root替换为pbj 一行替换一个
 sed -r 's/root/pbj/g passwd  #在passwd文件中查找root替换为pbj g一行全部替换
@@ -455,11 +438,8 @@ a.txt
 2
 1
 ```
-
 ## 11.awk文本处理工具
-
 ![1551410666721](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551410666721.png)
-
 ```
 awk -F":" '{print $1}' passwd   指定：分割文件，输出第一个
 awk 'BEGIN{FS=":"} {print $1,$2}' passwd    FS 字段分隔符
@@ -527,9 +507,7 @@ awk使用外部变量
 ```
 
 ![1551423044293](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551423044293.png)
-
 ## 12.项目实战：分析系统资源性能瓶颈
-
 ![1551423910930](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551423910930.png)
 
 ![1551429819860](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551429819860.png)
@@ -563,9 +541,7 @@ awk使用外部变量
 ![1551431325654](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551431325654.png)
 
 ![1551431383468](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551431383468.png)
-
 ## 13.项目实战：判断主机存活三次机会
-
 ```
 vi ping_count3_1.sh
 ```
@@ -591,9 +567,7 @@ vi ping_count3_3.sh
 ```
 
 ![1551432192713](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551432192713.png)
-
 ## 14.项目实战：Nginx日志分析项目
-
 ```
 yum -y install nginx
 ```

@@ -132,7 +132,17 @@ Spring中循环依赖场景有：
     - 构造器循环依赖解决办法：在构造函数中使用@Lazy注解延迟加载。在注入依赖时，先注入代理对象，当首次使用时再创建对象说明：
         一种互斥的关系而非层次递进的关系，故称为三个Map而非三级缓存的缘由 完成注入；
 ```
+#### 1.7.Spring中使用了哪些设计模式？
+```markdown
+- 工厂模式：spring中的BeanFactory就是简单工厂模式的体现，根据传入唯一的标识来获得bean对象；
+- 单例模式：提供了全局的访问点BeanFactory；
+- 代理模式：AOP功能的原理就使用代理模式（1、JDK动态代理。2、CGLib字节码生成技术代理。）
+- 装饰器模式：依赖注入就需要使用BeanWrapper；
+- 观察者模式：spring中Observer模式常用的地方是listener的实现。如ApplicationListener。
+- 策略模式：Bean的实例化的时候决定采用何种方式初始化bean实例（反射或者CGLIB动态字节码生成）
+```
 #### Spring AOP核心概念
+[Spring中AOP相关的API及源码解析](https://www.cnblogs.com/daimzh/p/13226649.html)
 >> 传统oop开发代码逻辑自上而下的，这个过程中会产生一些横切性问题，这些问题与我们主业务逻辑关系不大，会散落在代码的各个地方，造成难以维护，
 >> aop思想就是把业务逻辑与横切的问题进行分离，达到解耦的目的，提高代码重用性和开发效率；
 ```markdown
@@ -158,6 +168,9 @@ AOP使用哪种动态代理?
     - 当bean的是实现中存在接口或者是Proxy的子类，---jdk动态代理；不存在接口，spring会采用CGLIB来生成代理对象；
     - JDK动态代理主要涉及到 java.lang.reflect包中的两个类：Proxy和InvocationHandler。
     - Proxy利用InvocationHandler（定义横切逻辑） 接口动态创建 目标类的代理对象。
+    - 默认使用JdkProxy
+    - 对于被代理对象没有实现任何接口，使用Cglib
+    - 可以强制指定使用Cglib。
 jdk动态代理
     - 通过bind方法建立代理与真实对象关系，通过Proxy.newProxyInstance（target）生成代理对象
     - 代理对象通过反射invoke方法实现调用真实对象的方法
@@ -168,14 +181,41 @@ CGLIB与JDK动态代理区别
     - Jdk必须提供接口才能使用；
     - Cglib不需要，只要一个非抽象类就能实现动态代理
 ```
-#### 1.7.Spring中使用了哪些设计模式？
+#### Spring事物
+##### Spring 事务管理详解
+[Spring 事务管理详解](https://www.cnblogs.com/liantdev/p/10149443.html)
 ```markdown
-- 工厂模式：spring中的BeanFactory就是简单工厂模式的体现，根据传入唯一的标识来获得bean对象；
-- 单例模式：提供了全局的访问点BeanFactory；
-- 代理模式：AOP功能的原理就使用代理模式（1、JDK动态代理。2、CGLib字节码生成技术代理。）
-- 装饰器模式：依赖注入就需要使用BeanWrapper；
-- 观察者模式：spring中Observer模式常用的地方是listener的实现。如ApplicationListener。
-- 策略模式：Bean的实例化的时候决定采用何种方式初始化bean实例（反射或者CGLIB动态字节码生成）
+Spring事务管理为我们提供了三个高层抽象的接口，分别是TransactionProxyFactoryBean，TransactionDefinition，TransactionStatus
+Spring事务管理器的接口是org.springframework.transaction.PlatformTransactionManager，Spring框架并不直接管理事务，而是通过这个接口为不同的持久层框架提供了不同的
+    PlatformTransactionManager接口实现类，也就是将事务管理的职责委托给Hibernate或者iBatis等持久化框架的事务来实现
+TransactionDefinition定义事务基本属性:org.springframework.transaction.TransactionDefinition接口用于定义一个事务，
+    它定义了Spring事务管理的五大属性：隔离级别、传播行为、是否只读、事务超时、回滚规则。
+事务状态：org.springframework.transaction.TransactionStatus接口用来记录事务的状态，该接口定义了一组方法，用来获取或判断事务的相应状态信息。
+Spring 事务管理实现方式
+Spring 事务管理有两种方式：编程式事务管理、声明式事务管理
+编程式事务管理通过TransactionTemplate手动管理事务，在实际应用中很少使用，我们来重点学习声明式事务管理
+声明式事务管理有三种实现方式：基于TransactionProxyFactoryBean的方式、基于AspectJ的XML方式、基于注解的方式
+```
+##### Spring事务的隔离级别
+```markdown
+在 Spring 事务管理中，为我们定义了如下的隔离级别：
+ISOLATION_DEFAULT：使用数据库默认的隔离级别
+ISOLATION_READ_UNCOMMITTED：最低的隔离级别，允许读取已改变而没有提交的数据，可能会导致脏读、幻读或不可重复读
+ISOLATION_READ_COMMITTED：允许读取事务已经提交的数据，可以阻止脏读，但是幻读或不可重复读仍有可能发生
+ISOLATION_REPEATABLE_READ：对同一字段的多次读取结果都是一致的，除非数据事务本身改变，可以阻止脏读和不可重复读，但幻读仍有可能发生
+ISOLATION_SERIALIZABLE：最高的隔离级别，完全服从ACID的隔离级别，确保不发生脏读、不可重复读以及幻读，也是最慢的事务隔离级别，因为它通常是通过完全锁定事务相关的数据库表来实现的
+```
+##### Spring事务的传播级别
+[Spring事务的传播级别](https://www.cnblogs.com/jack1995/p/13233540.html)
+```markdown
+传播属性	                            描述
+PROPAGATION_REQUIRED	如果当前没有事务，就创建一个事务，如果当前存在事务，就加入该事务。
+PROPAGATION_REQUIRED_NEW	当前的方法必须启动新事务，并在它自己的事务内运行，不管是否存着事务，都开启新事务。
+PROPAGATION_SUPPORTS	如果当前存在事务，就加入该事务，如果当前不存在事务，就以非事务的方式执行。
+PROPAGATION_NOT_SUPPORTED	当前的方法不应该运行在事务中，如果有运行的事务，将它挂起
+PROPAGATION_MANDATORY	如果当前存在事务，就加入当前事务，如果当前不存在事务，就抛出异常
+PROPAGATION_NEVER	当前的方法不应该运行在事务中，如果当前存在事务，就抛出异常
+PROPAGATION_NESTED	如果有事务在运行，当前的方法就应该在这个事务的嵌套事务内运行，否则，就启动一个新的事务，并在它自己的事务内运行。
 ```
 ###
 [Spring IOC的核心机制：实例化与注入](https://www.cnblogs.com/zyjimmortalp/p/12828726.html)
@@ -199,7 +239,6 @@ CGLIB与JDK动态代理区别
 
 [Spring之BeanFactory和FactoryBean接口的区别](https://www.cnblogs.com/dengpengbo/p/10493782.html)
 
-[Spring 事务管理详解](https://www.cnblogs.com/liantdev/p/10149443.html)
 ### Spring强化 -- 博客
 #### 1.[SpringIoC BeanDefinition的加载和注册](https://www.cnblogs.com/leisurexi/p/12701046.html)
 ```markdown

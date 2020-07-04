@@ -182,14 +182,14 @@ sticky：
 			文件所有者
 			文件的目录的所有者
 ```
-[特殊权限 SUID、SGID、Sticky]: https://www.cnblogs.com/Q--T/p/7864795.html
+[特殊权限 SUID、SGID、Sticky]( https://www.cnblogs.com/Q--T/p/7864795.html)
 ```markdown
 文件属性：lsattr:列出文件属性
 		chattr:修改文件属性        root可能无法删除文件
 		mask umask:
 		umask: 进程，新建文件，目录的默认权限会受到umask的影响，umask表示要减去的权限
 ```
-[Linux umask]: https://www.cnblogs.com/sparkdev/p/9651890.html
+[Linux umask](https://www.cnblogs.com/sparkdev/p/9651890.html)
 ### 6.进程
 ```markdown
 程序：二进制文件 静态  /bin/date
@@ -249,7 +249,8 @@ KiB Swap:  2097148 total,  2097148 free,        0 used.  1417384 avail Mem
 	jobs
 ```
 ### 7.重定向和管道
-```
+[LINUX-IO重定向与管道](https://www.cnblogs.com/aioria13/p/7191002.html)
+```markdown
 Shell输入输出重定向
 	1.标准输出重定向     只能重定向到文件中
 		覆盖输出 >
@@ -287,8 +288,8 @@ Shell输入输出重定向
 			2.b
 			3.c
 ```
-[LINUX-IO重定向与管道]: https://www.cnblogs.com/aioria13/p/7191002.html
-```
+[LINUX-IO重定向与管道](https://www.cnblogs.com/aioria13/p/7191002.html)
+```markdown
 	管道：管道用于连接多个命令（程序），将前一个命令的结果重定向，作为后一个命令的输入    
 		 重定向到另外一个命令
 		 ps aux | less  分页查看
@@ -315,7 +316,6 @@ Shell输入输出重定向
 ![1551074730941](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551074730941.png)
 
 ![1551074932807](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551074932807.png)
-
 ### 8.储存，分区，文件
 ```markdown
 基本分区，逻辑卷LVM ，EXT3/4/XFS 文件系统，磁盘阵列 RAID
@@ -372,6 +372,7 @@ yum list wget
 ```
 ```
 ### 13.周期性计划任务
+[Linux下的计划任务at，batch，crontab](https://www.cnblogs.com/sijidou/p/10485983.html)
 ```markdown
 作用：计划任务主要是做一些周期性的任务，目前主要是的用途是定期备份数据
 一次性调度执行：at
@@ -394,7 +395,7 @@ yum list wget
 ![1551152915426](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551152915426.png)
 ![1551152875982](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551152875982.png)
 ### 14.日志管理
-```
+```markdown
 rsyslog:日志管理
 	ps aux |grep rsyslogd
 logrotate:日志轮转
@@ -402,7 +403,7 @@ logrotate:日志轮转
 [Linux日志管理]: https://www.cnblogs.com/lyq-biu/p/9638572.html
 ![1551164618312](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551164618312.png)
 ### 15.CentOS7 网络配置
-```
+```markdown
 网卡：ens33
 修改网络配置
 1.NetworkManager网络管理
@@ -449,8 +450,6 @@ DNS   cat /etc/resolv.conf
 ```
 
 ```
-![1551169324405](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551169324405.png)
-![1551169596500](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551169596500.png)
 ```
 lftp
 wget
@@ -463,7 +462,6 @@ NAS存储：
 ```
 
 [CIFS与NFS]: https://www.cnblogs.com/wangzhigang/p/4344102.html
-
 ### 17.域名服务DNS
 ```
 hosts文件：实现名字解析
@@ -474,15 +472,5 @@ hosts文件：实现名字解析
 HTTP Server
 LAMP
 Apache
-
 ```
-![1551179641717](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551179641717.png)
-
-![1551179965151](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551179965151.png)
-
-![1551180115425](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551180115425.png)
-
-![1551180959197](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551180959197.png)
-
-![1551181194240](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551181194240.png)
 
