@@ -87,6 +87,7 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 #### 2.SpringBoot启动流程
 [SpringBoot启动流程分析（一）：SpringApplication类初始化过程](https://www.cnblogs.com/hello-shf/p/10976646.html)
 [SpringBoot启动原理及相关流程](https://www.cnblogs.com/l3306/p/10752907.html)
+[SpringApplication生命周期的事件](https://www.cnblogs.com/yourbatman/p/13257999.html)
 ```markdown
 - new springApplication对象，利用spi机制加载applicationContextInitializer,applicationLister接口实例（META-INF/spring.factories）；
 - 调run方法准备Environment，加载应用上下文（applicationContext），发布事件 很多通过lister实现
@@ -101,7 +102,12 @@ spring-boot-starter-web-Web和RESTful应用程序；spring-boot-starter-test-单
 spring-boot-starter-jdbc-传统的JDBC；spring-boot-starter-security-使用SpringSecurity进行身份验证和授权；
 spring-boot-starter-data-jpa-带有Hibernate的Spring Data JPA；spring-boot-starter-data-rest-使用Spring Data REST公布简单的REST服务
 ```
-
+#### 4.Spring Boot读取配置文件的几种方式
+[Spring Boot读取配置文件的几种方式](https://www.cnblogs.com/zhixie/p/13264833.html)
+```markdown
+Spring Boot获取文件总的来说有三种方式，分别是@Value注解，@ConfigurationProperties注解和Environment接口。
+    这三种注解可以配合着@PropertySource来使用，@PropertySource主要是用来指定具体的配置文件。
+```
 #### 10.SpringBoot构建RESTAPI与单元测试
 [Spring Boot 2.x基础教程：构建RESTful API与单元测试](https://www.cnblogs.com/didispace/p/11606136.html)
 ```markdown

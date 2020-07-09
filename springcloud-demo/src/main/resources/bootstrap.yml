@@ -1,0 +1,12 @@
+server:
+  port: 9002
+spring:
+  profiles:
+    active: dev
+  application:
+    name: nacos-config-server
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848 # 配置中心
+        file-extension: yaml # 这里指定的文件格式需要和nacos上新建的配置文件后缀相同，否则读不到

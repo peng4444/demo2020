@@ -1,5 +1,6 @@
 # Spring Data Jpa学习
 >> [干货|一文读懂 Spring Data Jpa！](https://www.cnblogs.com/lenve/p/10640472.html)
+>> [一文搞定 Spring Data JPA](https://www.cnblogs.com/Sinte-Beuve/p/13260256.html)
 
 ## 一,JPA
 ### 1. JPA是什么?

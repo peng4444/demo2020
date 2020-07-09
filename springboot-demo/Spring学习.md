@@ -115,11 +115,18 @@ DI依赖注入流程? （实例化，处理Bean之间的依赖关系）
 依赖注入怎么处理bean之间的依赖关系?
 其实就是通过在beanDefinition载入时，如果bean有依赖关系，通过占位符来代替，在调用getbean时候，如果遇到占位符，从ioc里获取bean注入到本实例来
 ```
-#### 1.6.Bean循环依赖
+#### 1.6.Spring中的循环依赖
+[面试必杀技，讲一讲Spring中的循环依赖](https://www.cnblogs.com/daimzh/p/13256413.html)
+[Spring 循环引用(三)源码深入分析版](https://www.cnblogs.com/burg-xun/p/12865205.html)
 ```markdown
+什么是循环依赖？
+    - A中注入了B，B中注入了A。（自己依赖自己）
 怎么检测是否存在循环依赖?
     - Bean在创建的时候可以给该Bean打标，如果递归调用回来发现正在创建中的话，即说明了循环依赖了。
 Spring如解决Bean循环依赖问题?
+    Spring解决循环依赖是有前置条件的：
+        1.出现循环依赖的Bean必须要是单例
+        2.依赖注入的方式不能全是构造器注入的方式（很多博客上说，只能解决setter方法的循环依赖，这是错误的）
 Spring中循环依赖场景有：
     - 构造器的循环依赖
     - 属性的循环依赖
@@ -131,6 +138,18 @@ Spring中循环依赖场景有：
     - 因为加入singletonFactories三级缓存的前提是执行了构造器，所以构造器的循环依赖没法解决。
     - 构造器循环依赖解决办法：在构造函数中使用@Lazy注解延迟加载。在注入依赖时，先注入代理对象，当首次使用时再创建对象说明：
         一种互斥的关系而非层次递进的关系，故称为三个Map而非三级缓存的缘由 完成注入；
+Spring是如何解决的循环依赖？（关于循环依赖的解决方式应该要分两种情况来讨论）
+    - 简单的循环依赖（没有AOP）
+    - 结合了AOP的循环依赖
+面试官：”Spring是如何解决的循环依赖？“
+    - 答：Spring通过三级缓存解决了循环依赖，其中一级缓存为单例池（singletonObjects）,二级缓存为早期曝光对象earlySingletonObjects，三级缓存为早期曝光对象工厂（singletonFactories）。
+    当A、B两个类发生循环引用时，在A完成实例化后，就使用实例化后的对象去创建一个对象工厂，并添加到三级缓存中，如果A被AOP代理，那么通过这个工厂获取到的就是A代理后的对象，
+    如果A没有被AOP代理，那么这个工厂获取到的就是A实例化的对象。当A进行属性注入时，会去创建B，同时B又依赖了A，所以创建B的同时又会去调用getBean(a)来获取需要的依赖，
+    此时的getBean(a)会从缓存中获取，第一步，先获取到三级缓存中的工厂；第二步，调用对象工工厂的getObject方法来获取到对应的对象，得到这个对象后将其注入到B中。
+    紧接着B会走完它的生命周期流程，包括初始化、后置处理器等。当B创建完后，会将B再注入到A中，此时A再完成它的整个生命周期。至此，循环依赖结束！
+面试官：”为什么要使用三级缓存呢？二级缓存能解决循环依赖吗？“
+    - 答：如果要使用二级缓存解决循环依赖，意味着所有Bean在实例化后就要完成AOP代理，这样违背了Spring设计的原则，
+    Spring在设计之初就是通过AnnotationAwareAspectJAutoProxyCreator这个后置处理器来在Bean生命周期的最后一步来完成AOP代理，而不是在实例化后就立马进行AOP代理。
 ```
 #### 1.7.Spring中使用了哪些设计模式？
 ```markdown
@@ -226,17 +245,10 @@ PROPAGATION_NESTED	如果有事务在运行，当前的方法就应该在这个�
 [AOP 技术原理——代理模式全面总结](https://www.cnblogs.com/kubixuesheng/p/5183782.html)
 [JAVA-Spring AOP五大通知类型](https://www.cnblogs.com/xiaoluohao/p/11286242.html)
 [聊聊在AOP模式下的缓存方案](https://www.cnblogs.com/lori/p/10602746.html)
-
 [spring注入bean的几种策略模式](https://www.cnblogs.com/zyjimmortalp/p/12833761.html)
-
 [Spring中资源的加载原来是这么一回事啊！](https://www.cnblogs.com/i-code/p/12845329.html)
-
-[Spring 循环引用(三)源码深入分析版](https://www.cnblogs.com/burg-xun/p/12865205.html)
-
 [一文读懂Spring中的DI和AOP](https://www.cnblogs.com/xiaoyao2011/p/12866456.html)
-
 [谈谈Spring中的BeanPostProcessor接口](https://www.cnblogs.com/tuyang1129/p/12866484.html)
-
 [Spring之BeanFactory和FactoryBean接口的区别](https://www.cnblogs.com/dengpengbo/p/10493782.html)
 
 ### Spring强化 -- 博客
