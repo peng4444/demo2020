@@ -26,6 +26,7 @@
         <module>ssm-demo</module>
         <module>book-reading</module>
         <module>common-demo</module>
+        <module>sso-demo</module>
     </modules>
 
     <properties>

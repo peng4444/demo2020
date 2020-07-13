@@ -9,6 +9,7 @@
 [Spring Boot学习之旅](https://blog.csdn.net/zhaokejin521/article/details/80942545)
 [当前标签：Spring Boot](https://www.cnblogs.com/lenve/tag/Spring%20Boot/)
 
+[Spring Boot 2.3.0正式发布：优雅停机、配置文件位置通配符新特性一览](https://www.cnblogs.com/yourbatman/p/13294338.html)
 ## 一、过滤器、拦截器和监听器
 ### [过滤器 和 拦截器 6个区别，别再傻傻分不清了](https://www.cnblogs.com/chengxy-nds/p/13042013.html)
 ```markdown
