@@ -35,16 +35,16 @@ Spring是一个开源框架，最早由Rod Johnson创建，是为了解决企业
 Spring Core：框架的最基础部分，提供IoC容器，对bean进行管理。
 Spring Context：继承BeanFactory，提供上下文信息，扩展出JNDI、EJB、电子邮件、国际化等功能。
 Spring DAO：提供了JDBC的抽象层，还提供了声明性事务管理方法。
-Spring ORM：提供了JPA、JDO、Hibernate、MyBatis 等ORM映射层.
+Spring ORM：提供了JPA、JDO、Hibernate、MyBatis 等ORM映射层。
 Spring AOP：集成了所有AOP功能
 Spring Web：提供了基础的Web开发的上下文信息，现有的Web框架，如JSF、Tapestry、Structs等，提供了集成
 Spring Web MVC：提供了Web应用的Model-View-Controller全功能实现。
 ```
 #### 1.2.Spring框架之IOC
 ```markdown
-IOC是控制反转（Inversion of Control），将原POJO内部管理其他对象的引用转换为IOC容器统一管理对象引用，在需要使用的时候从容器获取Bean即可。
+IOC是控制反转（Inversion of Control）：将原POJO内部管理其他对象的引用转换为IOC容器统一管理对象引用，在需要使用的时候从容器获取Bean即可。
     将对象交给IOC容器统一管理，是为了更好使用DI（Dependency Inject，依赖注入）进行POJO之间依赖关系的解耦。
-    DI（Dependency Inject，依赖注入）即代码里对象之间的依赖关系转移到容器中进行装配，这样能很灵活地通过面向接口进行编程。
+DI（Dependency Inject，依赖注入）即代码里对象之间的依赖关系转移到容器中进行装配，这样能很灵活地通过面向接口进行编程。
 Spring的IOC注入方式
     构造器注入 setter方法注入 注解注入 接口注入
 ```
@@ -79,8 +79,6 @@ BeanDefinition加载流程?
     </bean>
     <bean class="com.jimisun.spring.example.MyArticle" id="myArticle"></bean>
 值得一提的是，我们在项目中应该优先实用隐式的Bean发现机制和自动装配，其次使用在Java中进行装配，最后再使用在XML中进行装配。
-```
-```markdown
 BeanDefinition是spring容器创建对象的模板，定义了bean创建的细节。
 BeanFactoryPostProcessor可以拿到整个容器对象，当然也能修改BeanDefinition，所以能直接操作bean的创建。
 BeanPostProcessor执行的时候bean已经创建完成了，我们可以拿到想要的对象进行干预和设值等操作。
@@ -89,35 +87,44 @@ BeanPostProcessor执行的时候bean已经创建完成了，我们可以拿到�
 [Spring Bean各阶段生命周期的介绍](https://www.cnblogs.com/-beyond/p/13188675.html)
 ![Bean的生命周期](https://img2020.cnblogs.com/blog/848880/202006/848880-20200627155704205-940936200.png)
 ```markdown
+Spring在创建一个Bean时是分为三个步骤的
+    - 实例化，可以理解为new一个对象
+    - 属性注入，可以理解为调用setter方法完成属性注入
+    - 初始化，你可以按照Spring的规则配置一些初始化的方法（例如，@PostConstruct注解）
+Bean的生命周期指的就是在上面三个步骤中后置处理器BeanPostprocessor穿插执行的过程。
 BeanFactory是Spring的核心--容器，ApplicationContext则是包裹容器的上下文，丰富容器的功能（资源加载，事件驱动等）。FactoryBean也是Spring扩展性的提现。
-BeanFactory已经定义了整个的生命周期，子类只是负责实现，demo演示也只是为了证实。我们更应该关注更上层的东西 
-ApplicationContext是对容器更精细化的包装，提供了更完善的功能
+BeanFactory已经定义了整个的生命周期，子类只是负责实现，demo演示也只是为了证实。我们更应该关注更上层的东西。
+ApplicationContext是对容器更精细化的包装，提供了更完善的功能。
 FactoryBean是Spring扩展性的提现，可供用户自己定义创建bean。扩展性提炼的很好。
 Bean生命周期
-- 实例化Bean：Ioc容器通过获取BeanDefinition对象中的信息进行实例化，实例化对象被包装在BeanWrapper对象中
-- 设置对象属性（DI）：通过BeanWrapper提供的设置属性的接口完成属性依赖注入；
-- 注入Aware接口（BeanFactoryAware， 可以用这个方式来获取其它 Bean，ApplicationContextAware）：
-    Spring会检测该对象是否实现了xxxAware接口，并将相关的xxxAware实例注入给bean
-- BeanPostProcessor：自定义的处理（分前置处理和后置处理）
-- InitializingBean和init-method：执行我们自己定义的初始化方法
-- 使用
-- destroy：bean的销毁
+    - 实例化Bean：Ioc容器通过获取BeanDefinition对象中的信息进行实例化，实例化对象被包装在BeanWrapper对象中
+    - 设置对象属性（DI）：通过BeanWrapper提供的设置属性的接口完成属性依赖注入；
+    - 注入Aware接口（BeanFactoryAware， 可以用这个方式来获取其它 Bean，ApplicationContextAware）；
+        Spring会检测该对象是否实现了xxxAware接口，并将相关的xxxAware实例注入给bean
+    - BeanPostProcessor：自定义的处理（分前置处理和后置处理）
+    - InitializingBean和init-method：执行我们自己定义的初始化方法
+    - 使用
+    - destroy：bean的销毁
 ```
 #### 1.5.Spring的依赖注入(DI)
 ```markdown
 Spring利用反射创建对象，并将创建好的对象放入一个大工厂，实现了对象创建和使用的解耦。需要使用的时候可以方便的通过BeanFactory.getBean()获取。
 在此之上还扩展了对注解的支持，使用注解就可以注入对象。
-DI依赖注入流程? （实例化，处理Bean之间的依赖关系）
-过程在Ioc初始化后，依赖注入的过程是用户第一次向IoC容器索要Bean时触发
-- 如果设置lazy-init=true，会在第一次getBean的时候才初始化bean，lazy-init=false，会容器启动的时候直接初始化（singleton bean）；
-- 调用BeanFactory.getBean()生成bean的；
-- 生成bean过程运用装饰器模式产生的bean都是beanWrapper（bean的增强）；
+DI依赖注入流程? （实例化，处理Bean之间的依赖关系）过程在Ioc初始化后，依赖注入的过程是用户第一次向IoC容器索要Bean时触发
+    - 如果设置lazy-init=true，会在第一次getBean的时候才初始化bean，lazy-init=false，会容器启动的时候直接初始化（singleton bean）；
+    - 调用BeanFactory.getBean()生成bean的；
+    - 生成bean过程运用装饰器模式产生的bean都是beanWrapper（bean的增强）；
 依赖注入怎么处理bean之间的依赖关系?
-其实就是通过在beanDefinition载入时，如果bean有依赖关系，通过占位符来代替，在调用getbean时候，如果遇到占位符，从ioc里获取bean注入到本实例来
+    通过在beanDefinition载入时，如果bean有依赖关系，通过占位符来代替，在调用getbean时候，如果遇到占位符，从ioc里获取bean注入到本实例来。
+依赖注入的三种方式：
+    - 使用构造方法注入
+    - 使用set方法注入
+    - 使用注解注入
 ```
 #### 1.6.Spring中的循环依赖
 [面试必杀技，讲一讲Spring中的循环依赖](https://www.cnblogs.com/daimzh/p/13256413.html)
 [Spring 循环引用(三)源码深入分析版](https://www.cnblogs.com/burg-xun/p/12865205.html)
+[帮助你更好的理解Spring循环依赖](https://www.cnblogs.com/CodeBear/p/13327899.html)
 ```markdown
 什么是循环依赖？
     - A中注入了B，B中注入了A。（自己依赖自己）
@@ -400,7 +407,6 @@ AOP也就是面向切面编程，它可以将公共的代码抽离出来，动�
 #### 2.2Spring bean的实例化过程
 [Spring 源码学习 - 单例bean的实例化过程](https://www.cnblogs.com/hackingForest/p/13054173.html)
 [我该如何学习spring源码以及解析bean定义的注册](https://www.cnblogs.com/liyus/p/10983108.html)
-
 #### 2.3.Spring源码分析笔记--AOP
 [Spring源码分析笔记--AOP](https://www.cnblogs.com/little-sheep/p/10103797.html)
 
@@ -473,6 +479,5 @@ public interface Condition {
 ### 4.Spring框架应用
 [从spring框架中的事件驱动模型出发，优化实际应用开发代码](https://www.cnblogs.com/l3306/p/10757291.html)
 [Spring4+Springmvc+quartz实现多线程动态定时调度](https://www.cnblogs.com/alterem/p/11301235.html)
-###
 
 ##
