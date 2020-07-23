@@ -107,9 +107,12 @@ Bean生命周期
     - destroy：bean的销毁
 ```
 #### 1.5.Spring的依赖注入(DI)
+[SpringDI四种依赖注入方式详解](https://www.cnblogs.com/ziph/p/13337025.html)
 ```markdown
 Spring利用反射创建对象，并将创建好的对象放入一个大工厂，实现了对象创建和使用的解耦。需要使用的时候可以方便的通过BeanFactory.getBean()获取。
 在此之上还扩展了对注解的支持，使用注解就可以注入对象。
+依赖注入(DI):在Spring创建对象的同时，为其属性赋值，称之为依赖注入。
+组件之间依赖关系由容器在运行期决定的，即由容器动态的将某个依赖关系注入到组件之中。
 DI依赖注入流程? （实例化，处理Bean之间的依赖关系）过程在Ioc初始化后，依赖注入的过程是用户第一次向IoC容器索要Bean时触发
     - 如果设置lazy-init=true，会在第一次getBean的时候才初始化bean，lazy-init=false，会容器启动的时候直接初始化（singleton bean）；
     - 调用BeanFactory.getBean()生成bean的；
@@ -118,8 +121,48 @@ DI依赖注入流程? （实例化，处理Bean之间的依赖关系）过程在
     通过在beanDefinition载入时，如果bean有依赖关系，通过占位符来代替，在调用getbean时候，如果遇到占位符，从ioc里获取bean注入到本实例来。
 依赖注入的三种方式：
     - 使用构造方法注入
+        创建对象时，Spring工厂会通过构造方法为对象的属性赋值。由于某些框架或者项目中并没有为JavaBean提供Setter方法，就可以利用其构造方法来注入。
+             <!--构造注入-->
+            <bean id="u3" class="com.mylifes1110.bean.Student">
+                <!-- 除标签名称有变化,其他均和Set注入一致 -->
+                <constructor-arg name="id" value="1234" /> 
+                <constructor-arg name="name" value="tom" />
+                <constructor-arg name="age" value="20" />
+                <constructor-arg name="sex" value="male" />
+            </bean>
     - 使用set方法注入
-    - 使用注解注入
+        Setter方法注入，只需要提供对应的Setter方法接口实现注入，由于JavaBean一般都实现了Setter方法，所以Setter方法注入也成为常用的注入方法之一。
+            <bean id="User" class="com.xxx.xxx.User">
+                <property name="id" value="xxx"></property>
+                <property name="name" value="xxx"></property>
+                <property name="age" value="18"></property>
+            </bean>
+    - 自动注入
+        不用在配置中指定为哪个属性赋值，及赋什么值。由spring自动根据某个 "原则" ，在工厂中查找一个bean，为属性注入属性值。
+        - 基于名称自动注入值
+            <bean id="UserDao" class="com.xxx.dao.impl.UserDaoImpl"/>
+                <!--为UserServiceImpl中的属性基于名称自动注入值-->
+                <bean id="userService" class="com.xxx.service.impl.userServiceImpl" autowire="byName"/>
+            </beans>
+        - 基于类型自动注入值，根据实现的接口来判断并自动注入值，如果实现此接口的实现类太多，它会在很多实现此接口的实现类中选择名字相同的实现类进行注入。（现根据判断，如果不成功，则根据名称注入）
+            <bean id="userDao" class="com.xxx.dao.UserDaoImpl" />
+                <!--为UserServiceImpl中的属性基于类型自动注入值-->
+                <bean id="userService" class="com.xxx.service.impl.UserServiceImpl" autowire="byType"/>
+            </beans>
+    - 使用注解自动注入
+        @Autowired	基于类型自动注入
+        @Resource	基于名称自动注入
+        @Qualifier("userDAO")	限定要自动注入的bean的id，一般和@Autowired联用
+        @Value	注入简单类型数据 （jdk8种基本数据类型+String类型）
+            @Autowired //注入类型为UserDao的bean
+            @Qualifier("userDao") //如果有多个类型为UserDao的bean,可以用此注解从中指定一个
+            private UserDao userDao;
+                @Resource("userDao") //注入id=“userDao”的bean
+                private UserDao userDao;
+            @Value("1")    //注入数字
+            private Integer id;
+            @Value("Ziph") //注入String
+            private String name;
 ```
 #### 1.6.Spring中的循环依赖
 [面试必杀技，讲一讲Spring中的循环依赖](https://www.cnblogs.com/daimzh/p/13256413.html)
