@@ -11,4 +11,6 @@ import cn.pbj.demo2020.manage.entity.User;
  */
 public interface UserService {
     DataResult<User> selectAll();
+
+    DataResult<User> selectAllByPage(Integer page, Integer limit);
 }

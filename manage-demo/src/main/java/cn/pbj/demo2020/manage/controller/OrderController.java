@@ -1,33 +1,34 @@
 package cn.pbj.demo2020.manage.controller;
 
 import cn.pbj.demo2020.manage.common.DataResult;
-import cn.pbj.demo2020.manage.entity.User;
-import cn.pbj.demo2020.manage.service.UserService;
+import cn.pbj.demo2020.manage.entity.Order;
+import cn.pbj.demo2020.manage.service.OrderService;
+import cn.pbj.demo2020.manage.vo.BarVOs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @pClassName: UserController
+ * @pClassName: OrderController
  * @author: pengbingjiang
  * @create: 2020/7/23 18:50
  * @description: TODO
  */
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/order")
+public class OrderController {
 
     @Autowired
-    private UserService userService;
+    private OrderService orderService;
 
     @GetMapping("/selectAll")
-    public DataResult<User> selectALL() {
-        return userService.selectAll();
+    public DataResult<Order> selectALL() {
+        return orderService.selectAll();
     }
 
-    @RequestMapping("/selectAllByPage")
+    @RequestMapping("/selectOrderEcharts")
     @ResponseBody
-    public DataResult<User> selectALLByPage(Integer page, Integer limit) {
-        return userService.selectAllByPage(page, limit);
+    public BarVOs selectOrderEcharts() {
+        return orderService.selectOrderEcharts();
     }
 
     @GetMapping("/{url}")

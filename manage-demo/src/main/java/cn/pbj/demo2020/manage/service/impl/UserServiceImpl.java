@@ -31,4 +31,15 @@ public class UserServiceImpl implements UserService {
         result.setData(users);
         return result;
     }
+
+    @Override
+    public DataResult<User> selectAllByPage(Integer page, Integer limit) {
+        DataResult<User> result = new DataResult<>();
+        result.setCode(0);
+        result.setMsg("");
+        List<User> users = userDao.selectAllByPage(page,limit);
+        result.setCount(users.size());
+        result.setData(users);
+        return result;
+    }
 }

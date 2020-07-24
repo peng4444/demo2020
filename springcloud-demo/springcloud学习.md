@@ -67,36 +67,7 @@
 
 [Spring Cloud 系列之 Apollo 配置中心（一）](https://www.cnblogs.com/mrhelloworld/p/apollo1.html)
 [Spring Cloud开发人员如何解决服务冲突和实例乱窜？](https://www.cnblogs.com/zlt2000/p/11459390.html)
-## RPC
-### [如何设计一个RPC系统](https://www.cnblogs.com/qcloud1001/p/10213274.html)
-```markdown
-RPC是一种方便的网络通信编程模型，由于和编程语言的高度结合，大大减少了处理网络数据的复杂度，让代码可读性也有可观的提高。
-但是RPC本身的构成却比较复杂，由于受到编程语言、网络模型、使用习惯的约束，有大量的妥协和取舍之处。
-```
-### [Java实现远程服务生产与消费(RPC)的4种方法-RMI,WebService,HttpClient,RestTemplate](https://www.cnblogs.com/tanshaoshenghao/p/10796319.html)
-```markdown
-rmi:    
-    1.创建UserService接口.
-    2.创建UserServiceImpl实现类,除了实现UserService接口外, 还要继承UnicastRemoteObject类。
-    3.发布远程服务
-    4.创建rmi-consumer项目
-    5.远程服务消费者对远程服务发起调用.
-    通过最后的输出我们看到获得的远程服务对象是动态代理产生的。
-webService:
-    1.首先创建远程服务接口UserService及其实现类UserServiceImpl.
-    2.发布远程服务, 过程和rmi差不多, 需要提供远程服务的访问地址和具体的远程服务实现类, 使用Endpoint类的publish()方法进行发布, 这都是JDK封装好的.
-        查看的方法是在浏览器中输入远程服务的访问地址加上?wdsl, 比如本案例中是http://localhost:9999/ws?wsdl
-        注意, 在客户端调用远程方法时需要用工具对wdsl文档进行解析, 并获得调用远程方法的工具类. 具体操作见下一段.
-        和rmi不同的是, WebService发布后, 调用者可以通过查看它的文档对远程服务发起调用.
-    3.首先根据文档获得调用远程服务的工具类, JDK已经为我们封装好了获取的工具, 它在bin目录下, 名字是wsimport
-    4.打开命令行, 在命令行中输入解析命令
-    5. 可以看到命令执行完后, 指定的包中出现一堆相关的类, 最直接调用到的类是UserServiceImplService.   
-HttpClient:
-    在服务消费端使用HttpClient发送请求, 可以理解为模拟浏览器发送post/get请求.
-     HttpClient为我们封装了拼接一个请求的细节, 使得发送一个请求变得容易.
-RestTemplate:
-    通过spring提供的RestTemplate实现远程服务的生产与消费。
-```
+
 ##
 [[一个项目的SpringCloud微服务改造过程](https://www.cnblogs.com/yixinjishu/p/11307121.html)]
 [[Eureka 缓存结构以及服务感知优化](https://www.cnblogs.com/xmzJava/p/11359636.html) ]

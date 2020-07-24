@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @pClassName: CrosConfig
  * @author: pengbingjiang
  * @create: 2020/7/23 20:14
- * @description: TODO
+ * @description: TODO 跨域配置
  */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {

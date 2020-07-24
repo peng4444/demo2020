@@ -12,7 +12,12 @@
 
     <!-- 查询全部-->
     <select id="selectAll" resultMap="UserMap" resultType="cn.pbj.demo2020.manage.entity.User">
-        select * from t_user
+        select * from t_user limit
+    </select>
+
+    <!-- 分页查询全部-->
+    <select id="selectAllByPage" parameterType="Integer" resultMap="UserMap">
+        select * from t_user limit #{page},#{limit}
     </select>
 
 
