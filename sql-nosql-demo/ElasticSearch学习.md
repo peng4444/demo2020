@@ -332,3 +332,4 @@ deep paging、上千万数据批处理、跨机房多集群同步、搜索效果
 
 ## 
 [搞懂ELK并不是一件特别难的事（ELK）](https://www.cnblogs.com/zsql/p/13164414.html)
+[Spring Boot 集成 Elasticsearch 实战](https://www.cnblogs.com/wupeixuan/p/13450815.html)

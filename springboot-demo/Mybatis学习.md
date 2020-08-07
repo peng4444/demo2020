@@ -12,6 +12,17 @@ Mybatis一级缓存与二级缓存
 默认情况下一级缓存是开启的，而且是不能关闭的。
 - 一级缓存是指SqlSession级别的缓存 原理：使用的数据结构是一个map，如果两次中间出现commit操作 （修改、添加、删除），本sqlsession中的一级缓存区域全部清空
 - 二级缓存是指可以跨SqlSession的缓存。是mapper级别的缓存；原理：是通过CacheExecutor实现的。CacheExecutor其实是Executor的代理对象
+1、一级缓存：指的是mybatis中sqlSession对象的缓存，当我们执行查询以后，查询的结果会同时存入sqlSession中，再次查询的时候，
+先去sqlSession中查询，有的话直接拿出，当sqlSession消失时，mybatis的一级缓存也就消失了，当调用sqlSession的修改、添加、删除、commit()、close()等方法时，会清空一级缓存。
+2、二级缓存：指的是mybatis中的sqlSessionFactory对象的缓存，由同一个sqlSessionFactory对象创建的sqlSession共享其缓存，但是其中缓存的是数据而不是对象。
+当命中二级缓存时，通过存储的数据构造成对象返回。查询数据的时候，查询的流程是二级缓存 > 一级缓存 > 数据库。
+3、如果开启了二级缓存，sqlSession进行close()后，才会把sqlSession一级缓存中的数据添加到二级缓存中，为了将缓存数据取出执行反序列化，
+还需要将要缓存的pojo实现Serializable接口，因为二级缓存数据存储介质多种多样，不一定只存在内存中，也可能存在硬盘中。
+4、mybatis框架主要是围绕sqlSessionFactory进行的，具体的步骤：
+    1.定义一个configuration对象，其中包含数据源、事务、mapper文件资源以及影响数据库行为属性设置settings。
+    2.通过配置对象，则可以创建一个sqlSessionFactoryBuilder对象。
+    3.通过sqlSessionFactoryBuilder获得sqlSessionFactory实例。
+    4.通过sqlSessionFactory实例创建qlSession实例，通过sqlSession对数据库进行操作。
 ```
 [随笔分类-Mybatis](https://www.cnblogs.com/zwwhnly/category/1492402.html) 
 
@@ -30,7 +41,7 @@ Mybatis一级缓存与二级缓存
 [MyBatis执行流程的各阶段介绍](https://www.cnblogs.com/-beyond/p/13232624.html)
 ##### Mybatis的特点
 ```markdown
-1.解除SQL与程序代码的耦合，通过提供 DAO层，将业务逻辑和数据访问逻辑分离，使系统的设计更清晰，更易维护，更易单元测试。SQL和代码的分离，提高了可维护性。
+1.解除SQL与程序代码的耦合，通过提供DAO层，将业务逻辑和数据访问逻辑分离，使系统的设计更清晰，更易维护，更易单元测试。SQL和代码的分离，提高了可维护性。
 2.MyBatis 比较简单和轻量： 只要通过配置 jar 包，或者如果你使用 Maven 项目的话只需要配置 Maven 以来就可以。
 3.屏蔽样板代码 MyBatis: 回屏蔽原始的 JDBC 样板代码，让你把更多的精力专注于 SQL 的书写和属性-字段映射上。
 4.编写原生 SQL，支持多表关联 MyBatis 最主要的特点就是你可以手动编写 SQL 语句，能够支持多表关联查询。
@@ -49,7 +60,7 @@ Mybatis一级缓存与二级缓存
 [Mybatis通用分页插件](https://github.com/pagehelper/Mybatis-PageHelper)
 
 [手把手教你如何玩转插件：分页插件（Pagehelper）](https://blog.csdn.net/cs_hnu_scw/article/details/80718467)
-
+[通过源代码分析Mybatis的功能](https://www.cnblogs.com/Weilence/p/13416986.html)
 
 [[面试官：你分析过mybatis工作原理吗？](https://www.cnblogs.com/almm/p/11254403.html)]
 

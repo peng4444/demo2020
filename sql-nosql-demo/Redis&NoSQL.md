@@ -515,7 +515,7 @@ BGSAVE的执行流程如下：
 
 [关于分布式锁原理的一些学习与思考-redis分布式锁，zookeeper分布式锁](https://www.cnblogs.com/JJJ1990/p/10496850.html)
 
-[]
+[Redis服务之高可用组件sentinel](https://www.cnblogs.com/qiuhom-1874/p/13429776.html)
 ### 相关博客
 [从源码研究如何不重启Springboot项目实现redis配置动态切换](https://www.cnblogs.com/breakingdawn/p/13043921.html)
 

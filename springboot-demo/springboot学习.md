@@ -78,6 +78,7 @@ afterCompletion()：只有在 preHandle() 方法返回值为true 时才会执行
 
 [随笔分类 - Spring Boot](https://www.cnblogs.com/didispace/category/1392206.html)
 [这一次搞懂SpringBoot核心原理（自动配置、事件驱动、Condition）](https://www.cnblogs.com/yewy/p/13194696.html)
+
 #### 1.[SpringBoot切面Aop的demo简单讲解](https://www.cnblogs.com/xuwujing/p/12927081.html)
 ```markdown
 AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（也叫面向方面编程），是目前软件开发中的一个热点，也是Spring框架中的一个重要内容。
@@ -85,7 +86,7 @@ AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（
 * 用途
     日志记录，性能统计，安全控制，权限管理，事务处理，异常处理，资源池管理。
 ```
-#### 2.SpringBoot启动流程
+#### 2.SpringBoot启动流程【2+】
 [SpringBoot启动流程分析（一）：SpringApplication类初始化过程](https://www.cnblogs.com/hello-shf/p/10976646.html)
 [SpringBoot启动原理及相关流程](https://www.cnblogs.com/l3306/p/10752907.html)
 [SpringApplication生命周期的事件](https://www.cnblogs.com/yourbatman/p/13257999.html)
@@ -124,6 +125,7 @@ Spring Boot获取文件总的来说有三种方式，分别是@Value注解，@Co
 ### 2.SpringBoot注解
 [接近8000字的Spring/SpringBoot常用注解总结！安排！](https://www.cnblogs.com/javaguide/p/spring-annotations.html)
 [[Spring Boot 注解大全，真是太全了！](https://www.cnblogs.com/qwlscn/p/11495378.html)]
+[Spring Boot常用注解（绝对经典）](https://blog.csdn.net/guorui_java/article/details/107379648)
 #### 2.1. Spring Boot 的核心注解
 ```markdown
 核心注解是@SpringBootApplication 由以下三种组成
@@ -194,7 +196,6 @@ main()方法调用SpringApplication类上的静态run()方法，该方法执行�
 ### 4.SpringBoot与其他框架应用
 [SpringBoot整合Shiro实现基于角色的权限访问控制(RBAC)系统简单设计从零搭建](https://www.cnblogs.com/ealenxie/p/10610741.html)
 [SpringBoot集成Shiro实现动态加载权限](https://www.cnblogs.com/zhengqing/p/11603824.html)
-[]
 [Spring Boot项目中使用Mockito](https://www.cnblogs.com/javaadu/p/11748415.html)
 
 [SpringBoot2.0+Nacos+Sentinel流控规则集中存储](https://www.cnblogs.com/smallSevens/p/11553695.html)
@@ -252,11 +253,13 @@ main()方法调用SpringApplication类上的静态run()方法，该方法执行�
 
 [Spring boot 多模块项目 + Swagger 让你的API可视化](https://www.cnblogs.com/xpwi/p/10609104.html)
 [SpringBoot整合Swagger2，再也不用维护接口文档了！](https://www.cnblogs.com/lenve/p/10619547.html)
-###
-
+### SpringBoot实战
+[SpringBoot整合Mail发送邮件&发送模板邮件](https://www.cnblogs.com/ruiyeclub/p/13394493.html)
+[Spring Boot集成WebSocket实现服务端推送消息到客户端](https://www.cnblogs.com/wupeixuan/p/13389757.html)
 ##
 [SpringBoot开发案例之打造私有云网盘](https://www.cnblogs.com/smallSevens/p/10712643.html)
 [基于springboot搭建的web系统架构](https://www.cnblogs.com/Oven5217/p/10765052.html)
 [SpringBoot中并发定时任务的实现、动态定时任务的实现（看这一篇就够了）](https://www.cnblogs.com/baixianlong/p/10659045.html)
 [SpringBoot 整合 RabbitMQ（包含三种消息确认机制以及消费端限流）](https://www.cnblogs.com/haixiang/p/10959551.html)
 [SpringBoot+Maven多模块项目（创建、依赖、打包可执行jar包部署测试）完整流程](https://blog.csdn.net/baidu_41885330/article/details/81875395)
+

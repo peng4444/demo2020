@@ -272,3 +272,5 @@ netty 实现简单rpc准备
 ```
 ### [支撑百万级并发，Netty如何实现高性能内存管理](https://www.cnblogs.com/caison/p/12121029.html)
 ### [基于Netty和SpringBoot实现一个轻量级RPC框架-协议篇](https://www.cnblogs.com/throwable/p/12185142.html)
+[探讨Netty获取并检查Websocket握手请求的两种方式](https://www.cnblogs.com/javazhiyin/p/13409700.html)
+[Netty之旅：你想要的NIO知识点，这里都有！](https://www.cnblogs.com/wang-meng/p/13452178.html)
