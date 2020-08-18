@@ -297,11 +297,13 @@ PROPAGATION_NESTED	如果有事务在运行，当前的方法就应该在这个�
 [Spring IOC的核心机制：实例化与注入](https://www.cnblogs.com/zyjimmortalp/p/12828726.html)
 [重新认识 Spring IOC](https://www.cnblogs.com/i-code/p/12832545.html)
 [Spring系列之IOC的原理及手动实现](https://www.cnblogs.com/liyus/p/10112118.html)
+[手写IOC实现过程](https://www.cnblogs.com/tc971121/p/13458742.html)
 [关于IOC容器的一些个人理解](https://www.cnblogs.com/HanJunJun-blog/p/10579712.html)
 [关于Spring AOP，除了动态代理、CGLIB，你还知道什么？](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650128800&idx=3&sn=3a3e9806348f3b280bdc5ee725238a20&chksm=f36bdc81c41c5597d0e206d637dd7bd986886212e38ae69fd506cc8488ab98bac5698204e9bc&mpshare=1&scene=23&srcid=&sharer_sharetime=1590070530809&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 [AOP 技术原理——代理模式全面总结](https://www.cnblogs.com/kubixuesheng/p/5183782.html)
 [JAVA-Spring AOP五大通知类型](https://www.cnblogs.com/xiaoluohao/p/11286242.html)
 [聊聊在AOP模式下的缓存方案](https://www.cnblogs.com/lori/p/10602746.html)
+[手写AOP实现过程](https://www.cnblogs.com/tc971121/p/13490708.html)
 [spring注入bean的几种策略模式](https://www.cnblogs.com/zyjimmortalp/p/12833761.html)
 [Spring中资源的加载原来是这么一回事啊！](https://www.cnblogs.com/i-code/p/12845329.html)
 [一文读懂Spring中的DI和AOP](https://www.cnblogs.com/xiaoyao2011/p/12866456.html)
@@ -315,9 +317,7 @@ PROPAGATION_NESTED	如果有事务在运行，当前的方法就应该在这个�
 [当前标签：品Spring](https://www.cnblogs.com/lixinjie/tag/%E5%93%81Spring/)
 #### 2.1.SpringIOC框架容器核心源码逐步剖析
 [Spring Framework框架容器核心源码逐步剖析](https://www.cnblogs.com/jimisun/p/10104002.html)
-```markdown
 
-```
 #### 2.2.Spring bean的实例化过程
 [Spring 源码学习 - 单例bean的实例化过程](https://www.cnblogs.com/hackingForest/p/13054173.html)
 [我该如何学习spring源码以及解析bean定义的注册](https://www.cnblogs.com/liyus/p/10983108.html)
@@ -363,9 +363,7 @@ protected Class<?> loadClass(String name, boolean resolve) {
 ### 3.Spring注解
 #### [【Spring注解驱动开发】聊聊Spring注解驱动开发那些事儿！](https://www.cnblogs.com/binghe001/p/13047333.html)
 ![Spring注解驱动开发](https://img2020.cnblogs.com/blog/1729473/202006/1729473-20200605000243595-700419751.jpg)
-```markdown
 
-```
 #### Spring IOC相关常用注解
 ```markdown
 自动扫描装配Bean的相关注解
@@ -399,9 +397,7 @@ protected Class<?> loadClass(String name, boolean resolve) {
 
 [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)
 #### [spring下应用@Resource, @Autowired 和 @Inject注解进行依赖注入的差异](https://www.cnblogs.com/both-eyes/p/10096882.html)
-```markdown
 
-```
 #### Java配置类 @Configuration
 ```markdown
 @Configuration注释向Spring 表明这是一个配置类，它将为Spring 应用程序上下文提供beans。
@@ -421,9 +417,7 @@ public interface Condition {
 如果matches()方法返回false，将不会创建这些bean。
 ```
 #### Spring @Transactional事务
-```markdown
 
-```
 [Spring中异步注解@Async的使用、原理及使用时可能导致的问题](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650138502&idx=3&sn=023c3fc5d7799ec0e327018c71673819&chksm=f36bfaa7c41c73b11d5832e85b015f7e2b6b05a41dc189f77d439c21eda43c223530ebf22918&mpshare=1&scene=23&srcid=0805kBPe9hJDcJYXGAkouuIc&sharer_sharetime=1596598705572&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 ### 4.Spring框架应用
 [从spring框架中的事件驱动模型出发，优化实际应用开发代码](https://www.cnblogs.com/l3306/p/10757291.html)

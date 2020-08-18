@@ -56,7 +56,7 @@
 
 [SpringCloud系列之集成Dubbo应用篇](https://www.cnblogs.com/chinaWu/p/12818661.html)
 [Dubbo Spring Cloud 之 HTTP 实战](https://www.cnblogs.com/babycomeon/p/11553757.html)
-
+[SpringCloud微服务：基于Nacos组件，整合Dubbo框架](https://www.cnblogs.com/cicada-smile/p/13442936.html
 [Java开发架构篇：领域驱动设计架构基于SpringCloud搭建微服务](https://www.cnblogs.com/xiaofuge/p/12938567.html)
 
 [快速搭建 SpringCloud 微服务开发环境的脚手架](https://www.cnblogs.com/xueweihan/p/11935291.html)

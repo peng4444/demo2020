@@ -94,4 +94,5 @@ http://192.168.72.128/group1/M00/00/00/wKgAA135BdKAEOs1ADW668UZmDM218.png
 
 [设计一个文件系统，需要考虑哪些因素？](https://www.cnblogs.com/cxuanBlog/p/12517595.html)
 [【FastDFS】FastDFS 分布式文件系统的安装与使用，看这一篇就够了！！](https://www.cnblogs.com/binghe001/p/13222361.html)
+[一口气搞懂「文件系统」，就靠这 25 张图了](https://www.cnblogs.com/xiaolincoding/p/13499209.html)
 
