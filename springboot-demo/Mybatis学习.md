@@ -75,3 +75,5 @@ Mybatis一级缓存与二级缓存
 [抛开 Spring ，你知道 MyBatis 加载 Mapper 的底层原理吗？](https://www.cnblogs.com/Howinfun/p/12973902.html)
 
 [天哪！手动编写mybatis雏形竟然这么简单](https://www.cnblogs.com/quellanan/p/13055000.html)
+
+[提升开发效率的一款 mybatis 开发神器](https://mp.weixin.qq.com/s?__biz=MzA4NzQ0Njc4Ng==&mid=2247489537&idx=3&sn=73b164a80c147a17356b8cb82ae06d30&chksm=90381c6ca74f957a0acd9198ae0df657fee5fc49697ee109698030df56775cbfe62b67fe7aac&mpshare=1&scene=23&srcid=0907sWM491xNOoEDNoS2lEPk&sharer_sharetime=1599452230019&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
