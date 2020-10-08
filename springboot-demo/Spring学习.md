@@ -323,7 +323,7 @@ PROPAGATION_NESTED	如果有事务在运行，当前的方法就应该在这个�
 [我该如何学习spring源码以及解析bean定义的注册](https://www.cnblogs.com/liyus/p/10983108.html)
 #### 2.3.Spring源码分析笔记--AOP
 [Spring源码分析笔记--AOP](https://www.cnblogs.com/little-sheep/p/10103797.html)
-
+[SpringAOP+源码解析，切就完事了](https://www.cnblogs.com/summerday152/p/13652903.html)
 [Spring拓展接口之FactoryBean，我们来看看其源码实现](https://www.cnblogs.com/youzhibing/p/10528821.html)
 #### 2.4.Spring源码分析笔记--事务管理
 [Spring源码分析笔记--事务管理](https://www.cnblogs.com/little-sheep/p/10115173.html)

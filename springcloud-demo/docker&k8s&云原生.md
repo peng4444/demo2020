@@ -28,11 +28,10 @@ docker :centos101,centos102上安装了docker，参照安装参照>>千锋教育
 [[一键部署 Spring Boot 到远程 Docker 容器，就是这么秀！](https://www.cnblogs.com/lenve/p/11434074.html)]
 
 [[Spring Boot 和 Docker 实现微服务部署](https://www.cnblogs.com/fengzheng/p/10329097.html)]
-
-[[SpringBoot如何优雅的使用RocketMQ](https://www.cnblogs.com/SimpleWu/p/12112351.html)]
+[还在手动启动springboot项目？docker部署不香吗？](https://www.toutiao.com/i6843391272229536267)
 
 [[DOCKER 学习笔记5 Springboot+nginx+mysql 容器编排](https://www.cnblogs.com/ChromeT/p/12289177.html)]
-
+[Docker笔记](https://www.cnblogs.com/Hui4401/p/13758443.html)
 ```bash
 $ docker system info ##查看docker存储驱动类型
 $ docker image ls  ## 查看所有的docker镜像

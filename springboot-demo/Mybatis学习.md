@@ -25,7 +25,7 @@ Mybatis一级缓存与二级缓存
     4.通过sqlSessionFactory实例创建qlSession实例，通过sqlSession对数据库进行操作。
 ```
 [随笔分类-Mybatis](https://www.cnblogs.com/zwwhnly/category/1492402.html) 
-
+[当前标签：Mybatis](https://www.cnblogs.com/Chenjiabing/tag/Mybatis/)
 [MyBatis框架的使用及源码分析](https://www.cnblogs.com/zsg88/category/1080098.html)  
 
 [mybatis源码](https://www.cnblogs.com/sanzao/tag/mybatis/) 
@@ -33,13 +33,11 @@ Mybatis一级缓存与二级缓存
 [mybatis源码]( https://www.cnblogs.com/java-chen-hao/category/1576447.html )
 ## Mybatis相关博客
 [mybatis是怎样炼成的](https://www.cnblogs.com/roytian/p/12762218.html)
-[mybatis缓存之一级缓存（一）](https://www.cnblogs.com/zhenghengbin/p/13193999.html)
-[mybatis源码学习：一级缓存和二级缓存分析](https://www.cnblogs.com/summerday152/p/12773135.html)
 
 #### 1.Mybatis SQL如何执行
 [面试官问你MyBatis SQL是如何执行的？把这篇文章甩给他](https://www.cnblogs.com/cxuanBlog/p/12248536.html)
 [MyBatis执行流程的各阶段介绍](https://www.cnblogs.com/-beyond/p/13232624.html)
-##### Mybatis的特点
+#### Mybatis的特点
 ```markdown
 1.解除SQL与程序代码的耦合，通过提供DAO层，将业务逻辑和数据访问逻辑分离，使系统的设计更清晰，更易维护，更易单元测试。SQL和代码的分离，提高了可维护性。
 2.MyBatis 比较简单和轻量： 只要通过配置 jar 包，或者如果你使用 Maven 项目的话只需要配置 Maven 以来就可以。
@@ -48,14 +46,19 @@ Mybatis一级缓存与二级缓存
     提供映射标签，支持对象与数据库的 ORM 字段关系映射
     提供 XML 标签，支持编写动态 SQL。
 ```
-####
-###
-[Mybatis学习总结（一）](https://blog.csdn.net/Marmara01/article/details/88878280)
+#### Mybatis延迟加载，缓存
+[mybatis缓存之一级缓存（一）](https://www.cnblogs.com/zhenghengbin/p/13193999.html)
+[mybatis源码学习：一级缓存和二级缓存分析](https://www.cnblogs.com/summerday152/p/12773135.html)
+[Mybatis延迟加载、缓存](https://www.cnblogs.com/sun-10387834/p/13656885.html)
 [mybatis探究之延迟加载和缓存](https://www.cnblogs.com/liyier/p/12516626.html)
 [MyBatis缓存机制（一级缓存，二级缓存）](https://www.cnblogs.com/ljl150/p/12918581.html)
-[MyBatis 开发手册](https://www.cnblogs.com/ZhuChangwu/p/11734347.html)
+#### Mybatis插件
 [mybatis的插件机制](https://www.cnblogs.com/qm-article/p/11785350.html)
 [深入理解Mybatis插件](https://www.cnblogs.com/heartlake/p/12855653.html)
+### 
+[Mybatis学习总结（一）](https://blog.csdn.net/Marmara01/article/details/88878280)
+
+[MyBatis 开发手册](https://www.cnblogs.com/ZhuChangwu/p/11734347.html)
 
 [Mybatis通用分页插件](https://github.com/pagehelper/Mybatis-PageHelper)
 
@@ -68,12 +71,11 @@ Mybatis一级缓存与二级缓存
 
 [持久层框架JPA与Mybatis该如何选型](https://www.cnblogs.com/zimug/p/11790285.html)
 
-[Mybatis 强大的结果集映射器resultMap](https://www.cnblogs.com/felordcn/p/12945815.html)
-```markdown
+[Mybatis强大的结果集映射器resultMap](https://www.cnblogs.com/felordcn/p/12945815.html)
 
-```
-[抛开 Spring ，你知道 MyBatis 加载 Mapper 的底层原理吗？](https://www.cnblogs.com/Howinfun/p/12973902.html)
+[抛开Spring，你知道MyBatis加载Mapper的底层原理吗？](https://www.cnblogs.com/Howinfun/p/12973902.html)
 
 [天哪！手动编写mybatis雏形竟然这么简单](https://www.cnblogs.com/quellanan/p/13055000.html)
 
-[提升开发效率的一款 mybatis 开发神器](https://mp.weixin.qq.com/s?__biz=MzA4NzQ0Njc4Ng==&mid=2247489537&idx=3&sn=73b164a80c147a17356b8cb82ae06d30&chksm=90381c6ca74f957a0acd9198ae0df657fee5fc49697ee109698030df56775cbfe62b67fe7aac&mpshare=1&scene=23&srcid=0907sWM491xNOoEDNoS2lEPk&sharer_sharetime=1599452230019&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+[提升开发效率的一款mybatis开发神器](https://mp.weixin.qq.com/s?__biz=MzA4NzQ0Njc4Ng==&mid=2247489537&idx=3&sn=73b164a80c147a17356b8cb82ae06d30&chksm=90381c6ca74f957a0acd9198ae0df657fee5fc49697ee109698030df56775cbfe62b67fe7aac&mpshare=1&scene=23&srcid=0907sWM491xNOoEDNoS2lEPk&sharer_sharetime=1599452230019&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+[MyBatis-Plus](https://www.cnblogs.com/ideal-20/p/13763616.html)

@@ -116,6 +116,7 @@ public class Test {
 [用Map+函数式接口来实现策略模式](https://www.cnblogs.com/keeya/p/13187727.html)
 [新来的"大神"用策略模式把if else给"优化"了，技术总监说：能不能想好了再改？](https://www.cnblogs.com/hollischuang/p/13186766.html)
 [运用设计模式告别项目中大量臃肿的if else](https://www.cnblogs.com/-tang/p/13226887.html)
+#### [常见重构技巧 - 5种方式去除多余的if else](https://www.cnblogs.com/pengdai/p/13677095.html)
 ## Java爬虫
 [不会python?那就换一种姿势爬虫！Java爬虫技术总结](https://www.cnblogs.com/carloschan/p/10572788.html)
 

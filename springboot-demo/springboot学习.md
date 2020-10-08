@@ -80,6 +80,7 @@
 [随笔分类 - Spring Boot](https://www.cnblogs.com/didispace/category/1392206.html)
 [这一次搞懂SpringBoot核心原理（自动配置、事件驱动、Condition）](https://www.cnblogs.com/yewy/p/13194696.html)
 [3种 Springboot 全局时间格式化方式，别再写重复代码了](https://www.cnblogs.com/chengxy-nds/p/13600799.html)
+
 #### 1.[SpringBoot切面Aop的demo简单讲解](https://www.cnblogs.com/xuwujing/p/12927081.html)
 ```markdown
 AOP（Aspect OrientedProgramming）：面向切面编程，面向切面编程（也叫面向方面编程），是目前软件开发中的一个热点，也是Spring框架中的一个重要内容。
@@ -107,9 +108,15 @@ spring-boot-starter-data-jpa-带有Hibernate的Spring Data JPA；spring-boot-sta
 ```
 #### 4.Spring Boot读取配置文件的几种方式
 [Spring Boot读取配置文件的几种方式](https://www.cnblogs.com/zhixie/p/13264833.html)
+[Spring Boot 配置特性解析](https://www.cnblogs.com/jiagoujishu/p/13728828.html)
 ```markdown
 Spring Boot获取文件总的来说有三种方式，分别是@Value注解，@ConfigurationProperties注解和Environment接口。
     这三种注解可以配合着@PropertySource来使用，@PropertySource主要是用来指定具体的配置文件。
+```
+#### 5.SpringBoot Controller接收参数的几种方式
+[SpringBoot Controller接收参数的几种方式](https://www.cnblogs.com/zhixie/p/13762519.html)
+```markdown
+
 ```
 #### 10.SpringBoot构建RESTAPI与单元测试
 [Spring Boot 2.x基础教程：构建RESTful API与单元测试](https://www.cnblogs.com/didispace/p/11606136.html)
@@ -175,7 +182,6 @@ main()方法调用SpringApplication类上的静态run()方法，该方法执行�
 ### 3.SpringBoot源码
 [随笔分类 - spring/boot源码解析](https://www.cnblogs.com/grey-wolf/category/1676533.html)
 [SpringBoot源码专题]( [https://www.cnblogs.com/ymbj/tag/SpringBoot%E6%BA%90%E7%A0%81%E4%B8%93%E9%A2%98/](https://www.cnblogs.com/ymbj/tag/SpringBoot源码专题/) )
-
 #### [SpringBoot启动tomcat源码解读](https://www.cnblogs.com/darendu/p/10559366.html)
 ```markdown
 从SpringBoot启动类SpringBootApplication.class进入
@@ -263,4 +269,4 @@ main()方法调用SpringApplication类上的静态run()方法，该方法执行�
 [SpringBoot中并发定时任务的实现、动态定时任务的实现（看这一篇就够了）](https://www.cnblogs.com/baixianlong/p/10659045.html)
 [SpringBoot 整合 RabbitMQ（包含三种消息确认机制以及消费端限流）](https://www.cnblogs.com/haixiang/p/10959551.html)
 [SpringBoot+Maven多模块项目（创建、依赖、打包可执行jar包部署测试）完整流程](https://blog.csdn.net/baidu_41885330/article/details/81875395)
-
+[从零打造自己的Spring Boot脚手架](https://gitee.com/felord/kono)
