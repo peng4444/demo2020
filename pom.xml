@@ -28,6 +28,7 @@
         <module>common-demo</module>
         <module>sso-demo</module>
         <module>manage-demo</module>
+        <module>myblog-demo</module>
     </modules>
 
     <properties>

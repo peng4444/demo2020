@@ -20,3 +20,5 @@ Retrofit是一个针对Java和Android的设计的REST客户机。它通过基于
 [Java开发小技巧（五）：HttpClient工具类](https://www.cnblogs.com/zkh101/p/9777973.html)
 
 ​[HttpClient多文件上传代码及普通参数中文乱码问题解决](https://www.cnblogs.com/ibigboy/p/11216786.html)
+
+[谈谈OKHttp的几道面试题](https://www.cnblogs.com/jimuzz/p/13935677.html)

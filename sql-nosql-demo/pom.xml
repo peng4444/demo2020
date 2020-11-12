@@ -78,7 +78,15 @@
             <version>5.2.2.RELEASE</version>
             <scope>test</scope>
         </dependency>
+        <!--Redis Java客户端Jedis-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
     </dependencies>
+
+
 
     <build>
         <!--springboot的maven插件-->
