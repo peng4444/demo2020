@@ -1,4 +1,4 @@
-# Netty学习代码
+# Netty学习总结
 [参考阅读书籍：《Netty 实战(精髓)》](https://waylau.gitbooks.io/essential-netty-in-action/content/)
 [参考视频：尚硅谷韩顺平Netty视频教程（2019发布）](https://www.bilibili.com/video/BV1DJ411m7NR)
 
@@ -6,7 +6,6 @@
 
 
 ## Netty
-
 ## Netty常见面试题总结
 >> [宝贝儿！你要的Netty常见面试题总结，Guide搞来了！](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247488207&idx=1&sn=6f413c059cbfac3b771168316848a735&chksm=cea25d04f9d5d4126d16486e63dd265547b9c629be44d4c455c9f44cedf8bba773283c4ee2f2&mpshare=1&scene=23&srcid=&sharer_sharetime=1592278226199&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 ### Netty是什么？

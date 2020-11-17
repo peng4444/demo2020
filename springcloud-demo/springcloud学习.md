@@ -42,6 +42,7 @@
 [随笔分类 - Spring Cloud Alibaba](https://www.cnblogs.com/fx-blog/category/1569361.html)
 ### SpringCloud-Alibaba-Nacos 服务注册中心&配置中心
 [Nacos官网](https://nacos.io/zh-cn/index.html)
+[搞微服务用阿里开源的 Nacos 真香啊！](https://www.cnblogs.com/xueweihan/p/13961778.html)
 [Spring Cloud Alibaba系列（一）nacos作为服务注册中心](https://www.cnblogs.com/zhixie/p/12848317.html)
 [SpringCloud-Alibaba-Nacos 服务注册中心&配置中心](https://www.cnblogs.com/songjilong/p/12796258.html)
 ```markdown
@@ -51,7 +52,9 @@
 ### Spring-cloud-Alibaba-feign 服务调用
 [Spring Cloud Alibaba系列（二）nacos作为服务配置中心](https://www.cnblogs.com/zhixie/p/12854737.html)
 
-### 
+### Spring-cloud-Alibaba-Sentinel
+[参考视频：全方位掌握阿里巴巴分布式服务架构流量控件Sentinel](https://www.bilibili.com/video/BV12A411E7aX)
+[视频笔记：Sentinel从入门到精通](https://blog.csdn.net/m_awdawdw/article/details/109023535)
 [双剑合璧 Nacos 结合 Sentinel 实现流量安全控制](https://www.cnblogs.com/mrhelloworld/p/sentinel-nacos.html)
 
 [SpringCloud系列之集成Dubbo应用篇](https://www.cnblogs.com/chinaWu/p/12818661.html)
