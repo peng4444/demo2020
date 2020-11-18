@@ -10,7 +10,7 @@ docker :centos101,centos102上安装了docker，参照安装参照>>千锋教育
 # systemctl restart docker -- 重启docker
 ```
 【Docker】[docker笔记](https://www.cnblogs.com/spec-dog/tag/docker/)
-
+[随笔分类 - 测试高级进阶技能系列 - Docker](https://www.cnblogs.com/poloyy/category/1870863.html)
 [Docker安装]( https://blog.csdn.net/laughing1997/article/details/84305615 ) [Centos系统下docker的安装与卸载]( https://blog.csdn.net/a527219336/article/details/50800181 )
 
 [Centos 7 安装最新 Docker-compose 的正确姿势]( https://blog.csdn.net/cookily_liangzai/article/details/82496934 )

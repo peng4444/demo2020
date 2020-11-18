@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"><!--这个是干嘛的啊，不知道啊-->
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo05</title>
+</head>
+<body>
+<!--没有使用计算属性，在 methods 里定义了 个方法实现了相同的效果，甚至该方法还可以接受参数，使用起来更灵活。
+既然使用 methods 就可以实现，那么为什么还需要计算属性呢？原因就是计算属性是基于它的依赖缓存的。
+一个计算属性所依赖的数据发生变化时，它才会重新取值，所以text 只要不改变，计算属性也就不更新，
+-->
+<div id="vue5">
+    <!--注意，这里的reversedText()是方法，所以要带() -->
+    {{ reversedText() }}
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue5 = new Vue({
+        el: '#vue5',
+        data: {
+            text: '123,456'
+        },
+        methods: {
+            reversedText: function () {
+                //这里的this指向的是当前的Vue实例
+                return this.text.split(',').reverse().join(',');
+            }
+        }
+    })
+</script>
+</body>
+</html>

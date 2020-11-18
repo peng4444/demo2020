@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml"><!--这个是干嘛的啊，不知道啊-->
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo01</title>
+</head>
+<body>
+<!--v-bind 的基本用途是动态更新 HTML 元素上的属性，比如 id class 等  数据被动态设置，数据变化时会重新渲染-->
+<div id="vue1">
+    <a v-bind:href="url">链接</a>
+    <img v-bind:src="imgUrl">
+    <!--语法糖 缩写为-->
+    <a :href="url">链接</a>
+    <img :src="imgUrl">
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue1 = new Vue({
+        el: '#vue1',
+        data: {
+            url: 'https://www.baidu.com',
+            imgUrl: 'https://www.baidu.com/img.png'
+        }
+    })
+</script>
+</body>
+</html>

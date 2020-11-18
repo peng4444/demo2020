@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Demo</title>
+</head>
+<body>
+<!--[[Spring MVC+ajax进行信息验证](https://www.cnblogs.com/by-my-blog/p/11531140.html)]-->
+<form role="form" action="userController/insert.do">
+    <div class="form-group">
+        <label for="exampleInputEmail1">用户名</label><input name="username" type="text" class="form-control"
+                                                          id="exampleInputEmail1"
+                                                          onblur="check(this)"/>
+        <h4 style="color:red" id="usernameInfo"></h4>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">密码</label><input name="password" type="password" class="form-control"
+                                                            id="exampleInputPassword1"
+                                                            onblur="check(this)"/>
+        <h4 style="color:red" id="passInfo"></h4>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">确认密码</label><input name="repassword" type="password" class="form-control"
+                                                              id="exampleInputPassword2"
+                                                              onblur="check(this)"/>
+        <label style="color:red" id="repassInfo"></label>
+    </div>
+    <button type="submit" class="btn btn-success btn-lg btn-block">提交</button>
+</form>
+
+<script>
+    var check = function (info) {
+        if (info.name == "username") {
+            var username = document.getElementById("exampleInputEmail1").value.trim();
+            if (username == "") {
+                document.getElementById("usernameInfo").innerHTML = "用户名不能为空";
+            } else {
+                loadXMLDoc();  //执行Ajax检查
+            }
+/////分割线////////////////////////////////分割线/////////////////////////////////////////分割线
+        } else if (info.name == "password") {
+            var pass = document.getElementById("exampleInputPassword1").value.trim();
+            if (pass == "") {
+                document.getElementById("passInfo").innerHTML = "密码不能为空";
+            } else {
+                document.getElementById("passInfo").innerHTML = "";
+            }
+        } else {
+            var value1 = document.getElementById("exampleInputPassword2").value;
+            var value2 = document.getElementById("exampleInputPassword1").value;
+            if (value1 != value2) {
+                document.getElementById("repassInfo").innerHTML = "前后密码不一致";
+            } else {
+                document.getElementById("repassInfo").innerHTML = "";
+            }
+        }
+    }
+    var loadXMLDoc = function () {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function ()
+        {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+            {
+                var text = xmlhttp.responseText;
+                document.getElementById("usernameInfo").innerHTML = text;  //设置反馈信息
+            }
+        }
+        var name = document.getElementById("exampleInputEmail1").value;    //获取用户输入
+        xmlhttp.open("GET", "userController/checkInfo.do?username=" + name, true);    //构造请求
+        xmlhttp.send();                                                     //发送
+    }
+</script>
+</body>
+</html>

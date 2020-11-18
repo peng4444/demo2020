@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo02</title>
+</head>
+<body>
+<!--内置指令 v-once
+v-once 也是 个不需要表达式的指令，作用是定义它的元素或组件只渲染 次，包括元素或
+组件的所有子节点。首次渲染后，不再随数据的变化重新渲染，将被视为静态内容-->
+<div id="vue2" v-cloak>
+    <span v-once>{{ message }}</span>
+    <div v-once>
+        <span>{{ message }}</span>
+    </div>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue2 = new Vue({
+        el: '#vue2',
+        data: {
+            message: '这是一段文本。'
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Login</title>
+</head>
+<body>
+<!--Vue 渲染元素时，出于效率考虑，会尽可能地复用已有的元素而非重新渲染，-->
+<div id="vueLogin">
+    <template v-if="type === 'name'">
+        <label>用户名：</label>
+        <input placeholder="输入用户名">
+    </template>
+    <template v-else>
+        <label>邮箱：</label>
+        <input placeholder="输入邮箱">
+    </template>
+    <br>
+    <button @click="handleToggleClick">切换邮箱登录</button>
+    <br>
+    <button @click="handleToggleClick">切换用户名登录</button>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vueLogin = new Vue({
+        el: '#vueLogin',
+        data: {
+            type: 'name'
+        },
+        methods: {
+            handleToggleClick: function () {
+                this.type = this.type === 'name' ? 'mail' : 'name';
+            }
+        }
+    })
+</script>
+</body>
+</html>

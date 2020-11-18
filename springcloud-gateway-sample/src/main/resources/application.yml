@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: define_filter    # id :自定义路由ID，保持唯一
+          predicates:          # 路由条件，根据匹配的结果决定是否执行该请求路由
+            - Path=/gateway/**
+          filters:            # 过滤规则，包含pre和post过滤，其中StripPrefix=1，表示Gateway根据该配置的值去掉URL路径中的部分前缀SpringCloudGateway网关
+            - name: GpDefine
+              args:
+                name: Gp_Mic
+            - name: RequestRateLimiter
+              args:
+                denyEmptyKey: false
+                emptyKeyStatus: SERVICE_UNAVAILABLE
+                keyResolver: '#{@ipAddressKeyResolver}'
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 2
+            - StripPrefix=1
+          uri: http://localhost:9981/say    # uri:目标服务地址，支持普通URI及ib://应用注册服务名称，后者表示从注册中心获取集群服务地址
+  redis:
+    host: 192.168.101.206
+    port: 6379
+server:
+  port: 9982

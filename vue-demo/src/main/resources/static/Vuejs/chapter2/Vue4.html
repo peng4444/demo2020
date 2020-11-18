@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo04</title>
+</head>
+<body>
+<!--如果有的时候就是想输出 HTML ，而不是将数据解释后的纯文本，可以使用 v-html
+link 的内容将会被渲染为 个具有点击功能的 标签，而不是纯文本。-->
+<div id="vue4">
+    <span v-html="link"></span>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue4 = new Vue({
+        el: '#vue4',
+        data: {
+            link: '<a href="#">这是一个链接'
+        }
+    })
+</script>
+</body>
+</html>

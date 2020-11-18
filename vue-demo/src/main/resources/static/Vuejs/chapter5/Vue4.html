@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo04</title>
+</head>
+<body>
+<!--内置指令 v-if-->
+<div id="vue4">
+    <template v-if="status === 1">
+        <p>这是一个文本1</p>
+        <p>这是一个文本2</p>
+        <p>这是一个文本3</p>
+    </template>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue4 = new Vue({
+        el: '#vue4',
+        data: {
+            status: 1
+        }
+    })
+</script>
+</body>
+</html>

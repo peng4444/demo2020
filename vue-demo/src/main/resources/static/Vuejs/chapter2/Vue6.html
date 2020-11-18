@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo06</title>
+</head>
+<body>
+<!--过滤器-->
+<div id="vue6">
+    {{ date | formatDate }}
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    /*构造函数Vue,vue3是一个Vue实例，实现前端实时显示时间 */
+    //在月份、日期、小时等小于 10 时前面 补0 ，经常用于格式，比如字母全部大写、货币千位使用逗号分隔等。
+    // 过滤是自定义的，通过给 Vue 实例添加选项 filters 来设置
+    /*过滤器也可以串联，而且可以接收参数，例如：
+    一串联一〉
+    { { message I filterA I fil terB } }
+    〈！一接收参数一一〉
+    {{ message I lterA argl ’，’ arg2 ’）｝｝
+    这里的字符串缸gl arg2 将分别传给过滤器的第 个和第 个参数，因为第 个是数据本身。*/
+    var padDate = function (vlaue) {
+        return vlaue < 10 ? '0' + vlaue : vlaue;
+    };
+    var vue6 = new Vue({
+        el: '#vue6',
+        data: {
+            date: new Date()
+        },
+        filters: {
+            formatDate: function (value) {//这里的value就是需要过滤的数据
+                var date = new Date(value);
+                var year = date.getFullYear();
+                var mounth = padDate(date.getMonth() + 1);
+                var day = padDate(date.getDay());
+                var hours = padDate(date.getHours());
+                var minuters = padDate(date.getMinutes());
+                var seconds = padDate(date.getSeconds());
+                //将整理好的数据返回出去
+                return year + '-' + mounth + '-' + day + ' ' + hours + ':' + minuters + ':' + seconds;
+            }
+        },
+        mounted: function () {
+            var _this = this;//声明一个变量指向Vue3实例this，保证作用域一致
+            this.timer = setInterval(function () {
+                _this.date = new Date();//修改数据date
+            }, 1000);
+        },
+        beforeDestory: function () {
+            if (this.timer) {
+                clearInterval(this.timer);//在Vue3实例销毁前，清除我们的定时器
+            }
+        }
+    })
+</script>
+</body>
+</html>

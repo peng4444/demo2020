@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml"><!--这个是干嘛的啊，不知道啊-->
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo02</title>
+</head>
+<body>
+<!--给v-bind:class 设置一个对象，可以动态地切换 class-->
+<div id="vue2">
+    <div v-bind:class="{ 'active': isActive }"></div>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue2 = new Vue({
+        el: '#vue2',
+        data: {
+            isActive: true
+        }
+    })
+</script>
+</body>
+</html>
+<!--上面示例中，类名 active 依赖于数据 isActive ，当其为 true 时， div 会拥有类名 Active ，为 false
+时则没有，所以上例最终渲染完的结果是：
+<div class ＝"active" ></div>-->

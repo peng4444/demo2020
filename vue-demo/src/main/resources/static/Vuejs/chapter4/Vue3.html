@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml"><!--这个是干嘛的啊，不知道啊-->
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo03</title>
+</head>
+<body>
+<!--对象中也可以传入多个属性，来动态切换 class 。另外，：class 可以与普通 class 共存-->
+<div id="vue3">
+    <div v-bind:class="static": class="{'active': isActive, 'error':isError }"></div>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue3 = new Vue({
+        el: '#vue3',
+        data: {
+            isActive: true
+        }
+    })
+</script>
+</body>
+</html>

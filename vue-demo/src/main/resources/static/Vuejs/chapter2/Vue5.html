@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo05</title>
+</head>
+<body>
+<!--如果想显示｛｛｝｝标签，而不进行替换 使用 v-pre 即可跳过这个元素和它的子元素的编译过程，
+    <span v-span>{{ 这里的内容是不会被编译的 }}</span>
+-->
+<!--在｛｛｝｝中，除了简单的绑定属性值外，还可 使用 JavaScript 表达式进行简单的运算 三元运算等-->
+<div id="vue5">
+    {{ number /10 }}
+    {{ isOK ? '确定' : '取消' }}
+    {{ text.split(',').reverse().join(',') }}
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue5 = new Vue({
+        el: '#vue5',
+        data: {
+            number: 100,
+            isOK: false,
+            text: '123,456'
+        }/*10 取消 456,123*/
+    })
+</script>
+</body>
+</html>

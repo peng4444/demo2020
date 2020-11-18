@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo03</title>
+</head>
+<body>
+<!--内置指令 v-if-->
+<div id="vue3">
+    <p v-if="status === 1">当status为1时显示改行</p>
+    <p v-else-if="status === 2 ">当status为2 时显示该行</p>
+    <p v-else>否则执行该行</p>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue3 = new Vue({
+        el: '#vue3',
+        data: {
+            status: 4
+        }
+    })
+</script>
+</body>
+</html>

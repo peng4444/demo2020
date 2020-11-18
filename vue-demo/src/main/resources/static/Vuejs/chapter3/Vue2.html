@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"><!--这个是干嘛的啊，不知道啊-->
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo02</title>
+</head>
+<body>
+<!--在一个计算属性里可以完成各种复杂的逻辑，包括运算、函数调用等，只要最终返回一个结
+果就可以。除了上例简单的用法，计算属性还可以依赖多个 vue 实例的数据，只要其中任 数据
+变化，计算属性就会重新执行，视图也会更新。例如，下面的示例展示的是在购物车内两个包裹的
+物品总价：-->
+<div id="vue2">
+    总价：{{ prices }}
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue2 = new Vue({
+        el: '#vue2',
+        data: {
+            package1: [
+                {
+                    name: 'iPhone 7',
+                    price: 7219,
+                    count: 2
+                },
+                {
+                    name: 'iPad',
+                    price: 2888,
+                    count: 1
+                }
+            ],
+            package2: [
+                {
+                    name: 'apple',
+                    price: 3,
+                    count: 5
+                },
+                {
+                    name: 'banana',
+                    price: 2,
+                    count: 10
+                }
+            ]
+        },
+        computed: {
+            prices: function () {
+                var prices = 0;
+                for (var i = 0; i < this.package1.length; i++) {
+                    prices += this.package1[i].price * this.package1[i].count;
+                }
+                for (var i = 0; i < this.package2.length; i++) {
+                    prices += this.package2[i].price * this.package2[i].count;
+                }
+                return prices;
+            }
+        }
+    })
+</script>
+</body>
+</html>

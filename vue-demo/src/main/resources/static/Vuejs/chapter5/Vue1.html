@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo01</title>
+</head>
+<body>
+<!--内置指令 v-cloak
+v-cloak 不需要表达式，它会在 Vue 实例结束编译时从绑定的 HTML 素上移除 经常和 css的display: none；配合使用：-->
+<div id="vue1" v-cloak>
+    <h1>{{ message }}</h1>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue1 = new Vue({
+        el: '#vue1',
+        data: {
+            message: '这是一段文本。'
+        }
+    })
+</script>
+</body>
+</html>
+<!--当网速较慢、 Vue.js 文件还没
+加载完时，在页面上会显示｛ { message } ｝的字样，直到 Vue 创建实例、编译模板时， DOM 才会被
+替换，所以这个过程屏幕是有闪动的。-->

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo07</title>
+</head>
+<body>
+<!--指令（ Directives ）是 ue 模板中最常用的 项功能，它带有前缀 －， 在前文我们已经使用
+过不少指令了，比如 -if v-html v-pre 等。指令的主要职责就是当其表达式的值改变时，相应地
+将某些行为应用到 DOM 上，以 if 为例。-->
+<div id="vue7">
+    <p v-if="show">显示这一段文本</p>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue7 = new Vue({
+        el: '#vue7',
+        data: {
+            show: false //当数据 show 的值为 true 时， 元素会被插入，为 false 时则会被移除
+        }
+    })
+</script>
+</body>
+</html>

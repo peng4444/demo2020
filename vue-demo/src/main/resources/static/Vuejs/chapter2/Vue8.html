@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml"><!--这个是干嘛的啊，不知道啊-->
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo08</title>
+</head>
+<body>
+<!--v-bind 的基本用途是动态更新 HTML 元素上的属性，比如 id class 等-->
+<div id="vue8">
+    <a v-bind:href="url">链接</a>
+    <img v-bind:src="imgUrl">
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue8 = new Vue({
+        el: '#vue8',
+        data: {
+            url: 'https://www.baidu.com',
+            imgUrl: 'https://www.baidu.com/img.png'
+        }
+    })
+</script>
+</body>
+</html>

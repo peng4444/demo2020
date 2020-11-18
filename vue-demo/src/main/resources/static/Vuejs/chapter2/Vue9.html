@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"><!--这个是干嘛的啊，不知道啊-->
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo09</title>
+</head>
+<body>
+<!-- v-on ，它用来绑定事件监听器，这样我们就可以做 些交互了，-->
+<div id="vue9">
+    <p v-if="show">这是一段文本</p>
+    <button v-on:click="handleClose">点击隐藏</button>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue9 = new Vue({
+        el: '#vue9',
+        data: {
+            show: true
+        },
+        methods: {
+            handleClose: function () {
+                this.show = false;
+            }
+        }
+    })
+</script>
+</body>
+</html>

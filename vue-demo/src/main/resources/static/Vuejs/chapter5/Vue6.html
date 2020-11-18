@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Login</title>
+</head>
+<body>
+<!--给两个＜ nput>元素都增加 key 就不会复用了，切换类型时键入的内容也会被删除，不过 <label＞元素仍然是被复用的，因为没有添加 key 属性。，-->
+<div id="vueLogin">
+    <template v-if="type === 'name'">
+        <label>用户名：</label>
+        <input placeholder="输入用户名" key="name-input">
+    </template>
+    <template v-else>
+        <label>邮箱：</label>
+        <input placeholder="输入邮箱" key="mail-input">
+    </template>
+    <br>
+    <button @click="handleToggleClick">切换邮箱登录</button>
+    <br>
+    <button @click="handleToggleClick">切换用户名登录</button>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vueLogin = new Vue({
+        el: '#vueLogin',
+        data: {
+            type: 'name'
+        },
+        methods: {
+            handleToggleClick: function () {
+                this.type = this.type === 'name' ? 'mail' : 'name';
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo07</title>
+</head>
+<body>
+<!--内置指令 v-show
+v-show 的用法与 v-if 基本 致，只不过 -show 是改变元素的 css 属性 display 。当 v-show
+达式的值为 false 时， 元素会隐藏，查看 DOM 结构会看到元素上加载了内联样式 display none;
+-->
+<div id="vue3">
+    <p v-show="status === 1">当status为1时执行该行</p>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    var vue7 = new Vue({
+        el: '#vue7',
+        data: {
+            status: 4
+        }
+    })
+</script>
+</body>
+</html>
