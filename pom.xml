@@ -34,6 +34,10 @@
         <module>springcloud-rocketmq-producer</module>
         <module>springcloud-Gateway-service</module>
         <module>springcloud-gateway-sample</module>
+        <module>linux-learn</module>
+        <module>java-learn</module>
+        <module>computer-learn</module>
+        <module>myblog-write</module>
     </modules>
 
     <properties>
