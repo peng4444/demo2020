@@ -4,7 +4,7 @@ package cn.pbj.demo2020.myblog.config;
  * @pClassName: ShiroConfig
  * @author: pengbingjiang
  * @create: 2020/11/12 15:18
- * @description: TODO
+ * @description: TODO shiro启用注解拦截控制器
  */
 
 import cn.pbj.demo2020.myblog.shiro.AccountRealm;

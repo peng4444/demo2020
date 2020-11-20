@@ -74,6 +74,11 @@ Spring的七大模块：
     - 使用门槛升高，入门Spring需要较长时间
 ```
 ### 4.控制反转（IOC）&依赖注入（DI）【10+】
+[Spring IOC的核心机制：实例化与注入](https://www.cnblogs.com/zyjimmortalp/p/12828726.html)
+[重新认识 Spring IOC](https://www.cnblogs.com/i-code/p/12832545.html)
+[Spring系列之IOC的原理及手动实现](https://www.cnblogs.com/liyus/p/10112118.html)
+[手写IOC实现过程](https://www.cnblogs.com/tc971121/p/13458742.html)
+[关于IOC容器的一些个人理解](https://www.cnblogs.com/HanJunJun-blog/p/10579712.html)
 ```markdown
 IOC（Inverse of Control:控制反转）是一种设计思想：就是将原本在程序中手动创建对象的控制权，交由Spring框架来管理。
     IoC容器是Spring用来实现IoC的载体，IoC容器实际上就是个Map（key，value）,Map中存放的是各种对象。
@@ -104,7 +109,7 @@ Java中实现依赖注入的三种方式？
     getBean方法获取Bean实例，该方法会调用doGetBean ，doGetBean真正实现从IoC容器获取Bean的功能，也是触发依赖注入的地方。
     具体创建Bean对象的过程由ObjectFactory的createBean完成，该方法主要通过createBeanInstance方法生成Bean包含的Java对象实例和populateBean方法对Bean属性的依赖注入进行处理。
 ```
-### 1.8.Spring的依赖注入(DI)
+### 4.Spring的依赖注入(DI)
 [SpringDI四种依赖注入方式详解](https://www.cnblogs.com/ziph/p/13337025.html)
 ```markdown
 Spring利用反射创建对象，并将创建好的对象放入一个大工厂，实现了对象创建和使用的解耦。需要使用的时候可以方便的通过BeanFactory.getBean()获取。
@@ -234,7 +239,11 @@ Spring是如何解决的循环依赖？（关于循环依赖的解决方式应�
 [springAOP的三种实现方式](https://www.cnblogs.com/liuyj-top/p/13346206.html)
 [静态代理和动态代理（jdk/cglib）详解](https://www.cnblogs.com/tc971121/p/13474638.html)
 [Java中的静态代理和动态代理](https://www.cnblogs.com/csh24/p/13590338.html)
-[关于Spring AOP，除了动态代理、CGLIB，你还知道什么？](https://mp.weixin.qq.com/s?__biz=MzU4Mjk0MjkxNA==&mid=2247487469&idx=2&sn=ef923c0ec9ad7125c8ab257a6a786e8a&chksm=fdb1e640cac66f5653ffa10a2446da2116252ee7d70ebfd68292947861db2e4274a66c01dfae&mpshare=1&scene=23&srcid=0921FWihx39xo4JGecNxDlfy&sharer_sharetime=1600649063249&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+[关于Spring AOP，除了动态代理、CGLIB，你还知道什么？](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650128800&idx=3&sn=3a3e9806348f3b280bdc5ee725238a20&chksm=f36bdc81c41c5597d0e206d637dd7bd986886212e38ae69fd506cc8488ab98bac5698204e9bc&mpshare=1&scene=23&srcid=&sharer_sharetime=1590070530809&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+[AOP 技术原理——代理模式全面总结](https://www.cnblogs.com/kubixuesheng/p/5183782.html)
+[JAVA-Spring AOP五大通知类型](https://www.cnblogs.com/xiaoluohao/p/11286242.html)
+[聊聊在AOP模式下的缓存方案](https://www.cnblogs.com/lori/p/10602746.html)
+[手写AOP实现过程](https://www.cnblogs.com/tc971121/p/13490708.html)
 ```markdown
 AOP(Aspect-Oriented Programming:⾯向切⾯编程)：能够将那些与业务⽆关，却为业务模块所共同调⽤的逻辑或责任（例如事务处理、⽇志管理、权限控制等）封装起来，
     便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。
@@ -324,6 +333,31 @@ Bean生命周期
     - 使用
     - destroy：bean的销毁
 ```
+### 1.6.Spring容器装配Bean的三种方式
+[spring注入bean的几种策略模式](https://www.cnblogs.com/zyjimmortalp/p/12833761.html)
+```markdown
+1.隐式的Bean发现机制和自动装配
+    Spring从两个角度来实现自动化装配；组件扫描（Spring自动发现应用中上下文所需要的创建的Bean），自动装配（Spring自动满足Bean之间的依赖）
+        1.使用@Component将普通Java类配置成SpringBean,除了这一注解还可以使用@Controller，@Service，@Repository等注解。
+        2.使用@Autowired（自动装配）使Spring满足Bean的依赖
+        3.配置组件扫描包（组件扫描）
+            在Java类中配置组件扫描
+                @ComponentScan("com.jimisun.controller")
+            在XML配置文件配置组件扫描
+                <context:component-scan base-package="com.jimisun.controller,com.jimisun.service"/>
+2.在Java中进行装配
+    1.使用@Bean注解将方法返回的实例对象添加到上下文中
+    2.在@Bean返回的实例对象中可以通过构造器注入传入相关依赖
+3.在XML中进行装配
+    <bean class="com.jimisun.spring.example.User" id="user">
+            <constructor-arg ref="myArticle"/>
+    </bean>
+    <bean class="com.jimisun.spring.example.MyArticle" id="myArticle"></bean>
+值得一提的是，我们在项目中应该优先实用隐式的Bean发现机制和自动装配，其次使用在Java中进行装配，最后再使用在XML中进行装配。
+BeanDefinition是spring容器创建对象的模板，定义了bean创建的细节。
+BeanFactoryPostProcessor可以拿到整个容器对象，当然也能修改BeanDefinition，所以能直接操作bean的创建。
+BeanPostProcessor执行的时候bean已经创建完成了，我们可以拿到想要的对象进行干预和设值等操作。
+```
 ### 10.Bean作用域？默认什么级别？是否线程安全？Spring如何保障线程安全的?
 ```markdown
 Bean作用域
@@ -346,11 +380,31 @@ Spring中的Bean默认的单例模式，Spring框架并没有对单例bean进行
 ```
 ### 11.Spring事务隔离级别和事务传播属性【5+】
 [【源码讲解】Spring事务是如何应用到你的业务场景中的？](https://www.cnblogs.com/winkin/p/13667568.html)
+#### 11.1.Spring事务管理详解
+[Spring 事务管理详解](https://www.cnblogs.com/liantdev/p/10149443.html)
 ```markdown
-Spring事务和MySQL事务的区别，Spring事务传播机制介绍，Spring事务失效和解决方案。
+Spring事务管理为我们提供了三个高层抽象的接口，分别是TransactionProxyFactoryBean，TransactionDefinition，TransactionStatus
+Spring事务管理器的接口是org.springframework.transaction.PlatformTransactionManager，Spring框架并不直接管理事务，而是通过这个接口为不同的持久层框架提供了不同的
+    PlatformTransactionManager接口实现类，也就是将事务管理的职责委托给Hibernate或者iBatis等持久化框架的事务来实现
+TransactionDefinition定义事务基本属性:org.springframework.transaction.TransactionDefinition接口用于定义一个事务，
+    它定义了Spring事务管理的五大属性：隔离级别、传播行为、是否只读、事务超时、回滚规则。
+事务状态：org.springframework.transaction.TransactionStatus接口用来记录事务的状态，该接口定义了一组方法，用来获取或判断事务的相应状态信息。
+Spring 事务管理实现方式
+Spring 事务管理有两种方式：编程式事务管理、声明式事务管理
+编程式事务管理通过TransactionTemplate手动管理事务，在实际应用中很少使用，我们来重点学习声明式事务管理
+声明式事务管理有三种实现方式：基于TransactionProxyFactoryBean的方式、基于AspectJ的XML方式、基于注解的方式
 Spring事物的实现方式：
     声明式事物：声明式事物也有两种方式：1.基于xml配置文件的方式和注解方式（@Transaction）
     编码方式：提供编码的形式管理和维护事物
+```
+#### 11.2.Spring事务的隔离级别
+```markdown
+在 Spring 事务管理中，为我们定义了如下的隔离级别：
+ISOLATION_DEFAULT：使用数据库默认的隔离级别
+ISOLATION_READ_UNCOMMITTED：最低的隔离级别，允许读取已改变而没有提交的数据，可能会导致脏读、幻读或不可重复读
+ISOLATION_READ_COMMITTED：允许读取事务已经提交的数据，可以阻止脏读，但是幻读或不可重复读仍有可能发生
+ISOLATION_REPEATABLE_READ：对同一字段的多次读取结果都是一致的，除非数据事务本身改变，可以阻止脏读和不可重复读，但幻读仍有可能发生
+ISOLATION_SERIALIZABLE：最高的隔离级别，完全服从ACID的隔离级别，确保不发生脏读、不可重复读以及幻读，也是最慢的事务隔离级别，因为它通常是通过完全锁定事务相关的数据库表来实现的
 隔离级别：
     1) DEFAULT （默认）
     这是一个Platfrom TransactionManager默认的隔离级别，**使用数据库默认的事务隔离级别**。另外四个与JDBC的隔离级别相对应。
@@ -362,6 +416,19 @@ Spring事物的实现方式：
     这种事务隔离级别可以防止脏读、不可重复读，但是可能出现幻像读。它除了保证一个事务不能读取另一个事务未提交的数据外，还保证了不可重复读。
     5) SERIALIZABLE（串行化）
     这是花费最高代价但是最可靠的事务隔离级别，事务被处理为顺序执行。除了防止脏读、不可重复读外，还避免了幻像读。
+
+```
+#### 11.3.Spring事务的传播级别
+[Spring事务的传播级别](https://www.cnblogs.com/jack1995/p/13233540.html)
+```markdown
+传播属性	                            描述
+PROPAGATION_REQUIRED	如果当前没有事务，就创建一个事务，如果当前存在事务，就加入该事务。
+PROPAGATION_REQUIRED_NEW	当前的方法必须启动新事务，并在它自己的事务内运行，不管是否存着事务，都开启新事务。
+PROPAGATION_SUPPORTS	如果当前存在事务，就加入该事务，如果当前不存在事务，就以非事务的方式执行。
+PROPAGATION_NOT_SUPPORTED	当前的方法不应该运行在事务中，如果有运行的事务，将它挂起
+PROPAGATION_MANDATORY	如果当前存在事务，就加入当前事务，如果当前不存在事务，就抛出异常
+PROPAGATION_NEVER	当前的方法不应该运行在事务中，如果当前存在事务，就抛出异常
+PROPAGATION_NESTED	如果有事务在运行，当前的方法就应该在这个事务的嵌套事务内运行，否则，就启动一个新的事务，并在它自己的事务内运行。
 Spring事务传播属性（Propagation）：
     1) REQUIRED（默认属性）
     如果存在一个事务，则支持当前事务。如果没有事务则开启一个新的事务。 被设置成这个级别时，会为每一个被调用的方法创建一个逻辑事务域。
@@ -380,40 +447,20 @@ Spring事务传播属性（Propagation）：
     支持当前事务，新增Savepoint点，与当前事务同步提交或回滚。 嵌套事务一个非常重要的概念就是内层事务依赖于外层事务。
     外层事务失败时，会回滚内层事务所做的动作。而内层事务操作失败并不会引起外层事务的回滚。
 ```
-##### Spring 事务管理详解
-[Spring 事务管理详解](https://www.cnblogs.com/liantdev/p/10149443.html)
+#### 11.4.@Transactional及其错误使用失效场景【5+】
+[一个@Transaction哪里来这么多坑？](https://mp.weixin.qq.com/s?__biz=MzU5ODg2Njk4OA==&mid=2247484779&idx=1&sn=2854d0210a65f8beb7c96ef133027632&chksm=febce828c9cb613e50dafd57ee67e5abf5aa3492f9ace748583ce02203bb86f526f69b5a9289&mpshare=1&scene=23&srcid=0829tnZEWo22Np1e0KqU4Dgw&sharer_sharetime=1598715775957&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 ```markdown
-Spring事务管理为我们提供了三个高层抽象的接口，分别是TransactionProxyFactoryBean，TransactionDefinition，TransactionStatus
-Spring事务管理器的接口是org.springframework.transaction.PlatformTransactionManager，Spring框架并不直接管理事务，而是通过这个接口为不同的持久层框架提供了不同的
-    PlatformTransactionManager接口实现类，也就是将事务管理的职责委托给Hibernate或者iBatis等持久化框架的事务来实现
-TransactionDefinition定义事务基本属性:org.springframework.transaction.TransactionDefinition接口用于定义一个事务，
-    它定义了Spring事务管理的五大属性：隔离级别、传播行为、是否只读、事务超时、回滚规则。
-事务状态：org.springframework.transaction.TransactionStatus接口用来记录事务的状态，该接口定义了一组方法，用来获取或判断事务的相应状态信息。
-Spring 事务管理实现方式
-Spring 事务管理有两种方式：编程式事务管理、声明式事务管理
-编程式事务管理通过TransactionTemplate手动管理事务，在实际应用中很少使用，我们来重点学习声明式事务管理
-声明式事务管理有三种实现方式：基于TransactionProxyFactoryBean的方式、基于AspectJ的XML方式、基于注解的方式
-```
-##### Spring事务的隔离级别
-```markdown
-在 Spring 事务管理中，为我们定义了如下的隔离级别：
-ISOLATION_DEFAULT：使用数据库默认的隔离级别
-ISOLATION_READ_UNCOMMITTED：最低的隔离级别，允许读取已改变而没有提交的数据，可能会导致脏读、幻读或不可重复读
-ISOLATION_READ_COMMITTED：允许读取事务已经提交的数据，可以阻止脏读，但是幻读或不可重复读仍有可能发生
-ISOLATION_REPEATABLE_READ：对同一字段的多次读取结果都是一致的，除非数据事务本身改变，可以阻止脏读和不可重复读，但幻读仍有可能发生
-ISOLATION_SERIALIZABLE：最高的隔离级别，完全服从ACID的隔离级别，确保不发生脏读、不可重复读以及幻读，也是最慢的事务隔离级别，因为它通常是通过完全锁定事务相关的数据库表来实现的
-```
-##### Spring事务的传播级别
-[Spring事务的传播级别](https://www.cnblogs.com/jack1995/p/13233540.html)
-```markdown
-传播属性	                            描述
-PROPAGATION_REQUIRED	如果当前没有事务，就创建一个事务，如果当前存在事务，就加入该事务。
-PROPAGATION_REQUIRED_NEW	当前的方法必须启动新事务，并在它自己的事务内运行，不管是否存着事务，都开启新事务。
-PROPAGATION_SUPPORTS	如果当前存在事务，就加入该事务，如果当前不存在事务，就以非事务的方式执行。
-PROPAGATION_NOT_SUPPORTED	当前的方法不应该运行在事务中，如果有运行的事务，将它挂起
-PROPAGATION_MANDATORY	如果当前存在事务，就加入当前事务，如果当前不存在事务，就抛出异常
-PROPAGATION_NEVER	当前的方法不应该运行在事务中，如果当前存在事务，就抛出异常
-PROPAGATION_NESTED	如果有事务在运行，当前的方法就应该在这个事务的嵌套事务内运行，否则，就启动一个新的事务，并在它自己的事务内运行。
+1.@Transactional在private上：当标记在protected、private、package-visible方法上时，不会产生错误，
+    但也不会表现出为它指定的事务配置。可以认为它作为一个普通的方法参与到一个public方法的事务中。
+2.@Transactional的事务传播方式配置错误。
+3.@Transactional 注解属性rollbackFor设置错误：Spring默认抛出了未检查unchecked异常（继承自 RuntimeException 的异常）或者 Error才回滚事务；其他异常不会触发回滚事务。
+4.同一个类中方法调用，导致@Transactional失效：由于使用Spring AOP代理造成的，因为只有当事务方法被当前类以外的代码调用时，才会由Spring生成的代理对象来管理。
+    出现了自调用：及未配置事物的方法调用了配置事物的方法，导致配置事物的方法失效。
+    解决方案：
+        1.自己注入自己，然后显示的调用，
+        2.利用AopContext
+5.异常被 catch 捕获导致@Transactional失效。
+6.数据库引擎不支持事务。
 ```
 ### 12.Spring常见注解[10+]
 ```markdown
@@ -453,6 +500,7 @@ Spring MVC部分：
 ```
 ### 14.BeanFactory和FactoryBean的区别
 [一文读懂BeanFactory和FactoryBean区别](https://www.cnblogs.com/lonecloud/p/13550688.html)
+[Spring之BeanFactory和FactoryBean接口的区别](https://www.cnblogs.com/dengpengbo/p/10493782.html)
 ```markdown
 BeanFactory:是所有Spring Bean的容器根接口，给Spring的容器定义一套规范，给IOC容器提供了一套完整的规范，比如我们常用到的getBean方法等。
    1.定义方法 
@@ -499,22 +547,8 @@ FactoryBean:是SpringIOC容器是创建Bean的一种形式，这种方式创建B
 策略模式：Bean的实例化的时候决定采用何种方式初始化bean实例（反射或者CGLIB动态字节码生成）
 ```
 ### 16.Spring全局异常捕获如何编写
-### 17.@Transactional及其错误使用失效场景【5+】
-[一个@Transaction哪里来这么多坑？](https://mp.weixin.qq.com/s?__biz=MzU5ODg2Njk4OA==&mid=2247484779&idx=1&sn=2854d0210a65f8beb7c96ef133027632&chksm=febce828c9cb613e50dafd57ee67e5abf5aa3492f9ace748583ce02203bb86f526f69b5a9289&mpshare=1&scene=23&srcid=0829tnZEWo22Np1e0KqU4Dgw&sharer_sharetime=1598715775957&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
-```markdown
-1.@Transactional在private上：当标记在protected、private、package-visible方法上时，不会产生错误，
-    但也不会表现出为它指定的事务配置。可以认为它作为一个普通的方法参与到一个public方法的事务中。
-2.@Transactional的事务传播方式配置错误。
-3.@Transactional 注解属性rollbackFor设置错误：Spring默认抛出了未检查unchecked异常（继承自 RuntimeException 的异常）或者 Error才回滚事务；其他异常不会触发回滚事务。
-4.同一个类中方法调用，导致@Transactional失效：由于使用Spring AOP代理造成的，因为只有当事务方法被当前类以外的代码调用时，才会由Spring生成的代理对象来管理。
-    出现了自调用：及未配置事物的方法调用了配置事物的方法，导致配置事物的方法失效。
-    解决方案：
-        1.自己注入自己，然后显示的调用，
-        2.利用AopContext
-5.异常被 catch 捕获导致@Transactional失效。
-6.数据库引擎不支持事务。
-```
 ### 18.Spring的后置处理器
+[谈谈Spring中的BeanPostProcessor接口](https://www.cnblogs.com/tuyang1129/p/12866484.html)
 ```markdown
 1.BeanPostProcessor：Bean的后置处理器，主要在bean初始化前后工作。（before和after两个回调中间只处理了init-method）
 2.InstantiationAwareBeanPostProcessor：继承于BeanPostProcessor，主要在实例化bean前后工作（TargetSource的AOP创建代理对象就是通过该接口实现）
@@ -570,67 +604,27 @@ Spring Batch的分层架构图如下：
     Batch Core核心层：包含启动和管理任务的运行环境类，如JobLauncher等。
     Batch Infrastructure基础层：上面两层是建立在基础层之上的，包含基础的读入reader和写出writer、重试框架等。
 ```
-### 1.6.Spring容器装配Bean的三种方式
-```markdown
-1.隐式的Bean发现机制和自动装配
-    Spring从两个角度来实现自动化装配；组件扫描（Spring自动发现应用中上下文所需要的创建的Bean），自动装配（Spring自动满足Bean之间的依赖）
-        1.使用@Component将普通Java类配置成SpringBean,除了这一注解还可以使用@Controller，@Service，@Repository等注解。
-        2.使用@Autowired（自动装配）使Spring满足Bean的依赖
-        3.配置组件扫描包（组件扫描）
-            在Java类中配置组件扫描
-                @ComponentScan("com.jimisun.controller")
-            在XML配置文件配置组件扫描
-                <context:component-scan base-package="com.jimisun.controller,com.jimisun.service"/>
-2.在Java中进行装配
-    1.使用@Bean注解将方法返回的实例对象添加到上下文中
-    2.在@Bean返回的实例对象中可以通过构造器注入传入相关依赖
-3.在XML中进行装配
-    <bean class="com.jimisun.spring.example.User" id="user">
-            <constructor-arg ref="myArticle"/>
-    </bean>
-    <bean class="com.jimisun.spring.example.MyArticle" id="myArticle"></bean>
-值得一提的是，我们在项目中应该优先实用隐式的Bean发现机制和自动装配，其次使用在Java中进行装配，最后再使用在XML中进行装配。
-BeanDefinition是spring容器创建对象的模板，定义了bean创建的细节。
-BeanFactoryPostProcessor可以拿到整个容器对象，当然也能修改BeanDefinition，所以能直接操作bean的创建。
-BeanPostProcessor执行的时候bean已经创建完成了，我们可以拿到想要的对象进行干预和设值等操作。
-```
 
-###
-[Spring IOC的核心机制：实例化与注入](https://www.cnblogs.com/zyjimmortalp/p/12828726.html)
-[重新认识 Spring IOC](https://www.cnblogs.com/i-code/p/12832545.html)
-[Spring系列之IOC的原理及手动实现](https://www.cnblogs.com/liyus/p/10112118.html)
-[手写IOC实现过程](https://www.cnblogs.com/tc971121/p/13458742.html)
-[关于IOC容器的一些个人理解](https://www.cnblogs.com/HanJunJun-blog/p/10579712.html)
-[关于Spring AOP，除了动态代理、CGLIB，你还知道什么？](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650128800&idx=3&sn=3a3e9806348f3b280bdc5ee725238a20&chksm=f36bdc81c41c5597d0e206d637dd7bd986886212e38ae69fd506cc8488ab98bac5698204e9bc&mpshare=1&scene=23&srcid=&sharer_sharetime=1590070530809&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
-[AOP 技术原理——代理模式全面总结](https://www.cnblogs.com/kubixuesheng/p/5183782.html)
-[JAVA-Spring AOP五大通知类型](https://www.cnblogs.com/xiaoluohao/p/11286242.html)
-[聊聊在AOP模式下的缓存方案](https://www.cnblogs.com/lori/p/10602746.html)
-[手写AOP实现过程](https://www.cnblogs.com/tc971121/p/13490708.html)
-[spring注入bean的几种策略模式](https://www.cnblogs.com/zyjimmortalp/p/12833761.html)
-[Spring中资源的加载原来是这么一回事啊！](https://www.cnblogs.com/i-code/p/12845329.html)
-[一文读懂Spring中的DI和AOP](https://www.cnblogs.com/xiaoyao2011/p/12866456.html)
-[谈谈Spring中的BeanPostProcessor接口](https://www.cnblogs.com/tuyang1129/p/12866484.html)
-[Spring之BeanFactory和FactoryBean接口的区别](https://www.cnblogs.com/dengpengbo/p/10493782.html)
 
-### 2.Spring源码
+## 2.Spring源码
 [读Spring源码，我们可以从第一行读起](https://blog.csdn.net/qq_41907991/article/details/105667900)
 [spring源码](https://www.cnblogs.com/youzhibing/category/958792.html)
 [由浅入深详细的介绍Spring框架的原理和源码](https://www.cnblogs.com/binghe001/category/1780611.html)
 [当前标签：品Spring](https://www.cnblogs.com/lixinjie/tag/%E5%93%81Spring/)
-#### 2.1.SpringIOC框架容器核心源码逐步剖析
+### 2.1.SpringIOC框架容器核心源码逐步剖析
 [Spring Framework框架容器核心源码逐步剖析](https://www.cnblogs.com/jimisun/p/10104002.html)
 
-#### 2.2.Spring bean的实例化过程
+### 2.2.Spring bean的实例化过程
 [Spring 源码学习 - 单例bean的实例化过程](https://www.cnblogs.com/hackingForest/p/13054173.html)
 [我该如何学习spring源码以及解析bean定义的注册](https://www.cnblogs.com/liyus/p/10983108.html)
-#### 2.3.Spring源码分析笔记--AOP
+### 2.3.Spring源码分析笔记--AOP
 [Spring源码分析笔记--AOP](https://www.cnblogs.com/little-sheep/p/10103797.html)
 [SpringAOP+源码解析，切就完事了](https://www.cnblogs.com/summerday152/p/13652903.html)
 [Spring拓展接口之FactoryBean，我们来看看其源码实现](https://www.cnblogs.com/youzhibing/p/10528821.html)
-#### 2.4.Spring源码分析笔记--事务管理
+### 2.4.Spring源码分析笔记--事务管理
 [Spring源码分析笔记--事务管理](https://www.cnblogs.com/little-sheep/p/10115173.html)
 [【面试】足够应付面试的Spring事务源码阅读梳理（建议珍藏）](https://www.cnblogs.com/lixinjie/p/a-enough-source-read-of-spring-tx-for-interview.html)
-#### 2.5.通过ClassLoader了解双亲委派模型
+### 2.5.通过ClassLoader了解双亲委派模型
 ```markdown
 protected Class<?> loadClass(String name, boolean resolve) {
      synchronized (getClassLoadingLock(name)) {
@@ -662,11 +656,11 @@ protected Class<?> loadClass(String name, boolean resolve) {
 但双亲委派模型并不能解决所有的类加载器问题，比如，Java提供了很多服务提供者接口(Service Provider Interface，SPI)，允许第三方为这些接口提供实现。
 ```
 
-### 3.Spring注解
-#### [【Spring注解驱动开发】聊聊Spring注解驱动开发那些事儿！](https://www.cnblogs.com/binghe001/p/13047333.html)
+## 3.Spring注解
+### [【Spring注解驱动开发】聊聊Spring注解驱动开发那些事儿！](https://www.cnblogs.com/binghe001/p/13047333.html)
 ![Spring注解驱动开发](https://img2020.cnblogs.com/blog/1729473/202006/1729473-20200605000243595-700419751.jpg)
 
-#### Spring IOC相关常用注解
+### Spring IOC相关常用注解
 ```markdown
 自动扫描装配Bean的相关注解
     @Component   　将java类标记成一个Spring Bean组件
@@ -679,7 +673,7 @@ protected Class<?> loadClass(String name, boolean resolve) {
     @Autowired    通过类型匹配，通过名称则需要Spring的@Qualifier注解配合
     @Resource     根据Bean的名称去匹配，获取不到再根据类型
 ```
-#### [聊聊依赖注入注解@Resource和@Autowired](https://www.cnblogs.com/felordcn/p/13063802.html)
+### [聊聊依赖注入注解@Resource和@Autowired](https://www.cnblogs.com/felordcn/p/13063802.html)
 >> @Resource和@Autowired注解都可以在Spring Framework应用中进行声明式的依赖注入。
 ```markdown
 @Resource使用在成员属性和setter方法上。
@@ -698,15 +692,15 @@ protected Class<?> loadClass(String name, boolean resolve) {
 [Spring中重要的注解](https://www.cnblogs.com/rolandlee/p/11014923.html)
 
 [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)
-#### [spring下应用@Resource, @Autowired 和 @Inject注解进行依赖注入的差异](https://www.cnblogs.com/both-eyes/p/10096882.html)
+### [spring下应用@Resource, @Autowired 和 @Inject注解进行依赖注入的差异](https://www.cnblogs.com/both-eyes/p/10096882.html)
 
-#### Java配置类 @Configuration
+### Java配置类 @Configuration
 ```markdown
 @Configuration注释向Spring 表明这是一个配置类，它将为Spring 应用程序上下文提供beans。
 配置的类方法带有@Bean注释，指示它们返回的对象应作为beans添加到应用程序上下文中（默认情况下，它们各自的bean IDs将与定义它们的方法的名称相同）。
 与基于XML的配置相比，基于Java的配置具有多个优点，包括更高的类型安全性和改进的可重构性。即使这样，仅当Spring无法自动配置组件时，才需要使用Java或XML进行显式配置。
 ```
-#### @Conditional 
+### @Conditional 
 ```markdown
 @Conditional注解表示在满足某种条件后才初始化一个bean或者启用某些配置。
 它一般用在由@Component、@Service、@Configuration等注解标识的类上面，或者由@Bean标记的方法上。
@@ -718,14 +712,16 @@ public interface Condition {
 如果matches()方法返回true，那么就会创建带有@Conditional注解的bean。
 如果matches()方法返回false，将不会创建这些bean。
 ```
-#### Spring @Transactional事务
+### Spring @Transactional事务
 [Spring中异步注解@Async的使用、原理及使用时可能导致的问题](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650138502&idx=3&sn=023c3fc5d7799ec0e327018c71673819&chksm=f36bfaa7c41c73b11d5832e85b015f7e2b6b05a41dc189f77d439c21eda43c223530ebf22918&mpshare=1&scene=23&srcid=0805kBPe9hJDcJYXGAkouuIc&sharer_sharetime=1596598705572&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 
-### 4.Spring框架应用
+## 4.Spring框架应用
 [从spring框架中的事件驱动模型出发，优化实际应用开发代码](https://www.cnblogs.com/l3306/p/10757291.html)
 [Spring4+Springmvc+quartz实现多线程动态定时调度](https://www.cnblogs.com/alterem/p/11301235.html)
 [Spring Cache缓存注解](https://www.cnblogs.com/WangJpBlog/p/13389932.html)
-### 5.Spring强化 -- 博客
+
+
+## 5.Spring强化 -- 博客
 #### 1.[SpringIoC BeanDefinition的加载和注册](https://www.cnblogs.com/leisurexi/p/12701046.html)
 ```markdown
 SpringIOC容器如何加载Bean的定义信息：

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * @pClassName: AccountRealm
  * @author: pengbingjiang
  * @create: 2020/11/12 15:30
- * @description: TODO
+ * @description: TODO AccountRealm是shiro进行登录或者权限校验的逻辑所在
  */
 @Component
 public class AccountRealm extends AuthorizingRealm {
@@ -26,16 +26,37 @@ public class AccountRealm extends AuthorizingRealm {
     @Autowired
     UserService userService;
 
+    /*
+    * @Description: 为了让realm支持jwt的凭证校验
+    * @Param: [token]
+    * @return: boolean
+    * @Author: pengbingjiang
+    * @Date: 2020/11/19 21:44
+    */
     @Override
     public boolean supports(AuthenticationToken token) {
         return token instanceof JwtToken;
     }
-
+    
+    /**
+    * @Description: 权限校验
+    * @Param: [principals]
+    * @return: org.apache.shiro.authz.AuthorizationInfo
+    * @Author: pengbingjiang
+    * @Date: 2020/11/19 21:44
+    */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         return null;
     }
-
+    
+    /**
+    * @Description: 登录认证校验
+    * @Param: [token]
+    * @return: org.apache.shiro.authc.AuthenticationInfo
+    * @Author: pengbingjiang
+    * @Date: 2020/11/19 21:47
+    */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 

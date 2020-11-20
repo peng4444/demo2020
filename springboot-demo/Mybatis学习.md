@@ -3,6 +3,8 @@
 [TOC]
 
 ## Mybatis基础学习总结
+[随笔分类-Mybatis](https://www.cnblogs.com/zwwhnly/category/1492402.html) 
+[当前标签：Mybatis](https://www.cnblogs.com/Chenjiabing/tag/Mybatis/)
 [Mybatis 使用的 9 种设计模式，真是太有用了](https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650146473&idx=2&sn=7f25d271492b5239b8ca2214be9fba5e&chksm=f3681b88c41f929e64bdaa8c94d0e80ac65ba982684b79b3daae2f46a14507c6dd5663345e56&mpshare=1&scene=23&srcid=1104DSFh2jwu5fPDbK44c6GW&sharer_sharetime=1604456536477&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 ### 1.MyBatis是什么
 ```markdown
@@ -90,6 +92,20 @@ Mybatis中如何指定使用哪一种Executor执行器？
 缓存更新机制：当某一个作用域（一级缓存Session、二级缓存Mapper）进行C/U/D操作后，默认该作用域下所有select中的缓存将被clear。
 如果是一级缓存，那么我在同一个SqlSession里面执行了三行语句，第一行，从表中查询数据，第二行，给这个表添加数据，第三行，执行跟第一行一样的查询语句，
 根据一级缓存，那第三行查询的结果不就是第一次缓存的数据吗，可是表已经增加了新的数据，不就出现数据不一致了吗？（insert语句会刷新缓存！）
+默认情况下一级缓存是开启的，而且是不能关闭的。
+- 一级缓存是指SqlSession级别的缓存 原理：使用的数据结构是一个map，如果两次中间出现commit操作 （修改、添加、删除），本sqlsession中的一级缓存区域全部清空
+- 二级缓存是指可以跨SqlSession的缓存。是mapper级别的缓存；原理：是通过CacheExecutor实现的。CacheExecutor其实是Executor的代理对象
+1、一级缓存：指的是mybatis中sqlSession对象的缓存，当我们执行查询以后，查询的结果会同时存入sqlSession中，再次查询的时候，
+先去sqlSession中查询，有的话直接拿出，当sqlSession消失时，mybatis的一级缓存也就消失了，当调用sqlSession的修改、添加、删除、commit()、close()等方法时，会清空一级缓存。
+2、二级缓存：指的是mybatis中的sqlSessionFactory对象的缓存，由同一个sqlSessionFactory对象创建的sqlSession共享其缓存，但是其中缓存的是数据而不是对象。
+当命中二级缓存时，通过存储的数据构造成对象返回。查询数据的时候，查询的流程是二级缓存 > 一级缓存 > 数据库。
+3、如果开启了二级缓存，sqlSession进行close()后，才会把sqlSession一级缓存中的数据添加到二级缓存中，为了将缓存数据取出执行反序列化，
+还需要将要缓存的pojo实现Serializable接口，因为二级缓存数据存储介质多种多样，不一定只存在内存中，也可能存在硬盘中。
+4、mybatis框架主要是围绕sqlSessionFactory进行的，具体的步骤：
+    1.定义一个configuration对象，其中包含数据源、事务、mapper文件资源以及影响数据库行为属性设置settings。
+    2.通过配置对象，则可以创建一个sqlSessionFactoryBuilder对象。
+    3.通过sqlSessionFactoryBuilder获得sqlSessionFactory实例。
+    4.通过sqlSessionFactory实例创建qlSession实例，通过sqlSession对数据库进行操作。
 ```
 ### 10.Mybatis如何防止sql注入？${}和#{}的区别是什么？传入表名用哪个？【5+】
 ```markdown
@@ -106,13 +122,13 @@ ${}是Properties文件中的变量占位符，它可以用于标签属性值和s
 #{}是sql的参数占位符，Mybatis会将sql中的#{}替换为?号，在sql执行前会使用PreparedStatement的参数设置方法，按序给sql的?号占位符设置参数值，
 比如ps.setInt(0, parameterValue)，#{item.name}的取值方式为使用反射从参数对象中获取item对象的name属性值，相当于param.getItem().getName()。
 ```
-### Mybatis是如何将sql执行结果封装为目标对象并返回的？都有哪些映射形式？
+### 11.Mybatis是如何将sql执行结果封装为目标对象并返回的？都有哪些映射形式？
 ```markdown
 第一种是使用<resultMap>标签，逐一定义列名和对象属性名之间的映射关系。第二种是使用sql列的别名功能，将列别名书写为对象属性名，
 比如T_NAME AS NAME，对象属性名一般是name，小写，但是列名不区分大小写，Mybatis会忽略列名大小写，智能找到与之对应对象属性名，你甚至可以写成T_NAME AS NaMe，Mybatis一样可以正常工作。
 有了列名与属性名的映射关系后，Mybatis通过反射创建对象，同时使用反射给对象的属性逐一赋值并返回，那些找不到映射关系的属性，是无法完成赋值的。
 ```
-### Mybatis能执行一对一、一对多的关联查询吗？都有哪些实现方式，以及它们之间的区别
+### 12.Mybatis能执行一对一、一对多的关联查询吗？都有哪些实现方式，以及它们之间的区别
 ```markdown
 能，Mybatis不仅可以执行一对一、一对多的关联查询，还可以执行多对一，多对多的关联查询，多对一查询，其实就是一对一查询，只需要把selectOne()修改为selectList()即可；
 多对多查询，其实就是一对多查询，只需要把selectOne()修改为selectList()即可。
@@ -122,14 +138,14 @@ ${}是Properties文件中的变量占位符，它可以用于标签属性值和s
 其去重复的原理是<resultMap>标签内的<id>子标签，指定了唯一确定一条记录的id列，Mybatis根据<id>列值来完成100条记录的去重复功能，<id>可以有多个，代表了联合主键的语意。
 同样主对象的关联对象，也是根据这个原理去重复的，尽管一般情况下，只有主对象会有重复记录，关联对象一般不会重复。
 ```
-### Mybatis动态sql是做什么的？都有哪些动态sql？能简述一下动态sql的执行原理不？
+### 13.Mybatis动态sql是做什么的？都有哪些动态sql？能简述一下动态sql的执行原理不？
 [Mybatis动态SQL](https://www.cnblogs.com/isdxh/p/13956223.html)
 ```markdown
 Mybatis动态sql可以让我们在Xml映射文件内，以标签的形式编写动态sql，完成逻辑判断和动态拼接sql的功能，
 Mybatis提供了9种动态sql标签trim|where|set|foreach|if|choose|when|otherwise|bind。
 其执行原理为，使用OGNL从sql参数对象中计算表达式的值，根据表达式的值动态拼接sql，以此来完成动态sql的功能。
 ```
-### MyBatis与Hibernate的区别是什么？
+### 14.MyBatis与Hibernate的区别是什么？
 ```markdown
 Hibernate 框架：
 ​ Hibernate是一个开放源代码的对象关系映射框架,它对JDBC进行了非常轻量级的对象封装,建立对象与数据库表的映射。是一个全自动的、完全面向对象的持久层框架。
@@ -149,8 +165,8 @@ Mybatis框架：
 ​       Mybatis需要自行管理映射关系；
 ```
 MyBatis 如何实现模糊查询?
-### 12.Mybatis如何找到指定的Mapper的，如何完成查询的。
-### 13.MyBatis分页方式和原理【2+】
+### 15.Mybatis如何找到指定的Mapper的，如何完成查询的。
+### 16.MyBatis分页方式和原理【2+】
 ```markdown
 分页方式：逻辑分页，物理分页
     逻辑分页：使用Mybatis自带的RowBounds进行分页，它是一次性查询很多数据，然后在数据中再进行检索。
@@ -168,7 +184,7 @@ Mybatis分页插件的实现原理：
         ParameterHandler:拦截参数的处理。
         ResultSetHandler:拦截结果集的处理。
 ```
-### 14.MyBatis是否支持延迟加载，延迟加载的原理
+### 17.MyBatis是否支持延迟加载，延迟加载的原理
 ```markdown
 Mybatis支持延迟加载，设置lazyLoadingEnabled=true即可。
 延迟加载的原理是：调用的时候触发加载，而不是在初始化的时候就进行加载。
@@ -179,7 +195,7 @@ Mybatis仅支持association关联对象和collection关联集合对象的延迟�
 这就是延迟加载的基本原理。
 当然了，不光是Mybatis，几乎所有的包括Hibernate，支持延迟加载的原理都是一样的。
 ```
-### 15.Xml映射文件中，除了常见的select|insert|update|delete标签之外，还有哪些标签？
+### 18.Xml映射文件中，除了常见的select|insert|update|delete标签之外，还有哪些标签？
 ```markdown
 select、insert、update、delete 标签分别对应查询、添加、更新、删除操作。
 还有很多其他的标签，<resultMap>、<parameterMap>、<sql>、<include>、<selectKey>，
@@ -188,7 +204,7 @@ select、insert、update、delete 标签分别对应查询、添加、更新、�
 parameterType属性表示参数的数据类型，包括基本数据类型和对应的包装类型、String和Java Bean类型，当有多个参数时可以使用#{argn}的形式表示第n个参数。除了基本数据类型都要以全限定类名的形式指定参数类型。
 resultType表示返回的结果类型，包括基本数据类型和对应的包装类型、String和Java Bean类型。还可以使用把返回结果封装为复杂类型的resultMap 。
 ```
-### 16.Dao接口的工作原理是什么？Dao接口里的方法，参数不同时，方法能重载吗？
+### 19.Dao接口的工作原理是什么？Dao接口里的方法，参数不同时，方法能重载吗？
 ```markdown
 最佳实践中，通常一个Xml映射文件，都会写一个Dao接口与之对应，
 请问，这个Dao接口的工作原理是什么？Dao接口里的方法，参数不同时，方法能重载吗？
@@ -198,26 +214,26 @@ Mapper接口是没有实现类的，当调用接口方法时，接口全限名+�
 Dao接口里的方法，是不能重载的，因为是全限名+方法名的保存和寻找策略。
 Dao接口的工作原理是JDK动态代理，Mybatis运行时会使用JDK动态代理为Dao接口生成代理proxy对象，代理对象proxy会拦截接口方法，转而执行MappedStatement所代表的sql，然后将sql执行结果返回。
 ```
-### 17.简述Mybatis的插件运行原理，以及如何编写一个插件
+### 20.简述Mybatis的插件运行原理，以及如何编写一个插件
 ```markdown
 Mybatis仅可以编写针对ParameterHandler、ResultSetHandler、StatementHandler、Executor这4种接口的插件，
 Mybatis使用JDK的动态代理，为需要拦截的接口生成代理对象以实现接口方法拦截功能，每当执行这4种接口对象的方法时，就会进入拦截方法，
 具体就是InvocationHandler的invoke()方法，当然，只会拦截那些你指定需要拦截的方法。
 实现Mybatis的Interceptor接口并复写intercept()方法，然后在给插件编写注解，指定要拦截哪一个接口的哪些方法即可，记住，别忘了在配置文件中配置你编写的插件。
 ```
-### 18.Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复？
+### 21.Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复？
 ```markdown
 不同的Xml映射文件，如果配置了namespace，那么id可以重复；如果没有配置namespace，那么id不能重复；毕竟namespace不是必须的，只是最佳实践而已。
 原因就是namespace+id是作为Map<String, MappedStatement>的key使用的，如果没有namespace，就剩下id，那么，id重复会导致数据互相覆盖。
 有了namespace，自然id就可以重复，namespace不同，namespace+id自然也就不同。
 ```
-### 19.Mybatis中如何执行批处理？
+### 22.Mybatis中如何执行批处理？
 ```markdown
 使用BatchExecutor完成批处理。
 ```
-### 20.Mybatis如何执行Select语句
+### 23.Mybatis如何执行Select语句
 [Mybatis如何执行Select语句](https://www.cnblogs.com/Chenjiabing/p/13666108.html)
-### 21.mybatis在xml文件中处理大于号小于号的方法
+### 24.mybatis在xml文件中处理大于号小于号的方法
 [mybatis在xml文件中处理大于号小于号的方法](https://blog.csdn.net/erlian1992/article/details/78218977)
 ```markdown
 1.使用转义字符
@@ -229,43 +245,20 @@ Mybatis使用JDK的动态代理，为需要拦截的接口生成代理对象以�
 2.使用<![CDATA[   ]]>区，将sql语句包括起来，在两者之间嵌入不想被解析程序解析的原始数据，解析器不对
   CDATA区中的内容进行解析，而是将这些数据原封不动地交给下游程序处理。<![CDATA[ ]]>标记的sql语句中的<where>、<if>等标签不会被解析
 ```
-## Mybatis基础
-```markdown
-Mybatis原理
-- sqlsessionFactoryBuilder生成sqlsessionFactory（单例）
-- 工厂模式生成sqlsession执行sql以及控制事务
-- Mybatis通过动态代理使Mapper（sql映射器）接口能运行起来即为接口生成代理对象将sql查询到结果映射成pojo
-sqlSessionFactory构建过程
-- 解析并读取配置中的xml创建Configuration对象 （单例）
-- 使用Configruation类去创建sqlSessionFactory（builder模式）
-Mybatis一级缓存与二级缓存
-默认情况下一级缓存是开启的，而且是不能关闭的。
-- 一级缓存是指SqlSession级别的缓存 原理：使用的数据结构是一个map，如果两次中间出现commit操作 （修改、添加、删除），本sqlsession中的一级缓存区域全部清空
-- 二级缓存是指可以跨SqlSession的缓存。是mapper级别的缓存；原理：是通过CacheExecutor实现的。CacheExecutor其实是Executor的代理对象
-1、一级缓存：指的是mybatis中sqlSession对象的缓存，当我们执行查询以后，查询的结果会同时存入sqlSession中，再次查询的时候，
-先去sqlSession中查询，有的话直接拿出，当sqlSession消失时，mybatis的一级缓存也就消失了，当调用sqlSession的修改、添加、删除、commit()、close()等方法时，会清空一级缓存。
-2、二级缓存：指的是mybatis中的sqlSessionFactory对象的缓存，由同一个sqlSessionFactory对象创建的sqlSession共享其缓存，但是其中缓存的是数据而不是对象。
-当命中二级缓存时，通过存储的数据构造成对象返回。查询数据的时候，查询的流程是二级缓存 > 一级缓存 > 数据库。
-3、如果开启了二级缓存，sqlSession进行close()后，才会把sqlSession一级缓存中的数据添加到二级缓存中，为了将缓存数据取出执行反序列化，
-还需要将要缓存的pojo实现Serializable接口，因为二级缓存数据存储介质多种多样，不一定只存在内存中，也可能存在硬盘中。
-4、mybatis框架主要是围绕sqlSessionFactory进行的，具体的步骤：
-    1.定义一个configuration对象，其中包含数据源、事务、mapper文件资源以及影响数据库行为属性设置settings。
-    2.通过配置对象，则可以创建一个sqlSessionFactoryBuilder对象。
-    3.通过sqlSessionFactoryBuilder获得sqlSessionFactory实例。
-    4.通过sqlSessionFactory实例创建qlSession实例，通过sqlSession对数据库进行操作。
-```
-[随笔分类-Mybatis](https://www.cnblogs.com/zwwhnly/category/1492402.html) 
-[当前标签：Mybatis](https://www.cnblogs.com/Chenjiabing/tag/Mybatis/)
+
+
+## MyBatis源码
 [MyBatis框架的使用及源码分析](https://www.cnblogs.com/zsg88/category/1080098.html)  
 [mybatis源码](https://www.cnblogs.com/sanzao/tag/mybatis/) 
 [mybatis源码]( https://www.cnblogs.com/java-chen-hao/category/1576447.html )
+
 ## Mybatis相关博客
 [mybatis是怎样炼成的](https://www.cnblogs.com/roytian/p/12762218.html)
 
-#### 1.Mybatis SQL如何执行
+### 1.Mybatis SQL如何执行
 [面试官问你MyBatis SQL是如何执行的？把这篇文章甩给他](https://www.cnblogs.com/cxuanBlog/p/12248536.html)
 [MyBatis执行流程的各阶段介绍](https://www.cnblogs.com/-beyond/p/13232624.html)
-#### Mybatis的特点
+### Mybatis的特点
 ```markdown
 1.解除SQL与程序代码的耦合，通过提供DAO层，将业务逻辑和数据访问逻辑分离，使系统的设计更清晰，更易维护，更易单元测试。SQL和代码的分离，提高了可维护性。
 2.MyBatis 比较简单和轻量： 只要通过配置 jar 包，或者如果你使用 Maven 项目的话只需要配置 Maven 以来就可以。
@@ -274,7 +267,7 @@ Mybatis一级缓存与二级缓存
     提供映射标签，支持对象与数据库的 ORM 字段关系映射
     提供 XML 标签，支持编写动态 SQL。
 ```
-#### Mybatis延迟加载，缓存
+### Mybatis延迟加载，缓存
 [mybatis缓存之一级缓存（一）](https://www.cnblogs.com/zhenghengbin/p/13193999.html)
 [mybatis源码学习：一级缓存和二级缓存分析](https://www.cnblogs.com/summerday152/p/12773135.html)
 [Mybatis延迟加载、缓存](https://www.cnblogs.com/sun-10387834/p/13656885.html)

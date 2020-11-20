@@ -24,7 +24,7 @@ import java.io.IOException;
  * @pClassName: JwtFilter
  * @author: pengbingjiang
  * @create: 2020/11/12 15:22
- * @description: TODO
+ * @description: TODO 定义jwt的过滤器JwtFilter
  */
 @Component
 public class JwtFilter extends AuthenticatingFilter {
@@ -32,6 +32,13 @@ public class JwtFilter extends AuthenticatingFilter {
     @Autowired
     JwtUtils jwtUtils;
 
+    /**
+    * @Description: 实现登录，我们需要生成我们自定义支持的JwtToken
+    * @Param: [servletRequest, servletResponse]
+    * @return: org.apache.shiro.authc.AuthenticationToken
+    * @Author: pengbingjiang
+    * @Date: 2020/11/19 21:46
+    */
     @Override
     protected AuthenticationToken createToken(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
 
@@ -44,6 +51,13 @@ public class JwtFilter extends AuthenticatingFilter {
         return new JwtToken(jwt);
     }
 
+    /**
+    * @Description: 拦截校验，当头部没有Authorization时候，我们直接通过，不需要自动登录；当带有的时候，首先我们校验jwt的有效性，没问题我们就直接执行executeLogin方法实现自动登录
+    * @Param: [servletRequest, servletResponse]
+    * @return: boolean
+    * @Author: pengbingjiang
+    * @Date: 2020/11/19 21:47
+    */
     @Override
     protected boolean onAccessDenied(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
 
@@ -64,6 +78,13 @@ public class JwtFilter extends AuthenticatingFilter {
         }
     }
 
+    /**
+    * @Description: 登录异常时候进入的方法，我们直接把异常信息封装然后抛出
+    * @Param: [token, e, request, response]
+    * @return: boolean
+    * @Author: pengbingjiang
+    * @Date: 2020/11/19 21:47
+    */
     @Override
     protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response) {
 
@@ -81,6 +102,13 @@ public class JwtFilter extends AuthenticatingFilter {
         return false;
     }
 
+    /**
+    * @Description: 拦截器的前置拦截，因为我们是前后端分析项目，项目中除了需要跨域全局配置之外，我们再拦截器中也需要提供跨域支持。这样，拦截器才不会在进入Controller之前就被限制了。
+    * @Param: [request, response]
+    * @return: boolean
+    * @Author: pengbingjiang
+    * @Date: 2020/11/19 21:47
+    */
     @Override
     protected boolean preHandle(ServletRequest request, ServletResponse response) throws Exception {
         //Filter 跨域处理

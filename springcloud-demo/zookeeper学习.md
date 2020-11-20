@@ -214,6 +214,6 @@ dubbo的注册中心可以选Zookeeper，memcached，redis等。为什么选择Z
 [zookeeper实现分布式锁总结，看这一篇足矣（设计模式应用实战）](https://www.cnblogs.com/sx-bj-srr/p/zookeeper.html)
 
 ### 
-
+[SpringBoot 整合 Zookeeper 接入Starring微服务平台](https://www.cnblogs.com/laramia/p/11978271.html)
 
 

@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
- * jwt工具类
+ * jwt工具类  是个生成和校验jwt的工具类，其中有些jwt相关的密钥信息是从项目配置文件中配置
  */
 @Slf4j
 @Data

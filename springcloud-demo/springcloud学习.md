@@ -69,6 +69,7 @@ Spring Cloud OpenFeign
     基于Ribbon和Hystrix的声明式服务调用组件，可以动态创建基于Spring MVC注解的接口实现用于服务调用，在Spring Cloud 2.0中已经取代Feign成为了一等公民。
 ```
 ### Spring Cloud Eureka 核心服务治理的组件（服务注册与发现）
+[SpringBoot+Eureka注册中心+Feign进行微服务之间调用](https://blog.csdn.net/weixin_43928997/article/details/90668007?utm_source=app)
 >> Eureka是Netflix开源的一款提供服务注册和发现的产品，Eureka就是一个服务中心，将所有的可以提供的服务都注册到它这里来管理，
 >> 其它各调用者需要的时候去注册中心获取，然后再进行调用，避免了服务之间的直接调用，方便后续的水平扩展、故障转移等。
 ![](https://img-blog.csdnimg.cn/20200810120101878.png?#pic_center)
@@ -283,8 +284,6 @@ HTTP服务:RESTful风格的服务接口。
         优点就是简单、直接、开发方便。利用现成的http协议进行传输。
         适合对于在接口不多、系统与系统交互较少的情况下，解决信息孤岛初期常使用的一种通信手段；
 ```
-
-
 
 
 ##

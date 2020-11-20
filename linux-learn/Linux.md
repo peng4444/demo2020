@@ -72,3 +72,4 @@ find -xxx | grep "abc"
 [LVM : 扩展文件系统的容量](https://www.cnblogs.com/sparkdev/p/10142629.html)
 [如何构建“高性能”“大小无限”（磁盘）队列？](https://www.cnblogs.com/yougewe/p/10988194.html)
 ##
+[centos创建新用户](https://blog.csdn.net/nieji3057/article/details/79421874)

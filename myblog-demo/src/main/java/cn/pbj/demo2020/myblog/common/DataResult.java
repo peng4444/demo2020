@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @pClassName: DataResult
  * @author: pengbingjiang
  * @create: 2020/11/12 15:11
- * @description: TODO
+ * @description: TODO 异步统一返回的结果封装
  */
 @Data
 public class DataResult implements Serializable {

@@ -6,7 +6,7 @@ import org.apache.shiro.authc.AuthenticationToken;
  * @pClassName: JwtToken
  * @author: pengbingjiang
  * @create: 2020/11/12 15:31
- * @description: TODO
+ * @description: TODO 自定义一个JwtToken，来完成shiro的supports方法
  */
 public class JwtToken implements AuthenticationToken {
 
