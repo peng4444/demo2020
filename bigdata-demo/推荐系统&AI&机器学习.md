@@ -15,7 +15,7 @@
 ## 推荐系统
 [23张图，带你入门推荐系统](https://mp.weixin.qq.com/s?__biz=MzAwNjkxNzgxNg==&mid=2247489048&idx=2&sn=6139714fd06434e474a38ed5d0153a7e&chksm=9b074dcfac70c4d9629e6a03c74d3b7723ac8fffeda1540a1842917726a3ecaa2c22fa8da04c&mpshare=1&scene=23&srcid=0926lVmxX5MJ7Y0ZNUFK0EQg&sharer_sharetime=1601092422791&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 [看完就懂，五千字长文带你领略推荐系统](https://www.cnblogs.com/techflow/p/13898078.html)
-
+[蚂蚁金服核心技术:百亿特征实时推荐算法揭秘](https://www.cnblogs.com/buptzym/p/10227159.html)
 ## 机器学习
 [阿里巴巴机器学习系列课程](https://www.bilibili.com/video/BV1kx411s7HS)
 
@@ -33,7 +33,7 @@
 ### 深度学习
 [用 Java 训练深度学习模型，原来可以这么简单！](https://www.cnblogs.com/xueweihan/p/13910330.html)
 [Labelling NBA action using deep learning](https://github.com/neeilan/DeepPlayByPlay)
-
+[深度学习在搜索业务中的探索与实践](https://www.cnblogs.com/meituantech/p/10254638.html)
 [Deep Learning Interview 深度学习面试题目汇总](https://github.com/ShanghaiTechAIClub/DLInterview)
 
 [It is open source ebook about TensorFlow kernel and implementation mechanism.](https://github.com/horance-liu/tensorflow-internals)

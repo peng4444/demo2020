@@ -28,7 +28,7 @@
 [[Zookeeper+Dubbo项目demo搭建](https://www.cnblogs.com/iUtopia/p/11653098.html)]
 
 [Dubbo 入门-细说分布式与集群](https://www.cnblogs.com/yangyuanhu/p/12439106.html)
-
+[享一个让我进入阿里中间件的个人项目](https://www.cnblogs.com/leiwei/p/11839018.html)
 [吐血输出：2万字长文带你细细盘点Dubbo五种负载均衡策略。](https://www.cnblogs.com/thisiswhy/p/13020501.html)
 
 >> 1.1 服务调用超时问题怎么解决？

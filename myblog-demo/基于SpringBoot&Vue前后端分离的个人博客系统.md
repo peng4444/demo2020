@@ -7,6 +7,8 @@
 >> [参考开源项目：vueblog](https://github.com/MarkerHub/vueblog)
 >> [参考视频资料：基于SpringBoot+Vue开发的前后端分离博客项目完整教学](https://www.bilibili.com/video/BV1PQ4y1P7hZ)
 >> [参考开发文档：4小时开发一个SpringBoot+vue前后端分离博客项目](https://juejin.im/post/6844903823966732302)
+>> [手把手教你Docker+nginx部署Springboot+vue前后端分离项目](https://juejin.cn/post/6886061338804617229/)
+>> [教你Docker+nginx部署SpringBoot+vue前后端分离项目](https://www.bilibili.com/video/BV17A411E7aE)
 >> [参考开源项目：vsblog](https://github.com/YUbuntu0109/vsblog)
 ##
 [1.vue创建项目的步骤](https://blog.csdn.net/weixin_42218847/article/details/81363421)

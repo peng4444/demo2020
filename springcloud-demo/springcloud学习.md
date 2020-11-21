@@ -194,9 +194,11 @@ RetryRule : 重试策略。先按照RoundRobinRule策略获取provider，若获�
 >> 组件基于Spring Tsak，提供任务调度和任务管理的功能。
 ### 9.Gateway
 ![](https://img-blog.csdnimg.cn/20200810212808923.png?#pic_center)
+[微服务下的网关如何选择](https://www.cnblogs.com/wtzbk/p/14009219.html)
 ```markdown
-Spring Cloud Gateway是Spring官方基于Spring5.0、Spring Boot2.0 和Project Reactor等技术开发的网关，
-Spring Cloud Gateway旨在为微服务架构提供简单、 有效且统一的API路由管理方式。
+SpringCloudGateway是Spring官方基于Spring5.0、SpringBoot2.0和Project Reactor等技术开发的网关，使用Netty作为运行时环境，比较完美的支持异步非阻塞编程。
+    SpringCloudGateway旨在为微服务架构提供简单、有效且统一的API路由管理方式。
+    实现路由转发、负载均衡、熔断等功能，并且Gateway还内置了限流过滤器，实现了限流的功能。
 ```
 ### 10.OAuth2
 >> Sprin Cloud构建的微服务系统中可以使用Spring Cloud OAuth2来保护微服务系统。
@@ -284,7 +286,6 @@ HTTP服务:RESTful风格的服务接口。
         优点就是简单、直接、开发方便。利用现成的http协议进行传输。
         适合对于在接口不多、系统与系统交互较少的情况下，解决信息孤岛初期常使用的一种通信手段；
 ```
-
 
 ##
 
