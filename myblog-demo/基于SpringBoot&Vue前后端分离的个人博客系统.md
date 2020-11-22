@@ -13,8 +13,12 @@
 ##
 [1.vue创建项目的步骤](https://blog.csdn.net/weixin_42218847/article/details/81363421)
 [Vue之vue项目引入vuex](https://blog.csdn.net/weixin_40736319/article/details/89379474)
+[把一个vue项目拷贝到另一个地方启动不了的解决办法（Error: Cannot find module ‘’'）](https://blog.csdn.net/weixin_41557291/article/details/81561498)
 [Springboot Vue Login(从零开始实现Springboot+Vue登录)](https://blog.csdn.net/xiaojinlai123/article/details/90694372)
 [超美观的 Vue+Element 开源后台管理 UI](https://mp.weixin.qq.com/s?__biz=Mzg2MjEwMjI1Mg==&mid=2247505441&idx=1&sn=700fe60a8d4e45c7cb528e8230a8ef43&chksm=ce0e61a2f979e8b468a84aee2bfef45329aaf76a3fcc055c9bf287ebc4e2e8a37c80f775d952&mpshare=1&scene=23&srcid=1119tBXDq9Ef3xoqBvi3x9OS&sharer_sharetime=1605769540447&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+
+
+[Springboot Vue验证码校验](https://blog.csdn.net/qq_35416214/article/details/105879996)
 ### 开发工具
 ```markdown
 - idea

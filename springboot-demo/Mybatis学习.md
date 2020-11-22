@@ -251,7 +251,7 @@ Mybatis使用JDK的动态代理，为需要拦截的接口生成代理对象以�
 [MyBatis框架的使用及源码分析](https://www.cnblogs.com/zsg88/category/1080098.html)  
 [mybatis源码](https://www.cnblogs.com/sanzao/tag/mybatis/) 
 [mybatis源码]( https://www.cnblogs.com/java-chen-hao/category/1576447.html )
-
+[精尽 MyBatis 源码分析 - 整体架构](https://www.cnblogs.com/lifullmoon/p/14014901.html)
 ## Mybatis相关博客
 [mybatis是怎样炼成的](https://www.cnblogs.com/roytian/p/12762218.html)
 
@@ -300,3 +300,5 @@ Mybatis使用JDK的动态代理，为需要拦截的接口生成代理对象以�
 
 [提升开发效率的一款mybatis开发神器](https://mp.weixin.qq.com/s?__biz=MzA4NzQ0Njc4Ng==&mid=2247489537&idx=3&sn=73b164a80c147a17356b8cb82ae06d30&chksm=90381c6ca74f957a0acd9198ae0df657fee5fc49697ee109698030df56775cbfe62b67fe7aac&mpshare=1&scene=23&srcid=0907sWM491xNOoEDNoS2lEPk&sharer_sharetime=1599452230019&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 [MyBatis-Plus](https://www.cnblogs.com/ideal-20/p/13763616.html)
+[MyBatis 使用手册](https://www.cnblogs.com/lifullmoon/p/14014660.html)
+[MyBatis 面试题](https://www.cnblogs.com/lifullmoon/p/14014648.html)
