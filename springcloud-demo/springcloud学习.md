@@ -188,6 +188,10 @@ RetryRule : 重试策略。先按照RoundRobinRule策略获取provider，若获�
       ribbon:
         NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 ```
+### 分布式监控系统之Zabbix
+[分布式监控系统之Zabbix部署](https://www.cnblogs.com/qiuhom-1874/p/13997582.html)
+[分布式监控系统之Zabbix宏、模板和自定义item](https://www.cnblogs.com/qiuhom-1874/p/14013331.html)
+[分布式监控系统之Zabbix网络发现](https://www.cnblogs.com/qiuhom-1874/p/14020847.html)
 ### Spring Cloud Data Flow 
 >> 大数据操作组件，它是Spring XD的替代品，也是一个混合计算模型，可以通过命令行的方式操作数据流
 ### Spring Cloud Task

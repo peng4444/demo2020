@@ -38,6 +38,7 @@
         <module>java-learn</module>
         <module>computer-learn</module>
         <module>myblog-write</module>
+        <module>algorithm-demo</module>
     </modules>
 
     <properties>
