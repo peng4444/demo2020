@@ -348,7 +348,7 @@ SpringBoot提供的的注解@ControllerAdvice表示开启全局异常捕获，�
 [SpringBoot系列：Spring Boot定时任务Spring Schedule](https://www.cnblogs.com/imyanger/p/11826227.html)
 [SpringBoot系列：Spring Boot集成定时任务Quartz](https://www.cnblogs.com/imyanger/p/11828301.html)
 [定时任务最简单的3种实现方法（超好用）](https://mp.weixin.qq.com/s?__biz=MzU1NTkwODE4Mw==&mid=2247487964&idx=2&sn=dbcd21c4d57a62b8e2cf2aba18acb761&chksm=fbcc7ce4ccbbf5f2500afa479ed59650792b4f2b2ebbb9e9d8bb397de6dca64c7f2617e23625&mpshare=1&scene=23&srcid=0818JKb8atI4owQubDRTO08P&sharer_sharetime=1597712340498&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
-
+[贼好用，冰河开源了这款精准定时任务和延时队列框架！！](https://www.cnblogs.com/binghe001/p/14028079.html)
 
 #### SpringBoot文件上传下载
 [Spring Boot2(十四)：单文件上传/下载，文件批量上传](https://www.cnblogs.com/niaobulashi/p/springboot-updownload.html)
