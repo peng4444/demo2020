@@ -28,7 +28,8 @@
 [Java-Machine-Learning](https://github.com/Daniel-Liu-c0deb0t/Java-Machine-Learning)
 
 [解密淘宝推荐实战，打造 “比你还懂你” 的个性化APP]( https://yq.aliyun.com/articles/739057?spm=a2c4e.11153940.bloghomeflow.31.2b9f291aaxV1Kk )
-
+[朴素贝叶斯分类-理论篇-如何通过概率解决分类问题](https://www.cnblogs.com/codeshell/p/13999440.html)
+[朴素贝叶斯分类-实战篇-如何进行文本分类](https://www.cnblogs.com/codeshell/p/14034097.html)
 
 ### 深度学习
 [用 Java 训练深度学习模型，原来可以这么简单！](https://www.cnblogs.com/xueweihan/p/13910330.html)

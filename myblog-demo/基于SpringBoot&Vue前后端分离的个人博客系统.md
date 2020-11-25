@@ -19,6 +19,8 @@
 
 
 [Springboot Vue验证码校验](https://blog.csdn.net/qq_35416214/article/details/105879996)
+[vue+spring boot校验码的实现](https://blog.csdn.net/qq_15054679/article/details/90699031)
+[springboot-整合vue和图片验证码](https://blog.csdn.net/yhhyhhyhhyhh/article/details/84846033)
 ### 开发工具
 ```markdown
 - idea

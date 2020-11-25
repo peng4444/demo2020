@@ -12,6 +12,7 @@
 [随笔分类 - Spring Cloud](https://www.cnblogs.com/mrhelloworld/category/1658315.html)
 [一个项目的SpringCloud微服务改造过程](https://www.cnblogs.com/yixinjishu/p/11307121.html)
 [maven聚合工程用spring boot搭建spring cloud微服务模块式开发项目](https://www.cnblogs.com/wxf-com/p/10731375.html)
+[Java开发架构篇：领域驱动设计架构基于SpringCloud搭建微服务](https://www.cnblogs.com/xiaofuge/p/12938567.html)
 [Eureka 缓存结构以及服务感知优化](https://www.cnblogs.com/xmzJava/p/11359636.html) 
 [服务注册组件——Eureka高可用集群搭建](https://www.cnblogs.com/noneplus/p/11374883.html)
 ![](https://img2018.cnblogs.com/blog/273387/201903/273387-20190317154408417-983057661.png)
@@ -192,6 +193,7 @@ RetryRule : 重试策略。先按照RoundRobinRule策略获取provider，若获�
 [分布式监控系统之Zabbix部署](https://www.cnblogs.com/qiuhom-1874/p/13997582.html)
 [分布式监控系统之Zabbix宏、模板和自定义item](https://www.cnblogs.com/qiuhom-1874/p/14013331.html)
 [分布式监控系统之Zabbix网络发现](https://www.cnblogs.com/qiuhom-1874/p/14020847.html)
+[zabbix的搭建及操作（3）监控 MySQL 及 HTTP 状态监控](https://www.cnblogs.com/sun-long-fei/p/14022288.html)
 ### Spring Cloud Data Flow 
 >> 大数据操作组件，它是Spring XD的替代品，也是一个混合计算模型，可以通过命令行的方式操作数据流
 ### Spring Cloud Task

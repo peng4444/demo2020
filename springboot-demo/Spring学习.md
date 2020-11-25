@@ -605,7 +605,6 @@ Spring Batch的分层架构图如下：
     Batch Infrastructure基础层：上面两层是建立在基础层之上的，包含基础的读入reader和写出writer、重试框架等。
 ```
 
-
 ## 2.Spring源码
 [读Spring源码，我们可以从第一行读起](https://blog.csdn.net/qq_41907991/article/details/105667900)
 [spring源码](https://www.cnblogs.com/youzhibing/category/958792.html)
@@ -613,10 +612,11 @@ Spring Batch的分层架构图如下：
 [当前标签：品Spring](https://www.cnblogs.com/lixinjie/tag/%E5%93%81Spring/)
 ### 2.1.SpringIOC框架容器核心源码逐步剖析
 [Spring Framework框架容器核心源码逐步剖析](https://www.cnblogs.com/jimisun/p/10104002.html)
-
 ### 2.2.Spring bean的实例化过程
 [Spring 源码学习 - 单例bean的实例化过程](https://www.cnblogs.com/hackingForest/p/13054173.html)
 [我该如何学习spring源码以及解析bean定义的注册](https://www.cnblogs.com/liyus/p/10983108.html)
+### @Autowired注解源码
+[Spring @Autowired注解自动注入流程是怎么样？](https://www.cnblogs.com/xwgblog/p/14021535.html)
 ### 2.3.Spring源码分析笔记--AOP
 [Spring源码分析笔记--AOP](https://www.cnblogs.com/little-sheep/p/10103797.html)
 [SpringAOP+源码解析，切就完事了](https://www.cnblogs.com/summerday152/p/13652903.html)
@@ -657,9 +657,9 @@ protected Class<?> loadClass(String name, boolean resolve) {
 ```
 
 ## 3.Spring注解
-### [【Spring注解驱动开发】聊聊Spring注解驱动开发那些事儿！](https://www.cnblogs.com/binghe001/p/13047333.html)
+### 
+[【Spring注解驱动开发】聊聊Spring注解驱动开发那些事儿！](https://www.cnblogs.com/binghe001/p/13047333.html)
 ![Spring注解驱动开发](https://img2020.cnblogs.com/blog/1729473/202006/1729473-20200605000243595-700419751.jpg)
-
 ### Spring IOC相关常用注解
 ```markdown
 自动扫描装配Bean的相关注解
@@ -673,7 +673,9 @@ protected Class<?> loadClass(String name, boolean resolve) {
     @Autowired    通过类型匹配，通过名称则需要Spring的@Qualifier注解配合
     @Resource     根据Bean的名称去匹配，获取不到再根据类型
 ```
-### [聊聊依赖注入注解@Resource和@Autowired](https://www.cnblogs.com/felordcn/p/13063802.html)
+
+#### @Resource和@Autowired的区别
+[聊聊依赖注入注解@Resource和@Autowired](https://www.cnblogs.com/felordcn/p/13063802.html)
 >> @Resource和@Autowired注解都可以在Spring Framework应用中进行声明式的依赖注入。
 ```markdown
 @Resource使用在成员属性和setter方法上。
@@ -692,7 +694,7 @@ protected Class<?> loadClass(String name, boolean resolve) {
 [Spring中重要的注解](https://www.cnblogs.com/rolandlee/p/11014923.html)
 
 [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)
-### [spring下应用@Resource, @Autowired 和 @Inject注解进行依赖注入的差异](https://www.cnblogs.com/both-eyes/p/10096882.html)
+### [spring下应用@Resource, @Autowired和@Inject注解进行依赖注入的差异](https://www.cnblogs.com/both-eyes/p/10096882.html)
 
 ### Java配置类 @Configuration
 ```markdown
@@ -700,7 +702,7 @@ protected Class<?> loadClass(String name, boolean resolve) {
 配置的类方法带有@Bean注释，指示它们返回的对象应作为beans添加到应用程序上下文中（默认情况下，它们各自的bean IDs将与定义它们的方法的名称相同）。
 与基于XML的配置相比，基于Java的配置具有多个优点，包括更高的类型安全性和改进的可重构性。即使这样，仅当Spring无法自动配置组件时，才需要使用Java或XML进行显式配置。
 ```
-### @Conditional 
+### @Conditional注解
 ```markdown
 @Conditional注解表示在满足某种条件后才初始化一个bean或者启用某些配置。
 它一般用在由@Component、@Service、@Configuration等注解标识的类上面，或者由@Bean标记的方法上。
@@ -857,4 +859,6 @@ AOP也就是面向切面编程，它可以将公共的代码抽离出来，动�
         代理（Proxy）：目标对象被织入增强后，就会产生一个代理对象，该对象可能是和原对象实现了同样的一个接口（JDK），也可能是原对象的子类（CGLIB）。
         切面（Aspect、Advisor）：切面由切点和增强组成，包含了这两者的定义。
 ```
+
+### 
 ##

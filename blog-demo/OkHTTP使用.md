@@ -25,3 +25,4 @@ Retrofit是一个针对Java和Android的设计的REST客户机。它通过基于
 
 
 [轻量级HTTP客户端API框架，让Java发送HTTP/HTTPS请求不再难。](https://gitee.com/dt_flys/forest)
+[推荐一个适用于SpringBoot项目的轻量级HTTP客户端框架，快来试试它!](https://www.cnblogs.com/chentianming/p/14028998.html)
