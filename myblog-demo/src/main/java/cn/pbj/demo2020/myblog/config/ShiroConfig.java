@@ -77,9 +77,9 @@ public class ShiroConfig {
         Map<String, Filter> filters = new HashMap<>();
         filters.put("jwt", jwtFilter);
         shiroFilter.setFilters(filters);
-
+        // 设置无权限时跳转的 url;
+        shiroFilter.setUnauthorizedUrl("/unauthorized/无权限");
         Map<String, String> filterMap = shiroFilterChainDefinition.getFilterChainMap();
-
         shiroFilter.setFilterChainDefinitionMap(filterMap);
         return shiroFilter;
     }

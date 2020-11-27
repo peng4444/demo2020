@@ -604,6 +604,10 @@ Spring Batch的分层架构图如下：
     Batch Core核心层：包含启动和管理任务的运行环境类，如JobLauncher等。
     Batch Infrastructure基础层：上面两层是建立在基础层之上的，包含基础的读入reader和写出writer、重试框架等。
 ```
+### 22.Spring事件监听机制
+[Spring 事件监听机制及原理分析](https://www.cnblogs.com/admol/p/14036564.html)
+
+
 
 ## 2.Spring源码
 [读Spring源码，我们可以从第一行读起](https://blog.csdn.net/qq_41907991/article/details/105667900)

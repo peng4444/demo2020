@@ -16,6 +16,7 @@
 [23张图，带你入门推荐系统](https://mp.weixin.qq.com/s?__biz=MzAwNjkxNzgxNg==&mid=2247489048&idx=2&sn=6139714fd06434e474a38ed5d0153a7e&chksm=9b074dcfac70c4d9629e6a03c74d3b7723ac8fffeda1540a1842917726a3ecaa2c22fa8da04c&mpshare=1&scene=23&srcid=0926lVmxX5MJ7Y0ZNUFK0EQg&sharer_sharetime=1601092422791&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 [看完就懂，五千字长文带你领略推荐系统](https://www.cnblogs.com/techflow/p/13898078.html)
 [蚂蚁金服核心技术:百亿特征实时推荐算法揭秘](https://www.cnblogs.com/buptzym/p/10227159.html)
+[当前标签：推荐系统实践](https://www.cnblogs.com/luyao777/tag/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5/)
 ## 机器学习
 [阿里巴巴机器学习系列课程](https://www.bilibili.com/video/BV1kx411s7HS)
 

@@ -5,31 +5,25 @@ import cn.hutool.core.map.MapUtil;
 import cn.hutool.crypto.SecureUtil;
 import cn.pbj.demo2020.myblog.common.DataResult;
 import cn.pbj.demo2020.myblog.common.dto.LoginDto;
+import cn.pbj.demo2020.myblog.config.VerificationCode;
 import cn.pbj.demo2020.myblog.entity.User;
 import cn.pbj.demo2020.myblog.service.UserService;
-import cn.pbj.demo2020.myblog.util.ImageCode.CreateImageCode;
 import cn.pbj.demo2020.myblog.util.JwtUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Base64Utils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @pClassName: AccountController
@@ -105,28 +99,13 @@ public class AccountController {
         return result;
     }
 
-    /**
-     * 生成验证码
-     * @throws IOException
-     */
-    @GetMapping("/getImage")
-    public Map<String, String> getImage(HttpServletRequest request) throws IOException {
-        Map<String, String> result = new HashMap<>();
-        CreateImageCode createImageCode = new CreateImageCode();
-        //获取验证码
-        String securityCode = createImageCode.getCode();
-        //验证码存入session
-        String key = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-        request.getServletContext().setAttribute(key, securityCode);
-        //生成图片
-        BufferedImage image = createImageCode.getBuffImg();
-        //进行base64编码
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(image, "png", bos);
-        String string = Base64Utils.encodeToString(bos.toByteArray());
-        result.put("key", key);
-        result.put("image", string);
-        return result;
+    @GetMapping("/verifyCode")
+    public void verifyCode(HttpServletRequest request, HttpServletResponse resp) throws IOException {
+        VerificationCode code = new VerificationCode();
+        BufferedImage image = code.getImage();
+        String text = code.getText();
+        HttpSession session = request.getSession(true);
+        session.setAttribute("verify_code", text);
+        VerificationCode.output(image,resp.getOutputStream());
     }
-
 }

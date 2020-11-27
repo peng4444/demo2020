@@ -86,6 +86,12 @@
             <version>0.9.1</version>
         </dependency>
 
+        <!--依赖：Kaptcha是用于生成验证码的开源类库-->
+        <dependency>
+            <groupId>com.github.penggle</groupId>
+            <artifactId>kaptcha</artifactId>
+            <version>2.3.2</version>
+        </dependency>
     </dependencies>
 
     <build>

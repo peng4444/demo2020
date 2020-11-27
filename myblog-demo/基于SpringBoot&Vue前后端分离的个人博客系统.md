@@ -20,7 +20,11 @@
 
 [Springboot Vue验证码校验](https://blog.csdn.net/qq_35416214/article/details/105879996)
 [vue+spring boot校验码的实现](https://blog.csdn.net/qq_15054679/article/details/90699031)
-[springboot-整合vue和图片验证码](https://blog.csdn.net/yhhyhhyhhyhh/article/details/84846033)
+[AAA-springboot-整合vue和图片验证码](https://blog.csdn.net/yhhyhhyhhyhh/article/details/84846033)
+
+[jwt结合shiro实现认证和权限控制，非常详细](https://blog.csdn.net/weixin_44852935/article/details/107683290)
+[spring cloud + shiro 权限认证](https://blog.csdn.net/madaooadam/article/details/103943190)
+
 ### 开发工具
 ```markdown
 - idea
