@@ -67,6 +67,9 @@
 ```
 ### [Java Filter过滤器（拦截路径的配置+拦截方式的配置+生命周期+多个过滤器的先后执行顺序）](https://www.cnblogs.com/pjhaymy/p/13456810.html)
 ### [SpringBoot 拦截器获取http请求参数](https://www.cnblogs.com/keeya/p/13634015.html)
+[SpringBoot第六集：整合监听器/过滤器和拦截器（2020最新最易懂）](https://www.cnblogs.com/xsge/p/13915775.html)
+
+
 
 ## 四、SpringBoot
 ### 1.SpringBoot基础知识
@@ -125,6 +128,7 @@ Spring Boot 主要有如下优点：
 [SpringBoot如何整合AOP自定义一个注解](https://www.cnblogs.com/Chenjiabing/p/13984651.html)
 #### 2启动类注解：@SpringBootApplication
 [Spring Boot 解决方案 - 配置](https://www.cnblogs.com/linzhehuang/p/10617116.html)
+[Spring Boot 自动配置源码解析](https://www.cnblogs.com/Chenjiabing/p/14010257.html)
 ```markdown
 @SpringBootApplication注释清楚地表明这是一个Spring引导应用程序。
 @SpringBootApplication是一个组合了其他三个注释的复合应用程序：
@@ -390,6 +394,10 @@ SpringBoot提供的的注解@ControllerAdvice表示开启全局异常捕获，�
 [SpringBoot整合Mail发送邮件&发送模板邮件](https://www.cnblogs.com/ruiyeclub/p/13394493.html)
 [Spring Boot集成WebSocket实现服务端推送消息到客户端](https://www.cnblogs.com/wupeixuan/p/13389757.html)
 [SpringBoot中使用RSocket](https://juejin.im/post/5cf733a5e51d4510835e0260)
+
+[SpringBoot 2.0 多图片上传加回显](https://github.com/modouxiansheng/Doraemon/tree/master/springdemo)
+
+[spring boot实现超轻量级网关（反向代理、转发）](https://www.cnblogs.com/xiaoqi/p/spring-boot-route.html)
 ##
 [SpringBoot开发案例之打造私有云网盘](https://www.cnblogs.com/smallSevens/p/10712643.html)
 [基于springboot搭建的web系统架构](https://www.cnblogs.com/Oven5217/p/10765052.html)

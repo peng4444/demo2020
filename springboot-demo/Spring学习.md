@@ -659,6 +659,8 @@ protected Class<?> loadClass(String name, boolean resolve) {
  }
 但双亲委派模型并不能解决所有的类加载器问题，比如，Java提供了很多服务提供者接口(Service Provider Interface，SPI)，允许第三方为这些接口提供实现。
 ```
+### Spring 资源加载
+[Spring中资源的加载原来是这么一回事啊！](https://www.cnblogs.com/i-code/p/12845329.html)
 
 ## 3.Spring注解
 ### 

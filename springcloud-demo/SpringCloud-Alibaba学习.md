@@ -42,6 +42,8 @@ Spring Cloud对Feign进行了封装，使其支持了Spring MVC标准注解和Ht
 [SpringBoot2.0+阿里巴巴Sentinel动态限流实战](https://www.cnblogs.com/smallSevens/p/11531534.html)			
 [SpringBoot2.0+InfluxDB+Sentinel实时监控数据存储](https://www.cnblogs.com/smallSevens/p/11576263.html)
 [SpringCloud 中集成Sentinel+Feign实现服务熔断降级](cnblogs.com/NathanYang/p/11819881.html)
+[[扛住阿里双十一高并发流量，Sentinel是怎么做到的？](https://www.cnblogs.com/caison/p/11673047.html)]
+
 ```markdown
 
 ```

@@ -99,7 +99,7 @@ public class AccountController {
         return result;
     }
 
-    @GetMapping("/verifyCode")
+    @PostMapping("/verifyCode")
     public void verifyCode(HttpServletRequest request, HttpServletResponse resp) throws IOException {
         VerificationCode code = new VerificationCode();
         BufferedImage image = code.getImage();

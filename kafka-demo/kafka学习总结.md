@@ -253,4 +253,5 @@ Kafka拦截器的设置方法是通过参数配置完成的。生产者和消费
 典型使用场景:
     Kafka拦截器可以应用于包括客户端监控、端到端系统性能检测、消息审计等多种功能在内的场景。
 ```
-### 
+### Spring 对Apache Kafka的支持与集成
+[Spring 对Apache Kafka的支持与集成](https://www.cnblogs.com/liululee/p/14042652.html)

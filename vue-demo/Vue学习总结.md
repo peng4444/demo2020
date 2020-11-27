@@ -5,7 +5,13 @@
 [参考博客：深入浅出Vue](https://www.cnblogs.com/By-ruoyu/category/1378905.html)
 [参考博客：随笔分类 - Vue](https://www.cnblogs.com/Yunya-Cnblogs/category/1803872.html)
 [参考博客：vue.js合集](https://www.cnblogs.com/danvic712/p/9549100.html)
-
+## 前端基础
+### 前端三要素
+```markdown
+HTML（结构）：超文本标记语言（Hyper Text Markup Language），决定网页的结构和内容
+CSS（表现）：层叠样式表（Cascading Style Sheets），设定网页的表现样式
+JavaScript（行为）：是一种弱类型脚本语言，其源代码不需经过编译，而是由浏览器解释运行，用于控制网页的行为
+```
 ### Vue基础
 [一个后端开发的 Vue 笔记【入门级】](https://www.cnblogs.com/ideal-20/p/13624713.html)
 [后端小白的VUE入门笔记, 前端高能慎入](https://www.cnblogs.com/ZhuChangwu/p/11303521.html)
@@ -60,6 +66,7 @@ Vue 提供了 v-model 指令，它能轻松实现表单输入和应用状态之�
 #### Axios
 ```markdown
 我们在以前传统的开发中，我们一般会使用Ajax进行通信，而Vue.js作为一个视图层框架，并不支持Ajax的通信功能，所以可以使用Axios来实现Ajax的异步通信.
+Axios：前端通信框架；因为Vue的边界很明确，就是为了处理DOM，所以并不具备通信能力，此时就需要额外使用一个通信框架与服务器交互；当然也可以直接选择使用JQuery提供的AJAX通信功能；
 Axios特点：
     - 从浏览器中创建 XMLHttpRequests
     - 从 node.js 创建 http 请求
@@ -71,14 +78,14 @@ Axios特点：
     - 客户端支持防御 XSRF
 ```
 ### 进阶篇
-Vue.js的工程化
-Render函数
-webpack的使用
-Vue.js插件
+#### Vue.js的工程化
+#### Render函数
+#### webpack的使用
+#### Vue.js插件
 [Vue-router插件使用](https://www.cnblogs.com/Yunya-Cnblogs/p/14017686.html)
+
 ### 实战篇
 [当前标签：循序渐进VUE+Element](https://www.cnblogs.com/wuhuacong/tag/%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9BVUE%2BElement/)
-项目实战
 
 ## Vue基础
 

@@ -54,6 +54,7 @@ Spring Cloud Bus
     用于传播集群状态变化的消息总线，使用轻量级消息代理链接分布式系统中的节点，可以用来动态刷新集群中的服务配置。
 Spring Cloud Consul
     基于Hashicorp Consul的服务治理组件。
+    [学习搭建 Consul 服务发现与服务网格-有丰富的示例和图片](https://www.cnblogs.com/whuanle/p/14015189.html)
 Spring Cloud Security
     安全工具包，对Zuul代理中的负载均衡OAuth2客户端及登录认证进行支持。
 Spring Cloud Sleuth
