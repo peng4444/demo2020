@@ -1,4 +1,13 @@
 # 推荐系统&AI&机器学习
+
+[人工智能、深度学习领域数学基础](https://www.cnblogs.com/xiaoyh/category/1599886.html)
+
+[专为程序员出版的的线性数学教程-IT兄弟连姚老师](https://www.bilibili.com/video/BV177411d7sH)
+
+[【公开课】概率论与数理统计（浙江大学）](https://www.bilibili.com/video/BV1vW41147Uw)
+## 视频
+[【尚学堂】人工智能必备的数学基础课 #新版发布](https://www.bilibili.com/video/BV1gJ411V7aE)
+
 ### 算法
 [AI算法工程师手册](huaxiaozhuan.com)
 
