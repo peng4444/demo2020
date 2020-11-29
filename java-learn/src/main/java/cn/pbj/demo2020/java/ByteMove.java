@@ -4,7 +4,7 @@ package cn.pbj.demo2020.java;
  * @pClassName: ByteMove
  * @author: pengbingjiang
  * @create: 2020/11/28 17:08
- * @description: TODO
+ * @description: TODO 位移运算 tips:注意负数的无符号右移
  */
 public class ByteMove {
     public static void main(String[] args) {

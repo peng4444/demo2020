@@ -23,3 +23,9 @@
 
 [程序员过关斩将--cookie和session的关系其实很简单](https://www.cnblogs.com/zhanlang/p/11407463.html)
 [更加优雅的Token认证方式JWT](https://www.cnblogs.com/zhanlang/p/11442407.html)
+[SpringSecurity之整合JWT](https://www.cnblogs.com/wang-sky/p/14049241.html)
+[前后端分离后台API接口框架探索](https://www.cnblogs.com/lihaoyang/p/11334925.html)
+[远程调用代码封装杂谈](https://www.cnblogs.com/wuyuegb2312/p/11263014.html)
+[如何设计API接口，实现统一格式返回？](https://www.toutiao.com/i6694404645827117572)
+[Spring Boot 无侵入式 实现API接口统一JSON格式返回](https://blog.csdn.net/qq_34347620/article/details/102239179)
+[Spring Boot接口如何设计防篡改、防重放攻击](https://www.cnblogs.com/tqlin/p/11251321.html)

@@ -4,7 +4,7 @@ package cn.pbj.demo2020.java;
  * @pClassName: IntegerCache
  * @author: pengbingjiang
  * @create: 2020/11/28 16:21
- * @description: TODO
+ * @description: TODO Integer数据缓存，和其他数据类型缓存
  */
 public class IntegerCache {
     public static void main(String[] args) {
