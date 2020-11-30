@@ -432,7 +432,7 @@ vi /etc/sysconfig/network-scripts/ifcfg-ens33
 systemctl restart network
 ```
 ![1551167916474](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1551167916474.png)
-```
+```markdown
 修改主机名； vi /etc/hostname
 			reboot (重启生效)
 配置名字解析： vi  /etc/hosts (主机名和IP解析)

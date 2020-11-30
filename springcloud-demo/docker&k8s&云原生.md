@@ -154,6 +154,7 @@ Docker Compose安装：（从 官方 GitHub Release 处直接下载编译好的�
 [一键部署 Spring Boot 到远程 Docker 容器，就是这么秀！](https://www.cnblogs.com/lenve/p/11434074.html)
 [Spring Boot 和 Docker 实现微服务部署](https://www.cnblogs.com/fengzheng/p/10329097.html)
 [使用 Docker 部署 Spring Boot 项目，带劲！！](https://www.cnblogs.com/javastack/p/14034812.html)
+[详解docker部署SpringBoot及如何替换jar包](https://www.cnblogs.com/toutou/p/docker_springboot.html)
 [还在手动启动springboot项目？docker部署不香吗？](https://www.toutiao.com/i6843391272229536267)
 [DOCKER 学习笔记5 Springboot+nginx+mysql 容器编排](https://www.cnblogs.com/ChromeT/p/12289177.html)
 [Docker笔记](https://www.cnblogs.com/Hui4401/p/13758443.html)

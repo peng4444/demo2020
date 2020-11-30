@@ -16,6 +16,7 @@
 [Spring Cloud Alibaba系列（一）nacos作为服务注册中心](https://www.cnblogs.com/zhixie/p/12848317.html)
 [SpringCloud-Alibaba-Nacos 服务注册中心&配置中心](https://www.cnblogs.com/songjilong/p/12796258.html)
 [Nacos高可用集群解决方案-Docker版本](https://www.cnblogs.com/hellxz/p/nacos-cluster-docker.html)
+[Linux下使用Docker部署nacos-server:1.4.0（单机模式）](https://www.cnblogs.com/haoxianrui/p/14059009.html)
 [SpringBoot2.0+Nacos+Sentinel流控规则集中存储](https://www.cnblogs.com/smallSevens/p/11553695.html)
 [SpringBoot开发案例Nacos配置管理中心](https://www.cnblogs.com/smallSevens/p/11223830.html)
 
