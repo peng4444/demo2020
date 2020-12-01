@@ -40,6 +40,7 @@
         <module>myblog-write</module>
         <module>algorithm-demo</module>
         <module>kafka-demo</module>
+        <module>iot-learn</module>
     </modules>
 
     <properties>

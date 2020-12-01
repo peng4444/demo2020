@@ -167,6 +167,7 @@ Mybatis框架：
 MyBatis 如何实现模糊查询?
 ### 15.Mybatis如何找到指定的Mapper的，如何完成查询的。
 ### 16.MyBatis分页方式和原理【2+】
+[新技能 MyBatis 千万数据表，快速分页！](https://mp.weixin.qq.com/s?__biz=MzIwODkzOTc1MQ==&mid=2247487085&idx=1&sn=4c50d2595f2308b9911c5af22841d789&chksm=977a31e5a00db8f38837b441cbfccad15a40628dfd2b1fea93557802b5fca48ac199660d1a85&mpshare=1&scene=23&srcid=1129BARfomwvSrpMugY6QeFO&sharer_sharetime=1606650267912&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 ```markdown
 分页方式：逻辑分页，物理分页
     逻辑分页：使用Mybatis自带的RowBounds进行分页，它是一次性查询很多数据，然后在数据中再进行检索。

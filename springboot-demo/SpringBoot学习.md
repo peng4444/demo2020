@@ -301,6 +301,7 @@ SpringBoot提供的的注解@ControllerAdvice表示开启全局异常捕获，�
 [Spring Boot 多环境配置](https://www.cnblogs.com/Chenjiabing/p/13968781.html)
 #### SpringBoot新版本
 [Spring Boot 2.3.0正式发布：优雅停机、配置文件位置通配符新特性一览](https://www.cnblogs.com/yourbatman/p/13294338.html)
+[Spring Boot 2.4.0正式发布：全新的配置文件加载机制（不向下兼容）](https://www.cnblogs.com/yourbatman/p/14061177.html)
 
 
 ### 3.SpringBoot源码
