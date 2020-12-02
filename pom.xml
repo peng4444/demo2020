@@ -41,6 +41,7 @@
         <module>algorithm-demo</module>
         <module>kafka-demo</module>
         <module>iot-learn</module>
+        <module>wx-learn</module>
     </modules>
 
     <properties>

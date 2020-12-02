@@ -20,3 +20,5 @@
 [《从0到1学习Flink》—— Flink 项目如何运行？](https://www.cnblogs.com/zhisheng/p/10326796.html#commentform)
 
 [构建一个flink程序,从kafka读取然后写入MYSQL](https://www.cnblogs.com/huangqingshi/p/12003453.html)
+
+[Flink + 强化学习 搭建实时推荐系统](https://www.cnblogs.com/massquantity/p/13842139.html)

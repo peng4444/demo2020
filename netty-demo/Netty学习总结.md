@@ -1,4 +1,5 @@
 # Netty学习总结
+[Netty官网文档](https://netty.io/wiki/all-documents.html)
 [参考阅读书籍：《Netty 实战(精髓)》](https://waylau.gitbooks.io/essential-netty-in-action/content/)
 [参考视频：尚硅谷韩顺平Netty视频教程（2019发布）](https://www.bilibili.com/video/BV1DJ411m7NR)
 
@@ -6,8 +7,9 @@
 
 
 ## Netty
-## Netty常见面试题总结
->> [宝贝儿！你要的Netty常见面试题总结，Guide搞来了！](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247488207&idx=1&sn=6f413c059cbfac3b771168316848a735&chksm=cea25d04f9d5d4126d16486e63dd265547b9c629be44d4c455c9f44cedf8bba773283c4ee2f2&mpshare=1&scene=23&srcid=&sharer_sharetime=1592278226199&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+## Netty常见总结
+>> [Netty常见面试题总结](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247488207&idx=1&sn=6f413c059cbfac3b771168316848a735&chksm=cea25d04f9d5d4126d16486e63dd265547b9c629be44d4c455c9f44cedf8bba773283c4ee2f2&mpshare=1&scene=23&srcid=&sharer_sharetime=1592278226199&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+>> [45 张图深度解析 Netty 架构与原理](https://mp.weixin.qq.com/s?__biz=MzU1NTkwODE4Mw==&mid=2247491825&idx=1&sn=0dfa21a1021048766a76a5e12c7fec8b&chksm=fbcf8dc9ccb804dfb8c147493a08c1a066ceaa2a825dfc0b9d31c4fa918c21859b67825808d7&mpshare=1&scene=23&srcid=12026c8XJSL3rhPE3WUTvpzl&sharer_sharetime=1606872848751&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 ### Netty是什么？
 ```markdown
 1.Netty是一个基于NIO的client-server(客户端服务器)框架，使用它可以快速简单地开发网络应用程序。

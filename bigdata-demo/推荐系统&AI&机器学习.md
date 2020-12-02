@@ -43,6 +43,7 @@
 
 ### 深度学习
 [用 Java 训练深度学习模型，原来可以这么简单！](https://www.cnblogs.com/xueweihan/p/13910330.html)
+[Java实现：抛开jieba等工具，写HMM+维特比算法进行词性标注](https://www.cnblogs.com/chenzhenhong/p/13850687.html)
 [Labelling NBA action using deep learning](https://github.com/neeilan/DeepPlayByPlay)
 [深度学习在搜索业务中的探索与实践](https://www.cnblogs.com/meituantech/p/10254638.html)
 [Deep Learning Interview 深度学习面试题目汇总](https://github.com/ShanghaiTechAIClub/DLInterview)
