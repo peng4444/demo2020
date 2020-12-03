@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.mycat;
+package cn.pbj.demo2020.blog.mycat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -31,7 +31,7 @@ public class DataSourceOptionAop {
      *
      * @param joinPoint
      */
-    @Before("execution(* cn.pbj.demo2020.mycat.*.*(..))")
+    @Before("execution(* cn.pbj.demo2020.blog.mycat.*.*(..))")
     public void process(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         System.out.print("=========== " + methodName);

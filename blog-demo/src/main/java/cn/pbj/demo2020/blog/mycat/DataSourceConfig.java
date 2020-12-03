@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.mycat;
+package cn.pbj.demo2020.blog.mycat;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;

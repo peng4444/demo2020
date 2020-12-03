@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.mycat;
+package cn.pbj.demo2020.blog.mycat;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;

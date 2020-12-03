@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.mycat;
+package cn.pbj.demo2020.blog.mycat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

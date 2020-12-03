@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.java;
+package cn.pbj.demo2020.blog.java;
 
 /**
  * @pClassName: IntegerCache

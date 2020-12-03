@@ -1,7 +1,7 @@
 # Vue学习总结
 [参考书：Vue.js实战](https://www.baidu.com) [Vue.js实战实例代码](https://github.com/icarusion/vue-book)
-
 [参考书：Vue.js权威指南](https://www.baidu.com)
+
 [参考博客：深入浅出Vue](https://www.cnblogs.com/By-ruoyu/category/1378905.html)
 [参考博客：随笔分类 - Vue](https://www.cnblogs.com/Yunya-Cnblogs/category/1803872.html)
 [参考博客：vue.js合集](https://www.cnblogs.com/danvic712/p/9549100.html)
@@ -61,7 +61,16 @@ Vue 提供了 v-model 指令，它能轻松实现表单输入和应用状态之�
     - 计算属性是存在缓存的,key就是函数的名字,value就是计算得到的值
 ```
 #### 内置指令与自定义指令
+```markdown
+v-once: 当标签中添加该属性指令时，标签渲染的内容将是固定的不会随着数据层数据的动态改变而进行改变。
+v-html:　当标签中添加该属性指令时，该标签渲染的内容将会以HTML代码呈现。注意，该属性指令应该通过等号绑定一个数据。v-html="msg"
+v-text: 和直接使用{{}}渲染内容无太大差异，如果渲染内容是一个HTML标签，其本质原理都是将<替换成&lt;，将>替换成&gt;。会预防XSS攻击。
+v-show: 属性指令为false时将该标签将添加display:none的样式。v-show="false"
+V-pre: 属性指令会将标签中的内容按照原本格式进行呈现，类似于<pre>标签。
+v-clock: 在网络情况较差的环境下，可能会出现模板渲染不及时的问题。使用v-cloak属性指令可挡住{{}}模板语法，使用户获得更好的体验。
+```
 #### 组件
+[Vue 组件化开发](https://www.cnblogs.com/Yunya-Cnblogs/p/14013159.html)
 [Vue 组件化开发之插槽](https://www.cnblogs.com/Yunya-Cnblogs/p/14013464.html)
 #### Axios
 ```markdown
@@ -78,6 +87,7 @@ Axios特点：
     - 客户端支持防御 XSRF
 ```
 ### 进阶篇
+[vue 自动化路由实现](https://www.cnblogs.com/mianbaodaxia/p/11452123.html)
 #### Vue.js的工程化
 #### Render函数
 #### webpack的使用
@@ -87,9 +97,6 @@ Axios特点：
 ### 实战篇
 [当前标签：循序渐进VUE+Element](https://www.cnblogs.com/wuhuacong/tag/%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9BVUE%2BElement/)
 
-## Vue基础
-
-[vue 自动化路由实现](https://www.cnblogs.com/mianbaodaxia/p/11452123.html)
 ## Vue项目
 [1.vue创建项目的步骤](https://blog.csdn.net/weixin_42218847/article/details/81363421)
 [Vue之vue项目引入vuex](https://blog.csdn.net/weixin_40736319/article/details/89379474)
