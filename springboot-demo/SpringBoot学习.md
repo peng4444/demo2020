@@ -225,6 +225,7 @@ SpringBoot提供的的注解@ControllerAdvice表示开启全局异常捕获，�
 [SpringBoot+Maven多模块项目（创建、依赖、打包可执行jar包部署测试）完整流程](https://blog.csdn.net/baidu_41885330/article/details/81875395)
 [【Springboot可执行jar和普通可引用jar】](https://www.cnblogs.com/lenve/p/11156340.html)
 [springboot的jar为何能独立运行](https://www.cnblogs.com/bolingcavalry/p/13195961.html)
+[Spring Boot 项目瘦身指南](https://www.cnblogs.com/niceyoo/p/14083706.html)
 ```markdown
 
 ```

@@ -106,10 +106,15 @@ Axios特点：
 [从0开始，手把手教你用Vue开发一个答题App](https://www.cnblogs.com/songboriceboy/p/13265777.html)
 [使用electron+vue开发一个跨平台todolist（便签）桌面应用](https://www.cnblogs.com/xhznl/p/14004992.html)
 [跨平台桌面端视频资源播放器.简洁无广告.免费高颜值](https://github.com/Hunlongyu/ZY-Player)
-
-## Vue其他、
+[乐购商城（tesco-mall）是一套完善的微服务电商系统，由前台商城系统和后台管理系统构成，基于SpringBoot、SpringCloud、SpringCloud alibaba、Vue实现，采用前后端分离开发模式。](https://github.com/Jerusalem01/tesco-mall)
+[基于Spring Boot、Spring Cloud、Vue.js 、Element UI实现，采用前后端分离架构的权限管理系统，JAVA快速开发平台。](https://gitee.com/liuge1988/kitty)
+## Vue其他
 [React合集](https://www.cnblogs.com/strick/category/1455720.html)
 [使用 pdf.js 在网页中加载 pdf 文件](https://www.cnblogs.com/SavionZhang/p/11757849.html)
 [flask+layui+echarts实现前端动态图展示数据](https://www.cnblogs.com/huxiansheng/p/11611178.html)
 [vue+echarts+datav大屏数据展示及实现中国地图省市县下钻](https://www.cnblogs.com/weijiutao/p/13977011.html)
 [快速上手 Echarts](https://www.cnblogs.com/stormlong/p/10923747.html)
+
+## Mock
+[Mockserver之Moco框架搭建使用](https://www.cnblogs.com/Sweettesting/p/13860291.html)
+[mock.js+JOSN.server搭建](https://www.cnblogs.com/kagol/p/14083230.html)
