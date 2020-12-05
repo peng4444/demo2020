@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS基础选择器</title>
+    <style>
+        #div1{
+            color: red;
+        }
+
+        div2{
+            color: green;
+        }
+
+        .div3{
+            color: blue;
+        }
+
+        div p{
+            color: #4cae4c;
+        }
+
+        div>p{
+            border: 1px solid;
+        }
+
+        input[type='text']{
+            border: 5px solid;
+        }
+
+        a:link{
+            color: pink;
+        }
+
+        a:hover{
+            color: green;
+        }
+
+        a:active{
+            color: yellow;
+        }
+
+        a:visited{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--1.id选择器-->
+    <div id="div1">我和我的家乡</div>
+    <!--2.元素选择器-->
+    <div class="div2">我和我的家乡</div>
+    <!--3.类选择器-->
+    <p class="div3">我和我的家乡</p>
+
+    <!--CSS扩展选择器-->
+    <!--1.子选择器-->
+    <!--2.父选择器-->
+    <div>
+        <p>我和我的家乡</p>
+    </div>
+    <p>我和我的家乡</p>
+
+<div>aaa</div>
+    <!--3.属性选择器-->
+    <input type="text">
+    <input type="password">
+
+<br>
+    <!--4.伪类选择器：选择一些元素具有的状态-->
+    <a href="#">点击加载</a>
+</body>
+</html>

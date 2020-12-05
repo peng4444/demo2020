@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS运算符</title>
+
+    <script>
+        var num = 3;
+        var a = num++;
+        document.write(num+"<br>");// 4
+        document.write(a+"<br>");// 3
+
+        var b = +3;
+        document.write(b+"<br>");// 3
+
+        var c = +"123";
+        document.write(c+"<br>");// 123
+
+        var d = +"abc123";
+        document.write(typeof(d)+"<br>");
+        document.write(c+1+"<br>");
+
+        /*比较运算符*/
+        document.write((3>4)+"<br>");// false
+        document.write((3>"acv")+"<br>");// false
+        document.write((123=="123")+"<br>");// true
+        document.write((123==="123")+"<br>");// false
+
+        /*逻辑运算符  其他类型转boolean*/
+        var nums1 = 3;
+        var nums2 = 0;
+        document.write(!nums1+"<br>");// false
+        document.write(!nums2+"<br>");// true
+        var strs1 = "abc";
+        var strs2 = "";
+        document.write(!strs1+"<br>");// false
+        document.write(!strs2+"<br>");// true
+        var objs1 = null;
+        var objs2;
+        document.write(!objs1+"<br>");// true
+        document.write(!objs2+"<br>");// true
+        var date = new Date();
+        document.write(!date+"<br>");// false
+
+        /*三元运算符*/
+        var aa = 3;
+        var bb = 4;
+        var cc = "abc";
+        var c = aa > bb?1:0;
+        var c1 = aa > cc?1:0;
+        document.write(c+"<br>");// 0
+        document.write(c1+"<br>");// 0
+
+
+        /*流程控制语句 switch*/
+        var s = 1;
+        switch (a) {
+            case 1:
+                document.write(1);
+                break;
+            case 2:
+                document.write(2);
+                break;
+            case "abc":
+                document.write("abc");
+                break;
+            case true:
+                document.write(true);
+                break;
+            case undefined:
+                document.write(undefined);
+                break;
+        }
+
+    </script>
+</head>
+
+</html>
