@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS BOM学习</title>
+</head>
+<body>
+    <input id="openBtn" type="button" value="打开窗口">
+    <input id="closeBtn" type="button" value="关闭窗口">
+    <script>
+/*        alert("显示带有一段消息和一个确认按钮的警告框");
+
+        var flag = confirm("您确定要退出吗？");
+        if (flag) {
+            // 退出操作
+            alert("欢迎━(*｀∀´*)ノ亻!再次光临");
+        }else{
+            // 提示
+            alert("不想退出，不要手抖！");
+        }
+
+        // 输入框
+        var ans = prompt("请输入用户名");
+        document.write("您的用户名是："+ans+"<br>");*/
+/*
+    //打开xin窗口
+    var openBtn = document.getElementById("openBtn");
+    var newWindow;
+    openBtn.onclick = function () {
+        newWindow = open("https://www.baidu.com");
+    }
+    // 关闭打开的新窗口
+    var closeBtn = document.getElementById("closeBtn");
+    closeBtn.onclick = function () {
+        newWindow.close();
+    }*/
+
+        //与定时器有关的方式
+        function  func() {
+            alert("bloom~~~~")
+        }
+        var timeout = setTimeout("func();", 2000);
+        clearTimeout(timeout);
+
+        var setTime = setInterval("func();", 1000)
+        clearInterval(setTime);
+
+    </script>
+</body>
+</html>

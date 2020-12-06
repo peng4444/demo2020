@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js对象</title>
+    <style>
+        td{
+            border: 1px solid;
+        }
+    </style>
+    <script>
+        // 1.创建function对象1
+        // var fun1 = new Function("a","b","alert(a);");
+        // //调用对象
+        // fun1(3,4);
+        // 2.创建function对象2
+        function fun1(a,b) {
+            alert(a+b);
+        }
+        // 方法调用
+        fun1(3, 4);
+
+        var fun2 = function (a,b) {
+            alert(a + b);
+        }
+        // 方法调用
+        fun2(4, 5);
+        fun2(1);
+        fun2(1, 2, 3);
+        fun2();
+
+        /*求任意个数的和*/
+        function add() {
+            var sum = 0;
+            for(var i = 0;i<arguments.length;i++){
+                sum += arguments[i];
+            }
+            return sum;
+        }
+
+        var sum = add(1, 2, 3, 4, 5);
+        alert(sum);
+
+
+        /*array对象*/
+        var arr1 = new Array(1, 2, 3, 4);
+        var arr2 = new Array(5);
+        var arr3 = [1, 2, 3, 4];
+        var arr4 = new Array();
+        document.write(arr1+"<br>");
+        document.write(arr2+"<br>");//,,,,
+        document.write(arr3+"<br>");
+        document.write(arr3[10+"<br>"]);//undefined
+        document.write(arr4+"<br>");//
+        document.write(arr1.join()+"<br>");//
+        arr1.push(5);
+        document.write(arr1.join("--"+"<br>"));//
+
+        /*取1到100的随机整数*/
+        var number = Math.floor((Math.random() * 100)) + 1;
+        document.write(number);
+
+        /*正则表达式*/
+        var reg1 = new RegExp("\w{6,12}");
+        var reg2 = /^\w{6,12}$/;
+        var username = "zhangsan";
+        var flag = reg2.test(username);
+        document.write(flag);
+
+        /*Global对象*/
+        var myfamily = "我和我的家乡";
+        var encode = encodeURI(myfamily);
+        document.write(encode+"<br>");
+        var en2 = encodeURIComponent(myfamily);
+        document.write(en2+"<br>");
+    </script>
+</head>
+<body>
+</body>
+</html>
