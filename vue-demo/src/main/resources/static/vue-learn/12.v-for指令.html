@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue v-for指令</title>
+</head>
+<body>
+
+    <div id="app">
+        <input type="button" value="添加数据" @click="add">
+        <input type="button" value="移除数据" @click="remove">
+
+        <ul>
+            <li v-for="(it,index) in arr">
+                {{ index+1 }} 我和我的家乡:{{ it }}
+            </li>
+            <h2 v-for="item in objectDesc" v-bind:title="item.name">
+                {{ item.name }}
+            </h2>
+        </ul>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                arr:["北京","上海","广州","深圳"],
+                objectDesc:[
+                    {name: "西红柿"},
+                    {name: "西蓝花"}
+                ]
+            },
+            methods: {
+                add:function () {
+                    this.objectDesc.push({ name:"西瓜霜" });
+                },
+                remove:function () {
+                    this.objectDesc.shift();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

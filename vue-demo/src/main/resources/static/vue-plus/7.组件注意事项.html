@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 组件</title>
+</head>
+<body>
+
+<div id="app">
+    <!--
+       4、  组件可以重复使用多次
+         因为data中返回的是一个对象所以每个组件中的数据是私有的
+         即每个实例可以维护一份被返回对象的独立的拷贝
+   -->
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <!-- 8、必须使用短横线的方式使用组件 -->
+    <hello-world></hello-world>
+</div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    //5  如果使用驼峰式命名组件，那么在使用组件的时候，只能在字符串模板中用驼峰的方式使用组件，
+    // 7、但是在普通的标签模板中，必须使用短横线的方式使用组件
+    Vue.component('HelloWorld', {
+        data: function(){
+            return {
+                msg: 'HelloWorld'
+            }
+        },
+        template: '<div>{{ msg }}</div>'
+    });
+
+
+
+    Vue.component('button-counter', {
+        // 1、组件参数的data值必须是函数
+        // 同时这个函数要求返回一个对象
+        data: function(){
+            return {
+                count: 0
+            }
+        },
+        //  2、组件模板必须是单个根元素
+        //  3、组件模板的内容可以是模板字符串
+        template: `
+        <div>
+          <button @click="handle">点击了{{count}}次</button>
+          <button>测试123</button>
+			#  6 在字符串模板中可以使用驼峰的方式使用组件
+		   <HelloWorld></HelloWorld>
+        </div>
+      `,
+        methods: {
+            handle: function(){
+                this.count += 2;
+            }
+        }
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+
+        }
+    });
+</script>
+</body>
+</html>

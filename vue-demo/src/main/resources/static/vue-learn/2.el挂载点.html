@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue el挂载点</title>
+</head>
+<body>
+    <!--Vue会管理el选项命中的元素，及其内部的后代元素-->
+    {{ message }}
+    <div id="app" class="app">
+        {{ message }}
+    </div>
+    <!--<h2 id="app" class="app">
+        {{ message }}
+    </h2>-->
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            //el: ".app", //
+            //el: "div",
+            data: {
+                message: "Hello Vue"
+            }
+        })
+    </script>
+</body>
+</html>

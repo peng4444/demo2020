@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 组件</title>
+</head>
+<body>
+
+<div id="app">
+    <my-component></my-component>
+</div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    // 定义组件的模板
+    var Child = {
+        template: '<div>A custom component!</div>'
+    }
+    new Vue({
+        //局部注册组件
+        components: {
+            // <my-component> 将只在父模板可用  一定要在实例上注册了才能在html文件中使用
+            'my-component': Child
+        }
+    })
+</script>
+</body>
+</html>

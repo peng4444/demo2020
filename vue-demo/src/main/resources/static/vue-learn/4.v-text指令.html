@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue v-text指令</title>
+</head>
+<body>
+
+    <div id="app">
+        <h2>{{ message }}在一起</h2>
+        <h2 v-text="message">在一起</h2>
+        <h2 v-text="info">在一起</h2>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "Hello Vue",
+                info: "我和我的祖国"
+            }
+        })
+    </script>
+</body>
+</html>

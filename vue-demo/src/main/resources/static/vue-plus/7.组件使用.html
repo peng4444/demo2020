@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 组件</title>
+</head>
+<body>
+
+<div id="example">
+    <!-- 2、 组件使用 组件名称 是以HTML标签的形式使用  -->
+    <my-component></my-component>
+</div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    //   注册组件
+    // 1、 my-component 就是组件中自定义的标签名
+    Vue.component('my-component', {
+        template: '<div>A custom component!</div>'
+    })
+
+    // 创建根实例
+    new Vue({
+        el: '#example'
+    })
+
+</script>
+</body>
+</html>

@@ -195,6 +195,7 @@ RetryRule : 重试策略。先按照RoundRobinRule策略获取provider，若获�
 [分布式监控系统之Zabbix宏、模板和自定义item](https://www.cnblogs.com/qiuhom-1874/p/14013331.html)
 [分布式监控系统之Zabbix网络发现](https://www.cnblogs.com/qiuhom-1874/p/14020847.html)
 [zabbix的搭建及操作（3）监控 MySQL 及 HTTP 状态监控](https://www.cnblogs.com/sun-long-fei/p/14022288.html)
+[Zabbix监控使用进阶](https://www.cnblogs.com/hgzero/p/14092120.html)
 ### Spring Cloud Data Flow 
 >> 大数据操作组件，它是Spring XD的替代品，也是一个混合计算模型，可以通过命令行的方式操作数据流
 ### Spring Cloud Task

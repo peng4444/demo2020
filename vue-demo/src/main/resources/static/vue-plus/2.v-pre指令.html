@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue v-pre指令</title>
+</head>
+<body>
+
+    <div id="app">
+        <span v-pre>{{ this will not be compiled }}</span>
+        <!--  显示的是{{ this will not be compiled }}  -->
+        <span v-pre>{{ msg }}</span> 
+        <!--   即使data里面定义了msg这里仍然是显示的{{msg}}  -->
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            msg: 'Hello Vue.js'
+        }
+    });
+
+</script>
+</body>
+</html>

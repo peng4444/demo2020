@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 计算属性</title>
+</head>
+<body>
+
+<div id="app">
+    <div>
+        <span>名：</span>
+        <span>
+        <input type="text" v-model='firstName'>
+      </span>
+    </div>
+    <div>
+        <span>姓：</span>
+        <span>
+        <input type="text" v-model='lastName'>
+      </span>
+    </div>
+    <div>{{ fullName }}</div>
+</div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    /*
+          侦听器
+        */
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            firstName: 'Jim',
+            lastName: 'Green',
+            // fullName: 'Jim Green'
+        },
+        //watch  属性 定义 和 data 已经 methods 平级
+        watch: {
+            //   注意：  这里firstName  对应着data 中的 firstName
+            //   当 firstName 值 改变的时候  会自动触发 watch
+            firstName: function(val) {
+                this.fullName = val + ' ' + this.lastName;
+            },
+            //   注意：  这里 lastName 对应着data 中的 lastName
+            lastName: function(val) {
+                this.fullName = this.firstName + ' ' + val;
+            }
+        }
+    });
+</script>
+</body>
+</html>
