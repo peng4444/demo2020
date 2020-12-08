@@ -65,7 +65,7 @@ Vue 提供了 v-model 指令，它能轻松实现表单输入和应用状态之�
 - **计算属性是基于它们的响应式依赖进行缓存的**
 - computed比较适合对多个变量或者对象进行处理后返回一个结果值，也就是数多个变量中的某一个值发生了变化则我们监控的这个值也就会发生变化
 ```
-#### 侦听器   watch
+#### 侦听器watch
 ```markdown
 - 使用watch来响应数据的变化
 - 一般用于异步或者开销较大的操作
@@ -118,7 +118,6 @@ Vue 提供了 v-model 指令，它能轻松实现表单输入和应用状态之�
 - Vue.set(a,b,c)    让 触发视图重新更新一遍，数据动态起来
 - a是要更改的数据 、   b是数据的第几项、   c是更改后的数据
 ```
-
 #### Vue-el挂载点
 ```markdown
 1.Vue实例的作用范围是什么？
@@ -277,14 +276,102 @@ Vue组件之间传值
     - 父组件对子组件加工处理
     - 既可以复用子组件的slot，又可以使slot内容不一致
 ```
+
 ### 进阶篇
-[vue 自动化路由实现](https://www.cnblogs.com/mianbaodaxia/p/11452123.html)
+
 #### Vue.js的工程化
 #### Render函数
 #### webpack的使用
-#### Vue.js插件
-[Vue-router插件使用](https://www.cnblogs.com/Yunya-Cnblogs/p/14017686.html)
+```markdown
+webpack是一个流行的前端项目构建工具，可以解决目前web开发的困境。
+webpack提供了模块化支持，代码压缩混淆，解决js兼容问题，性能优化等特性，提高了开发效率和项目的可维护性
 
+```
+#### Vue-router插件
+[Vue-router插件使用](https://www.cnblogs.com/Yunya-Cnblogs/p/14017686.html)
+[vue 自动化路由实现](https://www.cnblogs.com/mianbaodaxia/p/11452123.html)
+```markdown
+路由的本质就是一种对应关系，比如说我们在url地址中输入我们要访问的url地址之后，浏览器要去请求这个url地址对应的资源。
+那么url地址和真实的资源之间就有一种对应的关系，就是路由。
+路由分为前端路由和后端路由
+    1).后端路由是由服务器端进行实现，并完成资源的分发
+    2).前端路由是依靠hash值(锚链接)的变化进行实现 
+后端路由性能相对前端路由来说较低，所以，我们接下来主要学习的是前端路由
+    前端路由的基本概念：根据不同的事件来显示不同的页面内容，即事件与事件处理函数之间的对应关系
+    前端路由主要做的事情就是监听事件并分发执行事件处理函数
+前端路由是基于hash值的变化进行实现的（比如点击页面中的菜单或者按钮改变URL的hash值，根据hash值的变化来控制组件的切换）核心实现依靠一个事件，即监听hash值变化的事件。
+一个Vue.js官方提供的路由管理器。是一个功能更加强大的前端路由器，推荐使用。
+Vue Router和Vue.js非常契合，可以一起方便的实现SPA(single page web application,单页应用程序)应用程序的开发。
+Vue Router依赖于Vue，所以需要先引入Vue，再引入Vue Router
+Vue Router的特性：
+    - 支持H5历史模式或者hash模式
+    - 支持嵌套路由
+    - 支持路由参数
+    - 支持编程式路由
+    - 支持命名路由
+    - 支持路由导航守卫
+    - 支持路由过渡动画特效
+    - 支持路由懒加载
+    - 支持路由滚动行为
+4.Vue Router的使用步骤(★★★)
+    A.导入js文件
+        <script src="lib/vue_2.5.22.js"></script>
+        <script src="lib/vue-router_3.0.2.js"></script>
+    B.添加路由链接:<router-link>是路由中提供的标签，默认会被渲染为a标签，to属性默认被渲染为href属性，to属性的值会被渲染为#开头的hash地址
+        <router-link to="/user">User</router-link>
+        <router-link to="/login">Login</router-link>
+    C.添加路由填充位（路由占位符）
+        <router-view></router-view>
+    D.定义路由组件
+        var User = { template:"<div>This is User</div>" }
+        var Login = { template:"<div>This is Login</div>" }
+    E.配置路由规则并创建路由实例
+    var myRouter = new VueRouter({
+        //routes是路由规则数组
+        routes:[
+            //每一个路由规则都是一个对象，对象中至少包含path和component两个属性
+            //path表示  路由匹配的hash地址，component表示路由规则对应要展示的组件对象
+            {path:"/user",component:User},
+            {path:"/login",component:Login}
+        ]
+    })
+    F.将路由挂载到Vue实例中
+        new Vue({
+            el:"#app",
+            //通过router属性挂载路由对象
+            router:myRouter
+        })
+```
+#### Vue单文件组件
+```markdown
+传统Vue组件的缺陷：
+    - 全局定义的组件不能重名，字符串模板缺乏语法高亮，不支持css(当html和js组件化时，css没有参与其中)
+    - 没有构建步骤限制，只能使用H5和ES5，不能使用预处理器（babel）
+解决方案：
+    使用Vue单文件组件，每个单文件组件的后缀名都是.vue
+    每一个Vue单文件组件都由三部分组成
+    1).template组件组成的模板区域
+    2).script组成的业务逻辑区域
+    3).style样式区域
+代码如下：
+    <template>
+        组件代码区域
+    </template>
+    <script>
+        js代码区域
+    </script>
+    <style scoped>
+        样式代码区域
+    </style>
+```
+#### Vuex
+```markdown
+Vuex是实现组件全局状态（数据）管理的一种机制，可以方便的实现组件之间的数据共享
+使用Vuex管理数据的好处：
+    A.能够在vuex中集中管理共享的数据，便于开发和后期进行维护
+    B.能够高效的实现组件之间的数据共享，提高开发效率
+    C.存储在vuex中的数据是响应式的，当数据发生改变时，页面中的数据也会同步更新
+```
 ### 实战篇
 [当前标签：循序渐进VUE+Element](https://www.cnblogs.com/wuhuacong/tag/%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9BVUE%2BElement/)
 
