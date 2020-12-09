@@ -7,62 +7,36 @@
 
 [参考视频2：Dubbo底层原理与面试经验](https://www.bilibili.com/video/av53428315/)
 
-[从零开始认识Dubbo](https://www.cnblogs.com/alterem/p/11211728.html)
-
-[dubbo](https://www.cnblogs.com/xxbiao/tag/dubbo/)
-
-[手写RPC框架注释代码](https://www.cnblogs.com/mseddl/p/11531465.html)
-
-[一文带你实现RPC框架](https://www.cnblogs.com/endless-code/p/11235624.html)
-
-[微服务调用为啥用RPC框架，http不更简单吗？](https://zhuanlan.zhihu.com/p/61364466)
-
-[Dubbo服务注册与发现](https://www.cnblogs.com/mzq123/p/11221570.html)
-
-[springboot2.x纯注解整合dubbo](https://www.cnblogs.com/chywx/p/11180719.html)
-
-[Dubbo 与 Spring Cloud 完美结合](https://www.cnblogs.com/babycomeon/p/11546737.html)
-
-[[Dubbo面试八连问，这些你都能答上来吗？](https://www.cnblogs.com/javazhiyin/p/11966271.html)]
-
-[[Zookeeper+Dubbo项目demo搭建](https://www.cnblogs.com/iUtopia/p/11653098.html)]
-
-[Dubbo 入门-细说分布式与集群](https://www.cnblogs.com/yangyuanhu/p/12439106.html)
-[享一个让我进入阿里中间件的个人项目](https://www.cnblogs.com/leiwei/p/11839018.html)
-[吐血输出：2万字长文带你细细盘点Dubbo五种负载均衡策略。](https://www.cnblogs.com/thisiswhy/p/13020501.html)
-
->> 1.1 服务调用超时问题怎么解决？
-    1.2 Dubbo支持哪些序列化方式？
-    1.3 Dubbo和SpringCloud的关系？
-    1.4 Dubbo的架构设计？一共划分了哪些层？
-    1.5 Dubbo的默认集群容错方案？
-    1.6 Dubbo使用的是什么通信框架?
-    1.7 Dubbo的主要应用场景？
-    1.8 Dubbo服务注册与发现的流程？流程说明。
-    1.9 Dubbo的集群容错方案有哪些？
-    1.10 Dubbo的四大组件
-    1.11 Dubbo在安全机制方面是如何解决的
-    1.12 Dubbo和SpringCloud的区别？
-    1.13 Dubbo支持哪些协议，每种协议的应用场景，优缺点？
-    1.14 Dubbo的核心功能有哪些？
-    1.15 Dubbo的注册中心集群挂掉，发布者和订阅者之间还能通信么？
-    1.16 Dubbo集群的负载均衡有哪些策略
-    1.17 为什么需要服务治理？
-    1.18 Dubbo超时时间怎样设置？
->> 6.dubbo是如何利用接口就可以通信的。
-[《我想进大厂》之Dubbo普普通通9问](https://www.cnblogs.com/ilovejaney/p/13836719.html)
+[当前标签：Dubbo](https://www.cnblogs.com/xxbiao/tag/dubbo/)
+[xiexiaobiao/dubbo-project](https://github.com/xiexiaobiao/dubbo-project)
 #### 1.Dubbo提供哪些功能和主要组成【5+】
 ```markdown
-Dubbo的主要功能
-    基于接口的远程调用
-    日常和负载均衡
-    自动服务注册和发现
+Dubbo官网：http://dubbo.apache.org/zh/
+Apache Dubbo 是一款高性能、轻量级的开源 Java 服务框架
+Apache Dubbo提供了六大核心能力：面向接口代理的高性能RPC调用，智能容错和负载均衡，服务自动注册和发现，高度可扩展能力，运行期流量调度，可视化的服务治理与运维。
+面向接口代理的高性能RPC调用
+    - 提供高性能的基于代理的远程调用能力，服务以接口为粒度，为开发者屏蔽远程调用底层细节。
+智能负载均衡
+    - 内置多种负载均衡策略，智能感知下游节点健康状况，显著减少调用延迟，提高系统吞吐量。
+服务自动注册与发现
+    - 支持多种注册中心服务，服务实例上下线实时感知。
+高度可扩展能力
+    - 遵循微内核+插件的设计原则，所有核心能力如Protocol、Transport、Serialization被设计为扩展点，平等对待内置实现和第三方实现。
+运行期流量调度
+    - 内置条件、脚本等路由策略，通过配置不同的路由规则，轻松实现灰度发布，同机房优先等功能。
+可视化的服务治理与运维
+    - 提供丰富服务治理、运维工具：随时查询服务元数据、服务健康状态及调用统计，实时下发路由策略、调整配置参数。
 Dubbo服务的关键节点
     Provider:暴露服务的服务提供方
     Consumer:调用远程服务的服务消费方
     Register:服务注册与发现的注册中心
     Monitor:统计服务的调用次数和调用时间的监控中心
     Container:服务运行容器
+Dubbo内置服务容器
+    Spring Container
+    Jetty Container
+    Log4j Container
+Dubbo通信框架默认使用 Netty 框架，也是推荐的选择，另外内容还集成有Mina、Grizzly。
 ```
 [Dubbo直连方式](https://www.cnblogs.com/mengd/p/13543836.html)
 #### 2.Dubbo的服务注册流程【5+】
@@ -76,8 +50,14 @@ Consumer(消费者），连接注册中心 ，并发送应用信息、所求服�
     注册中心根据 消费 者所求服务信息匹配对应的提供者列表发送至Consumer 应用缓存。
 Consumer 在发起远程调用时基于缓存的消费者列表择其一发起调用。
 Provider 状态变更会实时通知注册中心、在由注册中心实时推送至Consumer
+再来看一下调用的关系和流程：
+    ① 服务容器负责启动，加载，运行服务提供者
+    ② 服务提供者在启动时，向注册中心注册自己提供的服务
+    ③ 注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者
+    ④ 服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用
+    ⑤ 服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心
 ```
-#### 1.Dubbo的容错机制
+#### 3.Dubbo的容错机制
 ```markdown
 1.失败自动切换，当出现失败，重试其它服务器。通常用于读操作，但重试会带来更长延迟。可通过retries="2"来设置重试次数
 2.快速失败，只发起一次调用，失败立即报错。通常用于非幂等性的写操作，比如新增记录。
@@ -85,6 +65,14 @@ Provider 状态变更会实时通知注册中心、在由注册中心实时推�
 4.失败自动恢复，后台记录失败请求，定时重发。通常用于消息通知操作。
 5.并行调用多个服务器，只要一个成功即返回。通常用于实时性要求较高的读操作，但需要浪费更多服务资源。可通过forks="2"来设置最大并行数。
 6.广播调用所有提供者，逐个调用，任意一台报错则报错。通常用于通知所有提供者更新缓存或日志等本地资源信息
+```
+#### 4.Dubbo负载均衡策略
+[吐血输出：2万字长文带你细细盘点Dubbo五种负载均衡策略。](https://www.cnblogs.com/thisiswhy/p/13020501.html)
+```markdown
+Random LoadBalance： 随机，按权重设置随机概率（默认）
+RoundRobin LoadBalance : 轮询，按公约后的权重设置轮询比例
+LeastActive LoadBalance : 最少活跃调用数，相同活跃数的随机
+ConsistentHash LoadBalance ：一致性hash，相同的参数的请求总是发送到同一个提供者。
 ```
 #### 2.Dubbo注册中心挂了还可以继续通信么
 ```markdown
@@ -109,3 +97,13 @@ Provider 状态变更会实时通知注册中心、在由注册中心实时推�
 网络传输层：抽象mina和netty为统一接口，以Message为中心，扩展接口为Channel、Transporter、Client、Server和Codec。
 数据序列化层：可复用的一些工具，扩展接口为Serialization、 ObjectInput、ObjectOutput和ThreadPool。
 ```
+#### Dubbo与SpringBoot项目搭建
+[Dubbo 入门总结 ，一款高性能的 Java RPC 框架](https://www.cnblogs.com/ideal-20/p/14095919.html)
+[springboot2.x纯注解整合dubbo](https://www.cnblogs.com/chywx/p/11180719.html)
+[从零开始认识Dubbo和SSM项目](https://www.cnblogs.com/alterem/p/11211728.html)
+[Dubbo服务注册与发现](https://www.cnblogs.com/mzq123/p/11221570.html)
+[Zookeeper+Dubbo项目demo搭建](https://www.cnblogs.com/iUtopia/p/11653098.html)
+[Dubbo 入门-细说分布式与集群](https://www.cnblogs.com/yangyuanhu/p/12439106.html)
+#### Dubbo 与 Spring Cloud 完美结合
+[Dubbo 与 Spring Cloud 完美结合](https://www.cnblogs.com/babycomeon/p/11546737.html)
+[Spring Cloud Alibaba | Dubbo Spring Cloud 之 HTTP 实战](https://www.cnblogs.com/babycomeon/p/11553757.html)

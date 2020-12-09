@@ -61,4 +61,9 @@ RPC框架
     传统的webservice框架：Apache CXF、Apache Axis2、Java自带的JAX-WS等。webservice框架大多基于标准的SOAP协议。
     新兴的微服务框架：Dubbo、spring cloud、Apache Thrift等。
 ```
-### 
+###
+[手写RPC框架注释代码](https://www.cnblogs.com/mseddl/p/11531465.html)
+
+[一文带你实现RPC框架](https://www.cnblogs.com/endless-code/p/11235624.html)
+
+[微服务调用为啥用RPC框架，http不更简单吗？](https://zhuanlan.zhihu.com/p/61364466) 

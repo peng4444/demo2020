@@ -82,7 +82,17 @@ Vue 提供了 v-model 指令，它能轻松实现表单输入和应用状态之�
 - 全局注册时是filter，没有s的。而局部过滤器是filters，是有s的
 ```
 #### 生命周期
+[一. Vue简介和生命周期](https://www.cnblogs.com/mpolaris/p/14054108.html)
 >> Vue实例从创建 到销毁的过程 ，这些过程中会伴随着一些函数的自调用。我们称这些函数为钩子函数
+![](https://img2020.cnblogs.com/blog/2214366/202011/2214366-20201128210654740-1426563118.png)
+```markdown
+初始化阶段
+    beforeCrete函数，created函数，beforeMount函数，mounted函数
+运行状态阶段
+    beforeUpdade函数，updateed函数
+销毁阶段
+    beforeDestory函数，destoryed函数
+```
 #### 常用的 钩子函数
 
 | beforeCreate  | 在实例初始化之后，数据观测和事件配置之前被调用 此时data 和 methods 以及页面的DOM结构都没有初始化   什么都做不了 |
@@ -134,6 +144,7 @@ data中可以写复杂类型的数据 （包括数组，对象，等等）
 渲染复杂类型数据时，遵循js的语法即可
 ```
 #### 内置指令与自定义指令
+[Vue指令](https://www.cnblogs.com/mpolaris/p/14053203.html)
 ```markdown
 **指令就是自定义属性，Vue中指定都是以 v- 开头**
 v-text: 和直接使用{{}}渲染内容无太大差异，如果渲染内容是一个HTML标签，其本质原理都是将<替换成&lt;，将>替换成&gt;。会预防XSS攻击。
@@ -186,56 +197,10 @@ v-cloak: 在网络情况较差的环境下，可能会出现模板渲染不及�
 v-once: 当标签中添加该属性指令时，标签渲染的内容将是固定的不会随着数据层数据的动态改变而进行改变。
     - 执行一次性的插值【当数据改变时，插值处的内容不会继续更新】
 ```
-#### axios
-```markdown
-我们在以前传统的开发中，我们一般会使用Ajax进行通信，而Vue.js作为一个视图层框架，并不支持Ajax的通信功能，所以可以使用Axios来实现Ajax的异步通信.
-axios：前端通信框架；因为Vue的边界很明确，就是为了处理DOM，所以并不具备通信能力，此时就需要额外使用一个通信框架与服务器交互；当然也可以直接选择使用JQuery提供的AJAX通信功能；
-axios官网：https://github.com/axios/axios
-axios特点：
-    - 从浏览器中创建 XMLHttpRequests
-    - 从 node.js 创建 http 请求
-    - 支持 Promise API
-    - 拦截请求和响应
-    - 转换请求数据和响应数据
-    - 取消请求
-    - 自动转换 JSON 数据
-    - 客户端支持防御 XSRF
-axios的使用
-    - axios必须先导入才能使用
-    - 使用get或者post方法即可发送对应的请求
-    - then方法中的回调函数会在请求成功或者失败时触发
-    - 通过回调函数的形参可以获取响应的内容或者错误信息
-    - get和 delete请求传递参数
-      - 通过传统的url  以 ? 的形式传递参数
-      - restful 形式传递参数 
-      - 通过params  形式传递参数 
-    - post  和 put  请求传递参数
-      - 通过选项传递参数
-      - 通过 URLSearchParams  传递参数 
-axios结合vue发送网络请求
-    - axios回调函数中的this已经改变，无法访问到data中数据
-    - 把this保存起来，回调数中直接使用保存的this即可
-    - 和本地应用最大的区别就是改变了数据来源
-axios 全局配置
-    #  配置公共的请求头 
-    axios.defaults.baseURL = 'https://api.example.com';
-    #  配置 超时时间
-    axios.defaults.timeout = 2500;
-    #  配置公共的请求头
-    axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-    # 配置公共的 post 的 Content-Type
-    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-axios 拦截器
-    - 请求拦截器
-        - 请求拦截器的作用是在请求发送前进行一些操作
-            - 例如在每个请求体里加上token，统一做了处理如果以后要改也非常容易
-    - 响应拦截器
-        - 响应拦截器的作用是在接收到响应后进行一些操作
-            - 例如在服务器返回登录状态失效，需要重新登录的时候，跳转到登录页
-```
 #### 组件
 [Vue 组件化开发](https://www.cnblogs.com/Yunya-Cnblogs/p/14013159.html)
 [Vue 组件化开发之插槽](https://www.cnblogs.com/Yunya-Cnblogs/p/14013464.html)
+[三. Vue组件化](https://www.cnblogs.com/mpolaris/p/14052546.html)
 ```markdown
 - 组件 (Component) 是 Vue.js 最强大的功能之一
 - 组件可以扩展 HTML 元素，封装可重用的代
@@ -278,10 +243,8 @@ Vue组件之间传值
 ```
 
 ### 进阶篇
-
-#### Vue.js的工程化
-#### Render函数
 #### webpack的使用
+[五. Webpack详解](https://www.cnblogs.com/mpolaris/p/14071235.html)
 ```markdown
 webpack是一个流行的前端项目构建工具，可以解决目前web开发的困境。
 webpack提供了模块化支持，代码压缩混淆，解决js兼容问题，性能优化等特性，提高了开发效率和项目的可维护性
@@ -290,6 +253,7 @@ webpack提供了模块化支持，代码压缩混淆，解决js兼容问题，�
 #### Vue-router插件
 [Vue-router插件使用](https://www.cnblogs.com/Yunya-Cnblogs/p/14017686.html)
 [vue 自动化路由实现](https://www.cnblogs.com/mianbaodaxia/p/11452123.html)
+[七. Vue Router详解](https://www.cnblogs.com/mpolaris/p/14089928.html)
 ```markdown
 路由的本质就是一种对应关系，比如说我们在url地址中输入我们要访问的url地址之后，浏览器要去请求这个url地址对应的资源。
 那么url地址和真实的资源之间就有一种对应的关系，就是路由。
@@ -365,6 +329,7 @@ Vue Router的特性：
     </style>
 ```
 #### Vuex
+[九. Vuex详解](https://www.cnblogs.com/mpolaris/p/14094737.html)
 ```markdown
 Vuex是实现组件全局状态（数据）管理的一种机制，可以方便的实现组件之间的数据共享
 使用Vuex管理数据的好处：
@@ -372,6 +337,65 @@ Vuex是实现组件全局状态（数据）管理的一种机制，可以方便�
     B.能够高效的实现组件之间的数据共享，提高开发效率
     C.存储在vuex中的数据是响应式的，当数据发生改变时，页面中的数据也会同步更新
 ```
+#### Vue-cli
+[六. Vue CLI详解](https://www.cnblogs.com/mpolaris/p/14076364.html)
+```markdown
+Vue CLI是一个官方发布 Vue.js 项目脚手架，使用它可以快速搭建Vue开发环境以及对应的webpack配置。
+vue-cli 3 与 2 版本有很大区别
+    vue-cli 3 是基于 webpack 4 打造，vue-cli 2 还是 webapck 3
+    vue-cli 3 的设计原则是“ 0配置”，移除了配置文件根目录下的build和config等目录
+    vue-cli 3 提供了 vue ui 命令，提供了可视化配置，更加人性化
+    移除了static文件夹，新增了public文件夹，并且index.html移动到public中
+```
+#### axios
+[十. Axios网络请求封装](https://www.cnblogs.com/mpolaris/p/14100130.html)
+```markdown
+我们在以前传统的开发中，我们一般会使用Ajax进行通信，而Vue.js作为一个视图层框架，并不支持Ajax的通信功能，所以可以使用Axios来实现Ajax的异步通信.
+axios：前端通信框架；因为Vue的边界很明确，就是为了处理DOM，所以并不具备通信能力，此时就需要额外使用一个通信框架与服务器交互；当然也可以直接选择使用JQuery提供的AJAX通信功能；
+axios官网：https://github.com/axios/axios
+axios特点：
+    - 从浏览器中创建 XMLHttpRequests
+    - 从 node.js 创建 http 请求
+    - 支持 Promise API
+    - 拦截请求和响应
+    - 转换请求数据和响应数据
+    - 取消请求
+    - 自动转换 JSON 数据
+    - 客户端支持防御 XSRF
+axios的使用
+    - axios必须先导入才能使用
+    - 使用get或者post方法即可发送对应的请求
+    - then方法中的回调函数会在请求成功或者失败时触发
+    - 通过回调函数的形参可以获取响应的内容或者错误信息
+    - get和 delete请求传递参数
+      - 通过传统的url  以 ? 的形式传递参数
+      - restful 形式传递参数 
+      - 通过params  形式传递参数 
+    - post  和 put  请求传递参数
+      - 通过选项传递参数
+      - 通过 URLSearchParams  传递参数 
+axios结合vue发送网络请求
+    - axios回调函数中的this已经改变，无法访问到data中数据
+    - 把this保存起来，回调数中直接使用保存的this即可
+    - 和本地应用最大的区别就是改变了数据来源
+axios 全局配置
+    #  配置公共的请求头 
+    axios.defaults.baseURL = 'https://api.example.com';
+    #  配置 超时时间
+    axios.defaults.timeout = 2500;
+    #  配置公共的请求头
+    axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+    # 配置公共的 post 的 Content-Type
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+axios 拦截器
+    - 请求拦截器
+        - 请求拦截器的作用是在请求发送前进行一些操作
+            - 例如在每个请求体里加上token，统一做了处理如果以后要改也非常容易
+    - 响应拦截器
+        - 响应拦截器的作用是在接收到响应后进行一些操作
+            - 例如在服务器返回登录状态失效，需要重新登录的时候，跳转到登录页
+```
+
 ### 实战篇
 [当前标签：循序渐进VUE+Element](https://www.cnblogs.com/wuhuacong/tag/%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9BVUE%2BElement/)
 

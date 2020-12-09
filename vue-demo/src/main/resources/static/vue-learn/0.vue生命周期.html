@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloVue</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 官网提供的 axios 在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        window.onload = function(){
+            const app = new Vue({
+                el:"#app",
+                data:{
+                    msg:"GG"
+                },
+                method:{},
+                //1.生命周期中的第一个函数，该函数在执行时Vue实例仅仅完成了
+                //  自身事件的绑定和生命周期函数的初始化工作，Vue实例中还没
+                //  有Data，el，methods相关属性
+                beforeCreate(){
+                    console.log("beforeCreate:" + this.msg);//拿不到该属性
+                },
+                //2.生命周期中的第二个函数，该函数在执行时Vue实例已经初始化
+                //  化了data属性和methods中相关方法
+                created(){
+                    console.log("create:" + this.msg);
+                },
+                //3.生命周期的第三个函数，该函数在执行时Vue将el中指定作用范围
+                //  作为模板编译
+                beforeMount(){
+                    console.log("beforeMount:" +
+                        document.getElementById("sp").innerText);
+                    //beforeMount:{{msg}}
+                },
+                //4.生命周期的第四个函数，该函数在执行过程中，已经将数据渲染到
+                //  界面中并且已经更新页面
+                mounted(){
+                    console.log("beforeMount:" +
+                        document.getElementById("sp").innerText);
+                    //beforeMount:GG
+                },
+                //5.生命周期的第五个函数，该函数是data中数据发生变化时执行的，
+                //  此事件执行时仅仅时Vue实例中的data数据变化，而页面中显示的还是
+                //  原始数据
+                beforeUpdate(){},
+                //6.生命周期的第六个函数，此事件执行时Vue实例中的data数据
+                //变化，页面中的数据也相应发生了变化
+                update(){},
+                //7
+                beforeDestory(){},
+                //8
+                destoryed(){},
+            })
+
+        }
+    </script>
+</head>
+<body>
+<div id="app" >
+    <span id="sp">{{msg}}</span>
+</div>
+</body>
+</html>
