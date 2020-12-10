@@ -34,7 +34,6 @@
         <module>springcloud-rocketmq-producer</module>
         <module>springcloud-Gateway-service</module>
         <module>springcloud-gateway-sample</module>
-        <module>linux-learn</module>
         <module>java-learn</module>
         <module>computer-learn</module>
         <module>myblog-write</module>
@@ -42,6 +41,7 @@
         <module>kafka-demo</module>
         <module>iot-learn</module>
         <module>wx-learn</module>
+        <module>elk-learn</module>
     </modules>
 
     <properties>

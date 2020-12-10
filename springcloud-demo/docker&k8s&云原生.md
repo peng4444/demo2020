@@ -22,12 +22,17 @@ CGroup:通过它可以划定一个个的分组，然后限制每个分组能够�
 ```markdown
 $ sudo apt-get -y update
 $ sudo apt-get -y install docker-ce  # 安装docker社区版稳定版
-$ sudo systemctl enable docker  # 启动 Docker CE
-$ sudo systemctl start docker
+$ sudo systemctl enable docker  # 允许开机启动
+$ sudo systemctl start docker   # 运行Docker守护进程
+$ sudo systemctl stop docker #停止Docker守护进程
+$ systemctl restart docker #重启Docker守护进程
+$ systemctl status docker #查看Docker的运行状态
 $ sudo groupadd docker # 建立 docker 用户组
 $ sudo usermod -aG docker $USER # 将当前用户加入 docker 组
 -- 退出当前终端并重新登录，进行如下测试
 $ docker run hello-world # 测试 Docker 是否安装正确  docker会创建一个hello-world的镜像
+执行：docker info 查看Docker服务信息
+执行：docker version 查看版本号
 ```
 ### Docker CentOS安装
 [Docker CentOS安装](https://www.funtl.com/zh/docs-docker/CentOS-%E5%AE%89%E8%A3%85-Docker.html#%E4%BD%BF%E7%94%A8-yum-%E5%AE%89%E8%A3%85)
@@ -132,12 +137,14 @@ Ubuntu 16.04+、Debian 8+、CentOS 7
 ```markdown
 Docker Compose是Docker官方编排（Orchestration）项目之一，负责快速的部署分布式应用。 https://github.com/docker/compose
     允许用户通过一个单独的docker-compose.yml模板文件（YAML格式）来定义一组相关联的应用容器为一个项目（project）。
-Docker Compose安装：（从 官方 GitHub Release 处直接下载编译好的二进制文件即可）
+Docker Compose安装：
+    1.（从 官方 GitHub Release 处直接下载编译好的二进制文件即可）
     $ sudo curl -L https://github.com/docker/compose/releases/download/1.17.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
     $ sudo chmod +x /usr/local/bin/docker-compose
     bash 补全命令
     $ curl -L https://raw.githubusercontent.com/docker/compose/1.8.0/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose
 卸载：二进制包方式安装的，删除二进制文件即可 $ sudo rm /usr/local/bin/docker-compose
+检验安装结果：docker-compose --version
 ```
 
 ## Docker技术
