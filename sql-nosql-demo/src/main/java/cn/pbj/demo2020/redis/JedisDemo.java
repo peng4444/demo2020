@@ -17,7 +17,7 @@ public class JedisDemo {
             jedis = new Jedis("192.168.101.206", 6379);
             //Jedis jedis = new Jedis("192.168.101.222", 6379,客户端连接超时时间,客户端读写超时时间);
             //2. jedis执行set操作
-            String set = jedis.set("hello", "world1");
+            String set = jedis.set("hello1", "world1");
             //输出结果：ok
             System.out.println(set);
             //休眠30秒
@@ -25,8 +25,8 @@ public class JedisDemo {
             System.out.println("------");
             //3. jedis执行get操作, value="world"
             //输出结果：world
-            String hello = jedis.get("hello");
-            System.out.println(hello);
+            String ans1 = jedis.get("hello1");
+            System.out.println("get key=hello1,value="+ans1);
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
@@ -34,6 +34,5 @@ public class JedisDemo {
                 jedis.close();
             }
         }
-
     }
 }
