@@ -3,7 +3,7 @@
 ## Docker基础知识
 [Docker学习参考博客：](https://www.funtl.com/zh/docs-docker/)
 [docker安装参照>>史上最详细的Docker安装手册](https://www.cnblogs.com/zhizihuakai/p/12633724.html)
-### Docker简介
+### 1.Docker简介
 [还不懂Docker？一个故事安排的明明白白！](https://www.cnblogs.com/xuanyuan/p/14003524.html)
 ```markdown
 Docker：Build once，Run anywhere
@@ -18,7 +18,7 @@ namespace:通过它可以划定一个个的命名空间，然后把进程划分�
 CGroup:通过它可以划定一个个的分组，然后限制每个分组能够使用的资源，比如内存的上限值、CPU的使用率、硬盘空间总量等等。
     系统内核会自动检查和限制这些分组中的进程资源使用量。
 ```
-### Docker Ubuntu安装&启动&测试  -- 一般使用非root用户
+### 2.Docker Ubuntu安装&启动&测试  -- 一般使用非root用户
 ```markdown
 $ sudo apt-get -y update
 $ sudo apt-get -y install docker-ce  # 安装docker社区版稳定版
@@ -34,20 +34,41 @@ $ docker run hello-world # 测试 Docker 是否安装正确  docker会创建一�
 执行：docker info 查看Docker服务信息
 执行：docker version 查看版本号
 ```
-### Docker CentOS安装
+### 3.Docker CentOS安装
 [Docker CentOS安装](https://www.funtl.com/zh/docs-docker/CentOS-%E5%AE%89%E8%A3%85-Docker.html#%E4%BD%BF%E7%94%A8-yum-%E5%AE%89%E8%A3%85)
 ```markdown
 可以先删除旧版本，使用yum安装依赖包和添加国内的yum软件源
-$ sudo yum makecache fast  # 更新 yum 软件源缓存
-$ sudo yum install docker-ce # 安装 docker-ce
-$ sudo systemctl enable docker # 启动 Docker CE
-$ sudo systemctl start docker
-$ sudo groupadd docker # 建立 docker 组
-$ sudo usermod -aG docker $USER # 将当前用户加入 docker 组
--- 退出当前终端并重新登录，进行如下测试。
-$ docker run hello-world  # 测试 Docker 是否安装正确  docker会创建一个hello-world的镜像
+1.删除旧版本docker
+    sudo yum remove docker \
+                      docker-client \
+                      docker-client-latest \
+                      docker-common \
+                      docker-latest \
+                      docker-latest-logrotate \
+                      docker-logrotate \
+                      docker-selinux \
+                      docker-engine-selinux \
+                      docker-engine
+2.安装依赖包
+     sudo yum install -y yum-utils \
+               device-mapper-persistent-data \
+               lvm2
+    添加yum软件源docker (鉴于国内网络问题，强烈建议使用国内源)
+     sudo yum-config-manager \
+        --add-repo \
+        https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo
+3.安装docker ce
+    sudo yum makecache # 更新 yum 软件源缓存
+    sudo yum install docker-ce # 安装 docker-ce
+    sudo systemctl enable docker # 启动 Docker CE
+    sudo systemctl start docker
+    sudo groupadd docker # 建立 docker 组
+    sudo usermod -aG docker $USER # 将当前用户加入 docker 组
+4.退出当前终端并重新登录，进行如下测试。
+    docker run hello-world  # 测试 Docker 是否安装正确  docker会创建一个hello-world的镜像
 ```
-### Docker 镜像加速器 Ubuntu 16.04+、Debian 8+、CentOS 7 
+### 4.Docker 镜像加速器 Ubuntu 16.04+、Debian 8+、CentOS 7 
+[Docker 镜像加速器](https://www.funtl.com/zh/docs-docker/Docker-%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F%E5%99%A8.html#ubuntu-14-04%E3%80%81debian-7-wheezy)
 ```markdown
 Ubuntu 16.04+、Debian 8+、CentOS 7 
 对于使用 systemd 的系统，请在 /etc/docker/daemon.json 中写入如下内容（如果文件不存在请新建该文件）
@@ -93,10 +114,6 @@ Ubuntu 16.04+、Debian 8+、CentOS 7
     $ docker commit [选项] <容器ID或容器名> [<仓库名>[:<标签>]] # 可以将容器的存储层保存下来成为镜像，尽量不要使用
     $ docker diff 容器名 # 查看容器文件的变化
 ```
-### Docker Dockerfile定制镜像
-```markdown
-
-```
 ### Docker操作容器
 ```markdown
 1.启动容器
@@ -134,6 +151,7 @@ Ubuntu 16.04+、Debian 8+、CentOS 7
     $ docker container prune  # 清理掉所有处于终止状态的容器
 ```
 ### Docker Compose
+[Docker Compose](https://www.funtl.com/zh/docs-docker/%E4%BB%80%E4%B9%88%E6%98%AF-Docker-Compose.html)
 ```markdown
 Docker Compose是Docker官方编排（Orchestration）项目之一，负责快速的部署分布式应用。 https://github.com/docker/compose
     允许用户通过一个单独的docker-compose.yml模板文件（YAML格式）来定义一组相关联的应用容器为一个项目（project）。

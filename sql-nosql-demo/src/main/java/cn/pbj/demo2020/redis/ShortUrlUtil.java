@@ -7,17 +7,20 @@ import redis.clients.jedis.Jedis;
  * @author: pengbingjiang
  * @create: 2020/11/17 20:54
  * @description: TODO
- * [短 URL 服务](https://mp.weixin.qq.com/s?__biz=MzUxOTc4NjEyMw==&mid=2247484598&idx=1&sn=20cdbb9d295e1df1afa029cbfca6be91&chksm=f9f51f52ce8296445d183fb316e6a1d942c28b7e52640d45858684a038dc1241976c1eb83c9b&mpshare=1&scene=23&srcid=&sharer_sharetime=1563882221629&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+ * [短URL服务的设计以及实现](https://juejin.cn/post/6844903873950269454)
+ * [一个用心做的短网址服务](https://github.com/praglody/shorturl)
+ * [短链接服务系统开发](https://javadoop.com/post/url-shortener)
  */
 public class ShortUrlUtil {
 
     private static final String SHORT_URL_KEY = "SHORT_URL_KEY";
+    // 你的能够访问的服务器网址
     private static final String LOCALHOST = "http://localhost:4444/";
     private static final String SHORT_LONG_PREFIX = "short_long_prefix_";
     private static final String CACHE_KEY_PREFIX = "cache_key_prefix_";
     private static final int CACHE_SECONDS = 1 * 60 * 60;
 
-    private final String redisConfig;
+    private final String redisConfig;//redis配置，host,默认端口6379
     private final Jedis jedis;
 
     public ShortUrlUtil(String redisConfig) {
@@ -83,8 +86,8 @@ public class ShortUrlUtil {
     public static void main(String[] args) {
 
         for (int i = 0; i < 100; i++) {
-            System.out.println(new ShortUrlUtil("localhost").getShortUrl("www.baidudu.com", Decimal.D32));
-            System.out.println(new ShortUrlUtil("localhost").getShortUrl("www.baidu.com", Decimal.D64));
+            System.out.println(new ShortUrlUtil("192.168.101.206").getShortUrl("www.baidudududu.com", Decimal.D32));
+            System.out.println(new ShortUrlUtil("192.168.101.206").getShortUrl("www.baidu.com", Decimal.D64));
         }
     }
 }
