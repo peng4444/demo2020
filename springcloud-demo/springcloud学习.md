@@ -146,6 +146,30 @@ Zuul的应用场景：
 >> 分布式链路跟踪需要Sleuth+Zipkin结合来实现，当然实现链路追踪的还有三方开源方案，如果zipkin实现的功能非常简单，图形化能力也不强，所以可以试试其它的方案，如pinpoint较成熟的框架等。
 >> Spring Cloud Sleuth是Spring Cloud个组件，它的主要功能是在分布式系统中提供服务链路追踪的解决方案。
 ![](https://img-blog.csdnimg.cn/20200811212137615.png?#pic_center)
+```markdown
+什么是链路追踪？
+   分布式链路追踪就是将一次分布式请求还原成调用链路，将一次分布式请求的调用情况集中展示，比如各个服务节点上的耗时、请求具体到达哪台机器上、每个服务节点的请求状态等等。
+链路跟踪主要功能：
+    故障快速定位：可以通过调用链结合业务日志快速定位错误信息。
+    链路性能可视化：各个阶段链路耗时、服务依赖关系可以通过可视化界面展现出来。
+    链路分析：通过分析链路耗时、服务依赖关系可以得到用户的行为路径，汇总分析应用在很多业务场景。  
+附各大开源组件的地址：
+    zipkin  -> https://zipkin.io/
+    Jaeger  -> https://www.jaegertracing.io/
+    Pinpoint  -> https://github.com/pinpoint-apm/pinpoint
+    SkyWalking  ->  http://skywalking.apache.org/
+分布式链路追踪系统Zipkin实现
+    Zipkin是Twitter的一个开源项目，它基于Google Dapper实现，它致力于收集服务的定时数据，以解决微服务架构中的延迟问题，包括数据的收集、存储、查找和展现。
+    Zipkin有四大核心组件
+        （1）Collector
+        一旦Collector采集线程获取到链路追踪数据，Zipkin就会对其进行验证、存储和索引，并调用存储接口保存数据，以便进行查找。
+        （2）Storage
+        Zipkin Storage最初是为了在Cassandra上存储数据而构建的，因为Cassandra是可伸缩的，具有灵活的模式，并且在Twitter中大量使用。除了Cassandra，还支持支持ElasticSearch和MySQL存储，后续可能会提供第三方扩展。
+        （3）Query Service
+        链路追踪数据被存储和索引之后，webui 可以调用query service查询任意数据帮助运维人员快速定位线上问题。query service提供了简单的json api来查找和检索数据。
+        （4）Web UI
+        Zipkin 提供了基本查询、搜索的web界面，运维人员可以根据具体的调用链信息快速识别线上问题。
+```
 ### Feign 声明式远程调度组件
 [微服务通信之feign的注册、发现过程](https://www.cnblogs.com/enjoyall/p/13755252.html)
 >> Feign是一个声明式的Web Service客户端。

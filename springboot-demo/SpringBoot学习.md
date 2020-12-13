@@ -281,7 +281,6 @@ SpringBoot提供的的注解@ControllerAdvice表示开启全局异常捕获，�
 [Springboot多模块项目+Swagger让你的API可视化](https://www.cnblogs.com/xpwi/p/10609104.html)
 [SpringBoot整合Swagger2，再也不用维护接口文档了！](https://www.cnblogs.com/lenve/p/10619547.html)
 [Spring Boot使用MyBatis Generator、Swagger](https://www.cnblogs.com/FireworksEasyCool/p/11133827.html)
-#### 
 
 #### SpringBoot整合定时任务
 [Spring Boot2(十三)：整合定时任务发送邮件](https://www.cnblogs.com/niaobulashi/p/schedule-mail.html)

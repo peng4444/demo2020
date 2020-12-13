@@ -1,0 +1,14 @@
+<mapper namespace="cn.pbj.demo2020.ssm.dao.SysUserDao">
+
+    <!--查询用户的所有菜单ID-->
+    <select id="queryUserInfo" resultType="cn.pbj.demo2020.ssm.entity.SysUser">
+        SELECT
+        ur.*
+        FROM
+        sys_user ur
+        WHERE
+        1 = 1
+        AND ur.user_id = #{userId}
+    </select>
+
+</mapper>

@@ -1,4 +1,4 @@
-# Docker&K8S&云原生
+# Docker学习总结
 
 ## Docker基础知识
 [Docker学习参考博客：](https://www.funtl.com/zh/docs-docker/)
@@ -209,51 +209,4 @@ $ docker network inspect bridge
 [docker配置mysql主从与django实现读写分离](https://www.cnblogs.com/yscl/p/11992175.html)
 
 
-## K8S
-[K8S安装](参考书k8s权威指南)
 
-[高可用的K8S集群部署方案](https://www.cnblogs.com/ants/p/11489598.html)
-
-[[简单了解一下K8S，并搭建自己的集群](https://www.cnblogs.com/detectiveHLH/p/12048795.html)]
-
-[[6 个 K8s 日志系统建设中的典型问题，你遇到过几个？](https://www.cnblogs.com/alisystemsoftware/p/11544392.html)]
-
-[[spring-cloud-kubernetes官方demo运行实战](https://www.cnblogs.com/bolingcavalry/p/11445732.html)]
-
-[[从零开始入门 K8s| 详解 Pod 及容器设计模式](https://www.cnblogs.com/alisystemsoftware/p/11551525.html)]
-
-[[入门级实操教程！从概念到部署，全方位了解K8S Ingress！](https://www.cnblogs.com/rancherlabs/p/12034075.html)]
-
-[[超长干货丨Kubernetes网络快速入门完全指南](https://www.cnblogs.com/rancherlabs/p/12101762.html)]
-
-```markdown
-Kubernetes 是容器集群管理系统，是一个开源的平台，可以实现容器集群的自动化部署、自动扩缩容、维护等功能。使用 Kubernetes 我们可以：
-快速部署应用
-快速扩展应用
-无缝对接新的应用功能
-节省资源，优化硬件资源的使用
-Kubernetes 的目标是促进完善组件和工具的生态系统，以减轻应用程序在公有云或私有云中运行的负担。
-```
-[Kubernetes+Docker+Istio 容器云实践](https://www.cnblogs.com/yixinjishu/p/11691932.html)
-[[k8s 开船记-首航：博客站点从 docker swarm 切换到 k8s](https://www.cnblogs.com/cmt/p/12033446.html)]
-
-![K8S架构](https://www.funtl.com/assets1/Lusifer_20190531065907.png)
-
-
-## 云平台 、云原生
-
-[云原生的新思考，为什么容器已经无处不在了]( https://yq.aliyun.com/articles/699757?spm=a2c4e.11157919.spm-cont-list.262.591727ae00w0Df )
-
-[[云原生开发环境初探](https://www.cnblogs.com/code-craftsman/p/12033656.html)]
-
-[[什么是云原生](https://kb.cnblogs.com/page/647666/)]()
-
-![云原生](http://assets.processon.com/chart_image/5df3580ee4b051b174b280fb.png)
-
-[ Service Mesh 超大规模落地揭秘]( https://yq.aliyun.com/articles/739113?spm=a2c4e.11153940.bloghomeflow.22.2b9f291aaxV1Kk )
-
-[优秀DevOps工程师必会的33个面试题](https://www.cnblogs.com/xuelong3/p/12587932.html)
-
-[Knative 实战：基于 Knative Serverless 技术实现天气服务-上篇](https://yq.aliyun.com/articles/719486?spm=a2c4e.11157919.spm-cont-list.85.5917f204xM6Od1)
-
-##
