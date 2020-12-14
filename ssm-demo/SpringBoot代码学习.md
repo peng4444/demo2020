@@ -5,6 +5,10 @@
 
 ## 学习 demo over
 [Spring Boot2(一)：使用Spring Boot2集成Mybatis基础搭建](https://www.cnblogs.com/niaobulashi/p/mybatis-hello.html)
+[Spring Boot2(二)：使用Spring Boot2集成Mybatis缓存机制](https://www.cnblogs.com/niaobulashi/p/mybatis-2levelcache.html)
+[Spring Boot2(三)：使用Spring Boot2集成Redis缓存](https://www.cnblogs.com/niaobulashi/p/spring-boot-redis.html)
+[Spring Boot2(四)：使用Spring Boot多数据源实现过程](https://www.cnblogs.com/niaobulashi/p/mybatis-mutls.html)
+[Spring Boot2(五)：使用Spring Boot结合Thymeleaf模板引擎使用总结](https://www.cnblogs.com/niaobulashi/p/springboot-thymeleaf.html)
 [Spring Boot2(十四)：单文件上传/下载，文件批量上传](https://www.cnblogs.com/niaobulashi/p/springboot-updownload.html)
 
 ## 学习 demo ing

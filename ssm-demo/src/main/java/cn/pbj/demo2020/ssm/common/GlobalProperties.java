@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.ssm.file;
+package cn.pbj.demo2020.ssm.common;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;

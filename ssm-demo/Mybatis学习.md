@@ -106,6 +106,21 @@ Mybatis中如何指定使用哪一种Executor执行器？
     2.通过配置对象，则可以创建一个sqlSessionFactoryBuilder对象。
     3.通过sqlSessionFactoryBuilder获得sqlSessionFactory实例。
     4.通过sqlSessionFactory实例创建qlSession实例，通过sqlSession对数据库进行操作。
+在xml文件中添加<cache />
+    加上这个标签，二级缓存就会开启，他的默认属性如下：
+    - 1.映射语句文件中的所有select语句将会被缓存。
+    - 2.映射语句文件中的所有insert,update和delete语句会刷新缓存。
+    - 3.缓存会使用Least Recently Used(LRU,最近最少使用的)算法来收回。
+    - 4.根据时间表(比如 no Flush Interval,没有刷新间隔), 缓存不会以任何时间顺序来刷新。
+    - 5.缓存会存储列表集合或对象(无论查询方法返回什么)的1024个引用。
+    - 6.缓存会被视为是read/write(可读/可写)的缓存,意味着对象检索不是共享的,而且可以安全地被调用者修改,而不干扰其他调用者或线程所做的潜在修改。
+也可以自定义二级缓存的属性，例如：
+    <cache
+      eviction="FIFO"
+      flushInterval="60000"
+      size="512"
+      readOnly="true"/>
+    配置创建了一个FIFO缓存,并每 60秒刷新,存数结果对象或列表的512个引用,而且返回的对象被认为是只读的,因此在不同线程中的调用者之间修改它们会导致冲突。
 ```
 ### 10.Mybatis如何防止sql注入？${}和#{}的区别是什么？传入表名用哪个？【5+】
 ```markdown
@@ -299,10 +314,11 @@ Mybatis使用JDK的动态代理，为需要拦截的接口生成代理对象以�
 
 [天哪！手动编写mybatis雏形竟然这么简单](https://www.cnblogs.com/quellanan/p/13055000.html)
 
-[提升开发效率的一款mybatis开发神器](https://mp.weixin.qq.com/s?__biz=MzA4NzQ0Njc4Ng==&mid=2247489537&idx=3&sn=73b164a80c147a17356b8cb82ae06d30&chksm=90381c6ca74f957a0acd9198ae0df657fee5fc49697ee109698030df56775cbfe62b67fe7aac&mpshare=1&scene=23&srcid=0907sWM491xNOoEDNoS2lEPk&sharer_sharetime=1599452230019&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
-
-[MyBatis-Plus](https://www.cnblogs.com/ideal-20/p/13763616.html)
-
 [MyBatis 使用手册](https://www.cnblogs.com/lifullmoon/p/14014660.html)
 
 [MyBatis 面试题](https://www.cnblogs.com/lifullmoon/p/14014648.html)
+
+### mybatis plus
+[提升开发效率的一款mybatis开发神器](https://mp.weixin.qq.com/s?__biz=MzA4NzQ0Njc4Ng==&mid=2247489537&idx=3&sn=73b164a80c147a17356b8cb82ae06d30&chksm=90381c6ca74f957a0acd9198ae0df657fee5fc49697ee109698030df56775cbfe62b67fe7aac&mpshare=1&scene=23&srcid=0907sWM491xNOoEDNoS2lEPk&sharer_sharetime=1599452230019&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
+[小书MybatisPlus第7篇-代码生成器的原理精讲及使用方法](https://www.cnblogs.com/zimug/p/13370107.html)
+[MyBatis-Plus](https://www.cnblogs.com/ideal-20/p/13763616.html)

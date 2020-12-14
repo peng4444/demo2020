@@ -1,6 +1,7 @@
 package cn.pbj.demo2020.ssm.entity;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -35,7 +36,11 @@ public class SysUser implements Serializable {
     //状态  0：禁用   1：正常
     private Integer status;
 
+    //部门ID
+    private Integer deptId;
+
     //创建时间
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 }
 

@@ -183,8 +183,11 @@ Docker Compose安装：
 [还在手动启动springboot项目？docker部署不香吗？](https://www.toutiao.com/i6843391272229536267)
 [DOCKER 学习笔记5 Springboot+nginx+mysql 容器编排](https://www.cnblogs.com/ChromeT/p/12289177.html)
 [Docker笔记](https://www.cnblogs.com/Hui4401/p/13758443.html)
+### Docker命令
 ```markdown
 $ docker system info ##查看docker存储驱动类型
+$ docker search 应用名称  ## 查看应用镜像
+$ docker pull 应用名称  ## 拉取应用镜像【默认是镜像库最新版本，可以在应用名称:版本号拉取指定版本】
 $ docker image ls  ## 查看所有的docker镜像
 $ docker image rm  镜像编号 ##删除docker镜像  docker image rm alpine:latest
 $ docker image pull ##下载镜像   docker image pull alpine:latest
@@ -192,20 +195,38 @@ $ docker image inspect  ##展示镜像的细节包括镜像层数据和元数据
 $ docker image history  ## 查看构建镜像过程中都执行了那些指令
 $ docker image build ## 读取Dockerfile文件，并且将应用程序容器化
 $ docker container run <options> <image>:<tag> <app> ##指定要启动的镜像已及要运行的应用
-$ docker container stop
-$ docker container start
-$ docker container rm
+$ docker  stop   <容器名称>|<容器id>  .....
+$ docker  start   <容器名称>|<容器id>  .....
+$ docker container rm  <容器名称>|<容器id>  .....
 $ docker container run -it ubuntu:latest /bin/bash ##运行容器版本的Ubuntu Linux
+$ docker exec -it <容器名称>|<容器id> /bin/bash
+$ docker attach <容器名称>|<容器id> ## 通过attach命令进入容器后通过exit退出，容器将会变为exited状态，exec不会
 $ docker container ls ##查看容器正在运行的容器列表
+$ docker container prune ## 删除所有的已停止的容器
+$ docker export <容器名称>|<容器id> > exportUbuntu.tar  ## 用export命令都出容器快照
+$ cat exportUbuntu.tar | docker import - pbj/ubuntu:v1  ## 用import命令从容器快照文件中再导入为镜像，导入到镜像 xu/centos:v1
+    导入容器快照可以是一个路径，也可以是一个 URL
 $ docker-compose up ##启动应用 -d后台启动
 $ docker-compose down ##关闭应用
 $ docker-compose ps  ##查看应用状态
 $ docker-compose top ##列出各个服务内运行的进程
 $ docker-compose stop ##停止应用
 $ docker-compose restart ##重启应用
-$ docker network ls ##Docker主机上的网络
-$ docker network inspect bridge
+$ docker network ls ## Docker主机上的网络
+$ docker network inspect bridge 
+$ docker network create -d bridge test-net # 创建网络
+    参数说明：
+    -d：参数指定Docker网络类型，有bridge、overlay。其中overlay网络类型用于Swarm mode，此处忽略。
+$ docker network rm test-net ## 删除网络
+$ docker commit -m="add redis" -a="xu" fda2c65d7e02  pbj/centos:v1.0.1  ## 使用commit命令提交容器副本
+    各个参数说明：
+    -m: 提交的描述信息
+    -a: 指定镜像作者
+    fda2c65d7e02：容器 ID，可以通过 docker ps -a 命令查看
+    pbj/cnetos:v1.0.1: 指定要创建的目标镜像名和标签 tag
 ```
+
+### 
 [docker配置mysql主从与django实现读写分离](https://www.cnblogs.com/yscl/p/11992175.html)
 
 

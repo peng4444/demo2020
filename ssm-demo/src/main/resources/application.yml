@@ -3,6 +3,8 @@ server:
   tomcat:
     max-swallow-size: 1MB
 spring:
+  profiles:
+    active: test
   servlet:
     multipart:
       # 默认支持文件上传
@@ -15,11 +17,6 @@ spring:
       file-size-threshold: 0
       # 上传文件的临时目录
       location: /test
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/db_pbj_test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
-    username: root
-    password: mysqladmin
   jpa:
     # 数据库类型
     database: mysql
@@ -56,8 +53,8 @@ pbj:
 
 #配置Mybatis
 mybatis:
-  type-aliases-package: cn.pbj.demo2020.ssm.entity
-  mapper-locations: classpath:mapper/*.xml
+  # type-aliases-package: cn.pbj.demo2020.ssm.entity
+  # mapper-locations: classpath:mapper/*.xml
   configuration:
     # 开启驼峰命名转换，如：Table(create_time) -> Entity(createTime)。不需要我们关心怎么进行字段匹配，mybatis会自动识别`大写字母与下划线`
     map-underscore-to-camel-case: true
@@ -65,4 +62,4 @@ mybatis:
 #打印SQL日志
 logging:
   level:
-    com.niaobulashi.dao: DEBUG
+    cn.pbj.demo2020.ssm.dao.*: DEBUG

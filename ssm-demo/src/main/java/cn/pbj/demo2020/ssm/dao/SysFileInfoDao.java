@@ -1,5 +1,6 @@
-package cn.pbj.demo2020.ssm.file;
+package cn.pbj.demo2020.ssm.dao;
 
+import cn.pbj.demo2020.ssm.entity.SysFileInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

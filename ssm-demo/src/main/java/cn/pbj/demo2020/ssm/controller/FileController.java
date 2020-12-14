@@ -1,5 +1,9 @@
-package cn.pbj.demo2020.ssm.file;
+package cn.pbj.demo2020.ssm.controller;
 
+import cn.pbj.demo2020.ssm.common.GlobalProperties;
+import cn.pbj.demo2020.ssm.common.ResponseCode;
+import cn.pbj.demo2020.ssm.dao.SysFileInfoDao;
+import cn.pbj.demo2020.ssm.entity.SysFileInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +26,7 @@ import java.util.Optional;
  * @description: TODO
  * [Spring Boot2(十四)：单文件上传/下载，文件批量上传](https://www.cnblogs.com/niaobulashi/p/springboot-updownload.html)
  */
-@Controller
+@Controller("/file")
 public class FileController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());

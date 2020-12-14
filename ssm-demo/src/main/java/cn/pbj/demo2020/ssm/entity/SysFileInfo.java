@@ -1,4 +1,4 @@
-package cn.pbj.demo2020.ssm.file;
+package cn.pbj.demo2020.ssm.entity;
 
 import lombok.Data;
 
