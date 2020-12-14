@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @pClassName: GlobalProperties
  * @author: pengbingjiang
  * @create: 2020/12/13 21:19
- * @description: TODO
+ * @description: TODO 从配置文件中获取数据
  */
 @Data
 @Component

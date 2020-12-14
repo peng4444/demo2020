@@ -25,6 +25,7 @@ import java.util.Optional;
  * @create: 2020/12/13 21:20
  * @description: TODO
  * [Spring Boot2(十四)：单文件上传/下载，文件批量上传](https://www.cnblogs.com/niaobulashi/p/springboot-updownload.html)
+ * [springBoot 简单优雅是实现文件上传和下载](https://www.cnblogs.com/quellanan/p/11754070.html)
  */
 @Controller("/file")
 public class FileController {
@@ -39,6 +40,7 @@ public class FileController {
     @Autowired
     private SysFileInfoDao sysFileInfoDao;
 
+    // 利用配置类中读取配置文件中的数据
     @Autowired
     private GlobalProperties globalProperties;
 

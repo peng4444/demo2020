@@ -12,6 +12,7 @@ spring:
     username: root
     password: mysqladmin
   redis:
+    # 集群配置
     cluster:
       #设置key的生存时间，当key过期时，它会被自动删除；
       expire-seconds: 120
@@ -19,3 +20,4 @@ spring:
       command-timeout: 5000
       #设置redis集群的节点信息，其中namenode为域名解析，通过解析域名来获取相应的地址;
       nodes: 192.168.101.206:7000,192.168.101.206:7001,192.168.101.206:7002,192.168.101.206:7003,192.168.101.206:7004,192.168.101.206:7005
+      max-redirects: 3

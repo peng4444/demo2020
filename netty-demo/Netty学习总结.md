@@ -279,3 +279,4 @@ netty 实现简单rpc准备
 [1.Netty入门](https://www.cnblogs.com/TimerHotel/p/netty01.html)
 [2.Netty的粘包、拆包（一）](https://www.cnblogs.com/TimerHotel/p/netty02.html)
 [3.Netty的粘包、拆包（二）](https://www.cnblogs.com/TimerHotel/p/netty03.html)
+[SpringBoot整合Netty并使用Protobuf进行数据传输(附工程)](https://www.cnblogs.com/xuwujing/p/9321395.html)

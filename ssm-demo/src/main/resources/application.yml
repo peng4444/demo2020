@@ -45,6 +45,19 @@ spring:
     # 加配置静态资源
     resources:
       static-locations: classpath:/
+  mail:
+    host: smtp.qq.com
+    port: 25
+    username: 743545369@qq.com
+    password: ubvfniugswaebcbb
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          scoketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+          writetimeout: 300s
+        debug: true
 
 pbj:
   file:

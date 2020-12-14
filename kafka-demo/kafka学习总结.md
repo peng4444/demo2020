@@ -37,6 +37,7 @@ mkdir /tmp/kafka-logs   #kafka日志文件目录
  cd kafka
  ./bin/kafka-server-start.sh -daemon /usr/local/kafka/config/server.properties
 - 验证kafka安装
+    jps
 - 配置broker配置
 ```
 ### kafka的topic相关命令
@@ -255,3 +256,4 @@ Kafka拦截器的设置方法是通过参数配置完成的。生产者和消费
 ```
 ### Spring 对Apache Kafka的支持与集成
 [Spring 对Apache Kafka的支持与集成](https://www.cnblogs.com/liululee/p/14042652.html)
+[SpringBoot整合Kafka和Storm](https://www.cnblogs.com/xuwujing/p/9021561.html)

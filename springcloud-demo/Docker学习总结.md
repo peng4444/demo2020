@@ -34,8 +34,9 @@ $ docker run hello-world # 测试 Docker 是否安装正确  docker会创建一�
 执行：docker info 查看Docker服务信息
 执行：docker version 查看版本号
 ```
-### 3.Docker CentOS安装
+### 3.Docker CentOS安装卸载
 [Docker CentOS安装](https://www.funtl.com/zh/docs-docker/CentOS-%E5%AE%89%E8%A3%85-Docker.html#%E4%BD%BF%E7%94%A8-yum-%E5%AE%89%E8%A3%85)
+[Docker学习（二）安装Docker和卸载](https://blog.csdn.net/haiyangyiba/article/details/88805484)
 ```markdown
 可以先删除旧版本，使用yum安装依赖包和添加国内的yum软件源
 1.删除旧版本docker
@@ -60,8 +61,8 @@ $ docker run hello-world # 测试 Docker 是否安装正确  docker会创建一�
 3.安装docker ce
     sudo yum makecache # 更新 yum 软件源缓存
     sudo yum install docker-ce # 安装 docker-ce
-    sudo systemctl enable docker # 启动 Docker CE
-    sudo systemctl start docker
+    sudo systemctl enable docker # 允许开机启动 Docker CE
+    sudo systemctl start docker  # 启动 Docker CE
     sudo groupadd docker # 建立 docker 组
     sudo usermod -aG docker $USER # 将当前用户加入 docker 组
 4.退出当前终端并重新登录，进行如下测试。
