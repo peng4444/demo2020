@@ -13,6 +13,8 @@ import java.util.List;
  * @Description: TODO
  * [Spring Boot 邮件发送的 5 种姿势！](https://www.cnblogs.com/lenve/p/11198718.html)
  * [springboot+kafka+邮件发送（最佳实践）](https://www.cnblogs.com/729log/p/11283096.html)
+ *  [Spring Boot2(十三)：整合定时任务发送邮件](https://www.cnblogs.com/niaobulashi/p/schedule-mail.html)
+ *  [SpringBoot整合Mail发送邮件&发送模板邮件](https://www.cnblogs.com/ruiyeclub/p/13394493.html)
  */
 public class SpringbootMailController {
 

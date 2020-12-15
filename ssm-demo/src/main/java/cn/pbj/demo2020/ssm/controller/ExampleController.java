@@ -1,6 +1,6 @@
 package cn.pbj.demo2020.ssm.controller;
 
-import cn.pbj.demo2020.ssm.entity.User;
+import cn.pbj.demo2020.ssm.entity.ExampleUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,14 +72,14 @@ public class ExampleController {
     }
 
 
-    public List<User> getUserList() {
-        List<User> list = new ArrayList<User>();
-        User user1 = new User("大牛", 12, "123456");
-        User user2 = new User("小牛", 6, "123563");
-        User user3 = new User("鸟不拉屎", 66, "666666");
-        list.add(user1);
-        list.add(user2);
-        list.add(user3);
+    public List<ExampleUser> getUserList() {
+        List<ExampleUser> list = new ArrayList<ExampleUser>();
+        ExampleUser exampleUser1 = new ExampleUser("大牛", 12, "123456");
+        ExampleUser exampleUser2 = new ExampleUser("小牛", 6, "123563");
+        ExampleUser exampleUser3 = new ExampleUser("鸟不拉屎", 66, "666666");
+        list.add(exampleUser1);
+        list.add(exampleUser2);
+        list.add(exampleUser3);
         return list;
     }
 }

@@ -1,52 +1,26 @@
 package cn.pbj.demo2020.ssm.entity;
 
+import lombok.Data;
+
+import java.io.Serializable;
+
 /**
  * @pClassName: User
  * @author: pengbingjiang
- * @create: 2020/12/14 13:40
+ * @create: 2020/12/15 09:25
  * @description: TODO
  */
-public class User {
-    private String name;
-    private int age;
-    private String pass;
+@Data
+public class User implements Serializable {
 
-    public String getName() {
-        return name;
-    }
+    private static final long serialVersionUID = -6056125703075132981L;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    private Integer id;
 
-    public int getAge() {
-        return age;
-    }
+    private String account;
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+    private String password;
 
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", pass='" + pass + '\'' +
-                '}';
-    }
-
-    public User(String name, int age, String pass) {
-        this.name = name;
-        this.age = age;
-        this.pass = pass;
-    }
+    private String username;
 }
+

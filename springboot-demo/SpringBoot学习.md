@@ -277,62 +277,42 @@ SpringBoot提供的的注解@ControllerAdvice表示开启全局异常捕获，�
 [Spring Boot2(十二)：手摸手教你搭建Shiro安全框架](https://www.cnblogs.com/niaobulashi/p/springboot-shiro.html)
 [Spring Boot2(十五)：Shiro记住我rememberMe、验证码Kaptcha](https://www.cnblogs.com/niaobulashi/p/shiro-rememberme-kaptcha.html)
 
-#### SpringBoot整合Swagger2
-[Springboot多模块项目+Swagger让你的API可视化](https://www.cnblogs.com/xpwi/p/10609104.html)
-[SpringBoot整合Swagger2，再也不用维护接口文档了！](https://www.cnblogs.com/lenve/p/10619547.html)
-[Spring Boot使用MyBatis Generator、Swagger](https://www.cnblogs.com/FireworksEasyCool/p/11133827.html)
 
 #### SpringBoot整合定时任务
-[Spring Boot2(十三)：整合定时任务发送邮件](https://www.cnblogs.com/niaobulashi/p/schedule-mail.html)
 [SpringBoot中并发定时任务的实现、动态定时任务的实现（看这一篇就够了）](https://www.cnblogs.com/baixianlong/p/10659045.html)
 [SpringBoot系列：Spring Boot定时任务Spring Schedule](https://www.cnblogs.com/imyanger/p/11826227.html)
 [SpringBoot系列：Spring Boot集成定时任务Quartz](https://www.cnblogs.com/imyanger/p/11828301.html)
 [定时任务最简单的3种实现方法（超好用）](https://mp.weixin.qq.com/s?__biz=MzU1NTkwODE4Mw==&mid=2247487964&idx=2&sn=dbcd21c4d57a62b8e2cf2aba18acb761&chksm=fbcc7ce4ccbbf5f2500afa479ed59650792b4f2b2ebbb9e9d8bb397de6dca64c7f2617e23625&mpshare=1&scene=23&srcid=0818JKb8atI4owQubDRTO08P&sharer_sharetime=1597712340498&sharer_shareid=d812adcc01829f0f7f8fb06aea118511#rd)
 [贼好用，冰河开源了这款精准定时任务和延时队列框架！！](https://www.cnblogs.com/binghe001/p/14028079.html)
 
-#### SpringBoot文件上传下载
-[Spring Boot2(十四)：单文件上传/下载，文件批量上传](https://www.cnblogs.com/niaobulashi/p/springboot-updownload.html)
-
 
 #### SpringBoot整合本地缓存Guava cache
 [Guava cache使用总结](https://www.cnblogs.com/rickiyang/p/11074159.html)
 [Caffeine Cache-高性能Java本地缓存组件](https://www.cnblogs.com/rickiyang/p/11074158.html)
-
 
 #### SpringBoot整合Dubbo
 [springboot+dubbo简单分布式RPC调用demo](https://www.cnblogs.com/kuangdw/p/12783281.html)
 [Spring Boot 整合 Apache Dubbo](https://www.cnblogs.com/vandusty/p/12853973.html)
 [springboot+mybatis+dubbo+aop日志第一篇](https://www.cnblogs.com/lc-chenlong/p/10648523.html)
 [springboot+dubbo+zookeeper微服务实践demo](https://www.cnblogs.com/miketwais/p/10216956.html)
-
-#### SpringBoot
-[聊聊Spring Boot Actuator](https://www.cnblogs.com/dongxishaonian/p/12795744.html)
 [现在Java 桌面应用程序能做到什么程度（Spring Boot+JavaFX2开发）](https://www.cnblogs.com/pengdai/p/11769194.html)
 
 #### SpringBoot微信开发 
 [SpringBoot2.x 整合Spring-Session实现Session共享](https://www.cnblogs.com/lanxuan826/p/11221603.html)
 [用Prometheus+Grafana监控Springboot应用](https://www.cnblogs.com/larrydpk/p/12563497.html)
 
-
-
 [基于SpringBoot从零构建博客网站集成editor.md开发发布文章功能](https://www.cnblogs.com/atcloud/p/11302520.html)
 [SpringBoot开发案例之打造十万博文Web篇](https://www.cnblogs.com/smallSevens/p/11301025.html)
 [基于Spring Boot自建分布式基础应用](https://www.cnblogs.com/HuaiyinMarquis/p/11382145.html)
 
-
-
 ### SpringBoot实战
-[SpringBoot整合Mail发送邮件&发送模板邮件](https://www.cnblogs.com/ruiyeclub/p/13394493.html)
 [Spring Boot集成WebSocket实现服务端推送消息到客户端](https://www.cnblogs.com/wupeixuan/p/13389757.html)
 [SpringBoot中使用RSocket](https://juejin.im/post/5cf733a5e51d4510835e0260)
-
 [SpringBoot 2.0 多图片上传加回显](https://github.com/modouxiansheng/Doraemon/tree/master/springdemo)
-
 [spring boot实现超轻量级网关（反向代理、转发）](https://www.cnblogs.com/xiaoqi/p/spring-boot-route.html)
 ##
 [SpringBoot开发案例之打造私有云网盘](https://www.cnblogs.com/smallSevens/p/10712643.html)
 [基于springboot搭建的web系统架构](https://www.cnblogs.com/Oven5217/p/10765052.html)
-
 
 [从零打造自己的Spring Boot脚手架](https://gitee.com/felord/kono)
 

@@ -2,6 +2,15 @@ server:
   port: 8081
   tomcat:
     max-swallow-size: 1MB
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator  # /actuator # Actuator 提供的 API 接口的根目录
+      exposure:
+        include: '*'  # 需要开放的端点
+        exclude:   # 需要排除的端点
+
 spring:
   profiles:
     active: test
@@ -16,7 +25,7 @@ spring:
       # 文件支持写入磁盘
       file-size-threshold: 0
       # 上传文件的临时目录
-      location: /test
+      location: classpath:/file
   jpa:
     # 数据库类型
     database: mysql
@@ -44,20 +53,18 @@ spring:
       content-type: text/html
     # 加配置静态资源
     resources:
-      static-locations: classpath:/
+      static-locations: classpath:/static/
   mail:
     host: smtp.qq.com
     port: 25
     username: 743545369@qq.com
     password: ubvfniugswaebcbb
     default-encoding: UTF-8
-    properties:
-      mail:
-        smtp:
-          scoketFactory:
-            class: javax.net.ssl.SSLSocketFactory
-          writetimeout: 300s
-        debug: true
+
+mail:
+  # 以谁来发送邮件
+  fromMail:
+    addr: 743545369@qq.com
 
 pbj:
   file:
@@ -66,8 +73,9 @@ pbj:
 
 #配置Mybatis
 mybatis:
-  # type-aliases-package: cn.pbj.demo2020.ssm.entity
-  # mapper-locations: classpath:mapper/*.xml
+  ## 进行mysql多数据源
+  type-aliases-package: cn.pbj.demo2020.ssm.entity
+  mapper-locations: classpath:mapper/*.xml
   configuration:
     # 开启驼峰命名转换，如：Table(create_time) -> Entity(createTime)。不需要我们关心怎么进行字段匹配，mybatis会自动识别`大写字母与下划线`
     map-underscore-to-camel-case: true

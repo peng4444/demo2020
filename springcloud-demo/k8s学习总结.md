@@ -6,6 +6,8 @@
 [K8S安装](参考书: k8s权威指南)
 [K8S入门](https://www.funtl.com/zh/service-mesh-kubernetes/)
 
+[当前标签：kubernetes](https://www.cnblogs.com/zhanglianghhh/tag/kubernetes/default.html?page=2)
+
 [随笔分类 - Kubernetes](https://www.cnblogs.com/dukuan/category/1320955.html)
 [随笔分类 - K8S](https://www.cnblogs.com/zzq6032010/category/1877374.html)
 [容器编排系统之Kubernetes基础入门](https://www.cnblogs.com/qiuhom-1874/p/14126750.html)

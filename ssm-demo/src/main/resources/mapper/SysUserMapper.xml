@@ -6,8 +6,20 @@
     <!--开启mybatis二级缓存-->
     <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
 
+    <resultMap id="SysUserResultMap" type="cn.pbj.demo2020.ssm.entity.SysUser">
+        <id column="user_id" jdbcType="BIGINT" property="userId" />
+        <id column="username" jdbcType="VARCHAR" property="username" />
+        <id column="password" jdbcType="VARCHAR" property="password" />
+        <id column="salt" jdbcType="VARCHAR" property="salt" />
+        <id column="email" jdbcType="VARCHAR" property="email" />
+        <id column="mobile" jdbcType="VARCHAR" property="mobile" />
+        <id column="status" jdbcType="TINYINT" property="status" />
+        <id column="dept_id" jdbcType="VARCHAR" property="deptId" />
+        <id column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    </resultMap>
+
     <!--查询所有用户信息-->
-    <select id="queryUserAll" resultType="cn.pbj.demo2020.ssm.entity.SysUser">
+    <select id="queryUserAll" resultType="cn.pbj.demo2020.ssm.entity.SysUser" resultMap="SysUserResultMap">
         SELECT
         ur.*
         FROM
@@ -17,7 +29,7 @@
     </select>
 
     <!--根据用户userId查询用户信息-->
-    <select id="queryUserInfo" resultType="cn.pbj.demo2020.ssm.entity.SysUser">
+    <select id="queryUserInfo" resultType="cn.pbj.demo2020.ssm.entity.SysUser" resultMap="SysUserResultMap">
         SELECT
         ur.*
         FROM
