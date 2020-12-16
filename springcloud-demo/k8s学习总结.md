@@ -60,3 +60,9 @@ Kubernetes的目标是促进完善组件和工具的生态系统，以减轻应�
 ### K8S集群部署
 [高可用的K8S集群部署方案](https://www.cnblogs.com/ants/p/11489598.html)
 ### 
+[Kubernetes笔记（一）：十分钟部署一套K8s环境](https://www.cnblogs.com/spec-dog/p/12793018.html)
+[Kubernetes笔记（二）：了解k8s的基本组件与概念](https://www.cnblogs.com/spec-dog/p/12849328.html)
+[Kubernetes笔记（三）：Gitlab+Jenkins Pipeline+Docker+k8s+Helm自动化部署实践](https://www.cnblogs.com/spec-dog/p/12874295.html)
+[Kubernetes笔记（四）：详解Namespace与资源限制ResourceQuota，LimitRange](https://www.cnblogs.com/spec-dog/p/13035898.html)
+[Kubernetes笔记（五）：了解Pod（容器组）](https://www.cnblogs.com/spec-dog/p/13651965.html)
+[Kubernetes笔记（六）：了解控制器 —— Deployment](https://www.cnblogs.com/spec-dog/p/14003370.html)

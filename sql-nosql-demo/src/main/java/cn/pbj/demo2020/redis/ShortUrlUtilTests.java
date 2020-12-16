@@ -11,7 +11,7 @@ import redis.clients.jedis.Jedis;
  * [一个用心做的短网址服务](https://github.com/praglody/shorturl)
  * [短链接服务系统开发](https://javadoop.com/post/url-shortener)
  */
-public class ShortUrlUtil {
+public class ShortUrlUtilTests {
 
     private static final String SHORT_URL_KEY = "SHORT_URL_KEY";
     // 你的能够访问的服务器网址
@@ -23,7 +23,7 @@ public class ShortUrlUtil {
     private final String redisConfig;//redis配置，host,默认端口6379
     private final Jedis jedis;
 
-    public ShortUrlUtil(String redisConfig) {
+    public ShortUrlUtilTests(String redisConfig) {
         this.redisConfig = redisConfig;
         this.jedis = new Jedis(this.redisConfig);
     }
@@ -86,8 +86,8 @@ public class ShortUrlUtil {
     public static void main(String[] args) {
 
         for (int i = 0; i < 100; i++) {
-            System.out.println(new ShortUrlUtil("192.168.101.206").getShortUrl("www.baidudududu.com", Decimal.D32));
-            System.out.println(new ShortUrlUtil("192.168.101.206").getShortUrl("www.baidu.com", Decimal.D64));
+            System.out.println(new ShortUrlUtilTests("192.168.101.206").getShortUrl("www.baidudududu.com", Decimal.D32));
+            System.out.println(new ShortUrlUtilTests("192.168.101.206").getShortUrl("www.baidu.com", Decimal.D64));
         }
     }
 }

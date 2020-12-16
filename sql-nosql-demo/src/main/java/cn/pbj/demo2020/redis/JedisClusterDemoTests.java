@@ -13,7 +13,7 @@ import java.util.Set;
  * @create: 2020/11/10 15:07
  * @description: TODO Jedis直接连接Redis集群进行操作
  */
-public class JedisClusterDemo {
+public class JedisClusterDemoTests {
     public static void main(String[] args) {
         Set<HostAndPort> nodes = new LinkedHashSet<HostAndPort>();
         nodes.add(new HostAndPort("192.168.101.206", 7000));

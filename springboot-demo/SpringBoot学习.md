@@ -234,6 +234,7 @@ SpringBoot提供的的注解@ControllerAdvice表示开启全局异常捕获，�
 [开发一个Spring Boot Starter!](https://www.cnblogs.com/NinWoo/p/11305650.html)
 #### SpringBoot整合日志框架
 [springboot超级详细的日志配置(基于logback)](https://www.cnblogs.com/wuyoucao/p/10983241.html)
+[Spring Boot 日志各种使用](https://www.cnblogs.com/lenve/p/14142244.html)
 #### SpringBoot多环境配置
 [Spring Boot 多环境配置](https://www.cnblogs.com/Chenjiabing/p/13968781.html)
 #### SpringBoot新版本

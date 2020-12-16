@@ -8,7 +8,7 @@ import redis.clients.jedis.Jedis;
  * @create: 2020/11/10 15:07
  * @description: TODO Jedis直接连接服务器进行操作
  */
-public class JedisDemo {
+public class JedisDemoTests {
     public static void main(String[] args) {
         //查看访问服务器防火墙是否开启，开启则需要开启访问的6379端口
         Jedis jedis = null;

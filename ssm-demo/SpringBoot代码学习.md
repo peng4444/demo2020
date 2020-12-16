@@ -44,3 +44,5 @@
 
 [SpringBoot第十二集：度量指标监控与异步调用](https://www.cnblogs.com/xsge/p/14032721.html)
 [SpringBoot事物Transaction实战讲解教程](https://www.cnblogs.com/xuwujing/p/11184162.html)
+
+[开发阶段，将SpringBoot应用快速部署到K8S](https://www.cnblogs.com/bolingcavalry/p/14142009.html)

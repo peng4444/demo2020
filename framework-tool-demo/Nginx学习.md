@@ -273,5 +273,23 @@ http {
 
 }
 ```
-
+### docker 安装Nginx
+[Docker笔记（七）：常用服务安装——Nginx、MySql、Redis](https://www.cnblogs.com/spec-dog/p/11320513.html)
+```markdown
+拉取镜像:docker pull nginx  ## 不加标签默认会拉取最新的（latest）镜像
+创建目录:  mkdir -p ~/docker/nginx/html  ~/docker/nginx/logs  ~/docker/nginx/conf
+先不指定映射路径启动一个容器
+    $ docker run -d -p 80:80 --name nginx nginx  ## 这里如果直接指定映射路径运行会报错，
+将运行容器的配置文件复制到宿主机目录下:
+    $ docker cp Nginx容器id:/etc/nginx/nginx.conf  ~/docker/nginx/conf/
+删除容器并重新运行
+    ~$ docker stop Nginx容器id
+    ~$ docker rm Nginx容器id
+    ~$ docker run -d -p 80:80 --name nginx \
+        -v ~/docker/nginx/html:/usr/share/nginx/html \
+        -v ~/docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \
+        -v ~/docker/nginx/logs:/var/log/nginx nginx;
+更新配置后重新加载
+    ~$ docker kill -s HUP nginx  # 类似于 nginx -s reload
+```
 ### 

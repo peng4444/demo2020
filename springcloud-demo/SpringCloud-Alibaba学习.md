@@ -22,6 +22,13 @@
 ```markdown
 在spring cloud版本中我们使用eureka、consul等做为服务注册中心，使用spring cloud config做为配置中心。
 而在spring cloud alibaba中，使用nacos组件即可完成服务注册发现与服务配置两大功能。
+    Nacos致力于帮助您发现、配置和管理微服务。Nacos提供了一组简单易用的特性集，帮助您实现动态服务发现、服务配置管理、服务及流量管理。  
+    Nacos帮助您更敏捷和容易地构建、交付和管理微服务平台。Nacos是构建以“服务”为中心的现代应用架构(例如微服务范式、云原生范式)的服务基础设施。  
+    Nacos 的四大特性：
+        - 服务发现与服务健康检查
+        - 动态配置管理
+        - 动态DNS服务
+        - 服务和元数据管理
 ```
 ### Spring-cloud-Alibaba-feign 服务调用
 [Spring Cloud Alibaba学习笔记（4） - Feign配置与使用](https://www.cnblogs.com/fx-blog/p/11714109.html)
@@ -43,10 +50,13 @@ Spring Cloud对Feign进行了封装，使其支持了Spring MVC标准注解和Ht
 [SpringBoot2.0+InfluxDB+Sentinel实时监控数据存储](https://www.cnblogs.com/smallSevens/p/11576263.html)
 [SpringCloud 中集成Sentinel+Feign实现服务熔断降级](cnblogs.com/NathanYang/p/11819881.html)
 [[扛住阿里双十一高并发流量，Sentinel是怎么做到的？](https://www.cnblogs.com/caison/p/11673047.html)]
+
+[Sentinel Dashboard（基于1.8.1）流控规则持久化到Nacos](https://www.cnblogs.com/jian0110/p/14139044.html)
 ```markdown
 
 ```
 ### Spring Cloud Gateway
+[限流10万QPS、跨域、过滤器、令牌桶算法-网关Gateway内容都在这儿](https://juejin.cn/post/6895201419805392909)
 ```markdown
 Spring Cloud Gateway是Spring官方基于Spring 5.0，Spring Boot2.0 和Project Reactor等技术开发的网关，
 Spring Cloud Gateway旨在为微服务架构提供一种简单而有效的统一的API路由管理方式。
@@ -178,6 +188,16 @@ Spring Cloud Gateway工作流程：
 [Spring Cloud Alibaba | 微服务分布式事务之Seata](https://www.cnblogs.com/babycomeon/p/11504210.html)
 [Spring Cloud同步场景分布式事务怎样做？试试Seata](https://www.cnblogs.com/zlt2000/p/11525417.html)
 [SpringCloud系列之集成分布式事务Seata应用篇](https://www.cnblogs.com/chinaWu/p/13255200.html)
+### Alibaba Aliyun OSS
+[Typora+图床详解（小白都能学得会）](https://www.cnblogs.com/gmengshuai/p/14139394.html)
+[spring boot上传阿里云对象存储OSS快速上手（一、控制台简介）](https://blog.csdn.net/weixin_43423864/article/details/109780359)
+[spring boot上传阿里云对象存储OSS快速上手（二、代码实现，复制粘贴可用）](https://blog.csdn.net/weixin_43423864/article/details/109783097)
+[Spring Boot项目实战之aliyunOss对象储存#文件上传接口实现（代码齐全）](https://blog.csdn.net/linhong_1994/article/details/103117838)
+[SpringBoot基于阿里云OSS上传文件](https://blog.csdn.net/HcJsJqJSSM/article/details/80977735)
+[【OSS存储模块搭建】阿里云OSS微服务模块的搭建](https://atfwus.blog.csdn.net/article/details/107745509)
+[阿里云OSS上传文件以及获取文件](https://blog.csdn.net/liujing666888/article/details/83058617)
+[Spring Cloud微服务项目搭建系列文章(三)：公共模块之阿里云OSS，VOD，SMS相关功能封装](https://blog.csdn.net/zhuwei_clark/article/details/104659795)
+
 
 ###
 [快速搭建 SpringCloud 微服务开发环境的脚手架](https://www.cnblogs.com/xueweihan/p/11935291.html)
