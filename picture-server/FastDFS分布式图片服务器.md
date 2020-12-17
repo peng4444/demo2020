@@ -88,7 +88,6 @@ group1/M00/00/00/wKgAA135BdKAEOs1ADW668UZmDM218.png
 http://192.168.72.128/group1/M00/00/00/wKgAA135BdKAEOs1ADW668UZmDM218.png
 对应storage服务器上的/usr/local/fastdfs/storage/data/00/00/wKgAA135BdKAEOs1ADW668UZmDM218.png文件；
 ```
-
 ## 
 [分布式文件系统之FastDFS](https://www.cnblogs.com/cailijia52o/p/10263514.html)
 
@@ -98,3 +97,10 @@ http://192.168.72.128/group1/M00/00/00/wKgAA135BdKAEOs1ADW668UZmDM218.png
 [Spring Boot 集成阿里云 OSS 进行文件存储](https://www.cnblogs.com/wupeixuan/p/13649988.html)
 [手把手教你用 Spring Boot搭建一个在线文件预览系统！支持ppt、doc等多种类型文件预览](https://www.cnblogs.com/javaguide/p/13822501.html)
 
+[个人的文件管理系统，可以分配用户查看权限和登录权限。视频、音乐上传和播放功能，图片、文档上传查看。](https://github.com/shanyouguixi/MyFileSys)
+
+[基于 Spring boot 打造的多类型文件在线预览项目。支持多种文件例如：doc、ppt、xls、mp4、txt 等，功能强大便于快速开发和二次开发](https://github.com/kekingcn/kkFileView)
+```markdown
+使用spring boot打造文件文档在线预览项目解决方案，支持doc、docx、ppt、pptx、xls、xlsx、zip、rar、mp4，mp3以及众多类文本
+如txt、html、xml、java、properties、sql、js、md、json、conf、ini、vue、php、py、bat、gitignore等文件在线预览
+```

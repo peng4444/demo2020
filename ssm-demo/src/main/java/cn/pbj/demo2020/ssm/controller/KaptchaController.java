@@ -33,7 +33,7 @@ public class KaptchaController {
     @Resource(name = "captchaProducer")
     private Producer captchaProducer;
 
-    @GetMapping("/captchaImage")
+    @GetMapping("/captchaImage.jpg")
     public ModelAndView getKaptchaImage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ServletOutputStream out = response.getOutputStream();
         try {
