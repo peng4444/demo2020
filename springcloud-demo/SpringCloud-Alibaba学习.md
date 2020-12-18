@@ -188,6 +188,28 @@ Spring Cloud Gateway工作流程：
 [Spring Cloud Alibaba | 微服务分布式事务之Seata](https://www.cnblogs.com/babycomeon/p/11504210.html)
 [Spring Cloud同步场景分布式事务怎样做？试试Seata](https://www.cnblogs.com/zlt2000/p/11525417.html)
 [SpringCloud系列之集成分布式事务Seata应用篇](https://www.cnblogs.com/chinaWu/p/13255200.html)
+![](https://james-1258744956.cos.ap-shanghai.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9C%80%E5%A4%A7%E7%9A%84%E5%BC%80%E5%8F%91%E7%97%9B%E7%82%B9-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1SEATA%E5%85%A5%E9%97%A8%E7%AE%80%E4%BB%8B/seata-role.png?imageMogr2/thumbnail/!60p)
+```markdown
+特性:
+1.微服务框架支持：目前已支持 Dubbo、Spring Cloud、Sofa-RPC、Motan 和 grpc 等RPC框架，其他框架持续集成中。
+2.高可用: 支持基于数据库存储的集群模式，水平扩展能力强。
+3.高可扩展性: 支持各类配置中心、注册中心、序列化、存储、协议序列化、负载均衡等SPI扩展。
+4.AT自动补偿模式: 提供无侵入自动补偿的事务模式，目前已支持MySQL、Oracle的自动补偿模式、PostgreSQL、H2开发中。
+5.TCC模式: 支持用户使用TCC灵活扩展事务。
+6.Saga模式：提供长事务河服务编排解决方案。
+框架角色:
+TC (Transaction Coordinator) - 事务协调者：维护全局和分支事务的状态，驱动全局事务提交或回滚。
+TM (Transaction Manager) - 事务管理器：定义全局事务的范围，开始全局事务、提交或回滚全局事务。
+RM(Resource Manager)-资源管理器：管理分支事务处理的资源(Resource)，与TC交谈以注册分支事务和报告分支事务的状态，并驱动分支事务提交或回滚。
+其中，TC 为单独部署的 Server 服务端，TM 和 RM 为嵌入到应用中的 Client 客户端。
+生命周期:
+    TM 请求 TC 开启一个全局事务。TC 会生成一个 XID 作为该全局事务的编号。
+        XID，会在微服务的调用链路中传播，保证将多个微服务的子事务关联在一起。
+    RM 请求 TC 将本地事务注册为全局事务的分支事务，通过全局事务的 XID 进行关联。
+    TM 请求 TC 告诉 XID 对应的全局事务是进行提交还是回滚。
+    TC 驱动 RM 们将 XID 对应的自己的本地事务进行提交还是回滚。
+```
+![](https://james-1258744956.cos.ap-shanghai.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9C%80%E5%A4%A7%E7%9A%84%E5%BC%80%E5%8F%91%E7%97%9B%E7%82%B9-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1SEATA%E5%85%A5%E9%97%A8%E7%AE%80%E4%BB%8B/seata-cycle.png)
 ### Alibaba Aliyun OSS
 [Typora+图床详解（小白都能学得会）](https://www.cnblogs.com/gmengshuai/p/14139394.html)
 [spring boot上传阿里云对象存储OSS快速上手（一、控制台简介）](https://blog.csdn.net/weixin_43423864/article/details/109780359)

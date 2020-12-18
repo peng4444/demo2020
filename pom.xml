@@ -20,10 +20,8 @@
         <module>netty-demo</module>
         <module>springcloud-demo</module>
         <module>sql-nosql-demo</module>
-        <module>framework-tool-demo</module>
         <module>ssm-demo</module>
         <module>book-reading</module>
-        <module>common-demo</module>
         <module>sso-demo</module>
         <module>manage-demo</module>
         <module>myblog-demo</module>
@@ -32,11 +30,6 @@
         <module>springcloud-rocketmq-producer</module>
         <module>springcloud-Gateway-service</module>
         <module>springcloud-gateway-sample</module>
-        <module>java-learn</module>
-        <module>computer-learn</module>
-        <module>myblog-write</module>
-        <module>kafka-demo</module>
-        <module>elk-learn</module>
     </modules>
 
     <properties>

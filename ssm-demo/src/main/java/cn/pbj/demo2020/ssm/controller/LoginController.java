@@ -16,6 +16,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 import static org.apache.shiro.util.ThreadContext.getSubject;
 
 /**
@@ -34,12 +36,14 @@ public class LoginController {
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseResult login(@RequestBody User user) {
+    public ResponseResult login(@RequestBody User user, HttpSession session) {
         Subject userSubject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(user.getAccount(), user.getPassword());
         try {
             // 登录验证
             userSubject.login(token);
+            // 把用户信息存在 Session 对象中
+            // session.setAttribute("user",user);
             return ResponseResult.success();
         } catch (UnknownAccountException e) {
             return ResponseResult.error(StatusEnums.ACCOUNT_UNKNOWN);
